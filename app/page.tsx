@@ -1,113 +1,129 @@
-import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import Dialog from "@/components/core/dialog";
+import XIcon from "@/components/website/icons/x";
+import GitHubIcon from "@/components/website/icons/github";
+import Popover from "@/components/core/popover";
+import ToolbarExpandable from "@/components/core/toolbar-expandable";
+import ToolbarDynamic from "@/components/core/toolbar-dynamic";
 
-export default function Home() {
+function Button({
+  children,
+  variant = "primary",
+}: {
+  children: React.ReactNode;
+  variant?: "primary" | "secondary";
+}) {
+  const buttonVariants = {
+    primary: "bg-zinc-600 text-white hover:bg-zinc-700",
+    secondary: "bg-zinc-900 text-white hover:bg-zinc-700",
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
+    <button
+      className={`rounded-md px-2.5 py-1.5 text-sm ${buttonVariants[variant]}`}
+    >
+      {children}
+    </button>
+  );
+}
+
+function Header() {
+  return (
+    <header className="relative top-0 z-10 bg-white px-6 py-5  dark:border-white/10 dark:bg-neutral-900 lg:z-10 lg:flex lg:h-16 lg:items-center lg:px-8 lg:py-0">
+      <div className="mx-auto flex w-full items-center justify-between md:max-w-7xl">
+        <a href="/" className="relative flex items-center">
+          <div className="text-neutral-950 dark:text-white">
+            motion-primitives
+          </div>
+          <span className="mb-4 ml-2 select-none rounded-full bg-neutral-800 px-2 py-0.5 text-xs text-neutral-50">
+            beta
+          </span>
+        </a>
+        <nav className="flex items-center gap-2">
           <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href="https://twitter.com/Ibelick"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex h-9 w-9 items-center justify-center"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+            <XIcon className="h-4 w-4 fill-neutral-950 dark:fill-white" />
           </a>
+          <a
+            href="https://github.com/ibelick/motion-primitives"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-9 w-9 items-center justify-center"
+          >
+            <GitHubIcon className="h-4 w-4 fill-neutral-950 dark:fill-white" />
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function CardExample({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="relative -mx-6 sm:mx-0">
+      <div className="pointer-events-none absolute left-0 top-[-100px] z-[-1] h-full w-full bg-[radial-gradient(100%_100%_at_50%_50%,hsl(0deg_0%_100%/8%)_0,hsl(0deg_0%_100%/2%)_50%)] blur-2xl md:left-[-100px] md:h-[calc(100%+200px)] md:w-[calc(100%+200px)]" />
+      <div className="relative w-full overflow-hidden rounded-xl bg-zinc-50 p-4 shadow-[0px_0px_0px_1px_theme(colors.zinc.100),0px_2px_2px_0px_theme(colors.zinc.50)] dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
+        <div className="flex h-[350px] items-center justify-center">
+          {children}
         </div>
       </div>
+    </div>
+  );
+}
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+export default function Motion() {
+  return (
+    <>
+      <Header />
+      <div className="px-6 py-4 pb-20">
+        <section className="flex h-full flex-col items-center justify-center pt-20">
+          <div className="flex w-full max-w-lg flex-col items-center justify-center text-center">
+            <h1 className="relative mb-4 text-4xl font-medium text-zinc-950 dark:text-zinc-50">
+              Build beautiful animated components
+            </h1>
+            <p className="text-center text-zinc-600 dark:text-zinc-200">
+              Beautifully designed motions components. Easy copy-paste.
+              Customizable. Open Source. Built for engineers and designers.
+            </p>
+          </div>
+          <div className="flex items-center space-x-4 py-6">
+            <Link href="/docs">
+              <Button>Get Started</Button>
+            </Link>
+            <a href="github.com">
+              <Button variant="secondary">GitHub</Button>
+            </a>
+          </div>
+          <span className="mt-2 text-center text-sm text-zinc-400 dark:text-zinc-400">
+            Free updates and new components released regularly.
+          </span>
+        </section>
+        <section className="mx-auto max-w-3xl py-32">
+          <CardExample>
+            <Dialog />
+          </CardExample>
+        </section>
+        <section className="mx-auto max-w-3xl py-32">
+          <CardExample>
+            <Popover />
+          </CardExample>
+        </section>
+        <section className="mx-auto max-w-3xl py-32">
+          <CardExample>
+            <ToolbarExpandable />
+          </CardExample>
+        </section>
+        <section className="mx-auto max-w-3xl py-32">
+          <CardExample>
+            <ToolbarDynamic />
+          </CardExample>
+        </section>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
