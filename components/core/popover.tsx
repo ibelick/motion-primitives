@@ -2,7 +2,7 @@
 import useClickOutside from "@/hooks/useClickOutside";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { ArrowLeftIcon } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useId } from "react";
 
 const TRANSITION = {
   type: "spring",
@@ -11,6 +11,7 @@ const TRANSITION = {
 };
 
 export default function Popover() {
+  const uniqueId = useId();
   const formContainerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [note, setNote] = useState<null | string>(null);
@@ -47,14 +48,17 @@ export default function Popover() {
       <div className="relative flex items-center justify-center">
         <motion.button
           key="button"
-          layoutId="wrapper"
+          layoutId={`popover-${uniqueId}`}
           className="flex h-9 items-center border border-zinc-950/10 bg-white px-3 text-zinc-950 dark:border-zinc-50/10 dark:bg-zinc-700 dark:text-zinc-50"
           style={{
             borderRadius: 8,
           }}
           onClick={openMenu}
         >
-          <motion.span layoutId="title" className="text-sm">
+          <motion.span
+            layoutId={`popover-label-${uniqueId}`}
+            className="text-sm"
+          >
             Add Note
           </motion.span>
         </motion.button>
@@ -63,7 +67,7 @@ export default function Popover() {
           {isOpen && (
             <motion.div
               ref={formContainerRef}
-              layoutId="wrapper"
+              layoutId={`popover-${uniqueId}`}
               className="absolute h-[200px] w-[364px] overflow-hidden border border-zinc-950/10 bg-white outline-none dark:bg-zinc-700"
               style={{
                 borderRadius: 12,
@@ -77,7 +81,7 @@ export default function Popover() {
                 }}
               >
                 <motion.span
-                  layoutId="title"
+                  layoutId={`popover-label-${uniqueId}`}
                   aria-hidden="true"
                   style={{
                     opacity: note ? 0 : 1,

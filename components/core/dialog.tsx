@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import { PlusIcon, XIcon } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
 
 const transition = {
@@ -11,6 +11,7 @@ const transition = {
 
 export default function Dialog() {
   const [isOpen, setIsOpen] = useState(false);
+  const uniqueId = useId();
 
   useEffect(() => {
     if (isOpen) {
@@ -43,12 +44,12 @@ export default function Dialog() {
       >
         <motion.div
           className="flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
-          layoutId="dialog"
+          layoutId={`dialog-${uniqueId}`}
           style={{
             borderRadius: "12px",
           }}
         >
-          <motion.div layoutId="dialog-img-2">
+          <motion.div layoutId={`dialog-img-${uniqueId}`}>
             <img
               src="/eb-27-lamp-edouard-wilfrid-buquet.jpg"
               alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
@@ -58,13 +59,13 @@ export default function Dialog() {
           <div className="flex flex-grow flex-row items-end justify-between p-2">
             <div>
               <motion.div
-                layoutId="dialog-title-2"
+                layoutId={`dialog-title-${uniqueId}`}
                 className="text-zinc-950 dark:text-zinc-50"
               >
                 EB27
               </motion.div>
               <motion.div
-                layoutId="dialog-subtitle-2"
+                layoutId={`dialog-subtitle-${uniqueId}`}
                 layout="position"
                 className="text-zinc-700 dark:text-zinc-400"
               >
@@ -85,7 +86,7 @@ export default function Dialog() {
           {isOpen && (
             <>
               <motion.div
-                key="dialog-overlay"
+                key={`backdrop-${uniqueId}`}
                 className="fixed inset-0 h-full w-full bg-white/40 backdrop-blur-sm dark:bg-black/40"
                 variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
                 initial="closed"
@@ -104,13 +105,13 @@ export default function Dialog() {
               >
                 <motion.div
                   className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[500px]"
-                  layoutId="dialog"
+                  layoutId={`dialog-${uniqueId}`}
                   tabIndex={-1}
                   style={{
                     borderRadius: "24px",
                   }}
                 >
-                  <motion.div layoutId="dialog-img-2">
+                  <motion.div layoutId={`dialog-img-${uniqueId}`}>
                     <img
                       src="/eb-27-lamp-edouard-wilfrid-buquet.jpg"
                       alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
@@ -119,13 +120,13 @@ export default function Dialog() {
                   </motion.div>
                   <div className="p-6">
                     <motion.div
-                      layoutId="dialog-title-2"
+                      layoutId={`dialog-title-${uniqueId}`}
                       className="text-2xl text-zinc-950 dark:text-zinc-50"
                     >
                       EB27
                     </motion.div>
                     <motion.div
-                      layoutId="dialog-subtitle-2"
+                      layoutId={`dialog-subtitle-${uniqueId}`}
                       layout="position"
                       className="text-zinc-700 dark:text-zinc-400"
                     >
