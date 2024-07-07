@@ -6,6 +6,7 @@ import GitHubIcon from "@/components/website/icons/github";
 import Popover from "@/components/core/popover";
 import ToolbarExpandable from "@/components/core/toolbar-expandable";
 import ToolbarDynamic from "@/components/core/toolbar-dynamic";
+import { ChevronRight } from "lucide-react";
 
 function Button({
   children,
@@ -15,13 +16,15 @@ function Button({
   variant?: "primary" | "secondary";
 }) {
   const buttonVariants = {
-    primary: "bg-zinc-600 text-white hover:bg-zinc-700",
-    secondary: "bg-zinc-900 text-white hover:bg-zinc-700",
+    primary:
+      "bg-zinc-50 border border-zinc-100 text-zinc-950 hover:bg-zinc-700 dark:bg-zinc-950 dark:hover:bg-zinc-800 dark:text-zinc-50 dark:border-zinc-900",
+    secondary:
+      "bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:hover:bg-zinc-300 dark:text-zinc-950",
   };
 
   return (
     <button
-      className={`rounded-md px-2.5 py-1.5 text-sm ${buttonVariants[variant]}`}
+      className={`inline-flex items-center rounded-md px-2.5 py-1.5 text-sm ${buttonVariants[variant]}`}
     >
       {children}
     </button>
@@ -93,10 +96,20 @@ export default function Motion() {
           </div>
           <div className="flex items-center space-x-4 py-6">
             <Link href="/docs">
-              <Button>Get Started</Button>
+              <Button>
+                Explore Docs
+                <ChevronRight className="h-4 w-4 fill-white ml-1.5 dark:fill-zinc-950" />
+              </Button>
             </Link>
-            <a href="github.com">
-              <Button variant="secondary">GitHub</Button>
+            <a
+              href="https://github.com/ibelick/motion-primitives"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="secondary">
+                <GitHubIcon className="h-4 w-4 fill-white mr-1.5 dark:fill-zinc-950" />
+                Star on GitHub
+              </Button>
             </a>
           </div>
           <span className="mt-2 text-center text-sm text-zinc-400 dark:text-zinc-400">
