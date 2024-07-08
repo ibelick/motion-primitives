@@ -5,13 +5,19 @@ import React, { useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
 
 const transition = {
-  type: "easeInOut",
-  duration: 0.15,
+  type: "spring",
+  bounce: 0.05,
+  duration: 0.3,
 };
 
 export default function Dialog() {
   const [isOpen, setIsOpen] = useState(false);
   const uniqueId = useId();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -31,6 +37,11 @@ export default function Dialog() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
+
+  // prevents the dialog from pre-renderd on the server
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <MotionConfig transition={transition}>
@@ -133,9 +144,9 @@ export default function Dialog() {
                       Edouard Wilfrid Buquet
                     </motion.div>
                     <motion.div
-                      initial={{ opacity: 0, scale: 0 }}
+                      initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
                       className="origin-bottom"
                     >
                       <p className="mt-2 text-zinc-500 dark:text-zinc-500">

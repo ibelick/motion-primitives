@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --scrollbar-color: rgba(0, 0, 0, 0.3);
+}
+
+:root.dark {
+  --scrollbar-color: rgba(255, 255, 255, 0.3);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--scrollbar-color) transparent;
+  scrollbar-width: thin;
+}
+
+/* fix radix dropdown-menu layout shift */
+html body[data-scroll-locked] {
+  margin-right: 0 !important;
+}
