@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/website/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,8 +16,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isDev = process.env.NODE_ENV === "development";
+
   return (
     <html lang="en">
+      {!isDev ? (
+        <Script
+          async
+          src="https://analytics.umami.is/script.js"
+          data-website-id="17e8fc96-321d-43a6-94e7-d571c4c66a04"
+        />
+      ) : null}
       <body className={`${inter.className} bg-white dark:bg-zinc-900`}>
         <ThemeProvider attribute="class">
           <div className="isolate min-h-screen">{children}</div>
