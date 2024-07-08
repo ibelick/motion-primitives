@@ -15,10 +15,12 @@ function Button({
   children,
   onClick,
   disabled,
+  ariaLabel,
 }: {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
+  ariaLabel?: string;
 }) {
   return (
     <button
@@ -26,6 +28,7 @@ function Button({
       type="button"
       onClick={onClick}
       disabled={disabled}
+      aria-label={ariaLabel}
     >
       {children}
     </button>
@@ -55,16 +58,19 @@ export default function ToolbarDynamic() {
             <div ref={contentRef} className="overflow-hidden p-2">
               {!isOpen ? (
                 <div className="flex space-x-2">
-                  <Button disabled>
+                  <Button disabled ariaLabel="User profile">
                     <User className="h-5 w-5" />
                   </Button>
-                  <Button onClick={() => setIsOpen(true)}>
+                  <Button
+                    onClick={() => setIsOpen(true)}
+                    ariaLabel="Search notes"
+                  >
                     <Search className="h-5 w-5" />
                   </Button>
                 </div>
               ) : (
                 <div className="flex space-x-2">
-                  <Button onClick={() => setIsOpen(false)}>
+                  <Button onClick={() => setIsOpen(false)} ariaLabel="Back">
                     <ArrowLeft className="h-5 w-5" />
                   </Button>
                   <div className="relative w-full">

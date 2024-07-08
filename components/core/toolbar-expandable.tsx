@@ -16,6 +16,7 @@ const transition = {
 const ITEMS = [
   {
     id: 1,
+    label: "User",
     title: <User className="h-5 w-5" />,
     content: (
       <div className="flex flex-col space-y-1">
@@ -33,6 +34,7 @@ const ITEMS = [
   },
   {
     id: 2,
+    label: "Messages",
     title: <MessageCircle className="h-5 w-5" />,
     content: (
       <div className="flex flex-col space-y-1">
@@ -48,6 +50,7 @@ const ITEMS = [
   },
   {
     id: 3,
+    label: "Documents",
     title: <Folder className="h-5 w-5" />,
     content: (
       <div className="flex flex-col space-y-1">
@@ -69,6 +72,7 @@ const ITEMS = [
   },
   {
     id: 4,
+    label: "Wallet",
     title: <WalletCards className="h-5 w-5" />,
     content: (
       <div className="flex flex-col space-y-1">
@@ -153,6 +157,7 @@ export default function ToolbarExpandable() {
             {ITEMS.map((item) => (
               <button
                 key={item.id}
+                aria-label={item.label}
                 className={cn(
                   "relative flex h-9 w-9 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98]",
                   active === item.id ? "bg-zinc-100 text-zinc-800" : "",

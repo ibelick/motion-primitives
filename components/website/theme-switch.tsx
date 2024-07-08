@@ -24,7 +24,10 @@ export default function ThemeSwitch() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="inline-flex h-9 w-9 items-center justify-center">
+        <button
+          className="inline-flex h-9 w-9 items-center justify-center"
+          aria-label="Toggle theme"
+        >
           {theme === "light" ? (
             <SunIcon className="h-4 w-4" />
           ) : (

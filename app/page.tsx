@@ -112,7 +112,7 @@ export default function Motion() {
               </Button>
             </a>
           </div>
-          <span className="mt-2 text-center text-sm text-zinc-400 dark:text-zinc-400">
+          <span className="mt-2 text-center text-sm text-zinc-500 dark:text-zinc-400">
             Free updates and new components released regularly.
           </span>
         </section>
