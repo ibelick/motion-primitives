@@ -19,8 +19,9 @@ const ITEMS = [
     label: "User",
     title: <User className="h-5 w-5" />,
     content: (
-      <div className="flex flex-col space-y-1">
-        <div className="flex flex-col text-zinc-700">
+      <div className="flex flex-col space-y-4">
+        <div className="flex flex-col text-zinc-700 space-y-1">
+          <div className="bg-gradient-to-br from-blue-500 to-blue-400 h-8 w-8 rounded-full" />
           <span>Ibelick</span>
         </div>
         <button
@@ -37,7 +38,7 @@ const ITEMS = [
     label: "Messages",
     title: <MessageCircle className="h-5 w-5" />,
     content: (
-      <div className="flex flex-col space-y-1">
+      <div className="flex flex-col space-y-4">
         <div className="text-zinc-700">You have 3 new messages.</div>
         <button
           className="relative h-8 w-full scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 px-2 text-sm text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98]"
@@ -53,7 +54,7 @@ const ITEMS = [
     label: "Documents",
     title: <Folder className="h-5 w-5" />,
     content: (
-      <div className="flex flex-col space-y-1">
+      <div className="flex flex-col space-y-4">
         <div className="flex flex-col text-zinc-700">
           <div className="space-y-1">
             <div>Project_Proposal.pdf</div>
@@ -75,7 +76,7 @@ const ITEMS = [
     label: "Wallet",
     title: <WalletCards className="h-5 w-5" />,
     content: (
-      <div className="flex flex-col space-y-1">
+      <div className="flex flex-col space-y-4">
         <div className="flex flex-col text-zinc-700">
           <span>Current Balance</span>
           <span>$1,250.32</span>
