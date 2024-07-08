@@ -17,7 +17,7 @@ function Button({
 }) {
   const buttonVariants = {
     primary:
-      "bg-zinc-50 border border-zinc-100 text-zinc-950 hover:bg-zinc-100 dark:bg-zinc-950 dark:hover:bg-zinc-800 dark:text-zinc-50 dark:border-zinc-900",
+      "bg-zinc-50 border border-zinc-100 text-zinc-950 hover:bg-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:text-zinc-50 dark:border-zinc-900",
     secondary:
       "bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:hover:bg-zinc-300 dark:text-zinc-950",
   };
@@ -33,13 +33,11 @@ function Button({
 
 function Header() {
   return (
-    <header className="relative top-0 z-10 bg-white px-6 py-5  dark:border-white/10 dark:bg-neutral-900 lg:z-10 lg:flex lg:h-16 lg:items-center lg:px-8 lg:py-0">
+    <header className="relative top-0 z-10 bg-white px-6 py-5  dark:border-white/10 dark:bg-zinc-900 lg:z-10 lg:flex lg:h-16 lg:items-center lg:px-8 lg:py-0">
       <div className="mx-auto flex w-full items-center justify-between md:max-w-7xl">
         <a href="/" className="relative flex items-center">
-          <div className="text-neutral-950 dark:text-white">
-            motion-primitives
-          </div>
-          <span className="mb-4 ml-2 select-none rounded-full bg-neutral-800 px-2 py-0.5 text-xs text-neutral-50">
+          <div className="text-zinc-950 dark:text-white">motion-primitives</div>
+          <span className="mb-4 ml-2 select-none rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-50">
             beta
           </span>
         </a>
@@ -50,7 +48,7 @@ function Header() {
             rel="noopener noreferrer"
             className="inline-flex h-9 w-9 items-center justify-center"
           >
-            <XIcon className="h-4 w-4 fill-neutral-950 dark:fill-white" />
+            <XIcon className="h-4 w-4 fill-zinc-950 dark:fill-white" />
           </a>
           <a
             href="https://github.com/ibelick/motion-primitives"
@@ -58,7 +56,7 @@ function Header() {
             rel="noopener noreferrer"
             className="inline-flex h-9 w-9 items-center justify-center"
           >
-            <GitHubIcon className="h-4 w-4 fill-neutral-950 dark:fill-white" />
+            <GitHubIcon className="h-4 w-4 fill-zinc-950 dark:fill-white" />
           </a>
         </nav>
       </div>

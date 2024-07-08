@@ -25,7 +25,7 @@ export default function ComponentPreview({
           className="absolute right-4 top-3 cursor-pointer"
           onClick={reTrigger}
         >
-          <RotateCw className="h-4 w-4 text-neutral-500" />
+          <RotateCw className="h-4 w-4 text-zinc-500" />
         </div>
       )}
       {hasReTrigger
