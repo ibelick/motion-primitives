@@ -27,6 +27,7 @@ export default function ThemeSwitch() {
         <button
           className="inline-flex h-9 w-9 items-center justify-center"
           aria-label="Toggle theme"
+          type="button"
         >
           {theme === "light" ? (
             <SunIcon className="h-4 w-4" />
