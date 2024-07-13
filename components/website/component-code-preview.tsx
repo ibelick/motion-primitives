@@ -1,19 +1,13 @@
-import fs from "fs";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
 import CodePreview from "./code-preview";
 import CodeRenderer from "./code-renderer";
 import ComponentPreview from "./component-preview";
+import { extractCodeFromFilePath } from "@/lib/code";
 
 type ComponentCodePreview = {
   component: React.ReactElement;
   filePath: string;
   hasReTrigger?: boolean;
-};
-
-const extractCodeFromFilePath = (filePath: string) => {
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-
-  return fileContent;
 };
 
 export default function ComponentCodePreview({
