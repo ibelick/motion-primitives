@@ -52,6 +52,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: "/docs/toolbar-expandable",
         isNew: true,
       },
+      {
+        name: "Animated background",
+        href: "/docs/animated-background",
+        isNew: true,
+      },
     ],
   },
 ];
@@ -94,7 +99,7 @@ function NavigationDesktop() {
   const pathname = usePathname();
 
   return (
-    <aside className="sticky hidden h-[calc(100dvh-theme(spacing.16))] w-48 shrink-0 pt-8 md:block lg:pt-12">
+    <aside className="sticky hidden h-[calc(100dvh-theme(spacing.16))] w-[220px] shrink-0 pt-8 md:block lg:pt-12">
       <ScrollArea>
         <nav>
           <ul role="list" className="h-full">
@@ -115,7 +120,7 @@ function NavigationDesktop() {
                         <li key={child.href}>
                           <Link
                             className={cn(
-                              "relative flex space-x-1 pl-4 text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white",
+                              "relative inline-flex items-center space-x-1 pl-4 text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white",
                               isActive &&
                                 "text-zinc-950 before:absolute before:inset-y-0 before:left-[-1.5px] before:w-[2px] before:rounded-full before:bg-zinc-950 dark:text-white dark:before:bg-white",
                             )}
