@@ -3,7 +3,6 @@ import { AnimatedTabsHover } from "@/components/examples/animated-tabs-hover";
 import { AnimatedCardBackgroundHover } from "@/components/examples/animated-card-background-hover";
 import { SegmentedControl } from "@/components/examples/segmented-control";
 import ComponentCodePreview from "@/components/website/component-code-preview";
-import ComponentApi from "@/components/website/component-api";
 import CodeBlock from "@/components/website/code-block";
 
 # Animated Background
@@ -46,49 +45,11 @@ The `AnimatedBackground` component visually highlights selected items by sliding
 
 ## Component API
 
-<ComponentApi
-  lines={[
-    {
-      prop: "children",
-      type: `ReactElement<{ 'data-id': string }>[] | ReactElement<{ 'data-id': string }>`,
-      default: "",
-      description:
-        "The content to be displayed within the animated background. Each child must have a unique `data-id` attribute to ensure correct functionality.",
-    },
-    {
-      prop: "defaultValue",
-      type: "string",
-      default: "",
-      description:
-        "The default value to be used as the active item identifier.",
-    },
-    {
-      prop: "onValueChange",
-      type: "(newActiveId: string | null) => void",
-      default: "",
-      description:
-        "Callback function that is called when the active item changes.",
-    },
-    {
-      prop: "className",
-      type: "string",
-      default: "",
-      description:
-        "The class name to apply to the animated background for custom styling.",
-    },
-    {
-      prop: "transition",
-      type: "Transition",
-      default: "",
-      description:
-        "The transition effect from framer-motion to apply when changing the active item.",
-    },
-    {
-      prop: "enableHover",
-      type: "boolean",
-      default: "false",
-      description:
-        "Enables or disables the hover effect. When `enableHover` is true, spacing between children cannot be added.",
-    },
-  ]}
-/>
+| Prop          | Type                                                                 | Default | Description                                                                                                                                        |
+| :------------ | :------------------------------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| children      | ReactElement with 'data-id' string attribute array or single element |         | The content to be displayed within the animated background. **Each child must have a unique `data-id` attribute to ensure correct functionality.** |
+| defaultValue  | string                                                               |         | The default value to be used as the active item identifier.                                                                                        |
+| onValueChange | (newActiveId: string \| null) => void                                |         | Callback function that is called when the active item changes.                                                                                     |
+| className     | string                                                               |         | The class name to apply to the animated background for custom styling.                                                                             |
+| transition    | Transition                                                           |         | The transition effect from framer-motion to apply when changing the active item.                                                                   |
+| enableHover   | boolean                                                              | false   | Enables or disables the hover effect. When `enableHover` is true, spacing between children cannot be added.                                        |

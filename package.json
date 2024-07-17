@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@code-hike/mdx": "^0.9.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.4",
@@ -25,6 +26,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-use-measure": "^2.1.1",
+    "remark-gfm": "^4.0.0",
     "shiki": "^1.10.1",
     "tailwind-merge": "^2.3.0"
   },
