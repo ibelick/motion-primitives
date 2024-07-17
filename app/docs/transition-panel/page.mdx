@@ -1,0 +1,46 @@
+export const metadata = {
+  title: "Transition Panel - Motion-Primitives",
+  description:
+    "Easy way to switch between different pieces of content with enter and exit animations. It's perfect for enhancing user experience in areas such as onboarding card, settings adjustments, or any interactive content that requires a visual transition between states.",
+};
+
+import { TabsTransitionPanel } from "@/components/examples/transition-panel-tabs";
+import { TransitionPanelCard } from "@/components/examples/transition-panel-card";
+import ComponentCodePreview from "@/components/website/component-code-preview";
+import CodeBlock from "@/components/website/code-block";
+
+# Transition Panel
+
+Easy way to switch between different pieces of content with enter and exit animations. It's perfect for enhancing user experience in areas such as onboarding card, settings adjustments, or any interactive content that requires a visual transition between states.
+
+## Examples
+
+### Tabs with Transition Panel
+
+<ComponentCodePreview
+  classNameComponentContainer="p-20"
+  component={<TabsTransitionPanel />}
+  filePath="examples/transition-panel-tabs"
+/>
+
+### Card with Transition Panel
+
+<ComponentCodePreview
+  component={<TransitionPanelCard />}
+  filePath="examples/transition-panel-card"
+/>
+
+## Code
+
+<CodeBlock filePath="components/core/transition-panel.tsx" />
+
+## Component API
+
+| Prop           | Type                                         | Default | Description                                                                      |
+| :------------- | :------------------------------------------- | :------ | :------------------------------------------------------------------------------- |
+| children       | React.ReactNode[]                            |         | The content that the panel will transition through.                              |
+| className      | string                                       |         | Optional CSS class to apply to the panel container for additional styling.       |
+| transition     | Transition                                   |         | The transition settings from framer-motion to control the animation effects.     |
+| activeIndex    | number                                       |         | The index of the currently active child element to display.                      |
+| variants       | Object (with enter, center, exit properties) |         | Variants for each animation state (enter, center, exit) to customize animations. |
+| ...motionProps | MotionProps                                  |         | Spread all additional framer-motion props to the motion.div component.           |

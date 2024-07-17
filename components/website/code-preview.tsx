@@ -20,7 +20,7 @@ export default function CodePreview({ code, children }: CodePreviewProps) {
   };
 
   return (
-    <div className="relative bg-[#24292e]">
+    <div className="relative">
       <div
         className="absolute right-4 top-4 cursor-pointer bg-transparent p-2"
         onClick={onCopy}
@@ -40,7 +40,7 @@ export default function CodePreview({ code, children }: CodePreviewProps) {
           <Check className="h-4 w-4 text-zinc-50" />
         </div>
       </div>
-      <div className="max-h-[650px] overflow-auto overflow-x-auto p-4 text-sm bg-zinc-950">
+      <div className="max-h-[650px] overflow-auto overflow-x-auto p-4 text-sm bg-zinc-950 rounded-md">
         {children}
       </div>
     </div>

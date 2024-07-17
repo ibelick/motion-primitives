@@ -57,6 +57,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: "/docs/animated-background",
         isNew: true,
       },
+      {
+        name: "Transition Panel",
+        href: "/docs/transition-panel",
+        isNew: true,
+      },
     ],
   },
 ];

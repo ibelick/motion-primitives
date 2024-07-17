@@ -8,12 +8,14 @@ type ComponentCodePreview = {
   component: React.ReactElement;
   filePath: string;
   hasReTrigger?: boolean;
+  classNameComponentContainer?: string;
 };
 
 export default function ComponentCodePreview({
   component,
   filePath,
   hasReTrigger,
+  classNameComponentContainer,
 }: ComponentCodePreview) {
   const fileContent = extractCodeFromFilePath(`components/${filePath}.tsx`);
 
@@ -25,7 +27,11 @@ export default function ComponentCodePreview({
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
         <TabsContent value="preview">
-          <ComponentPreview component={component} hasReTrigger={hasReTrigger} />
+          <ComponentPreview
+            component={component}
+            hasReTrigger={hasReTrigger}
+            className={classNameComponentContainer}
+          />
         </TabsContent>
         <TabsContent value="code">
           <CodePreview code={fileContent}>
