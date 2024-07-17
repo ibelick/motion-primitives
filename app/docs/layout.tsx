@@ -199,7 +199,10 @@ export default function ComponentLayout({
           <div className="mx-auto flex w-full flex-col items-start md:flex-row md:space-x-12">
             <NavigationDesktop />
             <NavigationMobile />
-            <main className="prose prose-zinc min-w-0 max-w-full flex-1 pb-16 pt-8 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-xl prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-strong:font-medium lg:max-w-2xl lg:pt-12">
+            <main
+              className="prose prose-zinc min-w-0 max-w-full flex-1 pb-16 pt-8 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-xl prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-strong:font-medium lg:max-w-2xl lg:pt-12 prose-table:block prose-table:overflow-y-auto
+            "
+            >
               {children}
             </main>
           </div>
