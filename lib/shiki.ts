@@ -1,5 +1,5 @@
-import { bundledLanguages, createHighlighter } from "shiki/bundle/web";
-import { noir } from "./custom-theme";
+import { bundledLanguages, createHighlighter } from 'shiki/bundle/web';
+import { noir } from './custom-theme';
 
 export const codeToHtml = async ({
   code,
@@ -15,6 +15,6 @@ export const codeToHtml = async ({
 
   return highlighter.codeToHtml(code, {
     lang: lang,
-    theme: "noir",
+    theme: 'noir',
   });
 };

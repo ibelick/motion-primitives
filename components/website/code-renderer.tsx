@@ -1,4 +1,4 @@
-import { codeToHtml } from "@/lib/shiki";
+import { codeToHtml } from '@/lib/shiki';
 
 type CodeRenderer = {
   code: string;

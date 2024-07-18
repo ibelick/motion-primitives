@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import * as TabsPrimitive from "@radix-ui/react-tabs";
+import * as React from 'react';
+import * as TabsPrimitive from '@radix-ui/react-tabs';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const Tabs = TabsPrimitive.Root;
 
@@ -14,8 +14,8 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-10 w-full items-center justify-start border-b border-zinc-200 bg-transparent text-zinc-900 dark:border-zinc-800 dark:text-zinc-50",
-      className,
+      'inline-flex h-10 w-full items-center justify-start border-b border-zinc-200 bg-transparent text-zinc-900 dark:border-zinc-800 dark:text-zinc-50',
+      className
     )}
     {...props}
   />
@@ -29,8 +29,8 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "ring-offset-background focus-visible:ring-ring relative inline-flex h-10 items-center justify-center whitespace-nowrap rounded-none border-b-2 border-b-transparent bg-transparent px-4 py-1 pb-3 pt-2 text-sm font-semibold text-zinc-500 transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-b-zinc-950 data-[state=active]:text-zinc-950 dark:text-zinc-500 dark:data-[state=active]:border-b-white dark:data-[state=active]:text-white",
-      className,
+      'ring-offset-background focus-visible:ring-ring relative inline-flex h-10 items-center justify-center whitespace-nowrap rounded-none border-b-2 border-b-transparent bg-transparent px-4 py-1 pb-3 pt-2 text-sm font-semibold text-zinc-500 transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:border-b-zinc-950 data-[state=active]:text-zinc-950 dark:text-zinc-500 dark:data-[state=active]:border-b-white dark:data-[state=active]:text-white',
+      className
     )}
     {...props}
   />
@@ -44,8 +44,8 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "focus-visible:ring-ring relative mt-2 rounded-md border border-zinc-200 ring-offset-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:border-zinc-800",
-      className,
+      'focus-visible:ring-ring relative mt-2 rounded-md border border-zinc-200 ring-offset-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:border-zinc-800',
+      className
     )}
     {...props}
   />

@@ -1,6 +1,6 @@
-"use client";
-import { cn } from "@/lib/utils";
-import { AnimatePresence, Transition, motion } from "framer-motion";
+'use client';
+import { cn } from '@/lib/utils';
+import { AnimatePresence, Transition, motion } from 'framer-motion';
 import {
   Children,
   cloneElement,
@@ -8,12 +8,12 @@ import {
   useEffect,
   useState,
   useId,
-} from "react";
+} from 'react';
 
 type AnimatedBackgroundProps = {
   children:
-    | ReactElement<{ "data-id": string }>[]
-    | ReactElement<{ "data-id": string }>;
+    | ReactElement<{ 'data-id': string }>[]
+    | ReactElement<{ 'data-id': string }>;
   defaultValue?: string;
   onValueChange?: (newActiveId: string | null) => void;
   className?: string;
@@ -47,7 +47,7 @@ export default function AnimatedBackground({
   }, [defaultValue]);
 
   return Children.map(children, (child: any, index) => {
-    const id = child.props["data-id"];
+    const id = child.props['data-id'];
 
     const interactionProps = enableHover
       ? {
@@ -62,9 +62,9 @@ export default function AnimatedBackground({
       child,
       {
         key: index,
-        className: cn("relative inline-flex", child.props.className),
-        "aria-selected": activeId === id,
-        "data-checked": activeId === id ? "true" : "false",
+        className: cn('relative inline-flex', child.props.className),
+        'aria-selected': activeId === id,
+        'data-checked': activeId === id ? 'true' : 'false',
         ...interactionProps,
       },
       <>
@@ -72,7 +72,7 @@ export default function AnimatedBackground({
           {activeId === id && (
             <motion.div
               layoutId={`background-${uniqueId}`}
-              className={cn("absolute inset-0", className)}
+              className={cn('absolute inset-0', className)}
               transition={transition}
               initial={{ opacity: defaultValue ? 1 : 0 }}
               animate={{
@@ -84,8 +84,8 @@ export default function AnimatedBackground({
             />
           )}
         </AnimatePresence>
-        <span className="z-10">{child.props.children}</span>
-      </>,
+        <span className='z-10'>{child.props.children}</span>
+      </>
     );
   });
 }
