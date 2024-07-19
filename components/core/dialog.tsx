@@ -1,9 +1,17 @@
 'use client';
 
-import React, { useEffect, useId, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
+import useClickOutside from '@/hooks/useClickOutside';
 
 const transition = {
   type: 'spring',
@@ -31,8 +39,13 @@ const DialogRoot: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const uniqueId = useId();
 
+  const contextValue = useMemo(
+    () => ({ isOpen, setIsOpen, uniqueId }),
+    [isOpen, uniqueId]
+  );
+
   return (
-    <DialogContext.Provider value={{ isOpen, setIsOpen, uniqueId }}>
+    <DialogContext.Provider value={contextValue}>
       <MotionConfig transition={transition}>{children}</MotionConfig>
     </DialogContext.Provider>
   );
@@ -46,13 +59,17 @@ const DialogTrigger: React.FC<React.PropsWithChildren<WithClassName>> = ({
   if (!context)
     throw new Error('DialogTrigger must be used within a DialogRoot');
 
+  const handleClick = useCallback(() => {
+    context.setIsOpen(!context.isOpen);
+  }, [context]);
+
   return (
     <motion.div
       className={cn('relative cursor-pointer', className)}
       initial='initial'
       whileHover='animate'
       animate={context.isOpen ? 'open' : 'closed'}
-      onClick={() => context.setIsOpen(!context.isOpen)}
+      onClick={handleClick}
     >
       <motion.div
         layoutId={`dialog-${context.uniqueId}`}
@@ -76,6 +93,7 @@ const DialogContainer: React.FC<React.PropsWithChildren<WithClassName>> = ({
     throw new Error('DialogContent must be used within a DialogRoot');
 
   const [mounted, setMounted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -83,12 +101,6 @@ const DialogContainer: React.FC<React.PropsWithChildren<WithClassName>> = ({
   }, []);
 
   useEffect(() => {
-    if (context.isOpen) {
-      document.body.classList.add('overflow-hidden');
-    } else {
-      document.body.classList.remove('overflow-hidden');
-    }
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         context.setIsOpen(false);
@@ -96,10 +108,25 @@ const DialogContainer: React.FC<React.PropsWithChildren<WithClassName>> = ({
     };
 
     document.addEventListener('keydown', handleKeyDown);
+
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
+  }, []); // Empty dependency array
+
+  useEffect(() => {
+    if (context.isOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
   }, [context.isOpen]);
+
+  useClickOutside(containerRef, () => {
+    if (context.isOpen) {
+      context.setIsOpen(false);
+    }
+  });
 
   if (!mounted) return null;
 
@@ -113,10 +140,10 @@ const DialogContainer: React.FC<React.PropsWithChildren<WithClassName>> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => context.setIsOpen(false)}
           />
           <div className='fixed inset-0 z-50 flex items-center justify-center'>
             <motion.div
+              ref={containerRef}
               layoutId={`dialog-${context.uniqueId}`}
               className={cn(
                 'bg-card w-full max-w-lg overflow-hidden',
@@ -224,7 +251,6 @@ const DialogContent: React.FC<React.PropsWithChildren<WithClassName>> = ({
   return (
     <motion.div
       className={cn('p-6', className)}
-      layout
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
@@ -241,9 +267,13 @@ const DialogClose: React.FC<React.PropsWithChildren<WithClassName>> = ({
   const context = React.useContext(DialogContext);
   if (!context) throw new Error('DialogClose must be used within a DialogRoot');
 
+  const handleClose = useCallback(() => {
+    context.setIsOpen(false);
+  }, [context]);
+
   return (
     <button
-      onClick={() => context.setIsOpen(false)}
+      onClick={handleClose}
       className={cn('text-primary absolute right-6 top-6', className)}
       type='button'
       aria-label='Close dialog'

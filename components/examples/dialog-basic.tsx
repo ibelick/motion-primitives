@@ -32,7 +32,7 @@ function DialogBasicExample() {
       <DialogContainer className=''>
         <div className='relative bg-white'>
           <DialogContent className='bg-white'>
-            <DialogTitle>Slightly Larger Title</DialogTitle>
+            <DialogTitle>Title</DialogTitle>
             <DialogSubtitle>Subtitle</DialogSubtitle>
             <DialogDescription>dialog description</DialogDescription>
             <DialogLink url='https://ibelick.com/'>Link</DialogLink>
