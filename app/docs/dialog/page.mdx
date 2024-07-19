@@ -4,11 +4,41 @@ export const metadata = {
     'Display content in a focused view with smooth transitions. Ideal for showcasing details like images and texts in a prominent overlay.',
 };
 
-import Dialog from '@/components/core/dialog';
+import {
+  DialogRoot,
+  DialogTrigger,
+  DialogContainer,
+  DialogClose,
+  DialogImage,
+  DialogTitle,
+  DialogSubtitle,
+  DialogDescription,
+  DialogContent,
+  DialogLink,
+} from '@/components/core/dialog';
+import DialogBasicExample from '@/components/examples/dialog-basic';
+import DialogImageExample from '@/components/examples/dialog-image';
 import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
 
 # Dialog
 
 A dialog that smoothly transitions content into a focused view using layout animations. It's perfect for showcasing details like images and texts in a more prominent, centered overlay. The dialog is easy to manage with click-outside and escape key functionalities to close.
 
-<ComponentCodePreview component={<Dialog />} filePath='core/dialog' />
+<ComponentCodePreview
+  component={<DialogBasicExample />}
+  filePath='examples/dialog-basic'
+/>
+
+## Examples
+
+### Image Dialog
+
+<ComponentCodePreview
+  component={<DialogImageExample />}
+  filePath='examples/dialog-image'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/dialog.tsx' />

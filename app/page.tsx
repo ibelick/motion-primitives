@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
-import Dialog from '@/components/core/dialog';
+import DialogImageExample from '@/components/examples/dialog-image';
+
 import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
 import Popover from '@/components/core/popover';
@@ -116,7 +117,7 @@ export default function Motion() {
         </section>
         <section className='mx-auto max-w-3xl py-32'>
           <CardExample>
-            <Dialog />
+            <DialogImageExample />
           </CardExample>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
