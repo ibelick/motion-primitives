@@ -68,7 +68,7 @@ const NAVIGATION: NavigationGroup[] = [
 
 function Header() {
   return (
-    <header className='sticky top-0 z-10 flex h-14 items-center justify-center border-b border-zinc-950/10 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-900'>
+    <header className='sticky top-0 z-10 flex h-14 items-center justify-center border-b border-zinc-950/10 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-950'>
       <div className='mx-auto flex w-full items-center justify-between md:max-w-7xl'>
         <a href='/' className='relative flex items-center'>
           <div className='text-zinc-950 dark:text-white'>motion-primitives</div>
@@ -166,7 +166,7 @@ function NavigationMobile() {
   return (
     <div className='block w-full pt-8 md:hidden'>
       <select
-        className='block w-full appearance-none rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
+        className='block w-full appearance-none rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-800 dark:bg-zinc-950 dark:text-white'
         value={selectedHref}
         onChange={handleChange}
       >

@@ -40,7 +40,7 @@ export default function CodePreview({ code, children }: CodePreviewProps) {
           <Check className='h-4 w-4 text-zinc-50' />
         </div>
       </div>
-      <div className='max-h-[650px] overflow-auto overflow-x-auto rounded-md bg-zinc-950 p-4 text-sm'>
+      <div className='max-h-[650px] overflow-auto overflow-x-auto rounded-md bg-zinc-900 p-4 text-sm'>
         {children}
       </div>
     </div>

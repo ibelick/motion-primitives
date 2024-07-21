@@ -4,6 +4,6 @@ export const noir = createCssVariablesTheme({
   name: 'noir',
   variableDefaults: {
     foreground: '#B1B1B1',
-    background: '#09090b',
+    background: '#18181b',
   },
 });
