@@ -33,6 +33,16 @@ const NAVIGATION: NavigationGroup[] = [
     name: 'Components',
     children: [
       {
+        name: 'Accordion',
+        href: '/docs/accordion',
+        isNew: true,
+      },
+      {
+        name: 'Animated background',
+        href: '/docs/animated-background',
+        isNew: true,
+      },
+      {
         name: 'Dialog',
         href: '/docs/dialog',
         isNew: true,
@@ -50,11 +60,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Toolbar Expandable',
         href: '/docs/toolbar-expandable',
-        isNew: true,
-      },
-      {
-        name: 'Animated background',
-        href: '/docs/animated-background',
         isNew: true,
       },
       {

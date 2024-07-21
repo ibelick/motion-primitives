@@ -1,0 +1,84 @@
+export const metadata = {
+  title: 'Accordion - Motion-Primitives',
+  description:
+    'A vertically stacked set of collapsible containers allowing users to toggle content visibility. Customize the animation effects with variants and transitions for expanding/collapsing the sections.',
+};
+
+import { AccordionBasic } from '@/components/examples/accordion-basic';
+import { AccordionIcons } from '@/components/examples/accordion-icons';
+import { AccordionVariant } from '@/components/examples/accordion-variant';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Accordion
+
+A vertically stacked set of collapsible containers allowing users to toggle content visibility. Customize the animation effects with variants and transitions for expanding/collapsing the sections.
+
+## Examples
+
+### Accordion Basic
+
+<ComponentCodePreview
+  classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
+  component={<AccordionBasic />}
+  filePath='examples/accordion-basic'
+/>
+
+### Accordion with icons
+
+You can control transformations on elements inside `AccordionTrigger` using `group-data-[expanded]:....`.
+Here, we apply `-rotate-180` to rotate the icon 180 degrees when its associated section is expanded.
+
+<ComponentCodePreview
+  classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
+  component={<AccordionIcons />}
+  filePath='examples/accordion-basic'
+/>
+
+### Accordion custom variants
+
+<ComponentCodePreview
+  classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
+  component={<AccordionVariant />}
+  filePath='examples/accordion-variant'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/accordion.tsx' />
+
+## Component API
+
+### Accordion
+
+| Prop       | Type       | Default | Description                                                   |
+| :--------- | :--------- | :------ | :------------------------------------------------------------ |
+| children   | ReactNode  |         | The content elements of the accordion.                        |
+| className  | string     |         | Optional CSS class for styling the accordion container.       |
+| transition | Transition |         | Transition settings from framer-motion for animation effects. |
+| variants   | Variants   |         | Global variants for expanded and collapsed states.            |
+
+### AccordionItem
+
+| Prop      | Type      | Default | Description                                                  |
+| :-------- | :-------- | :------ | :----------------------------------------------------------- |
+| value     | React.Key |         | Unique identifier for controlling the accordion item state.  |
+| children  | ReactNode |         | The content elements of the accordion item.                  |
+| className | string    |         | Optional CSS class for styling the accordion item container. |
+
+### AccordionTrigger
+
+| Prop      | Type       | Default | Description                                                          |
+| :-------- | :--------- | :------ | :------------------------------------------------------------------- |
+| children  | ReactNode  |         | Content of the trigger, typically a string or formatted text.        |
+| className | string     |         | Optional CSS class for styling the trigger element.                  |
+| onToggle  | () => void |         | Function called when the accordion trigger is activated.             |
+| expanded  | boolean    |         | Indicates if the associated accordion content is currently expanded. |
+
+### AccordionContent
+
+| Prop      | Type      | Default | Description                                                |
+| :-------- | :-------- | :------ | :--------------------------------------------------------- |
+| children  | ReactNode |         | The content displayed when the accordion item is expanded. |
+| className | string    |         | Optional CSS class for styling the content container.      |
+| expanded  | boolean   |         | Indicates if the content is currently visible (expanded).  |
