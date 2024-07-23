@@ -4,20 +4,9 @@ export const metadata = {
     'Display content in a focused view with smooth transitions. Ideal for showcasing details like images and texts in a prominent overlay.',
 };
 
-import {
-  DialogRoot,
-  DialogTrigger,
-  DialogContainer,
-  DialogClose,
-  DialogImage,
-  DialogTitle,
-  DialogSubtitle,
-  DialogDescription,
-  DialogContent,
-  DialogLink,
-} from '@/components/core/dialog';
-import DialogBasicExample from '@/components/examples/dialog-basic';
-import DialogImageExample from '@/components/examples/dialog-image';
+import { DialogBasicOne } from '@/components/examples/dialog-basic-1';
+import { DialogBasicTwo } from '@/components/examples/dialog-basic-2';
+import { DialogBasicImage } from '@/components/examples/dialog-image';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -26,18 +15,21 @@ import CodeBlock from '@/components/website/code-block';
 A dialog that smoothly transitions content into a focused view using layout animations. It's perfect for showcasing details like images and texts in a more prominent, centered overlay. The dialog is easy to manage with click-outside and escape key functionalities to close.
 
 <ComponentCodePreview
-  component={<DialogBasicExample />}
-  filePath='examples/dialog-basic'
+  component={<DialogBasicOne />}
+  filePath='examples/dialog-basic-1'
+/>
+
+<ComponentCodePreview
+  component={<DialogBasicTwo />}
+  filePath='examples/dialog-basic-1'
+/>
+
+<ComponentCodePreview
+  component={<DialogBasicImage />}
+  filePath='examples/dialog-basic-1'
 />
 
 ## Examples
-
-### Image Dialog
-
-<ComponentCodePreview
-  component={<DialogImageExample />}
-  filePath='examples/dialog-image'
-/>
 
 ## Code
 
