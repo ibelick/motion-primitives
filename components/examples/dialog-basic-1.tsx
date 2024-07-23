@@ -60,12 +60,14 @@ export function DialogBasicOne() {
           className='h-full w-full'
         />
         <div className='p-6'>
-          <DialogTitle className='text-2xl text-zinc-950 dark:text-zinc-50'>
-            EB27
-          </DialogTitle>
-          <DialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
-            Edouard Wilfrid Buquet
-          </DialogSubtitle>
+          <div>
+            <DialogTitle className='text-2xl text-zinc-950 dark:text-zinc-50'>
+              EB27
+            </DialogTitle>
+            <DialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
+              Edouard Wilfrid Buquet
+            </DialogSubtitle>
+          </div>
           <DialogDescription
             disableLayoutAnimation
             variants={{
