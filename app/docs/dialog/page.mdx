@@ -4,11 +4,101 @@ export const metadata = {
     'Display content in a focused view with smooth transitions. Ideal for showcasing details like images and texts in a prominent overlay.',
 };
 
-import Dialog from '@/components/core/dialog';
+import { DialogBasicOne } from '@/components/examples/dialog-basic-1';
+import { DialogBasicTwo } from '@/components/examples/dialog-basic-2';
+import { DialogBasicImage } from '@/components/examples/dialog-image';
 import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
 
 # Dialog
 
 A dialog that smoothly transitions content into a focused view using layout animations. It's perfect for showcasing details like images and texts in a more prominent, centered overlay. The dialog is easy to manage with click-outside and escape key functionalities to close.
 
-<ComponentCodePreview component={<Dialog />} filePath='core/dialog' />
+<ComponentCodePreview
+  component={<DialogBasicOne />}
+  filePath='examples/dialog-basic-1'
+/>
+
+<ComponentCodePreview
+  component={<DialogBasicTwo />}
+  filePath='examples/dialog-basic-1'
+/>
+
+<ComponentCodePreview
+  component={<DialogBasicImage />}
+  filePath='examples/dialog-basic-1'
+/>
+
+## Examples
+
+## Code
+
+<CodeBlock filePath='components/core/dialog.tsx' />
+
+## Component API
+
+### Dialog
+
+| Prop       | Type       | Default | Description                                                         |
+| :--------- | :--------- | :------ | :------------------------------------------------------------------ |
+| children   | ReactNode  |         | The content of the dialog which could include triggers and content. |
+| transition | Transition |         | Transition settings from framer-motion for animation effects.       |
+
+### DialogTrigger
+
+| Prop       | Type                | Default | Description                                                      |
+| :--------- | :------------------ | :------ | :--------------------------------------------------------------- |
+| children   | ReactNode           |         | Content of the trigger, typically a string or formatted text.    |
+| className  | string              |         | Optional CSS class for styling the trigger element.              |
+| style      | React.CSSProperties |         | Inline styles for the trigger element.                           |
+| triggerRef | React.RefObject     |         | Ref to attach to the trigger element, useful for managing focus. |
+
+### DialogContent
+
+| Prop      | Type                | Default | Description                                              |
+| :-------- | :------------------ | :------ | :------------------------------------------------------- |
+| children  | ReactNode           |         | The content displayed within the dialog when it is open. |
+| className | string              |         | Optional CSS class for styling the content container.    |
+| style     | React.CSSProperties |         | Inline styles for the content container.                 |
+
+### DialogTitle
+
+| Prop      | Type                | Default | Description                               |
+| :-------- | :------------------ | :------ | :---------------------------------------- |
+| children  | ReactNode           |         | The title content of the dialog.          |
+| className | string              |         | Optional CSS class for the title element. |
+| style     | React.CSSProperties |         | Inline styles for the title element.      |
+
+### DialogSubtitle
+
+| Prop      | Type                | Default | Description                                  |
+| :-------- | :------------------ | :------ | :------------------------------------------- |
+| children  | ReactNode           |         | The subtitle content of the dialog.          |
+| className | string              |         | Optional CSS class for the subtitle element. |
+| style     | React.CSSProperties |         | Inline styles for the subtitle element.      |
+
+### DialogDescription
+
+| Prop                   | Type      | Default | Description                                              |
+| :--------------------- | :-------- | :------ | :------------------------------------------------------- |
+| children               | ReactNode |         | The descriptive content of the dialog.                   |
+| className              | string    |         | Optional CSS class for the description container.        |
+| disableLayoutAnimation | boolean   | false   | If true, disables layout animations for the description. |
+| variants               | Object    |         | Variants for the animation states of the description.    |
+
+### DialogImage
+
+| Prop      | Type                | Default | Description                               |
+| :-------- | :------------------ | :------ | :---------------------------------------- |
+| src       | string              |         | Image source URL.                         |
+| alt       | string              |         | Alternative text for the image.           |
+| className | string              |         | Optional CSS class for the image element. |
+| style     | React.CSSProperties |         | Inline styles for the image element.      |
+
+### DialogClose
+
+| Prop      | Type      | Default | Description                                                       |
+| :-------- | :-------- | :------ | :---------------------------------------------------------------- |
+| children  | ReactNode |         | Optional custom content for the close button, defaults to X icon. |
+| className | string    |         | Optional CSS class for the close button.                          |
+| variants  | Object    |         | Variants for the animation states of the close button.            |
