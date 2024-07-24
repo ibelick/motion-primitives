@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TransitionPanel } from '@/components/core/transition-panel';
 import useMeasure from 'react-use-measure';
 
@@ -20,9 +20,9 @@ function Button({
     </button>
   );
 }
-
 export function TransitionPanelCard() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [ref, bounds] = useMeasure();
 
   const FEATURES = [
@@ -48,26 +48,67 @@ export function TransitionPanelCard() {
     },
   ];
 
+  const handleSetActiveIndex = (newIndex: number) => {
+    setDirection(newIndex > activeIndex ? 1 : -1);
+    setActiveIndex(newIndex);
+  };
+
+  useEffect(() => {
+    if (activeIndex < 0) setActiveIndex(0);
+    if (activeIndex >= FEATURES.length) setActiveIndex(FEATURES.length - 1);
+  }, [activeIndex]);
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 364 : -364,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 364 : -364,
+      opacity: 0,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+    }),
+  };
+
   return (
     <div className='w-[364px] overflow-hidden rounded-xl border border-zinc-950/10 bg-white dark:bg-zinc-700'>
       <TransitionPanel
         activeIndex={activeIndex}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
         variants={{
-          enter: {
+          enter: (direction) => ({
+            x: direction > 0 ? 364 : -364,
             opacity: 0,
-            x: 364,
-            height: bounds.height,
-            filter: 'blur(4px)',
+            height: bounds.height > 0 ? bounds.height : 'auto',
+          }),
+          center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1,
+            height: bounds.height > 0 ? bounds.height : 'auto',
           },
-          center: { opacity: 1, x: 0, height: 'auto', filter: 'blur(0px)' },
-          exit: {
+          exit: (direction) => ({
+            zIndex: 0,
+            x: direction < 0 ? 364 : -364,
             opacity: 0,
-            x: -364,
-            height: bounds.height,
-            filter: 'blur(4px)',
-          },
+            position: 'absolute',
+            top: 0,
+            width: '100%',
+          }),
         }}
+        transition={{
+          x: { type: 'spring', stiffness: 300, damping: 30 },
+          opacity: { duration: 0.2 },
+        }}
+        custom={direction}
       >
         {FEATURES.map((feature, index) => (
           <div key={index} className='px-4 pt-4' ref={ref}>
@@ -82,17 +123,21 @@ export function TransitionPanelCard() {
       </TransitionPanel>
       <div className='flex justify-between p-4'>
         {activeIndex > 0 ? (
-          <Button onClick={() => setActiveIndex(activeIndex - 1)}>
+          <Button onClick={() => handleSetActiveIndex(activeIndex - 1)}>
             Previous
           </Button>
         ) : (
           <div />
         )}
-        {activeIndex === FEATURES.length - 1 ? (
-          <Button onClick={() => {}}>Close</Button>
-        ) : (
-          <Button onClick={() => setActiveIndex(activeIndex + 1)}>Next</Button>
-        )}
+        <Button
+          onClick={() =>
+            activeIndex === FEATURES.length - 1
+              ? null
+              : handleSetActiveIndex(activeIndex + 1)
+          }
+        >
+          {activeIndex === FEATURES.length - 1 ? 'Close' : 'Next'}
+        </Button>
       </div>
     </div>
   );
