@@ -35,10 +35,10 @@ export function DialogBasicTwo() {
             }}
           />
           <div className='flex flex-col items-start justify-center space-y-0'>
-            <DialogTitle className='text-xs font-medium text-black'>
+            <DialogTitle className='text-[10px] font-medium text-black sm:text-xs'>
               What I Talk About When I Talk About Running
             </DialogTitle>
-            <DialogSubtitle className='text-xs text-gray-600'>
+            <DialogSubtitle className='text-[10px] text-gray-600 sm:text-xs'>
               Haruki Murakami
             </DialogSubtitle>
           </div>

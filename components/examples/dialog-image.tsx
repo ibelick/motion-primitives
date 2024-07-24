@@ -28,7 +28,7 @@ export function DialogBasicImage() {
           <DialogImage
             src='https://64.media.tumblr.com/a56381366ceaab29b760aabe5e88df07/f3b5e9af4d3103f3-97/s2048x3072/caec6beeee2cbeb80b05e88c917b187926749703.jpg'
             alt='Sony Style Store in the Sony Center complex - Berlin, Germany (2000)'
-            className='h-[90vh] w-full max-w-[90vw] rounded-[4px] object-cover'
+            className='h-auto w-full max-w-[90vw] rounded-[4px] object-cover lg:h-[90vh]'
           />
         </DialogContent>
         <DialogClose
