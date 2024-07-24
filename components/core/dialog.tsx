@@ -110,7 +110,6 @@ function DialogTrigger({
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       style={style}
-      tabIndex={0}
       role='button'
       aria-haspopup='dialog'
       aria-expanded={isOpen}
@@ -121,25 +120,19 @@ function DialogTrigger({
   );
 }
 
-type DialogContentProps = {
+type DialogContent = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
 };
 
-function DialogContent({ children, className, style }: DialogContentProps) {
+function DialogContent({ children, className, style }: DialogContent) {
   const { setIsOpen, isOpen, uniqueId, triggerRef } = useDialog();
-  const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [firstFocusableElement, setFirstFocusableElement] =
     useState<HTMLElement | null>(null);
   const [lastFocusableElement, setLastFocusableElement] =
     useState<HTMLElement | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-    return () => setMounted(false);
-  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -195,6 +188,37 @@ function DialogContent({ children, className, style }: DialogContentProps) {
     }
   });
 
+  return (
+    <motion.div
+      ref={containerRef}
+      layoutId={`dialog-${uniqueId}`}
+      className={cn('overflow-hidden', className)}
+      style={style}
+      role='dialog'
+      aria-modal='true'
+      aria-labelledby={`dialog-title-${uniqueId}`}
+      aria-describedby={`dialog-description-${uniqueId}`}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+type DialogContainerProps = {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+};
+
+function DialogContainer({ children }: DialogContainerProps) {
+  const { isOpen, uniqueId } = useDialog();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
+
   if (!mounted) return null;
 
   return createPortal(
@@ -209,19 +233,7 @@ function DialogContent({ children, className, style }: DialogContentProps) {
             exit={{ opacity: 0 }}
           />
           <div className='fixed inset-0 z-50 flex items-center justify-center'>
-            <motion.div
-              ref={containerRef}
-              layoutId={`dialog-${uniqueId}`}
-              className={cn('overflow-hidden', className)}
-              style={style}
-              tabIndex={-1}
-              role='dialog'
-              aria-modal='true'
-              aria-labelledby={`dialog-title-${uniqueId}`}
-              aria-describedby={`dialog-description-${uniqueId}`}
-            >
-              {children}
-            </motion.div>
+            {children}
           </div>
         </>
       )}
@@ -244,13 +256,9 @@ function DialogTitle({ children, className, style }: DialogTitleProps) {
       layoutId={`dialog-title-container-${uniqueId}`}
       className={className}
       style={style}
+      layout
     >
-      <motion.div
-        layout='position'
-        layoutId={`dialog-title-content-${uniqueId}`}
-      >
-        {children}
-      </motion.div>
+      {children}
     </motion.div>
   );
 }
@@ -269,14 +277,8 @@ function DialogSubtitle({ children, className, style }: DialogSubtitleProps) {
       layoutId={`dialog-subtitle-container-${uniqueId}`}
       className={className}
       style={style}
-      layout
     >
-      <motion.div
-        layout='position'
-        layoutId={`dialog-subtitle-content-${uniqueId}`}
-      >
-        {children}
-      </motion.div>
+      {children}
     </motion.div>
   );
 }
@@ -378,6 +380,7 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
 export {
   Dialog,
   DialogTrigger,
+  DialogContainer,
   DialogContent,
   DialogClose,
   DialogTitle,
