@@ -1,0 +1,45 @@
+export const metadata = {
+  title: 'Cursor - Motion-Primitives',
+  description:
+    'A custom cursor component with optional spring animations. It can be globally applied to the page or attached specifically to a parent element..',
+};
+
+import { Cursor1 } from '@/components/examples/cursor-1';
+import { Cursor2 } from '@/components/examples/cursor-2';
+import { Cursor3 } from '@/components/examples/cursor-3';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Cursor
+
+A custom cursor component with optional spring animations. It can be globally applied to the page or attached specifically to a parent element.
+
+## Examples
+
+### Cursor with image and spring
+
+<ComponentCodePreview component={<Cursor1 />} filePath='examples/cursor-1' />
+
+### Cursor with custom component
+
+<ComponentCodePreview component={<Cursor2 />} filePath='examples/cursor-2' />
+
+### Cursor with image and spring
+
+<ComponentCodePreview component={<Cursor3 />} filePath='examples/cursor-3' />
+
+## Code
+
+<CodeBlock filePath='components/core/cursor.tsx' />
+
+### Cursor
+
+| Prop             | Type                                             | Default  | Description                                                                                                   |
+| :--------------- | :----------------------------------------------- | :------- | :------------------------------------------------------------------------------------------------------------ |
+| children         | ReactNode                                        | required | Children to be rendered within the custom cursor. Mandatory.                                                  |
+| className        | string                                           |          | Optional CSS class for styling the custom cursor container.                                                   |
+| springConfig     | SpringOptions                                    |          | Configuration for the spring physics used in the cursor's movement.                                           |
+| attachToParent   | boolean                                          | false    | If `true`, the cursor will only be visible when hovering over its parent component.                           |
+| transition       | Transition                                       |          | Transition settings from framer-motion for animation effects.                                                 |
+| variants         | Object (with initial, animated, exit properties) |          | Variants for controlling the animation states with specific properties for initial, animate, and exit states. |
+| onPositionChange | `(position: { x: number, y: number }) => void`   |          | Callback function that is called when the cursor position changes.                                            |

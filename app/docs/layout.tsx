@@ -43,6 +43,11 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
+        name: 'Cursor',
+        href: '/docs/cursor',
+        isNew: true,
+      },
+      {
         name: 'Dialog',
         href: '/docs/dialog',
         isNew: true,
