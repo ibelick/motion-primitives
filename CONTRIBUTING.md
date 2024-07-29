@@ -1,4 +1,4 @@
-#Contributing
+# Contributing
 
 Thanks for your interest in contributing to motion-primitive. We're happy to have you here.
 
@@ -6,11 +6,11 @@ Please take a moment to review this document before submitting your first pull r
 
 If you need any help, feel free to reach out to [@ibelick](https://x.com/Ibelick).
 
-##About this repository
+## About this repository
 
 -We use [npm]().
 
-##Development
+## Development
 
 ### Fork this repo
 
