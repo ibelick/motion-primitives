@@ -62,7 +62,7 @@ export function Cursor1() {
         <img
           src='https://i.pinimg.com/564x/75/3c/3f/753c3f1a9f85871ffa7a7a78bcf49f66.jpg'
           alt='Olympic logo Paris 2024'
-          className='h-52 w-full rounded-[8px] border border-zinc-100'
+          className='h-52 w-full max-w-48 rounded-[8px] border border-zinc-100 object-cover'
         />
       </div>
     </div>

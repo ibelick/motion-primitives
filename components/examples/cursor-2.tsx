@@ -57,7 +57,7 @@ export function Cursor2() {
         <img
           src='https://i.pinimg.com/564x/a0/6a/5f/a06a5f814569fcf4a67f3ad89ae1babf.jpg'
           alt='Green herbs'
-          className='h-40 w-full rounded-[8px] object-cover'
+          className='h-40 w-full max-w-32 rounded-[8px] object-cover'
         />
       </div>
     </div>
