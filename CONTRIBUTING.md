@@ -8,7 +8,9 @@ If you need any help, feel free to reach out to [@ibelick](https://x.com/Ibelick
 
 ## About this repository
 
--We use [npm](https://docs.npmjs.com).
+- We use [npm](https://docs.npmjs.com).
+- For animation [framer](https://www.framer.com/motion)
+- For custom icons [lucid react](https://lucide.dev/guide/)
 
 ## Development
 
