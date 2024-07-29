@@ -8,7 +8,7 @@ If you need any help, feel free to reach out to [@ibelick](https://x.com/Ibelick
 
 ## About this repository
 
--We use [npm]().
+-We use [npm](https://docs.npmjs.com).
 
 ## Development
 
@@ -31,7 +31,13 @@ cd motion-primitives
 ### Create a new Branch
 
 ```bash
-npm install
+git checkout -b my-new-branch
+```
+
+### Install dependencies
+
+```bash
+pnpm install
 ```
 
 ## Commit Convention
