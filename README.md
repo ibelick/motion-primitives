@@ -8,6 +8,10 @@ Beautifully designed, easy-to-integrate motion components for engineers and desi
 
 Visit [motion-primitives.com/docs](http://motion-primitives.com/docs) to view the full documentation.
 
+## Contributing
+
+Please read the [contributing guide](/CONTRIBUTING.md).
+
 ## License
 
 Licensed under the [MIT license](/LICENSE.md).
