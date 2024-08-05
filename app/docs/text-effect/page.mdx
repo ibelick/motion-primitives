@@ -1,0 +1,68 @@
+export const metadata = {
+  title: 'Text Effect - Motion-Primitives',
+  description:
+    'Easily animate text content with various effects. You can apply animations per character or per word, and customize the animation effects using custom variants or preset animations.',
+};
+
+import { TextEffect } from '@/components/core/text-effect';
+import { TextEffectPerChar } from '@/components/examples/text-effect-per-char';
+import { TextEffectPerWord } from '@/components/examples/text-effect-per-word';
+import { TextEffectWithPreset } from '@/components/examples/text-effect-preset';
+import { TextEffectWithCustomVariants } from '@/components/examples/text-effect-variants';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Text Effect
+
+Easily animate text content with various effects. You can apply animations per character or per word, and customize the animation effects using custom variants or preset animations.
+
+## Examples
+
+### Text Effect per character
+
+<ComponentCodePreview
+  component={<TextEffectPerChar />}
+  filePath='examples/text-effect-per-char'
+  hasReTrigger
+/>
+
+### Text Effect per word
+
+<ComponentCodePreview
+  component={<TextEffectPerWord />}
+  filePath='examples/text-effect-per-word'
+  hasReTrigger
+/>
+
+### Text Effect with preset
+
+<ComponentCodePreview
+  component={<TextEffectWithPreset />}
+  filePath='examples/text-effect-per-word'
+  hasReTrigger
+/>
+
+### Text Effect with custom variants
+
+<ComponentCodePreview
+  component={<TextEffectWithCustomVariants />}
+  filePath='examples/text-effect-per-word'
+  hasReTrigger
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/text-effect.tsx' />
+
+## Component API
+
+### TextEffect
+
+| Prop      | Type                                              | Default   | Description                                                  |
+| :-------- | :------------------------------------------------ | :-------- | :----------------------------------------------------------- |
+| children  | string                                            |           | The text content to be animated.                             |
+| per       | 'word' \| 'char'                                  | 'word'    | Defines whether animation applies per word or per character. |
+| as        | keyof JSX.IntrinsicElements                       | 'p'       | The HTML tag to render, defaults to paragraph.               |
+| variants  | `{ container?: Variants; item?: Variants; }`      | undefined | Custom variants for container and item animations.           |
+| className | string                                            | undefined | Optional CSS class for styling the component.                |
+| preset    | 'blur' \| 'shake' \| 'scale' \| 'fade' \| 'slide' | undefined | Preset animations to apply to the text.                      |

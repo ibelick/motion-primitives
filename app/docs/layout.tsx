@@ -35,12 +35,10 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Accordion',
         href: '/docs/accordion',
-        isNew: true,
       },
       {
         name: 'Animated background',
         href: '/docs/animated-background',
-        isNew: true,
       },
       {
         name: 'Cursor',
@@ -50,27 +48,27 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Dialog',
         href: '/docs/dialog',
-        isNew: true,
       },
       {
         name: 'Popover',
         href: '/docs/popover',
+      },
+      {
+        name: 'Text effect',
+        href: '/docs/text-effect',
         isNew: true,
       },
       {
         name: 'Toolbar Dynamic',
         href: '/docs/toolbar-dynamic',
-        isNew: true,
       },
       {
         name: 'Toolbar Expandable',
         href: '/docs/toolbar-expandable',
-        isNew: true,
       },
       {
         name: 'Transition Panel',
         href: '/docs/transition-panel',
-        isNew: true,
       },
     ],
   },
