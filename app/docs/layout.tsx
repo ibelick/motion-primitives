@@ -50,6 +50,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/dialog',
       },
       {
+        name: 'In view',
+        href: '/docs/in-view',
+        isNew: true,
+      },
+      {
         name: 'Popover',
         href: '/docs/popover',
       },

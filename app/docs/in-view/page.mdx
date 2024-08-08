@@ -1,0 +1,57 @@
+export const metadata = {
+  title: 'In view - Motion-Primitives',
+  description:
+    'Easily animate elements when they come into view. You can apply animations to elements when they enter the viewport, or when they are fully visible.',
+};
+
+import { InViewBasic } from '@/components/examples/in-view-basic';
+import { InViewBasicMultiple } from '@/components/examples/in-view-basic-multiple';
+import { InViewImagesGrid } from '@/components/examples/in-view-images-grid';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# In view
+
+Easily animate elements when they come into view. You can apply animations to elements when they enter the viewport, or when they are fully visible.
+
+## Examples
+
+### Basic in view
+
+<ComponentCodePreview
+  component={<InViewBasic />}
+  filePath='examples/in-view-basic'
+  hasReTrigger
+/>
+
+### Basic in view with margin option
+
+<ComponentCodePreview
+  component={<InViewBasicMultiple />}
+  filePath='examples/in-view-basic-multiple'
+  hasReTrigger
+/>
+
+### In view with images and margin option
+
+Images are from [cosmos - oui are one ::](https://www.cosmos.so/biancadjardins/oui-are-one-%3A%3A)
+
+<ComponentCodePreview
+  component={<InViewImagesGrid />}
+  filePath='examples/in-view-images-grid'
+  classNameComponentContainer='h-[600px]'
+  hasReTrigger
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/in-view.tsx' />
+
+## Component API
+
+| Prop        | Type                                     | Default                                               | Description                                |
+| :---------- | :--------------------------------------- | :---------------------------------------------------- | :----------------------------------------- |
+| children    | ReactNode                                |                                                       | The content inside the `InView` component. |
+| variants    | `{ hidden: Variant; visible: Variant; }` | `{ hidden: { opacity: 0 }, visible: { opacity: 1 } }` | Variants to define the animation states.   |
+| transition  | Transition                               |                                                       | Specifies the animation transitions.       |
+| viewOptions | UseInViewOptions                         |                                                       | Options to configure the in-view behavior. |
