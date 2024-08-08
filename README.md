@@ -1,3 +1,5 @@
+<img align=center src="/public/motion.png" />
+
 # Motion-Primitives
 
 Beautifully designed, easy-to-integrate motion components for engineers and designers, built with Framer Motion and Tailwind CSS.
