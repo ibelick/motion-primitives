@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useId, useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, Transition } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 type TTabsContext = {
@@ -27,6 +27,7 @@ type TTabsTriggerProps = {
   children: React.ReactNode;
   tabId: string;
   className?: string;
+  Transition?: Transition;
 };
 
 type TTabsContentProps = {
@@ -85,7 +86,12 @@ const TabsList = ({ children, className }: TTabsListProps) => {
   );
 };
 
-const TabsTrigger = ({ children, tabId, className }: TTabsTriggerProps) => {
+const TabsTrigger = ({
+  children,
+  tabId,
+  className,
+  Transition = { type: 'spring', bounce: 0.2, duration: 0.6 },
+}: TTabsTriggerProps) => {
   const { activeTab, setActiveTab, uniqueId } = useTabs();
 
   const isActive = activeTab === tabId;
@@ -105,7 +111,7 @@ const TabsTrigger = ({ children, tabId, className }: TTabsTriggerProps) => {
     >
       {isActive && (
         <motion.span
-          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+          transition={Transition}
           className='absolute inset-0 z-10 h-full w-full rounded-md bg-zinc-200 dark:bg-zinc-800'
           layoutId={`tab-trigger-${uniqueId}`}
         />

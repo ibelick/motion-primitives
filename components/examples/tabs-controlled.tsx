@@ -32,7 +32,11 @@ function TabsControlled() {
     >
       <Tabs.List className='justify-center'>
         {TABS.map((tab) => (
-          <Tabs.Trigger tabId={tab.label} key={tab.label}>
+          <Tabs.Trigger
+            tabId={tab.label}
+            key={tab.label}
+            Transition={{ duration: 0.2, ease: 'easeInOut' }}
+          >
             {tab.icon}
           </Tabs.Trigger>
         ))}
