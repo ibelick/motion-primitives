@@ -8,7 +8,14 @@ import {
   MotionConfig,
 } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useRef,
+} from 'react';
+import { useClickAway } from 'react-use';
 
 type AccordionContextType = {
   expandedValue: React.Key | null;
@@ -78,9 +85,14 @@ type AccordionItemProps = {
 function AccordionItem({ value, children, className }: AccordionItemProps) {
   const { expandedValue, toggleItem } = useAccordion();
   const isExpanded = value === expandedValue;
+  const ref = useRef<HTMLDivElement>(null);
+  useClickAway(ref, () => {
+    expandedValue === value && toggleItem(value);
+  });
 
   return (
     <div
+      ref={ref}
       className={cn('overflow-hidden', className)}
       {...(isExpanded ? { 'data-expanded': '' } : {})}
     >
