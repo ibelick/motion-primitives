@@ -25,6 +25,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-use": "^17.5.1",
     "react-use-measure": "^2.1.1",
     "remark-gfm": "^4.0.0",
     "shiki": "^1.10.1",
