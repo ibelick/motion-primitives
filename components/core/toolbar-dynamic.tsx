@@ -47,7 +47,7 @@ export default function ToolbarDynamic() {
   return (
     <MotionConfig transition={transition}>
       <div className='absolute bottom-8' ref={containerRef}>
-        <div className='h-full w-full rounded-xl border border-zinc-950/10 bg-white'>
+        <div className='h-full w-full rounded-xl border border-zinc-950/10 bg-white text-black'>
           <motion.div
             animate={{
               // @todo: here I want to remove the width
