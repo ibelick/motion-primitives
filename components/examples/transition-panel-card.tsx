@@ -88,6 +88,7 @@ export function TransitionPanelCard() {
             x: direction > 0 ? 364 : -364,
             opacity: 0,
             height: bounds.height > 0 ? bounds.height : 'auto',
+            position: 'initial',
           }),
           center: {
             zIndex: 1,
