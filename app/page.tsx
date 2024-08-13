@@ -3,6 +3,7 @@ import React from 'react';
 import { DialogBasicOne } from '@/components/examples/dialog-basic-1';
 import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
+import ThemeSwitch from '@/components/website/theme-switch';
 import Popover from '@/components/core/popover';
 import ToolbarExpandable from '@/components/core/toolbar-expandable';
 import ToolbarDynamic from '@/components/core/toolbar-dynamic';
@@ -58,6 +59,7 @@ function Header() {
           >
             <GitHubIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
           </a>
+          <ThemeSwitch />
         </nav>
       </div>
     </header>

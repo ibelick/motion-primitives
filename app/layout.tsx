@@ -21,7 +21,7 @@ export default function RootLayout({
   const isDev = process.env.NODE_ENV === 'development';
 
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       {!isDev ? (
         <Script
           async

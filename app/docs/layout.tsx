@@ -81,7 +81,7 @@ const NAVIGATION: NavigationGroup[] = [
 
 function Header() {
   return (
-    <header className='sticky top-0 z-10 flex h-14 items-center justify-center border-b border-zinc-950/10 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-950'>
+    <header className='sticky top-0 z-10 flex h-16 items-center justify-center border-b border-zinc-950/10 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-950'>
       <div className='mx-auto flex w-full items-center justify-between md:max-w-7xl'>
         <a href='/' className='relative flex items-center'>
           <div className='text-zinc-950 dark:text-white'>motion-primitives</div>
