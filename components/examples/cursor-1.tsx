@@ -40,7 +40,7 @@ export function Cursor1() {
             width: isHovering ? 80 : 16,
             height: isHovering ? 32 : 16,
           }}
-          className='flex items-center justify-center rounded-[24px] bg-black/20 backdrop-blur-md'
+          className='flex items-center justify-center rounded-[24px] bg-gray-500/20 backdrop-blur-md'
         >
           <AnimatePresence>
             {isHovering ? (
@@ -50,7 +50,7 @@ export function Cursor1() {
                 exit={{ opacity: 0 }}
                 className='inline-flex w-full items-center justify-center'
               >
-                <div className='inline-flex items-center text-sm text-white'>
+                <div className='inline-flex items-center text-sm text-black'>
                   More <PlusIcon className='ml-1 h-4 w-4' />
                 </div>
               </motion.div>
