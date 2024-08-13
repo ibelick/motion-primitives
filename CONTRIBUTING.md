@@ -39,7 +39,7 @@ git checkout -b my-new-branch
 ### Install dependencies
 
 ```bash
-pnpm install
+npm install
 ```
 
 ## Commit Convention
