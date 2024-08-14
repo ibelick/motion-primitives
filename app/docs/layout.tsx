@@ -41,6 +41,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/animated-background',
       },
       {
+        name: 'Carousel',
+        href: '/docs/carousel',
+        isNew: true,
+      },
+      {
         name: 'Cursor',
         href: '/docs/cursor',
         isNew: true,

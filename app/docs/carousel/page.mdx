@@ -1,0 +1,106 @@
+export const metadata = {
+  title: 'Carousel - Motion-Primitives',
+  description:
+    'A flexible and easy-to-use carousel with customizable navigation and indicators.',
+};
+
+import { CarouselBasic } from '@/components/examples/carousel-basic';
+import { CarouselCustomSizes } from '@/components/examples/carousel-custom-sizes';
+import { CarouselSpacing } from '@/components/examples/carousel-spacing';
+import { CarouselCustomIndicator } from '@/components/examples/carousel-custom-indicator';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Carousel
+
+A flexible and easy-to-use carousel with customizable navigation and indicators.
+
+## Examples
+
+### Carousel basic
+
+<ComponentCodePreview
+  component={<CarouselBasic />}
+  filePath='examples/carousel-basic'
+/>
+
+### Carousel with custom sizes
+
+We use `basis-1/3` to set the width of each carousel item to one-third of the container.
+
+<ComponentCodePreview
+  component={<CarouselCustomSizes />}
+  filePath='examples/carousel-custom-sizes'
+/>
+
+### Carousel with custom sizes and spacing
+
+We use `-ml-4` on `CarouselContent` and `pl-4` on `CarouselItem` to add spacing between carousel items.
+
+<ComponentCodePreview
+  component={<CarouselSpacing />}
+  filePath='examples/carousel-spacing'
+/>
+
+### Carousel with custom indicators
+
+We can use `useCarousel` to create custom indicators for the carousel.
+
+<ComponentCodePreview
+  component={<CarouselCustomIndicator />}
+  filePath='examples/carousel-custom-indicator'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/carousel.tsx' />
+
+## Component API
+
+### Carousel
+
+| Prop        | Type        | Default | Description                                            |
+| :---------- | :---------- | :------ | :----------------------------------------------------- |
+| `children`  | `ReactNode` |         | The content elements of the carousel.                  |
+| `className` | `string`    |         | Optional CSS class for styling the carousel container. |
+
+### CarouselNavigation
+
+| Prop              | Type      | Default | Description                                              |
+| :---------------- | :-------- | :------ | :------------------------------------------------------- |
+| `className`       | `string`  |         | Optional CSS class for styling the navigation container. |
+| `classNameButton` | `string`  |         | Optional CSS class for styling the navigation buttons.   |
+| `alwaysShow`      | `boolean` | `false` | Whether navigation buttons are always visible.           |
+
+### CarouselIndicator
+
+| Prop              | Type     | Default | Description                                             |
+| :---------------- | :------- | :------ | :------------------------------------------------------ |
+| `className`       | `string` |         | Optional CSS class for styling the indicator container. |
+| `classNameButton` | `string` |         | Optional CSS class for styling the indicator buttons.   |
+
+### CarouselContent
+
+| Prop         | Type         | Default | Description                                             |
+| :----------- | :----------- | :------ | :------------------------------------------------------ |
+| `children`   | `ReactNode`  |         | The sliding elements or items of the carousel.          |
+| `className`  | `string`     |         | Optional CSS class for additional styling.              |
+| `transition` | `Transition` |         | Optional framer-motion transition for animating slides. |
+
+### CarouselItem
+
+| Prop        | Type        | Default | Description                                       |
+| :---------- | :---------- | :------ | :------------------------------------------------ |
+| `children`  | `ReactNode` |         | The individual content item within the carousel.  |
+| `className` | `string`    |         | Optional CSS class for styling the carousel item. |
+
+### useCarousel
+
+| Return          | Description                                                     |
+| :-------------- | :-------------------------------------------------------------- |
+| `index`         | The current index of the active carousel item.                  |
+| `setIndex`      | Function to update the index to show a different carousel item. |
+| `itemsCount`    | Total number of items in the carousel.                          |
+| `setItemsCount` | Function to set the number of items in the carousel.            |
+
+This hook provides context values related to the carousel's state, allowing components within the carousel to adjust based on the active item and total items.
