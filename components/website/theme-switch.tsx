@@ -16,7 +16,7 @@ export default function ThemeSwitch() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          className='inline-flex h-9 w-9 items-center justify-center'
+          className='inline-flex h-9 w-9 items-center justify-center rounded-full outline-none hover:bg-[#f2f2f2] dark:hover:bg-[#2a2a2a]'
           aria-label='Toggle theme'
           type='button'
         >

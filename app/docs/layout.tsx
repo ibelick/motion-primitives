@@ -99,7 +99,7 @@ function Header() {
             href='https://twitter.com/Ibelick'
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex h-9 w-9 items-center justify-center'
+            className='inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-[#f2f2f2] dark:hover:bg-[#2a2a2a]'
           >
             <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
           </a>
@@ -107,7 +107,7 @@ function Header() {
             href='https://github.com/ibelick/motion-primitives'
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex h-9 w-9 items-center justify-center'
+            className='inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-[#f2f2f2] dark:hover:bg-[#2a2a2a]'
           >
             <GitHubIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
           </a>
