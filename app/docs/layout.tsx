@@ -33,6 +33,11 @@ const NAVIGATION: NavigationGroup[] = [
     name: 'Components',
     children: [
       {
+        name: 'Animated Number',
+        href: '/docs/animated-number',
+        isNew: true,
+      },
+      {
         name: 'Accordion',
         href: '/docs/accordion',
       },
