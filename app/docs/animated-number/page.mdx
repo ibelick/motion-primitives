@@ -6,6 +6,7 @@ export const metadata = {
 import { AnimatedNumber } from '@/components/core/animated-number';
 import { AnimatedNumberBasic } from '@/components/examples/animated-number-basic';
 import { AnimatedNumberCounter } from '@/components/examples/animated-number-counter';
+import { AnimatedNumberInView } from '@/components/examples/animated-number-in-view';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -28,6 +29,13 @@ Easily animate numbers.
 <ComponentCodePreview
   component={<AnimatedNumberCounter />}
   filePath='examples/animated-number-counter'
+/>
+
+### With useInView
+
+<ComponentCodePreview
+  component={<AnimatedNumberInView />}
+  filePath='examples/animated-number-in-view'
 />
 
 ## Code
