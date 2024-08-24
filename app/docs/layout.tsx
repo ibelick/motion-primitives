@@ -128,7 +128,7 @@ function NavigationDesktop() {
 
   return (
     <aside className='sticky top-14 hidden h-[calc(100dvh-theme(spacing.16))] w-[220px] shrink-0 pt-8 md:block lg:pt-12'>
-      <ScrollArea>
+      <ScrollArea className='h-full w-full'>
         <nav>
           <ul role='list' className='h-full'>
             {NAVIGATION.map((item, index) => {
