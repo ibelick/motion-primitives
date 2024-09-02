@@ -4,13 +4,12 @@ import { AnimatedGroup } from '@/components/core/animated-group';
 export function AnimatedGroupCustomVariants2() {
   return (
     <AnimatedGroup
-      className='flex grid h-[500px] grid-cols-2 items-center justify-center gap-8 p-12 md:grid-cols-3 lg:grid-cols-4'
+      className='grid h-full grid-cols-2 gap-8 p-12 md:grid-cols-3 lg:grid-cols-4'
       variants={{
         container: {
           visible: {
             transition: {
               staggerChildren: 0.05,
-              delayChildren: 2,
             },
           },
         },

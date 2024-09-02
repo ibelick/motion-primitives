@@ -6,12 +6,11 @@ export function AnimatedGroupCustomVariants() {
       className='grid grid-cols-2 gap-4 p-8 md:grid-cols-3 lg:grid-cols-4'
       variants={{
         container: {
-          hidden: { opacity: 0, transition: { delay: 2 } },
+          hidden: { opacity: 0 },
           visible: {
             opacity: 1,
             transition: {
               staggerChildren: 0.05,
-              delayChildren: 2,
             },
           },
         },

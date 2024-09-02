@@ -38,6 +38,11 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
+        name: 'Animated Group',
+        href: '/docs/animated-group',
+        isNew: true,
+      },
+      {
         name: 'Accordion',
         href: '/docs/accordion',
       },
