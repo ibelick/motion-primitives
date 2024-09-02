@@ -4,7 +4,17 @@ import { motion, Variants } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import React from 'react';
 
-type PresetType = 'fade' | 'slide' | 'scale' | 'blur' | 'blur-slide';
+type PresetType =
+  | 'fade'
+  | 'slide'
+  | 'scale'
+  | 'blur'
+  | 'blur-slide'
+  | 'zoom'
+  | 'flip'
+  | 'bounce'
+  | 'rotate'
+  | 'swing';
 
 type AnimatedGroupProps = {
   children: ReactNode;
@@ -68,6 +78,61 @@ const presetVariants: Record<
     item: {
       hidden: { opacity: 0, filter: 'blur(4px)', y: 20 },
       visible: { opacity: 1, filter: 'blur(0px)', y: 0 },
+    },
+  },
+  zoom: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, scale: 0.5 },
+      visible: {
+        opacity: 1,
+        scale: 1,
+        transition: { type: 'spring', stiffness: 300, damping: 20 },
+      },
+    },
+  },
+  flip: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, rotateX: -90 },
+      visible: {
+        opacity: 1,
+        rotateX: 0,
+        transition: { type: 'spring', stiffness: 300, damping: 20 },
+      },
+    },
+  },
+  bounce: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, y: -50 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { type: 'spring', stiffness: 400, damping: 10 },
+      },
+    },
+  },
+  rotate: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, rotate: -180 },
+      visible: {
+        opacity: 1,
+        rotate: 0,
+        transition: { type: 'spring', stiffness: 200, damping: 15 },
+      },
+    },
+  },
+  swing: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, rotate: -10 },
+      visible: {
+        opacity: 1,
+        rotate: 0,
+        transition: { type: 'spring', stiffness: 300, damping: 8 },
+      },
     },
   },
 };
