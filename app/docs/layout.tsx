@@ -70,6 +70,11 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
+        name: 'Infinite Slider',
+        href: '/docs/infinite-slider',
+        isNew: true,
+      },
+      {
         name: 'Popover',
         href: '/docs/popover',
       },
