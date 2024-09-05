@@ -33,29 +33,67 @@ function useCarousel() {
 
 type CarouselProviderProps = {
   children: ReactNode;
+  initialIndex?: number;
+  onIndexChange?: (newIndex: number) => void;
 };
 
-function CarouselProvider({ children }: CarouselProviderProps) {
-  const [index, setIndex] = useState<number>(0);
+function CarouselProvider({
+  children,
+  initialIndex = 0,
+  onIndexChange,
+}: CarouselProviderProps) {
+  const [index, setIndex] = useState<number>(initialIndex);
   const [itemsCount, setItemsCount] = useState<number>(0);
+
+  const handleSetIndex = (newIndex: number) => {
+    setIndex(newIndex);
+    onIndexChange?.(newIndex);
+  };
+
+  useEffect(() => {
+    setIndex(initialIndex);
+  }, [initialIndex]);
 
   return (
     <CarouselContext.Provider
-      value={{ index, setIndex, itemsCount, setItemsCount }}
+      value={{ index, setIndex: handleSetIndex, itemsCount, setItemsCount }}
     >
       {children}
     </CarouselContext.Provider>
   );
 }
 
-type Carousel = {
+type CarouselProps = {
   children: ReactNode;
   className?: string;
+  initialIndex?: number;
+  index?: number;
+  onIndexChange?: (newIndex: number) => void;
 };
 
-function Carousel({ children, className }: Carousel) {
+function Carousel({
+  children,
+  className,
+  initialIndex = 0,
+  index: externalIndex,
+  onIndexChange,
+}: CarouselProps) {
+  const [internalIndex, setInternalIndex] = useState<number>(initialIndex);
+  const isControlled = externalIndex !== undefined;
+  const currentIndex = isControlled ? externalIndex : internalIndex;
+
+  const handleIndexChange = (newIndex: number) => {
+    if (!isControlled) {
+      setInternalIndex(newIndex);
+    }
+    onIndexChange?.(newIndex);
+  };
+
   return (
-    <CarouselProvider>
+    <CarouselProvider
+      initialIndex={currentIndex}
+      onIndexChange={handleIndexChange}
+    >
       <div className={cn('group/hover relative', className)}>
         <div className='overflow-hidden'>{children}</div>
       </div>
@@ -220,7 +258,7 @@ function CarouselContent({
     }
 
     setItemsCount(itemsLength);
-  }, [itemsLength]);
+  }, [itemsLength, setItemsCount]);
 
   const onDragEnd = () => {
     const x = dragX.get();

@@ -3,26 +3,29 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  useCarousel,
 } from '@/components/core/carousel';
+import { useState } from 'react';
 
-function CarouselMP() {
-  const ITEMS = new Array(4).fill(null).map((_, index) => index + 1);
-  const { index, setIndex, itemsCount } = useCarousel();
+const ITEMS = new Array(4).fill(null).map((_, index) => index + 1);
+
+export function CarouselCustomIndicator() {
+  const [index, setIndex] = useState(0);
 
   return (
-    <>
-      <CarouselContent className='relative'>
-        {ITEMS.map((item) => {
-          return (
-            <CarouselItem key={item} className='p-4'>
-              <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
-                {item}
-              </div>
-            </CarouselItem>
-          );
-        })}
-      </CarouselContent>
+    <div className='relative w-full max-w-xs py-8'>
+      <Carousel index={index} onIndexChange={setIndex}>
+        <CarouselContent className='relative'>
+          {ITEMS.map((item) => {
+            return (
+              <CarouselItem key={item} className='p-4'>
+                <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>
+                  {item}
+                </div>
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+      </Carousel>
       <div className='flex w-full justify-center space-x-3 px-4'>
         {ITEMS.map((item) => {
           return (
@@ -38,16 +41,6 @@ function CarouselMP() {
           );
         })}
       </div>
-    </>
-  );
-}
-
-export function CarouselCustomIndicator() {
-  return (
-    <div className='relative w-full max-w-xs py-8'>
-      <Carousel>
-        <CarouselMP />
-      </Carousel>
     </div>
   );
 }
