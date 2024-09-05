@@ -80,20 +80,28 @@ function Dock({
   const mouseX = useMotionValue(Infinity);
 
   return (
-    <motion.div
-      onMouseMove={({ pageX }) => mouseX.set(pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
-      className={cn(
-        'mx-auto flex h-16 w-fit items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 dark:bg-neutral-900',
-        className
-      )}
-      role='toolbar'
-      aria-label='Application dock'
+    <div
+      style={{
+        scrollbarWidth: 'none',
+        height: magnification + magnification / 2 + 4,
+      }}
+      className='mx-2 flex max-w-full items-end overflow-x-auto'
     >
-      <DockProvider value={{ mouseX, spring, distance, magnification }}>
-        {children}
-      </DockProvider>
-    </motion.div>
+      <motion.div
+        onMouseMove={({ pageX }) => mouseX.set(pageX)}
+        onMouseLeave={() => mouseX.set(Infinity)}
+        className={cn(
+          'mx-auto flex h-16 w-fit items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 dark:bg-neutral-900',
+          className
+        )}
+        role='toolbar'
+        aria-label='Application dock'
+      >
+        <DockProvider value={{ mouseX, spring, distance, magnification }}>
+          {children}
+        </DockProvider>
+      </motion.div>
+    </div>
   );
 }
 
@@ -181,7 +189,10 @@ function DockIcon({ children, className, ...rest }: TDockIcon) {
   const widthTransform = useTransform(width, (val) => val / 2);
 
   return (
-    <motion.div style={{ width: widthTransform }} className={className}>
+    <motion.div
+      style={{ width: widthTransform }}
+      className={cn('flex items-center justify-center', className)}
+    >
       {children}
     </motion.div>
   );
