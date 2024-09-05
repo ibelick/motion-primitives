@@ -7,7 +7,13 @@ import {
   ScrollText,
   SunMoon,
 } from 'lucide-react';
-import { Dock, DockIcon, DockItem, DockLabel } from '@/components/core/dock';
+import {
+  Dock,
+  DockContainer,
+  DockIcon,
+  DockItem,
+  DockLabel,
+} from '@/components/core/dock';
 
 const data = [
   {
@@ -65,7 +71,7 @@ const data = [
 
 export function AppleStyleDock() {
   return (
-    <div className='absolute bottom-2 left-1/2 max-w-full -translate-x-1/2'>
+    <DockContainer className='absolute bottom-2 left-1/2 max-w-full -translate-x-1/2'>
       <Dock>
         {data.map((item, idx) => (
           <DockItem key={idx}>
@@ -74,6 +80,6 @@ export function AppleStyleDock() {
           </DockItem>
         ))}
       </Dock>
-    </div>
+    </DockContainer>
   );
 }

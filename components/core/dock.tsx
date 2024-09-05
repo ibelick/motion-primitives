@@ -19,7 +19,17 @@ import {
 } from 'react';
 import { cn } from '@/lib/utils';
 
+/** Constants */
+const DOCK_HEIGHT = 124;
+const DEFAULT_MAGNIFICATION = 80;
+const DEFAULT_DISTANCE = 150;
+/** End of constants */
+
 /** Types */
+type TDockContainer = {
+  className?: string;
+  children: React.ReactNode;
+};
 type TDock = {
   className?: string;
   children: React.ReactNode;
@@ -70,12 +80,20 @@ function useDock() {
 }
 /** End of hooks */
 
+function DockContainer({ children, className }: TDockContainer) {
+  return (
+    <div style={{ pointerEvents: 'none' }} className={className}>
+      {children}
+    </div>
+  );
+}
+
 function Dock({
   children,
   className,
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
-  magnification = 80,
-  distance = 150,
+  magnification = DEFAULT_MAGNIFICATION,
+  distance = DEFAULT_DISTANCE,
 }: TDock) {
   const mouseX = useMotionValue(Infinity);
 
@@ -83,7 +101,7 @@ function Dock({
     <div
       style={{
         scrollbarWidth: 'none',
-        height: magnification + magnification / 2 + 4,
+        height: Math.max(DOCK_HEIGHT, magnification + magnification / 2 + 4),
       }}
       className='mx-2 flex max-w-full items-end overflow-x-auto'
     >
@@ -129,7 +147,7 @@ function DockItem({ children, className }: TDockItem) {
   return (
     <motion.div
       ref={ref}
-      style={{ width }}
+      style={{ width, pointerEvents: 'auto' }}
       onHoverStart={() => isHovered.set(1)}
       onHoverEnd={() => isHovered.set(0)}
       onFocus={() => isHovered.set(1)}
@@ -198,4 +216,4 @@ function DockIcon({ children, className, ...rest }: TDockIcon) {
   );
 }
 
-export { Dock, DockIcon, DockItem, DockLabel };
+export { DockContainer, Dock, DockIcon, DockItem, DockLabel };
