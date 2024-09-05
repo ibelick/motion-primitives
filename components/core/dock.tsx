@@ -112,6 +112,7 @@ function Dock({
           'mx-auto flex h-16 w-fit items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 dark:bg-neutral-900',
           className
         )}
+        style={{ pointerEvents: 'auto' }}
         role='toolbar'
         aria-label='Application dock'
       >
@@ -147,7 +148,7 @@ function DockItem({ children, className }: TDockItem) {
   return (
     <motion.div
       ref={ref}
-      style={{ width, pointerEvents: 'auto' }}
+      style={{ width }}
       onHoverStart={() => isHovered.set(1)}
       onHoverEnd={() => isHovered.set(0)}
       onFocus={() => isHovered.set(1)}
