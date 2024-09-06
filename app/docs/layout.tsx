@@ -12,6 +12,7 @@ type NavigationItem = {
   name: string;
   href: string;
   isNew?: boolean;
+  isUpdated?: boolean;
 };
 
 type NavigationGroup = {
@@ -81,7 +82,7 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text effect',
         href: '/docs/text-effect',
-        isNew: true,
+        isUpdated: true,
       },
       {
         name: 'Toolbar Dynamic',
@@ -168,6 +169,11 @@ function NavigationDesktop() {
                             {child?.isNew && (
                               <span className='whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800'>
                                 New
+                              </span>
+                            )}
+                            {child?.isUpdated && (
+                              <span className='whitespace-nowrap rounded-lg bg-amber-100 px-2 text-[10px] font-semibold text-amber-800'>
+                                Updated
                               </span>
                             )}
                           </Link>
