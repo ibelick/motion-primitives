@@ -20,16 +20,12 @@ import {
 import { cn } from '@/lib/utils';
 
 /** Constants */
-const DOCK_HEIGHT = 124;
+const DOCK_HEIGHT = 128;
 const DEFAULT_MAGNIFICATION = 80;
 const DEFAULT_DISTANCE = 150;
 /** End of constants */
 
 /** Types */
-type TDockContainer = {
-  className?: string;
-  children: React.ReactNode;
-};
 type TDock = {
   className?: string;
   children: React.ReactNode;
@@ -80,14 +76,6 @@ function useDock() {
 }
 /** End of hooks */
 
-function DockContainer({ children, className }: TDockContainer) {
-  return (
-    <div style={{ pointerEvents: 'none' }} className={className}>
-      {children}
-    </div>
-  );
-}
-
 function Dock({
   children,
   className,
@@ -96,23 +84,35 @@ function Dock({
   distance = DEFAULT_DISTANCE,
 }: TDock) {
   const mouseX = useMotionValue(Infinity);
+  const isHovered = useMotionValue(0);
+
+  const height = useTransform(
+    isHovered,
+    [0, 1],
+    ['auto', Math.max(DOCK_HEIGHT, magnification + magnification / 2 + 4)]
+  );
 
   return (
-    <div
+    <motion.div
       style={{
+        height: height,
         scrollbarWidth: 'none',
-        height: Math.max(DOCK_HEIGHT, magnification + magnification / 2 + 4),
       }}
       className='mx-2 flex max-w-full items-end overflow-x-auto'
     >
       <motion.div
-        onMouseMove={({ pageX }) => mouseX.set(pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
+        onMouseMove={({ pageX }) => {
+          isHovered.set(1);
+          mouseX.set(pageX);
+        }}
+        onMouseLeave={() => {
+          isHovered.set(0);
+          mouseX.set(Infinity);
+        }}
         className={cn(
           'mx-auto flex h-16 w-fit items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 dark:bg-neutral-900',
           className
         )}
-        style={{ pointerEvents: 'auto' }}
         role='toolbar'
         aria-label='Application dock'
       >
@@ -120,7 +120,7 @@ function Dock({
           {children}
         </DockProvider>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -217,4 +217,4 @@ function DockIcon({ children, className, ...rest }: TDockIcon) {
   );
 }
 
-export { DockContainer, Dock, DockIcon, DockItem, DockLabel };
+export { Dock, DockIcon, DockItem, DockLabel };
