@@ -1,5 +1,5 @@
 'use client';
-import { motion, Variants } from 'framer-motion';
+import { motion, TargetAndTransition, Variants } from 'framer-motion';
 import React from 'react';
 
 type PresetType = 'blur' | 'shake' | 'scale' | 'fade' | 'slide';
@@ -14,6 +14,9 @@ type TextEffectProps = {
   };
   className?: string;
   preset?: PresetType;
+  delay?: number;
+  trigger?: boolean;
+  onAnimationComplete?: () => void;
 };
 
 const defaultContainerVariants: Variants = {
@@ -116,22 +119,37 @@ export function TextEffect({
   variants,
   className,
   preset,
+  delay = 0,
+  trigger = true,
+  onAnimationComplete,
 }: TextEffectProps) {
   const words = children.split(/(\S+)/);
-  const MotionTag = motion[as as keyof typeof motion];
+  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
   const selectedVariants = preset
     ? presetVariants[preset]
     : { container: defaultContainerVariants, item: defaultItemVariants };
   const containerVariants = variants?.container || selectedVariants.container;
   const itemVariants = variants?.item || selectedVariants.item;
 
+  const delayedContainerVariants: Variants = {
+    ...containerVariants,
+    visible: {
+      ...containerVariants.visible,
+      transition: {
+        ...(containerVariants.visible as TargetAndTransition)?.transition,
+        delayChildren: delay,
+      },
+    },
+  };
+
   return (
     <MotionTag
       initial='hidden'
-      animate='visible'
+      animate={trigger ? 'visible' : 'hidden'}
       aria-label={children}
-      variants={containerVariants}
+      variants={delayedContainerVariants}
       className={className}
+      onAnimationComplete={onAnimationComplete}
     >
       {words.map((word, wordIndex) => (
         <AnimationComponent
