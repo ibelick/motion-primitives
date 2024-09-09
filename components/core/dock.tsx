@@ -15,33 +15,33 @@ import {
   createContext,
   useContext,
   useEffect,
+  useMemo,
   useRef,
 } from 'react';
 import { cn } from '@/lib/utils';
 
-/** Constants */
 const DOCK_HEIGHT = 128;
 const DEFAULT_MAGNIFICATION = 80;
 const DEFAULT_DISTANCE = 150;
-/** End of constants */
+const DEFAULT_PANEL_HEIGHT = 64;
 
-/** Types */
-type TDock = {
-  className?: string;
+type DockProps = {
   children: React.ReactNode;
-  spring?: SpringOptions;
-  magnification?: number;
+  className?: string;
   distance?: number;
+  panelHeight?: number;
+  magnification?: number;
+  spring?: SpringOptions;
 };
-type TDockItem = {
+type DockItemProps = {
   className?: string;
   children: React.ReactNode;
 };
-type TDockLabel = {
+type DockLabelProps = {
   className?: string;
   children: React.ReactNode;
 };
-type TDockIcon = {
+type DockIconProps = {
   className?: string;
   children: React.ReactNode;
 };
@@ -56,17 +56,13 @@ type DockProviderProps = {
   children: React.ReactNode;
   value: DocContextType;
 };
-/** End of types */
 
-/** Context */
 const DockContext = createContext<DocContextType | undefined>(undefined);
 
 function DockProvider({ children, value }: DockProviderProps) {
   return <DockContext.Provider value={value}>{children}</DockContext.Provider>;
 }
-/** End of context */
 
-/** Hooks */
 function useDock() {
   const context = useContext(DockContext);
   if (!context) {
@@ -74,7 +70,6 @@ function useDock() {
   }
   return context;
 }
-/** End of hooks */
 
 function Dock({
   children,
@@ -82,15 +77,17 @@ function Dock({
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
-}: TDock) {
+  panelHeight = DEFAULT_PANEL_HEIGHT,
+}: DockProps) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
 
-  const height = useTransform(
-    isHovered,
-    [0, 1],
-    ['auto', Math.max(DOCK_HEIGHT, magnification + magnification / 2 + 4)]
-  );
+  const maxHeight = useMemo(() => {
+    return Math.max(DOCK_HEIGHT, magnification + magnification / 2 + 4);
+  }, [magnification]);
+
+  const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
+  const height = useSpring(heightRow, spring);
 
   return (
     <motion.div
@@ -110,9 +107,10 @@ function Dock({
           mouseX.set(Infinity);
         }}
         className={cn(
-          'mx-auto flex h-16 w-fit items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 dark:bg-neutral-900',
+          'mx-auto flex w-fit items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 dark:bg-neutral-900',
           className
         )}
+        style={{ height: panelHeight }}
         role='toolbar'
         aria-label='Application dock'
       >
@@ -124,7 +122,7 @@ function Dock({
   );
 }
 
-function DockItem({ children, className }: TDockItem) {
+function DockItem({ children, className }: DockItemProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const { distance, magnification, mouseX, spring } = useDock();
@@ -168,7 +166,7 @@ function DockItem({ children, className }: TDockItem) {
   );
 }
 
-function DockLabel({ children, className, ...rest }: TDockLabel) {
+function DockLabel({ children, className, ...rest }: DockLabelProps) {
   const restProps = rest as Record<string, unknown>;
   const isHovered = restProps['isHovered'] as MotionValue<number>;
 
@@ -201,7 +199,7 @@ function DockLabel({ children, className, ...rest }: TDockLabel) {
   );
 }
 
-function DockIcon({ children, className, ...rest }: TDockIcon) {
+function DockIcon({ children, className, ...rest }: DockIconProps) {
   const restProps = rest as Record<string, unknown>;
   const width = restProps['width'] as MotionValue<number>;
 
