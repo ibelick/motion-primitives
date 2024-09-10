@@ -127,7 +127,6 @@ function DockItem({ children, className }: DockItemProps) {
 
   const { distance, magnification, mouseX, spring } = useDock();
 
-  // To control hovered animation for label
   const isHovered = useMotionValue(0);
 
   const mouseDistance = useTransform(mouseX, (val) => {
