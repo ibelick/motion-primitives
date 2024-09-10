@@ -66,6 +66,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/dialog',
       },
       {
+        name: 'Dock',
+        href: '/docs/dock',
+        isNew: true,
+      },
+      {
         name: 'In view',
         href: '/docs/in-view',
         isNew: true,
