@@ -17,6 +17,7 @@ type CarouselContextType = {
   setIndex: (newIndex: number) => void;
   itemsCount: number;
   setItemsCount: (newItemsCount: number) => void;
+  disableDrag: boolean;
 };
 
 const CarouselContext = createContext<CarouselContextType | undefined>(
@@ -35,12 +36,14 @@ type CarouselProviderProps = {
   children: ReactNode;
   initialIndex?: number;
   onIndexChange?: (newIndex: number) => void;
+  disableDrag?: boolean;
 };
 
 function CarouselProvider({
   children,
   initialIndex = 0,
   onIndexChange,
+  disableDrag = false,
 }: CarouselProviderProps) {
   const [index, setIndex] = useState<number>(initialIndex);
   const [itemsCount, setItemsCount] = useState<number>(0);
@@ -56,7 +59,13 @@ function CarouselProvider({
 
   return (
     <CarouselContext.Provider
-      value={{ index, setIndex: handleSetIndex, itemsCount, setItemsCount }}
+      value={{
+        index,
+        setIndex: handleSetIndex,
+        itemsCount,
+        setItemsCount,
+        disableDrag,
+      }}
     >
       {children}
     </CarouselContext.Provider>
@@ -69,6 +78,7 @@ type CarouselProps = {
   initialIndex?: number;
   index?: number;
   onIndexChange?: (newIndex: number) => void;
+  disableDrag?: boolean;
 };
 
 function Carousel({
@@ -77,6 +87,7 @@ function Carousel({
   initialIndex = 0,
   index: externalIndex,
   onIndexChange,
+  disableDrag = false,
 }: CarouselProps) {
   const [internalIndex, setInternalIndex] = useState<number>(initialIndex);
   const isControlled = externalIndex !== undefined;
@@ -93,6 +104,7 @@ function Carousel({
     <CarouselProvider
       initialIndex={currentIndex}
       onIndexChange={handleIndexChange}
+      disableDrag={disableDrag}
     >
       <div className={cn('group/hover relative', className)}>
         <div className='overflow-hidden'>{children}</div>
@@ -223,7 +235,7 @@ function CarouselContent({
   className,
   transition,
 }: CarouselContentProps) {
-  const { index, setIndex, setItemsCount } = useCarousel();
+  const { index, setIndex, setItemsCount, disableDrag } = useCarousel();
   const [visibleItemsCount, setVisibleItemsCount] = useState(1);
   const dragX = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -272,19 +284,23 @@ function CarouselContent({
 
   return (
     <motion.div
-      drag='x'
-      dragConstraints={{
-        left: 0,
-        right: 0,
-      }}
-      dragMomentum={false}
+      drag={disableDrag ? false : 'x'}
+      dragConstraints={
+        disableDrag
+          ? undefined
+          : {
+              left: 0,
+              right: 0,
+            }
+      }
+      dragMomentum={disableDrag ? undefined : false}
       style={{
-        x: dragX,
+        x: disableDrag ? undefined : dragX,
       }}
       animate={{
         translateX: `-${index * (100 / visibleItemsCount)}%`,
       }}
-      onDragEnd={onDragEnd}
+      onDragEnd={disableDrag ? undefined : onDragEnd}
       transition={
         {
           damping: 18,
@@ -294,7 +310,8 @@ function CarouselContent({
         } || transition
       }
       className={cn(
-        'flex cursor-grab items-center active:cursor-grabbing',
+        'flex items-center',
+        !disableDrag && 'cursor-grab active:cursor-grabbing',
         className
       )}
       ref={containerRef}

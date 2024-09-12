@@ -54,7 +54,7 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Carousel',
         href: '/docs/carousel',
-        isNew: true,
+        isUpdated: true,
       },
       {
         name: 'Cursor',
