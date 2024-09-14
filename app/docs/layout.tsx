@@ -96,6 +96,11 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Transition Panel',
         href: '/docs/transition-panel',
       },
+      {
+        name: "Stacked Cards",
+        href: "/docs/StackedCards",
+        isNew: true
+      }
     ],
   },
 ];
