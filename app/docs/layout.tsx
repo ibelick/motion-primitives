@@ -101,6 +101,11 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Transition Panel',
         href: '/docs/transition-panel',
       },
+      {
+        name: 'Sroll Progress',
+        href: '/docs/scroll-progress',
+        isNew: true,
+      },
     ],
   },
 ];
