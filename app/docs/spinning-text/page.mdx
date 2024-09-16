@@ -1,0 +1,67 @@
+export const metadata = {
+  title: 'Spinning Text - Motion-Primitives',
+  description:
+    'Easily animate text content in a circular motion with customizable properties like width, degree of rotation, and text style.',
+};
+
+import { SpinningText } from '@/components/core/spinning-text';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# SpinningText
+
+Easily animate text content in a circular motion with customizable properties such as width, degree of rotation, and text style. The `SpinningText` component leverages `Framer Motion` for smooth animations.
+
+## Examples
+
+### Basic Usage
+
+<ComponentCodePreview
+  component={
+    <SpinningText>
+      <span>Your Text Here</span>
+    </SpinningText>
+  }
+  filePath='core/spinning-text'
+  hasReTrigger
+/>
+
+### Custom Width and Degree
+
+<ComponentCodePreview
+  component={
+    <SpinningText width={200} degree={360}>
+      <span>Custom Rotation -</span>
+    </SpinningText>
+  }
+  filePath='core/spinning-text'
+  hasReTrigger
+/>
+
+### Custom Text Styles
+
+<ComponentCodePreview
+  component={
+    <SpinningText textStyle={{ fontSize: '24px', color: 'blue' }}>
+      <span>Styled Text</span>
+    </SpinningText>
+  }
+  filePath='core/spinning-text'
+  hasReTrigger
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/spinning-text.tsx' />
+is correct
+
+## Component API
+
+### SpinningText
+
+| Prop      | Type            | Default | Description                                                    |
+| :-------- | :-------------- | :------ | :------------------------------------------------------------- |
+| children  | `ReactElement`  |         | The text content to be animated.                               |
+| width     | `number`        | `200`   | Defines the width and height of the circular text container.   |
+| textStyle | `CSSProperties` | `{}`    | Custom styles for the text elements inside the component.      |
+| degree    | `number`        | `180`   | The degree of rotation to apply to the text around the circle. |
