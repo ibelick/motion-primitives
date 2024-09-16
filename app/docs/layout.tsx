@@ -85,6 +85,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/popover',
       },
       {
+        name: 'Sroll Progress',
+        href: '/docs/scroll-progress',
+        isNew: true,
+      },
+      {
         name: 'Text effect',
         href: '/docs/text-effect',
         isUpdated: true,
@@ -100,11 +105,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Transition Panel',
         href: '/docs/transition-panel',
-      },
-      {
-        name: 'Sroll Progress',
-        href: '/docs/scroll-progress',
-        isNew: true,
       },
     ],
   },
