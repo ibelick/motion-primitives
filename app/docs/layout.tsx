@@ -117,6 +117,11 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
+        name: 'Spinning Text',
+        href: '/docs/spinning-text',
+        isNew: true,
+      },
+      {
         name: 'Toolbar Dynamic',
         href: '/docs/toolbar-dynamic',
       },
