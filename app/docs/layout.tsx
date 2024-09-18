@@ -87,6 +87,7 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Spinning Text',
         href: '/docs/spinning-text',
+        isNew: true,
       },
       {
         name: 'Text effect',

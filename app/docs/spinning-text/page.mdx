@@ -1,16 +1,17 @@
 export const metadata = {
   title: 'Spinning Text - Motion-Primitives',
   description:
-    'Easily animate text content in a circular motion with customizable properties like width, degree of rotation, and text style.',
+    'Easily animate text content or components in a circular motion with customizable properties like width, degree of rotation, and text style.',
 };
 
 import { SpinningText } from '@/components/core/spinning-text';
+import LinkExemple from '@/components/examples/link';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
 # SpinningText
 
-Easily animate text content in a circular motion with customizable properties such as width, degree of rotation, and text style. The `SpinningText` component leverages `Framer Motion` for smooth animations.
+Easily animate text content or components in a circular motion with customizable properties such as width, degree of rotation, text style, and custom classes. The `SpinningText` component leverages `Framer Motion` for smooth animations.
 
 ## Examples
 
@@ -38,12 +39,29 @@ Easily animate text content in a circular motion with customizable properties su
   hasReTrigger
 />
 
-### Custom Text Styles
+### Custom Text Styles and Classname
 
 <ComponentCodePreview
   component={
-    <SpinningText textStyle={{ fontSize: '24px', color: 'blue' }}>
+    <SpinningText
+      textStyle={{ fontSize: '24px', color: 'blue' }}
+      className='custom-class'
+    >
       <span>Styled Text</span>
+    </SpinningText>
+  }
+  filePath='core/spinning-text'
+  hasReTrigger
+/>
+
+### Use Components as Children
+
+If you are using a component as a child, the component should pass any text via a `content` prop. This ensures the text can still be animated in a circular motion.
+
+<ComponentCodePreview
+  component={
+    <SpinningText>
+      <LinkExemple content='GO HOME' link='/' />
     </SpinningText>
   }
   filePath='core/spinning-text'
@@ -53,15 +71,16 @@ Easily animate text content in a circular motion with customizable properties su
 ## Code
 
 <CodeBlock filePath='components/core/spinning-text.tsx' />
-is correct
 
 ## Component API
 
 ### SpinningText
 
-| Prop      | Type            | Default | Description                                                    |
-| :-------- | :-------------- | :------ | :------------------------------------------------------------- |
-| children  | `ReactElement`  |         | The text content to be animated.                               |
-| width     | `number`        | `200`   | Defines the width and height of the circular text container.   |
-| textStyle | `CSSProperties` | `{}`    | Custom styles for the text elements inside the component.      |
-| degree    | `number`        | `180`   | The degree of rotation to apply to the text around the circle. |
+| Prop      | Type            | Default | Description                                                                  |
+| :-------- | :-------------- | :------ | :--------------------------------------------------------------------------- |
+| children  | `ReactElement`  |         | The text content or component to be animated in a circular motion.           |
+| width     | `number`        | `200`   | Defines the width and height of the circular text container.                 |
+| textStyle | `CSSProperties` | `{}`    | Custom styles for the text elements or components inside the circle.         |
+| degree    | `number`        | `180`   | The degree of rotation to apply to the text around the circle.               |
+| duration  | `number`        | `10`    | The duration of the full circular rotation animation.                        |
+| className | `string`        | `''`    | A custom class name to apply styles to each rotating character or component. |
