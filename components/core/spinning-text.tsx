@@ -2,51 +2,53 @@
 import { motion } from 'framer-motion';
 import React, { CSSProperties, ReactElement } from 'react';
 
-// Define the props types for the SpinningText component
 interface SpinningTextProps {
   children: ReactElement;
   width?: number;
   textStyle?: CSSProperties;
   degree?: number;
+  duration: number;
+  className: string;
 }
 
 export const SpinningText: React.FC<SpinningTextProps> = ({
   children,
+  duration = 10,
   width = 200,
   textStyle = {},
   degree = 180,
+  className = children.props?.className || '',
 }) => {
-  const textEl = children.props.children || children.props.content || '';
+  const textEl = children.props?.children || children.props?.content || '';
   const toArr = typeof textEl === 'string' ? textEl.split('') : [];
-  console.log(toArr);
   const fraction = degree / toArr.length;
 
   return (
     <motion.div
-      className='border-3 relative flex items-center justify-center rounded-full border-current'
+      className='relative flex items-center justify-center'
       style={{
         height: `${width}px`,
         width: `${width}px`,
       }}
-      animate={{ rotate: 360 }} // Rotate the entire circle
+      animate={{ rotate: 360 }}
       transition={{
-        duration: 10, // Full rotation time
+        duration: duration,
         ease: 'linear',
-        repeat: Infinity, // Infinite rotation
+        repeat: Infinity,
       }}
     >
       <div className='absolute h-full w-full'>
         {toArr.map((v, i) => (
           <span
-            className='absolute'
+            className={`absolute ${className}`}
             key={i}
             style={{
               transform: `rotate(${fraction * i}deg)`,
               transformOrigin: `0 ${width / 2}px`,
               top: 0,
               left: '50%',
-              color: 'inherit', // Adjust text color as needed
-              ...textStyle, // Apply custom text styles
+              color: 'inherit',
+              ...textStyle,
             }}
           >
             {v}
