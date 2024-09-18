@@ -8,6 +8,8 @@ import Popover from '@/components/core/popover';
 import ToolbarExpandable from '@/components/core/toolbar-expandable';
 import ToolbarDynamic from '@/components/core/toolbar-dynamic';
 import { ChevronRight } from 'lucide-react';
+import { CardExampleLanding } from '@/components/website/card-example-landing';
+import { AnimatedGroupPreset } from '@/components/examples/animated-group-preset';
 
 function Button({
   children,
@@ -66,19 +68,6 @@ function Header() {
   );
 }
 
-function CardExample({ children }: { children: React.ReactNode }) {
-  return (
-    <div className='relative -mx-6 sm:mx-0'>
-      <div className='pointer-events-none absolute left-0 top-[-100px] z-[-1] h-full w-full bg-[radial-gradient(100%_100%_at_50%_50%,hsl(0deg_0%_100%/8%)_0,hsl(0deg_0%_100%/2%)_50%)] blur-2xl md:left-[-100px] md:h-[calc(100%+200px)] md:w-[calc(100%+200px)]' />
-      <div className='relative w-full overflow-hidden rounded-xl bg-zinc-50 p-4 shadow-[0px_0px_0px_1px_theme(colors.zinc.100),0px_2px_2px_0px_theme(colors.zinc.50)] dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none'>
-        <div className='flex h-[350px] items-center justify-center'>
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Motion() {
   return (
     <>
@@ -117,24 +106,29 @@ export default function Motion() {
           </span>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExample>
+          <CardExampleLanding>
             <DialogBasicOne />
-          </CardExample>
+          </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExample>
+          <CardExampleLanding hasReTrigger>
+            <AnimatedGroupPreset />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding>
             <Popover />
-          </CardExample>
+          </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExample>
+          <CardExampleLanding>
             <ToolbarExpandable />
-          </CardExample>
+          </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExample>
+          <CardExampleLanding>
             <ToolbarDynamic />
-          </CardExample>
+          </CardExampleLanding>
         </section>
       </div>
     </>
