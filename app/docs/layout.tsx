@@ -85,6 +85,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/popover',
       },
       {
+        name: 'Spinning Text',
+        href: '/docs/spinning-text',
+        isNew: true,
+      },
+      {
         name: 'Text effect',
         href: '/docs/text-effect',
         isUpdated: true,

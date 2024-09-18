@@ -135,7 +135,7 @@ export default function Motion() {
           <CardExample>
             <ToolbarDynamic />
           </CardExample>
-        </section>
+        </section> 
       </div>
     </>
   );
