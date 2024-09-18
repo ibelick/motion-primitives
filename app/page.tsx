@@ -8,6 +8,15 @@ import Popover from '@/components/core/popover';
 import ToolbarExpandable from '@/components/core/toolbar-expandable';
 import ToolbarDynamic from '@/components/core/toolbar-dynamic';
 import { ChevronRight } from 'lucide-react';
+import { CardExampleLanding } from '@/components/website/card-example-landing';
+import { AnimatedGroupPreset } from '@/components/examples/animated-group-preset';
+import { TextEffectWithExit } from '@/components/examples/text-effect-exit';
+import { InViewImagesGrid } from '@/components/examples/in-view-images-grid';
+import { InfiniteSliderHoverSpeed } from '@/components/examples/infinite-slider-hover-speed';
+import { Cursor1 } from '@/components/examples/cursor-1';
+import { CarouselCustomSizes } from '@/components/examples/carousel-custom-sizes';
+import { CarouselSpacing } from '@/components/examples/carousel-spacing';
+import { SegmentedControl } from '@/components/examples/segmented-control';
 
 function Button({
   children,
@@ -66,19 +75,6 @@ function Header() {
   );
 }
 
-function CardExample({ children }: { children: React.ReactNode }) {
-  return (
-    <div className='relative -mx-6 sm:mx-0'>
-      <div className='pointer-events-none absolute left-0 top-[-100px] z-[-1] h-full w-full bg-[radial-gradient(100%_100%_at_50%_50%,hsl(0deg_0%_100%/8%)_0,hsl(0deg_0%_100%/2%)_50%)] blur-2xl md:left-[-100px] md:h-[calc(100%+200px)] md:w-[calc(100%+200px)]' />
-      <div className='relative w-full overflow-hidden rounded-xl bg-zinc-50 p-4 shadow-[0px_0px_0px_1px_theme(colors.zinc.100),0px_2px_2px_0px_theme(colors.zinc.50)] dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none'>
-        <div className='flex h-[350px] items-center justify-center'>
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Motion() {
   return (
     <>
@@ -117,25 +113,58 @@ export default function Motion() {
           </span>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExample>
+          <CardExampleLanding>
             <DialogBasicOne />
-          </CardExample>
+          </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExample>
+          <CardExampleLanding hasReTrigger>
+            <AnimatedGroupPreset />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding hasReTrigger>
+            <TextEffectWithExit />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding hasReTrigger>
+            <InViewImagesGrid />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding className='px-0'>
+            <InfiniteSliderHoverSpeed />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding>
+            <Cursor1 />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding >
+            <CarouselSpacing />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding>
             <Popover />
-          </CardExample>
+          </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExample>
-            <ToolbarExpandable />
-          </CardExample>
-        </section>
-        <section className='mx-auto max-w-3xl py-32'>
-          <CardExample>
+          <CardExampleLanding>
             <ToolbarDynamic />
-          </CardExample>
+          </CardExampleLanding>
         </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding>
+            <SegmentedControl />
+          </CardExampleLanding>
+        </section>
+        <div className='text-center text-sm text-zinc-500 dark:text-zinc-400'>
+          <Link href='/docs'>and more...</Link>
+        </div>
       </div>
     </>
   );
