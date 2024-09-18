@@ -16,6 +16,7 @@ import { InfiniteSliderHoverSpeed } from '@/components/examples/infinite-slider-
 import { Cursor1 } from '@/components/examples/cursor-1';
 import { CarouselCustomSizes } from '@/components/examples/carousel-custom-sizes';
 import { CarouselSpacing } from '@/components/examples/carousel-spacing';
+import { SegmentedControl } from '@/components/examples/segmented-control';
 
 function Button({
   children,
@@ -132,7 +133,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding>
+          <CardExampleLanding className='px-0'>
             <InfiniteSliderHoverSpeed />
           </CardExampleLanding>
         </section>
@@ -142,7 +143,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding>
+          <CardExampleLanding >
             <CarouselSpacing />
           </CardExampleLanding>
         </section>
@@ -156,6 +157,14 @@ export default function Motion() {
             <ToolbarDynamic />
           </CardExampleLanding>
         </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding>
+            <SegmentedControl />
+          </CardExampleLanding>
+        </section>
+        <div className='text-center text-sm text-zinc-500 dark:text-zinc-400'>
+          <Link href='/docs'>and more...</Link>
+        </div>
       </div>
     </>
   );
