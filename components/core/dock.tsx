@@ -3,7 +3,6 @@
 import {
   motion,
   MotionValue,
-  useAnimation,
   useMotionValue,
   useSpring,
   useTransform,
