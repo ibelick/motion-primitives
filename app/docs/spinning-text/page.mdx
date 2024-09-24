@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 import { SpinningText } from '@/components/core/spinning-text';
-import LinkExemple from '@/components/examples/link';
+import Title from '@/components/examples/title';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -47,7 +47,7 @@ Easily animate text content or components in a circular motion with customizable
       textStyle={{ fontSize: '24px', color: 'blue' }}
       className='custom-class'
     >
-      <span>Styled Text</span>
+      <h1>Styled Text</h1>
     </SpinningText>
   }
   filePath='core/spinning-text'
@@ -61,7 +61,7 @@ If you are using a component as a child, the component should pass any text via 
 <ComponentCodePreview
   component={
     <SpinningText>
-      <LinkExemple content='GO HOME' link='/' />
+      <Title content={'GO HOME'} />
     </SpinningText>
   }
   filePath='core/spinning-text'
