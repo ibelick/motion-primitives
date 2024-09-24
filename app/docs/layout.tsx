@@ -36,7 +36,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Animated Number',
         href: '/docs/animated-number',
-        isNew: true,
       },
       {
         name: 'Animated Group',
@@ -59,11 +58,15 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Cursor',
         href: '/docs/cursor',
-        isNew: true,
       },
       {
         name: 'Dialog',
         href: '/docs/dialog',
+      },
+      {
+        name: 'Disclosure',
+        href: '/docs/disclosure',
+        isNew: true,
       },
       {
         name: 'Dock',
@@ -73,7 +76,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'In view',
         href: '/docs/in-view',
-        isNew: true,
       },
       {
         name: 'Infinite Slider',
