@@ -23,6 +23,8 @@ export const SpinningText: React.FC<SpinningTextProps> = ({
   const toArr = typeof textEl === 'string' ? textEl.split('') : [];
   const fraction = degree / toArr.length;
 
+  const JsxEl = children.type;
+
   return (
     <motion.div
       className='relative flex items-center justify-center'
@@ -37,7 +39,10 @@ export const SpinningText: React.FC<SpinningTextProps> = ({
         repeat: Infinity,
       }}
     >
-      <div className='absolute h-full w-full'>
+      <JsxEl
+        {...children.props}
+        className={`absolute h-full w-full ${className}`}
+      >
         {toArr.map((v, i) => (
           <span
             className={`absolute ${className}`}
@@ -54,7 +59,7 @@ export const SpinningText: React.FC<SpinningTextProps> = ({
             {v}
           </span>
         ))}
-      </div>
+      </JsxEl>
     </motion.div>
   );
 };
