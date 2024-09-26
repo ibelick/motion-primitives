@@ -94,7 +94,7 @@ export default function Motion() {
             <Link href='/docs'>
               <Button>
                 Explore Docs
-                <ChevronRight className='ml-1.5 h-4 w-4 fill-white dark:fill-zinc-950' />
+                <ChevronRight className='ml-1.5 h-4 w-4' />
               </Button>
             </Link>
             <a
