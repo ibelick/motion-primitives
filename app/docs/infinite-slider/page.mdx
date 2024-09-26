@@ -1,0 +1,60 @@
+export const metadata = {
+  title: 'Infinite Slider - Motion-Primitives',
+  description:
+    'Infinite scrolling slider component that smoothly loops through its children. It supports both horizontal and vertical directions, with customizable speed and speed on hover. Ideal for creating continuous carousels, marquee displays, or dynamic content showcases.',
+};
+import { InfiniteSliderBasic } from '@/components/examples/infinite-slider-basic';
+import { InfiniteSliderHoverSpeed } from '@/components/examples/infinite-slider-hover-speed';
+import { InfiniteSliderVertical } from '@/components/examples/infinite-slider-vertical';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Infinite Slider
+
+Infinite scrolling slider component that smoothly loops through its children. It supports both horizontal and vertical directions, with customizable speed and speed on hover. Ideal for creating continuous carousels, marquee displays, or dynamic content showcases.
+
+## Example
+
+### Infinite Slider basic
+
+<ComponentCodePreview
+  component={<InfiniteSliderBasic />}
+  filePath='examples/infinite-slider-basic'
+  classNameComponentContainer='bg-white'
+/>
+
+### Infinite Slider hover speed
+
+<ComponentCodePreview
+  component={<InfiniteSliderHoverSpeed />}
+  filePath='examples/infinite-slider-hover-speed'
+/>
+
+### Infinite Slider vertical
+
+<ComponentCodePreview
+  component={<InfiniteSliderVertical />}
+  filePath='examples/infinite-slider-vertical'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/infinite-slider.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
+## Component API
+
+### InfiniteSlider
+
+| Prop            | Type                       | Default      | Description                                                      |
+| :-------------- | :------------------------- | :----------- | :--------------------------------------------------------------- |
+| children        | React.ReactNode            |              | The child elements to be displayed in the slider.                |
+| gap             | number                     | 16           | The gap between child elements in pixels.                        |
+| duration        | number                     | 25           | The duration of a full cycle of the slider animation in seconds. |
+| durationOnHover | number                     |              | The duration of the animation when hovered, in seconds.          |
+| direction       | 'horizontal' \| 'vertical' | 'horizontal' | The direction of the slider movement.                            |
+| reverse         | boolean                    | false        | Whether to reverse the direction of the slider movement.         |
+| className       | string                     | undefined    | Optional CSS class for styling the component.                    |

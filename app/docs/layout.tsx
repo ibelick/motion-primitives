@@ -12,6 +12,7 @@ type NavigationItem = {
   name: string;
   href: string;
   isNew?: boolean;
+  isUpdated?: boolean;
 };
 
 type NavigationGroup = {
@@ -33,6 +34,15 @@ const NAVIGATION: NavigationGroup[] = [
     name: 'Components',
     children: [
       {
+        name: 'Animated Number',
+        href: '/docs/animated-number',
+      },
+      {
+        name: 'Animated Group',
+        href: '/docs/animated-group',
+        isNew: true,
+      },
+      {
         name: 'Accordion',
         href: '/docs/accordion',
       },
@@ -41,17 +51,35 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/animated-background',
       },
       {
+        name: 'Carousel',
+        href: '/docs/carousel',
+        isUpdated: true,
+      },
+      {
         name: 'Cursor',
         href: '/docs/cursor',
-        isNew: true,
       },
       {
         name: 'Dialog',
         href: '/docs/dialog',
       },
       {
+        name: 'Disclosure',
+        href: '/docs/disclosure',
+        isNew: true,
+      },
+      {
+        name: 'Dock',
+        href: '/docs/dock',
+        isNew: true,
+      },
+      {
         name: 'In view',
         href: '/docs/in-view',
+      },
+      {
+        name: 'Infinite Slider',
+        href: '/docs/infinite-slider',
         isNew: true,
       },
       {
@@ -61,7 +89,7 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text effect',
         href: '/docs/text-effect',
-        isNew: true,
+        isUpdated: true,
       },
       {
         name: 'Toolbar Dynamic',
@@ -118,7 +146,7 @@ function NavigationDesktop() {
 
   return (
     <aside className='sticky top-14 hidden h-[calc(100dvh-theme(spacing.16))] w-[220px] shrink-0 pt-8 md:block lg:pt-12'>
-      <ScrollArea>
+      <ScrollArea className='h-full w-full'>
         <nav>
           <ul role='list' className='h-full'>
             {NAVIGATION.map((item, index) => {
@@ -148,6 +176,11 @@ function NavigationDesktop() {
                             {child?.isNew && (
                               <span className='whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800'>
                                 New
+                              </span>
+                            )}
+                            {child?.isUpdated && (
+                              <span className='whitespace-nowrap rounded-lg bg-amber-100 px-2 text-[10px] font-semibold text-amber-800'>
+                                Updated
                               </span>
                             )}
                           </Link>

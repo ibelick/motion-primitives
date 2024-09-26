@@ -1,0 +1,70 @@
+export const metadata = {
+  title: 'Dock - Motion-Primitives',
+  description:
+    'A versatile UI element that provides a flexible and customizable way to organize and display menu items within your application.',
+};
+
+import Dock from '@/components/core/dock';
+import { AppleStyleDock } from '@/components/examples/apple-style-dock';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Dock
+
+A versatile UI element that provides a flexible and customizable way to organize and display menu items within your application.
+
+## Examples
+
+### Apple style dock
+
+<ComponentCodePreview
+  component={<AppleStyleDock />}
+  filePath='examples/apple-style-dock'
+  hasReTrigger
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/dock.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
+## Component API
+
+### Dock
+
+| Prop          | Type          | Default                                      | Description                                                                              |
+| :------------ | :------------ | :------------------------------------------- | :--------------------------------------------------------------------------------------- |
+| children      | ReactNode     |                                              | The child elements to be animated.                                                       |
+| className     | string        | undefined                                    | Optional CSS class for styling the component.                                            |
+| spring        | SpringOptions | `{ mass: 0.1, stiffness: 150, damping: 12 }` | Spring options from framer-motion for animation effects.                                 |
+| magnification | number        | 80                                           | The scaling factor applied to a dock item on hover.                                      |
+| distance      | number        | 150                                          | The distance from the center of a dock item at which the magnification animation starts. |
+| panelHeight   | number        | 64                                           |
+
+### DockItem
+
+| Prop      | Type      | Default   | Description                                   |
+| :-------- | :-------- | :-------- | :-------------------------------------------- |
+| children  | ReactNode |           | DockLabel and DockIcon                        |
+| className | string    | undefined | Optional CSS class for styling the component. |
+
+### DockLabel
+
+| Prop      | Type      | Default   | Description                                                 |
+| :-------- | :-------- | :-------- | :---------------------------------------------------------- |
+| children  | ReactNode |           | Content of the label, typically a string or formatted text. |
+| className | string    | undefined | Optional CSS class for styling the component.               |
+
+### DockIcon
+
+| Prop      | Type      | Default   | Description                                   |
+| :-------- | :-------- | :-------- | :-------------------------------------------- |
+| children  | ReactNode |           | Icon                                          |
+| className | string    | undefined | Optional CSS class for styling the component. |
+
+## Credits
+
+Created by [@kashyap20](https://github.com/kashyap20), inspired by [Build UI - Magnified Dock](https://buildui.com/recipes/magnified-dock)

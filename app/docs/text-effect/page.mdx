@@ -9,6 +9,9 @@ import { TextEffectPerChar } from '@/components/examples/text-effect-per-char';
 import { TextEffectPerWord } from '@/components/examples/text-effect-per-word';
 import { TextEffectWithPreset } from '@/components/examples/text-effect-preset';
 import { TextEffectWithCustomVariants } from '@/components/examples/text-effect-variants';
+import { TextEffectWithCustomDelay } from '@/components/examples/text-effect-custom-delay';
+import { TextEffectPerLine } from '@/components/examples/text-effect-line';
+import { TextEffectWithExit } from '@/components/examples/text-effect-exit';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -50,19 +53,51 @@ Easily animate text content with various effects. You can apply animations per c
   hasReTrigger
 />
 
+### Text Effect with custom delay
+
+<ComponentCodePreview
+  component={<TextEffectWithCustomDelay />}
+  filePath='examples/text-effect-custom-delay'
+  hasReTrigger
+/>
+
+### Text Effect per line
+
+<ComponentCodePreview
+  component={<TextEffectPerLine />}
+  filePath='examples/text-effect-line'
+  hasReTrigger
+/>
+
+## Text Effect with exit animation
+
+<ComponentCodePreview
+  component={<TextEffectWithExit />}
+  filePath='examples/text-effect-exit'
+  hasReTrigger
+/>
+
 ## Code
 
 <CodeBlock filePath='components/core/text-effect.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
 
 ## Component API
 
 ### TextEffect
 
-| Prop      | Type                                              | Default   | Description                                                  |
-| :-------- | :------------------------------------------------ | :-------- | :----------------------------------------------------------- |
-| children  | string                                            |           | The text content to be animated.                             |
-| per       | 'word' \| 'char'                                  | 'word'    | Defines whether animation applies per word or per character. |
-| as        | keyof JSX.IntrinsicElements                       | 'p'       | The HTML tag to render, defaults to paragraph.               |
-| variants  | `{ container?: Variants; item?: Variants; }`      | undefined | Custom variants for container and item animations.           |
-| className | string                                            | undefined | Optional CSS class for styling the component.                |
-| preset    | 'blur' \| 'shake' \| 'scale' \| 'fade' \| 'slide' | undefined | Preset animations to apply to the text.                      |
+| Prop                    | Type                                              | Default   | Description                                                     |
+| :---------------------- | :------------------------------------------------ | :-------- | :-------------------------------------------------------------- |
+| children                | string                                            |           | The text content to be animated.                                |
+| per                     | 'word' \| 'char' \| 'line'                        | 'word'    | Defines whether animation applies per word, character, or line. |
+| as                      | keyof JSX.IntrinsicElements                       | 'p'       | The HTML tag to render, defaults to paragraph.                  |
+| variants                | `{ container?: Variants; item?: Variants; }`      | undefined | Custom variants for container and item animations.              |
+| className               | string                                            | undefined | Optional CSS class for styling the component.                   |
+| preset                  | 'blur' \| 'shake' \| 'scale' \| 'fade' \| 'slide' | undefined | Preset animations to apply to the text.                         |
+| delay                   | number                                            | undefined | Delay before the animation starts.                              |
+| trigger                 | boolean                                           | undefined | Controls whether the animation should be triggered.             |
+| onAnimationComplete     | () => void                                        | undefined | Callback function when the animation completes.                 |
+| segmentWrapperClassName | string                                            | undefined | Optional CSS class for styling segment wrappers.                |

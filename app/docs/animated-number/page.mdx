@@ -1,0 +1,55 @@
+export const metadata = {
+  title: 'Animated Number - Motion-Primitives',
+  description: 'Easily animate numbers.',
+};
+
+import { AnimatedNumber } from '@/components/core/animated-number';
+import { AnimatedNumberBasic } from '@/components/examples/animated-number-basic';
+import { AnimatedNumberCounter } from '@/components/examples/animated-number-counter';
+import { AnimatedNumberInView } from '@/components/examples/animated-number-in-view';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Animated Number
+
+Easily animate numbers.
+
+## Examples
+
+### Basic
+
+<ComponentCodePreview
+  component={<AnimatedNumberBasic />}
+  filePath='examples/animated-number-basic'
+  hasReTrigger
+/>
+
+### Basic counter
+
+<ComponentCodePreview
+  component={<AnimatedNumberCounter />}
+  filePath='examples/animated-number-counter'
+/>
+
+### With useInView
+
+<ComponentCodePreview
+  component={<AnimatedNumberInView />}
+  filePath='examples/animated-number-in-view'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/animated-number.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
+## Component API
+
+| Prop          | Type          | Default | Description                                               |
+| :------------ | :------------ | :------ | :-------------------------------------------------------- |
+| value         | number        |         | The number to be animated.                                |
+| className     | string        |         | Optional CSS class for styling the number item container. |
+| springOptions | SpringOptions |         | Spring options from framer-motion for the animation.      |
