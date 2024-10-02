@@ -22,6 +22,7 @@ Easily animate numbers.
   component={<AnimatedNumberBasic />}
   filePath='examples/animated-number-basic'
   hasReTrigger
+  classNameComponentContainer='min-h-[250px]'
 />
 
 ### Basic counter
@@ -29,6 +30,7 @@ Easily animate numbers.
 <ComponentCodePreview
   component={<AnimatedNumberCounter />}
   filePath='examples/animated-number-counter'
+  classNameComponentContainer='min-h-[250px]'
 />
 
 ### With useInView
@@ -36,11 +38,16 @@ Easily animate numbers.
 <ComponentCodePreview
   component={<AnimatedNumberInView />}
   filePath='examples/animated-number-in-view'
+  classNameComponentContainer='min-h-[250px]'
 />
 
 ## Code
 
 <CodeBlock filePath='components/core/animated-number.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
 
 ## Component API
 

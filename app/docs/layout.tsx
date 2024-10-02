@@ -31,12 +31,11 @@ const NAVIGATION: NavigationGroup[] = [
     ],
   },
   {
-    name: 'Components',
+    name: 'Core Components',
     children: [
       {
         name: 'Animated Number',
         href: '/docs/animated-number',
-        isNew: true,
       },
       {
         name: 'Animated Group',
@@ -59,30 +58,24 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Cursor',
         href: '/docs/cursor',
-        isNew: true,
       },
       {
         name: 'Dialog',
         href: '/docs/dialog',
       },
       {
-        name: 'Dock',
-        href: '/docs/dock',
+        name: 'Disclosure',
+        href: '/docs/disclosure',
         isNew: true,
       },
       {
         name: 'In view',
         href: '/docs/in-view',
-        isNew: true,
       },
       {
         name: 'Infinite Slider',
         href: '/docs/infinite-slider',
         isNew: true,
-      },
-      {
-        name: 'Popover',
-        href: '/docs/popover',
       },
       {
         name: 'Sroll Progress',
@@ -95,16 +88,30 @@ const NAVIGATION: NavigationGroup[] = [
         isUpdated: true,
       },
       {
-        name: 'Toolbar Dynamic',
-        href: '/docs/toolbar-dynamic',
+        name: 'Transition Panel',
+        href: '/docs/transition-panel',
       },
+    ],
+  },
+  {
+    name: 'Extras Components',
+    children: [
       {
         name: 'Toolbar Expandable',
         href: '/docs/toolbar-expandable',
       },
       {
-        name: 'Transition Panel',
-        href: '/docs/transition-panel',
+        name: 'Dock',
+        href: '/docs/dock',
+        isNew: true,
+      },
+      {
+        name: 'Popover',
+        href: '/docs/popover',
+      },
+      {
+        name: 'Toolbar Dynamic',
+        href: '/docs/toolbar-dynamic',
       },
     ],
   },
@@ -155,7 +162,7 @@ function NavigationDesktop() {
             {NAVIGATION.map((item, index) => {
               return (
                 <li className='mb-6' key={`${item.name}-${index}`}>
-                  <div className='text-sm/6 font-medium text-zinc-950 dark:text-white'>
+                  <div className='text-sm/6 font-normal text-zinc-950 dark:text-white'>
                     {item.name}
                   </div>
                   <ul
@@ -169,7 +176,7 @@ function NavigationDesktop() {
                         <li key={child.href}>
                           <Link
                             className={cn(
-                              'relative inline-flex items-center space-x-1 pl-4 text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
+                              'relative inline-flex items-center space-x-1 pl-4 text-sm font-normal text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
                               isActive &&
                                 'text-zinc-950 before:absolute before:inset-y-0 before:left-[-1.5px] before:w-[2px] before:rounded-full before:bg-zinc-950 dark:text-white dark:before:bg-white'
                             )}
