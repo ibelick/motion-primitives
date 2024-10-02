@@ -78,11 +78,6 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
-        name: 'Sroll Progress',
-        href: '/docs/scroll-progress',
-        isNew: true,
-      },
-      {
         name: 'Text effect',
         href: '/docs/text-effect',
         isUpdated: true,
@@ -97,17 +92,22 @@ const NAVIGATION: NavigationGroup[] = [
     name: 'Extras Components',
     children: [
       {
-        name: 'Toolbar Expandable',
-        href: '/docs/toolbar-expandable',
-      },
-      {
         name: 'Dock',
         href: '/docs/dock',
         isNew: true,
       },
       {
+        name: 'Toolbar Expandable',
+        href: '/docs/toolbar-expandable',
+      },
+      {
         name: 'Popover',
         href: '/docs/popover',
+      },
+      {
+        name: 'Sroll Progress',
+        href: '/docs/scroll-progress',
+        isNew: true,
       },
       {
         name: 'Toolbar Dynamic',
