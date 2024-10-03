@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { ScrollProgress } from '../core/scroll-progress';
 
 const dummyContent = Array.from({ length: 10 }, (_, i) => (
-  <p key={i} className='pb-4 leading-relaxed text-zinc-700 dark:text-zinc-300'>
+  <p key={i} className='pb-4 text-zinc-500 text-sm font-mono' >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
     lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
     nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget
@@ -18,12 +18,12 @@ export function ScrollProgressBasic2() {
 
   return (
     <div className='h-[350px] overflow-auto px-8 pb-4 pt-16' ref={containerRef}>
-      <div className='border-zin-500 absolute left-0 top-0 z-10 h-12 w-full bg-white dark:bg-zinc-950'>
+      <div className='border-zin-500 absolute left-0 top-0 z-10 h-10 w-full bg-white dark:bg-zinc-950'>
         <ScrollProgress
-          className='absolute top-0 h-12 bg-zinc-200 dark:bg-zinc-800'
+          className='absolute top-0 h-10 bg-zinc-200 dark:bg-zinc-800'
           ref={containerRef}
         />
-        <div className='absolute left-0 top-0 flex h-12 items-center space-x-6 px-8 font-[450]'>
+        <div className='absolute left-0 top-0 flex h-10 items-center space-x-6 px-8 font-[450]'>
           <a
             href='#'
             className='text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
