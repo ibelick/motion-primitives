@@ -26,7 +26,7 @@ export const ScrollProgress = React.forwardRef<
 
   return (
     <motion.div
-      className={cn('inset-x-0 top-0 h-1 origin-left bg-blue-500', className)}
+      className={cn('inset-x-0 top-0 h-1 origin-left', className)}
       style={{
         scaleX,
       }}

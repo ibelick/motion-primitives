@@ -4,7 +4,8 @@ export const metadata = {
 };
 
 import { ScrollProgress } from '@/components/core/scroll-progress';
-import { ScrollProgressPreview } from '@/components/examples/scroll-progress-preview';
+import { ScrollProgressBasic1 } from '@/components/examples/scroll-progress-basic-1';
+import { ScrollProgressBasic2 } from '@/components/examples/scroll-progress-basic-2';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -14,12 +15,14 @@ Animated scroll progress for your web pages.
 
 ## Examples
 
-## Scroll Progress
+<ComponentCodePreview
+  component={<ScrollProgressBasic1 />}
+  filePath='examples/scroll-progress-basic-1'
+/>
 
 <ComponentCodePreview
-  component={<ScrollProgressPreview />}
-  filePath='examples/scroll-progress-preview'
-  hasReTrigger
+  component={<ScrollProgressBasic2 />}
+  filePath='examples/scroll-progress-basic-2'
 />
 
 ## Code
