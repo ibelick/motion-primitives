@@ -17,29 +17,28 @@ const DEFAULT_SPRING_OPTIONS: SpringOptions = {
   restDelta: 0.001,
 };
 
-export const ScrollProgress = forwardRef<HTMLDivElement, ScrollProgressProps>(
-  ({ className, springOptions, style, containerRef }, ref) => {
-    const uniqueId = useId();
-    const { scrollYProgress } = useScroll({
-      container: containerRef,
-    });
+export function ScrollProgress({
+  className,
+  springOptions,
+  style,
+  containerRef,
+}: ScrollProgressProps) {
+  const { scrollYProgress } = useScroll({
+    container: containerRef,
+    layoutEffect: containerRef.current !== null,
+  });
 
-    const scaleX = useSpring(scrollYProgress, {
-      ...(springOptions ?? DEFAULT_SPRING_OPTIONS),
-    });
+  const scaleX = useSpring(scrollYProgress, {
+    ...(springOptions ?? DEFAULT_SPRING_OPTIONS),
+  });
 
-    return (
-      <motion.div
-        key={uniqueId}
-        ref={ref}
-        className={cn('inset-x-0 top-0 h-1 origin-left', className)}
-        style={{
-          scaleX,
-          ...style,
-        }}
-      />
-    );
-  }
-);
-
-ScrollProgress.displayName = 'ScrollProgress';
+  return (
+    <motion.div
+      className={cn('inset-x-0 top-0 h-1 origin-left', className)}
+      style={{
+        scaleX,
+        ...style,
+      }}
+    />
+  );
+}
