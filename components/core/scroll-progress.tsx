@@ -2,7 +2,7 @@
 
 import { motion, SpringOptions, useScroll, useSpring } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { forwardRef, RefObject, useEffect, useRef, useState } from 'react';
+import { forwardRef, RefObject, useId } from 'react';
 
 interface ScrollProgressProps {
   className?: string;
@@ -19,6 +19,7 @@ const DEFAULT_SPRING_OPTIONS: SpringOptions = {
 
 export const ScrollProgress = forwardRef<HTMLDivElement, ScrollProgressProps>(
   ({ className, springOptions, style, containerRef }, ref) => {
+    const uniqueId = useId();
     const { scrollYProgress } = useScroll({
       container: containerRef,
     });
@@ -29,6 +30,8 @@ export const ScrollProgress = forwardRef<HTMLDivElement, ScrollProgressProps>(
 
     return (
       <motion.div
+        key={uniqueId}
+        ref={ref}
         className={cn('inset-x-0 top-0 h-1 origin-left', className)}
         style={{
           scaleX,
