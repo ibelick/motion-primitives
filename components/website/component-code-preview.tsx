@@ -20,7 +20,7 @@ export default function ComponentCodePreview({
   const fileContent = extractCodeFromFilePath(`components/${filePath}.tsx`);
 
   return (
-    <div className='not-prose relative z-0 flex items-center justify-between pb-3'>
+    <div className='not-prose relative z-0 flex items-center justify-between pb-4'>
       <Tabs defaultValue='preview' className='relative mr-auto w-full'>
         <TabsList className=''>
           <TabsTrigger value='preview'>Preview</TabsTrigger>
