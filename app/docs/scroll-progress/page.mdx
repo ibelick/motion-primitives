@@ -1,0 +1,48 @@
+export const metadata = {
+  title: 'Scroll Progress - Motion-Primitives',
+  description: 'Animated scroll progress for your web pages.',
+};
+
+import { ScrollProgress } from '@/components/core/scroll-progress';
+import { ScrollProgressBasic1 } from '@/components/examples/scroll-progress-basic-1';
+import { ScrollProgressBasic2 } from '@/components/examples/scroll-progress-basic-2';
+import { ScrollProgressBasic3 } from '@/components/examples/scroll-progress-basic-3';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Scroll Progress
+
+Animated scroll progress for your web pages.
+
+## Examples
+
+<ComponentCodePreview
+  component={<ScrollProgressBasic1 />}
+  filePath='examples/scroll-progress-basic-1'
+/>
+
+<ComponentCodePreview
+  component={<ScrollProgressBasic2 />}
+  filePath='examples/scroll-progress-basic-2'
+/>
+
+<ComponentCodePreview
+  component={<ScrollProgressBasic3 />}
+  filePath='examples/scroll-progress-basic-3'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/scroll-progress.tsx' />
+
+## Component API
+
+| Prop          | Type          | Default | Description                                                |
+| :------------ | :------------ | :------ | :--------------------------------------------------------- |
+| className     | string        |         | Optional CSS class for styling the scroll progress.        |
+| springOptions | SpringOptions |         | Optional spring options for the scroll progress animation. |
+| containerRef  | RefObject     |         | Optional Ref object for the container element.             |
+
+## Credit
+
+Initiated by [@bhataasim1](https://github.com/bhataasim1)
