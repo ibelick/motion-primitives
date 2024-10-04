@@ -105,7 +105,7 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/popover',
       },
       {
-        name: 'Sroll Progress',
+        name: 'Scroll Progress',
         href: '/docs/scroll-progress',
         isNew: true,
       },
@@ -162,7 +162,7 @@ function NavigationDesktop() {
             {NAVIGATION.map((item, index) => {
               return (
                 <li className='mb-6' key={`${item.name}-${index}`}>
-                  <div className='text-sm/6 font-normal text-zinc-950 dark:text-white'>
+                  <div className='text-sm/6 font-[450] text-zinc-950 dark:text-white'>
                     {item.name}
                   </div>
                   <ul
@@ -184,12 +184,12 @@ function NavigationDesktop() {
                           >
                             <span>{child.name}</span>
                             {child?.isNew && (
-                              <span className='whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800'>
+                              <span className='whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-50'>
                                 New
                               </span>
                             )}
                             {child?.isUpdated && (
-                              <span className='whitespace-nowrap rounded-lg bg-amber-100 px-2 text-[10px] font-semibold text-amber-800'>
+                              <span className='whitespace-nowrap rounded-lg bg-amber-100 px-2 text-[10px] font-semibold text-amber-800 dark:bg-amber-950 dark:text-amber-50'>
                                 Updated
                               </span>
                             )}
