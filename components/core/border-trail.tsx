@@ -8,6 +8,7 @@ type BorderTrailProps = {
   transition?: Transition;
   delay?: number;
   onAnimationComplete?: () => void;
+  style?: React.CSSProperties;
 };
 
 export function BorderTrail({
@@ -16,6 +17,7 @@ export function BorderTrail({
   transition,
   delay,
   onAnimationComplete,
+  style,
 }: BorderTrailProps) {
   const BASE_TRANSITION = {
     repeat: Infinity,
@@ -30,6 +32,7 @@ export function BorderTrail({
         style={{
           width: size,
           offsetPath: `rect(0 auto auto 0 round ${size}px)`,
+          ...style,
         }}
         animate={{
           offsetDistance: ['0%', '100%'],

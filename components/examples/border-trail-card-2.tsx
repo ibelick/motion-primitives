@@ -22,10 +22,10 @@ export function BorderTrailCard2() {
       {isVisible && (
         <BorderTrail
           className={cn(
-            'bg-gradient-to-l from-green-600 via-green-500 to-green-400 transition-opacity duration-300 dark:from-green-400 dark:via-green-500 dark:to-green-700',
+            'bg-gradient-to-l from-green-300 via-green-500 to-green-300 transition-opacity duration-300 dark:from-green-700/30 dark:via-green-500 dark:to-green-700/30',
             isLoading ? 'opacity-100' : 'opacity-0'
           )}
-          size={60}
+          size={120}
           transition={{
             ease: [0, 0.5, 0.8, 0.5],
             duration: 4,
@@ -36,7 +36,7 @@ export function BorderTrailCard2() {
       )}
       <div className='flex h-full flex-col items-end justify-end'>
         <button
-          className='relative ml-1 flex h-8 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 bg-white px-2 text-sm text-zinc-500 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10'
+          className='relative ml-1 flex h-8 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 bg-white px-2 text-sm text-zinc-500 focus-visible:ring-2 active:scale-[0.96] dark:border-zinc-50/10'
           type='button'
           aria-label='Load'
           onClick={handleLoad}

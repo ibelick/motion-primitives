@@ -4,7 +4,10 @@ export function BorderTrailCard1() {
   return (
     <div className='relative flex h-[200px] w-[300px] flex-col items-center justify-center rounded-md bg-zinc-200 px-5 py-2 dark:bg-zinc-900'>
       <BorderTrail
-        className='bg-gradient-to-l from-zinc-900 via-zinc-600 to-zinc-300 dark:from-zinc-400 dark:via-zinc-500 dark:to-zinc-700'
+        style={{
+          boxShadow:
+            '0px 0px 60px 30px rgb(255 255 255 / 50%), 0 0 100px 60px rgb(0 0 0 / 50%), 0 0 140px 90px rgb(0 0 0 / 50%)',
+        }}
         size={100}
       />
       <div
