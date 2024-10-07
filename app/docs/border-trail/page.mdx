@@ -1,0 +1,54 @@
+export const metadata = {
+  title: 'Border Trail - Motion-Primitives',
+  description:
+    'Animated border effect that moves along the edges of its parent container.',
+};
+
+import { BorderTrailCard1 } from '@/components/examples/border-trail-card-1';
+import { BorderTrailCard2 } from '@/components/examples/border-trail-card-2';
+import { BorderTrailTextarea } from '@/components/examples/border-trail-textarea';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Border Trail
+
+Animated border effect that moves along the edges of its parent container.
+
+## Examples
+
+### Border Trail
+
+<ComponentCodePreview
+  component={<BorderTrailCard1 />}
+  filePath='examples/border-trail-card-1'
+/>
+
+### Border Trail Loading Card
+
+<ComponentCodePreview
+  component={<BorderTrailCard2 />}
+  filePath='examples/border-trail-card-2'
+/>
+
+### Border Trail Textarea
+
+<ComponentCodePreview
+  component={<BorderTrailTextarea />}
+  filePath='examples/border-trail-textarea'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/border-trail.tsx' />
+
+## Component API
+
+### Border Trail
+
+| Prop                | Type       | Default | Description                                               |
+| :------------------ | :--------- | :------ | :-------------------------------------------------------- |
+| className           | string     |         | Additional CSS classes for styling the border trail.      |
+| size                | number     | 60      | Size of the animated border effect.                       |
+| transition          | Transition |         | Custom transition settings for the animation.             |
+| delay               | number     |         | Delay before the animation starts.                        |
+| onAnimationComplete | () => void |         | Callback function triggered when the animation completes. |
