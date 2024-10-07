@@ -51,6 +51,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/animated-background',
       },
       {
+        name: 'Border Trail',
+        href: '/docs/border-trail',
+        isNew: true,
+      },
+      {
         name: 'Carousel',
         href: '/docs/carousel',
         isUpdated: true,
