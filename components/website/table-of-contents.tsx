@@ -7,6 +7,7 @@ type Heading = {
   id: string;
   text: string;
   level: number;
+  link: string;
 };
 
 // can be improved
@@ -17,11 +18,16 @@ export function TableOfContents() {
   useEffect(() => {
     const updateHeadings = () => {
       const elements = Array.from(document.querySelectorAll('[data-heading]'));
-      const newHeadings = elements.map((elem) => ({
-        id: elem.id,
-        text: elem.textContent ?? '',
-        level: parseInt(elem.getAttribute('data-heading') || '2', 10),
-      }));
+      const newHeadings = elements.map((elem) => {
+        const level = parseInt(elem.getAttribute('data-heading') || '2', 10);
+
+        return {
+          id: `${elem.id}-${level}`,
+          link: elem.id,
+          text: elem.textContent ?? '',
+          level,
+        };
+      });
       setHeadings(newHeadings);
     };
 
@@ -51,8 +57,8 @@ export function TableOfContents() {
             )}
           >
             <a
-              href={`#${heading.id}`}
-              className='hover:text-zinc-950 dark:hover:text-white'
+              href={`#${heading.link}`}
+              className={cn('hover:text-zinc-950 dark:hover:text-white')}
             >
               {heading.text}
             </a>
