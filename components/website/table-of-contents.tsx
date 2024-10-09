@@ -16,17 +16,21 @@ export function TableOfContents() {
 
   useEffect(() => {
     const updateHeadings = () => {
-      const elements = Array.from(document.querySelectorAll('h2, h3, h4')).map(
-        (elem) => ({
-          id: elem.id,
-          text: elem.textContent ?? '',
-          level: Number(elem.tagName.charAt(1)),
-        })
-      );
-      setHeadings(elements);
+      const elements = Array.from(document.querySelectorAll('[data-heading]'));
+      const newHeadings = elements.map((elem) => ({
+        id: elem.id,
+        text: elem.textContent ?? '',
+        level: parseInt(elem.getAttribute('data-heading') || '2', 10),
+      }));
+      setHeadings(newHeadings);
     };
 
     updateHeadings();
+
+    const observer = new MutationObserver(updateHeadings);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
   }, [pathname]);
 
   return (
@@ -35,13 +39,12 @@ export function TableOfContents() {
       <ul
         className='list-none space-y-2 text-sm/6 text-zinc-700 dark:text-zinc-400'
         role='list'
-        key={headings.map((heading) => heading.id).join('-')}
       >
         {headings.map((heading) => (
           <li
             key={heading.id}
             className={cn(
-              heading.level === 1 && 'pl-0',
+              'transition-all duration-200',
               heading.level === 2 && 'pl-0',
               heading.level === 3 && 'pl-2',
               heading.level === 4 && 'pl-4'
@@ -49,7 +52,7 @@ export function TableOfContents() {
           >
             <a
               href={`#${heading.id}`}
-              className={cn('hover:text-zinc-950 dark:hover:text-white')}
+              className='hover:text-zinc-950 dark:hover:text-white'
             >
               {heading.text}
             </a>
