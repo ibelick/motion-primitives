@@ -4,8 +4,10 @@ import { cn } from '@/lib/utils';
 import { motion, PanInfo } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+type Positions = 'top' | 'bottom' | 'left' | 'right' | 'corner';
+
 interface ResizableCardProps {
-  resizePosition: 'top' | 'bottom' | 'left' | 'right' | 'corner';
+  resizePosition: Positions;
   children: React.ReactNode;
 }
 
@@ -14,10 +16,7 @@ interface Dimension {
   height: number;
 }
 
-function ResizableCard({
-  resizePosition = 'bottom',
-  children,
-}: ResizableCardProps) {
+function ResizableCard({ resizePosition, children }: ResizableCardProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [dimensions, setDimensions] = useState<Dimension>({
     width: 224,
@@ -29,7 +28,7 @@ function ResizableCard({
     bottom: 'pb-7 bg-gradient-to-t',
     left: 'pl-7 bg-gradient-to-r',
     right: 'pr-7 bg-gradient-to-l',
-    corner: '',
+    corner: 'bg-gradient-to-tl',
   };
 
   const handleDrag = (event: MouseEvent | TouchEvent, info: PanInfo) => {
@@ -64,18 +63,20 @@ function ResizableCard({
   useEffect(() => {
     if (isDragging) {
       document.body.style.cursor = 'grabbing';
+      document.body.style.userSelect = 'none';
     } else {
       document.body.style.cursor = 'auto';
+      document.body.style.userSelect = 'auto';
     }
   }, [isDragging]);
 
   return (
     <motion.div
       className={cn(
-        'relative flex max-h-[calc(100dvh-2rem)] min-h-[224px] min-w-[224px] max-w-[calc(100dvw-2rem)] items-center justify-center rounded-xl bg-zinc-200 p-2 transition-transform dark:bg-zinc-800',
+        'relative flex max-h-[calc(100dvh-2rem)] min-h-[224px] min-w-[224px] max-w-[calc(100dvw-2rem)] items-center justify-center rounded-xl bg-zinc-200 p-2 transition duration-500 dark:bg-zinc-800',
         containerVariants[resizePosition],
         isDragging &&
-          'from-zinc-200 to-zinc-50 dark:from-zinc-800 dark:to-zinc-950'
+          'from-zinc-200 to-white dark:from-zinc-800 dark:to-zinc-950'
       )}
       style={{ width: dimensions.width, height: dimensions.height }}
       whileTap={{ scale: 0.98 }}
@@ -112,13 +113,14 @@ function ResizableCardHandler({
     bottom: 'h-1 w-20 bottom-3 left-1/2 transform -translate-x-1/2',
     left: 'h-20 w-1 left-3 top-1/2 transform -translate-y-1/2',
     right: 'h-20 w-1 right-3 top-1/2 transform -translate-y-1/2',
-    corner: 'bottom-0 right-0',
+    corner:
+      'w-10 h-10 rounded-full bottom-0 right-0 border-8 border-zinc-200 bg-zinc-500 dark:border-zinc-800',
   };
 
   return (
     <motion.span
       className={cn(
-        'absolute cursor-grab rounded-lg bg-zinc-500 transition-transform dark:bg-zinc-50/30',
+        'absolute w-full cursor-grab rounded-lg bg-zinc-500 transition-transform hover:scale-125 dark:bg-zinc-50/30',
         handleVariant[resizePosition],
         isDragging && 'scale-125 bg-zinc-600 dark:bg-zinc-50/40'
       )}
@@ -130,9 +132,7 @@ function ResizableCardHandler({
 }
 
 export default function ResizableCardDemo() {
-  const [position, setPosition] = useState<'top' | 'bottom' | 'left' | 'right'>(
-    'right'
-  );
+  const [position, setPosition] = useState<Positions>('bottom');
   const buttonClassName =
     'relative flex h-8 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 bg-zinc-50 dark:bg-zinc-950 px-2 text-sm text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:text-zinc-50 dark:hover:bg-zinc-800';
 
@@ -157,14 +157,43 @@ export default function ResizableCardDemo() {
         >
           Right
         </button>
+        <button
+          className={buttonClassName}
+          onClick={() => setPosition('corner')}
+        >
+          Corner
+        </button>
       </div>
       <ResizableCard resizePosition={position}>
-        <div className='flex h-full flex-col items-center justify-center'>
-          <div className='text-zinc-950 dark:text-zinc-50'>Resizable Card</div>
+        <div className='flex h-full flex-col gap-5 p-2'>
+          <div className='flex items-center gap-2'>
+            <div className='h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-400' />
+            <div className='flex flex-col items-center justify-center'>
+              <p>Ibelick</p>
+              <p className='text-xs text-zinc-500 dark:text-zinc-400'>
+                @Ibelick
+              </p>
+            </div>
+          </div>
           <p className='text-xs text-zinc-500 dark:text-zinc-400'>
-            A card that can be resized by dragging its edges. It can be used to
-            create resizable panels or windows.
+            design engineer • building http://motion-primitives.com • freelance
           </p>
+          <div className='flex w-full flex-col gap-2'>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <div
+                key={index}
+                className='flex items-center justify-between rounded border border-zinc-950/10 px-4 py-2 dark:border-zinc-800'
+              >
+                <div className='flex flex-col items-center justify-center'>
+                  <p>Task {index + 1}</p>
+                  <p className='text-xs text-zinc-500 dark:text-zinc-400'>
+                    {index + 1} hours
+                  </p>
+                </div>
+                <input type='checkbox' className='h-4 w-4' />
+              </div>
+            ))}
+          </div>
         </div>
       </ResizableCard>
     </>
