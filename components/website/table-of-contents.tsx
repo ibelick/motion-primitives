@@ -18,16 +18,20 @@ export function TableOfContents() {
   useEffect(() => {
     const updateHeadings = () => {
       const elements = Array.from(document.querySelectorAll('[data-heading]'));
-      const newHeadings = elements.map((elem) => {
-        const level = parseInt(elem.getAttribute('data-heading') || '2', 10);
+      const newHeadings = elements
+        .map((elem) => {
+          const level = parseInt(elem.getAttribute('data-heading') || '2', 10);
 
-        return {
-          id: `${elem.id}-${level}`,
-          link: elem.id,
-          text: elem.textContent ?? '',
-          level,
-        };
-      });
+          if (level === 1) return null;
+
+          return {
+            id: `${elem.id}-${level}`,
+            link: elem.id,
+            text: elem.textContent ?? '',
+            level,
+          };
+        })
+        .filter((heading): heading is Heading => heading !== null);
       setHeadings(newHeadings);
     };
 
@@ -39,16 +43,21 @@ export function TableOfContents() {
     return () => observer.disconnect();
   }, [pathname]);
 
+  if (headings.length === 0) return null;
+
   return (
     <>
-      <p className='mb-2 text-sm text-black dark:text-white'>On this page</p>
+      <p className='mb-2 text-sm/6 font-[450] text-black dark:text-white'>
+        On this page
+      </p>
       <ul
         className='list-none space-y-2 text-sm/6 text-zinc-700 dark:text-zinc-400'
         role='list'
+        key={pathname}
       >
         {headings.map((heading) => (
           <li
-            key={heading.id}
+            key={`${heading.id}-${heading.level}-${pathname}`}
             className={cn(
               'transition-all duration-200',
               heading.level === 2 && 'pl-0',

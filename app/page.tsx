@@ -5,7 +5,6 @@ import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
 import ThemeSwitch from '@/components/website/theme-switch';
 import Popover from '@/components/core/popover';
-import ToolbarExpandable from '@/components/core/toolbar-expandable';
 import ToolbarDynamic from '@/components/core/toolbar-dynamic';
 import { ChevronRight } from 'lucide-react';
 import { CardExampleLanding } from '@/components/website/card-example-landing';
@@ -14,7 +13,6 @@ import { TextEffectWithExit } from '@/components/examples/text-effect-exit';
 import { InViewImagesGrid } from '@/components/examples/in-view-images-grid';
 import { InfiniteSliderHoverSpeed } from '@/components/examples/infinite-slider-hover-speed';
 import { Cursor1 } from '@/components/examples/cursor-1';
-import { CarouselCustomSizes } from '@/components/examples/carousel-custom-sizes';
 import { CarouselSpacing } from '@/components/examples/carousel-spacing';
 import { SegmentedControl } from '@/components/examples/segmented-control';
 
@@ -143,7 +141,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding >
+          <CardExampleLanding>
             <CarouselSpacing />
           </CardExampleLanding>
         </section>
