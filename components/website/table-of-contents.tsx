@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 type Heading = {
   id: string;
@@ -29,17 +30,26 @@ export function TableOfContents() {
   }, [pathname]);
 
   return (
-    <>  
-      <p className='mb-2 text-sm'>On this page</p>
+    <>
+      <p className='mb-2 text-sm text-black dark:text-white'>On this page</p>
       <ul
-        className='mt-3.5 list-none space-y-3 text-sm/6 text-zinc-700 dark:text-zinc-400'
+        className='list-none space-y-2 text-sm/6 text-zinc-700 dark:text-zinc-400'
         role='list'
+        key={headings.map((heading) => heading.id).join('-')}
       >
         {headings.map((heading) => (
-          <li key={heading.id} className=''>
+          <li
+            key={heading.id}
+            className={cn(
+              heading.level === 1 && 'pl-0',
+              heading.level === 2 && 'pl-0',
+              heading.level === 3 && 'pl-2',
+              heading.level === 4 && 'pl-4'
+            )}
+          >
             <a
               href={`#${heading.id}`}
-              className='hover:text-zinc-950 dark:hover:text-white'
+              className={cn('hover:text-zinc-950 dark:hover:text-white')}
             >
               {heading.text}
             </a>
