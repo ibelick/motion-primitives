@@ -77,7 +77,6 @@ export default function Popover() {
                 className='flex h-full flex-col'
                 onSubmit={(e) => {
                   e.preventDefault();
-                  console.log('Add Note');
                 }}
               >
                 <motion.span
@@ -112,7 +111,6 @@ export default function Popover() {
                     type='submit'
                     aria-label='Submit note'
                     onClick={() => {
-                      console.log('Send feedback');
                       closeMenu();
                     }}
                   >
