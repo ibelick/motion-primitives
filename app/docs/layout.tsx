@@ -119,6 +119,10 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Toolbar Dynamic',
         href: '/docs/toolbar-dynamic',
       },
+      {
+        name: 'Resizable Card',
+        href: '/docs/resizable-card',
+      },
     ],
   },
 ];
