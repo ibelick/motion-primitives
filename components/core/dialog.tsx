@@ -124,9 +124,10 @@ type DialogContent = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  ignoreRef?: React.RefObject<HTMLElement>;
 };
 
-function DialogContent({ children, className, style }: DialogContent) {
+function DialogContent({ children, className, style, ignoreRef }: DialogContent) {
   const { setIsOpen, isOpen, uniqueId, triggerRef } = useDialog();
   const containerRef = useRef<HTMLDivElement>(null);
   const [firstFocusableElement, setFirstFocusableElement] =
@@ -182,11 +183,15 @@ function DialogContent({ children, className, style }: DialogContent) {
     }
   }, [isOpen, triggerRef]);
 
-  useClickOutside(containerRef, () => {
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  });
+   useClickOutside(
+      containerRef,
+      () => {
+         if (isOpen) {
+            setIsOpen(false)
+         }
+      },
+      ignoreRef,
+   ) 
 
   return (
     <motion.div
