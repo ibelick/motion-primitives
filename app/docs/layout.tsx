@@ -92,6 +92,11 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Transition Panel',
         href: '/docs/transition-panel',
       },
+      {
+        name: 'Tabs',
+        href: '/docs/tabs',
+        isNew: true,
+      },
     ],
   },
   {
