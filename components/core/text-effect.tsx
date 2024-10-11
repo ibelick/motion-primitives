@@ -24,6 +24,7 @@ type TextEffectProps = {
   trigger?: boolean;
   onAnimationComplete?: () => void;
   segmentWrapperClassName?: string;
+  duration?: number;
 };
 
 const defaultStaggerTimes: Record<'char' | 'word' | 'line', number> = {
@@ -159,6 +160,7 @@ export function TextEffect({
   trigger = true,
   onAnimationComplete,
   segmentWrapperClassName,
+  duration = 1,
 }: TextEffectProps) {
   let segments: string[];
 
@@ -178,7 +180,7 @@ export function TextEffect({
   const itemVariants = variants?.item || selectedVariants.item;
   const ariaLabel = per === 'line' ? undefined : children;
 
-  const stagger = defaultStaggerTimes[per];
+  const stagger = defaultStaggerTimes[per] * duration;
 
   const delayedContainerVariants: Variants = {
     hidden: containerVariants.hidden,
@@ -188,8 +190,11 @@ export function TextEffect({
         ...(containerVariants.visible as TargetAndTransition)?.transition,
         staggerChildren:
           (containerVariants.visible as TargetAndTransition)?.transition
-            ?.staggerChildren || stagger,
-        delayChildren: delay,
+            ?.staggerChildren
+            ? (containerVariants.visible as TargetAndTransition).transition!
+                .staggerChildren! * duration
+            : stagger,
+        delayChildren: delay * duration,
       },
     },
     exit: containerVariants.exit,
