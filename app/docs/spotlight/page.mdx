@@ -1,0 +1,49 @@
+export const metadata = {
+  title: 'Spotlight - Motion-Primitives',
+  description: 'A dynamic spotlight effect that follows the cursor, highlighting elements on the page.',
+};
+
+import { SpotlightBasic } from '@/components/examples/spotlight-basic';
+import { SpotlightCards } from '@/components/examples/spotlight-cards';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Spotlight
+
+The Spotlight component creates a dynamic spotlight effect that follows the cursor, highlighting elements on the page. It's perfect for drawing attention to specific areas or creating an interactive experience.
+
+## Examples
+
+### Basic Spotlight
+
+<ComponentCodePreview
+  component={<SpotlightBasic />}
+  filePath='examples/spotlight-basic'
+/>
+
+### Spotlight with Cards
+
+<ComponentCodePreview
+  component={<SpotlightCards />}
+  filePath='examples/spotlight-cards'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/spotlight.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
+## Component API
+
+| Prop         | Type                | Default                           | Description                                               |
+| :----------- | :------------------ | :-------------------------------- | :-------------------------------------------------------- |
+| children     | React.ReactNode     |                                   | The content to be wrapped by the spotlight effect.        |
+| className    | string              | ''                                | Additional CSS classes for styling the container.         |
+| spotlightSize| number              | 200                               | The size of the spotlight in pixels.                      |
+| color        | string              | 'rgba(255, 255, 255, 0.85)'       | The color of the spotlight effect.                        |
+| opacity      | number              | 0.15                              | The opacity of the spotlight effect.                      |
+| blur         | number              | 40                                | The blur amount of the spotlight effect in pixels.        |      
+| transition   | object              | `{ type: 'spring', stiffness: 400, damping: 25 }` | Custom transition settings for the spotlight movement.    |
