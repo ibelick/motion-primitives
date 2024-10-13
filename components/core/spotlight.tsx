@@ -1,36 +1,44 @@
 'use client';
-import React, { useRef, useState, useCallback } from 'react';
-import { motion, useSpring, useTransform } from 'framer-motion';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
+import { motion, useSpring, SpringOptions, useTransform } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 type SpotlightProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   spotlightSize?: number;
   color?: string;
   opacity?: number;
   blur?: number;
-  transition?: {
-    type?: 'spring' | 'tween';
-    stiffness?: number;
-    damping?: number;
-    duration?: number;
-  };
+  springOptions?: SpringOptions;
+  attachToParent?: boolean;
 };
+
 export function Spotlight({
   children,
   className = '',
   spotlightSize = 200,
   color = 'rgba(255, 255, 255, 0.85)',
-  opacity = 0.15,
+  opacity = 0.85,
   blur = 40,
-  transition = { type: 'spring', stiffness: 400, damping: 25 },
+  springOptions = { stiffness: 400, damping: 25 },
+  attachToParent = false,
 }: SpotlightProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(!attachToParent);
 
-  const mouseX = useSpring(0, transition);
-  const mouseY = useSpring(0, transition);
+  const mouseX = useSpring(0, springOptions);
+  const mouseY = useSpring(0, springOptions);
+
+  const spotlightLeft = useTransform(
+    mouseX,
+    (x) => `${x - spotlightSize / 2}px`
+  );
+  const spotlightTop = useTransform(
+    mouseY,
+    (y) => `${y - spotlightSize / 2}px`
+  );
 
   const handleMouseMove = useCallback(
     (event: React.MouseEvent<HTMLDivElement>) => {
@@ -38,34 +46,56 @@ export function Spotlight({
       const { left, top } = containerRef.current.getBoundingClientRect();
       mouseX.set(event.clientX - left);
       mouseY.set(event.clientY - top);
-    },
-    [mouseX, mouseY]
+    }, [mouseX, mouseY]
   );
 
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+    setIsVisible(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    if (attachToParent) {
+      setIsVisible(false);
+    }
+  }, [attachToParent]);
+
+  useEffect(() => {
+    if (attachToParent && containerRef.current) {
+      const parent = containerRef.current.parentElement;
+      if (parent) {
+        parent.style.position = 'relative';
+        parent.style.overflow = 'hidden';
+      }
+    }
+  }, [attachToParent]);
+
   return (
-    <motion.div
+    <div
       ref={containerRef}
-      className={cn("relative overflow-hidden transition-transform duration-300 ease-in-out", className)}
+      className={cn('relative overflow-hidden', className)}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-     <motion.div
-        className="pointer-events-none absolute"
+      <motion.div
+        className='pointer-events-none absolute'
         style={{
           width: spotlightSize,
           height: spotlightSize,
+          borderRadius: '50%',
           background: `radial-gradient(circle ${spotlightSize}px at center, ${color}, transparent 80%)`,
           opacity: isHovered ? opacity : 0,
-          left: useTransform(mouseX, (x) => `${x - spotlightSize / 2}px`),
-          top: useTransform(mouseY, (y) => `${y - spotlightSize / 2}px`),
+          left: spotlightLeft,
+          top: spotlightTop,
           filter: `blur(${blur}px)`,
           transition: 'opacity 0.3s ease-in-out',
+          display: isVisible ? 'block' : 'none',
         }}
-      />
-      {children}
-    </motion.div>
-  );
-}
+          />
+          {children}
+        </div>
+      );
+    }
+    
