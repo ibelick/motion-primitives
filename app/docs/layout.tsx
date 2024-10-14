@@ -120,6 +120,11 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Toolbar Dynamic',
         href: '/docs/toolbar-dynamic',
       },
+      {
+        name: "Stacked Cards",
+        href: "/docs/StackedCards",
+        isNew: true
+      }
     ],
   },
 ];
