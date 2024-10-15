@@ -51,6 +51,50 @@ Easily animate text circularly.
   hasReTrigger
 />
 
+### Custom Variants
+
+<ComponentCodePreview
+  component={
+    <SpinningText
+      radius={5}
+      fontSize={1.2}
+      variants={{
+        container: {
+          hidden: {
+            opacity: 1,
+          },
+          visible: {
+            opacity: 1,
+            rotate: 360,
+            transition: {
+              duration: 6,
+              ease: [0.42, 0, 0.58, 1],
+              repeat: Infinity,
+              staggerChildren: 0.03,
+            },
+          },
+        },
+        item: {
+          hidden: {
+            opacity: 0,
+            filter: 'blur(4px)',
+          },
+          visible: {
+            opacity: 1,
+            filter: 'blur(0px)',
+          },
+        },
+      }}
+      className='font-medium leading-none'
+    >
+      {`pre-order • pre-order • pre-order • `}
+    </SpinningText>
+
+}
+filePath='core/spinning-text'
+hasReTrigger
+/>
+
 ## Code
 
 <CodeBlock filePath='components/core/spinning-text.tsx' />
