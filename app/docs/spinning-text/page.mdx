@@ -1,113 +1,70 @@
 export const metadata = {
   title: 'Spinning Text - Motion-Primitives',
-  description: 'Easily animate text circularly.',
+  description:
+    'Easily animate text circularly. Customize the animation with variants and transitions.',
 };
 
 import { SpinningText } from '@/components/core/spinning-text';
+import { SpinningTextBasic } from '@/components/examples/spinning-text-basic';
+import { SpinningTextCustomTransition } from '@/components/examples/spinning-text-custom-transition';
+import { SpinningTextCustomVariants } from '@/components/examples/spinning-text-custom-variants';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
 # Spinning Text
 
-Easily animate text circularly.
+Easily animate text circularly. Customize the animation with variants and transitions.
 
 ## Examples
 
 ### Basic Usage
 
 <ComponentCodePreview
-  component={
-    <SpinningText
-      radius={5}
-      fontSize={1.2}
-      className='font-medium leading-none'
-    >
-      {`pre-order • pre-order • pre-order • `}
-    </SpinningText>
-  }
-  filePath='core/spinning-text'
+  component={<SpinningTextBasic />}
+  filePath='examples/spinning-text-basic'
   hasReTrigger
 />
 
 ### Custom Transition
 
 <ComponentCodePreview
-  component={
-    <SpinningText
-      radius={5}
-      fontSize={1.2}
-      duration={6}
-      transition={{
-        ease: 'easeInOut',
-        repeat: Infinity,
-        duration: 6,
-      }}
-      className=''
-    >
-      {`pre-order • pre-order • pre-order • `}
-    </SpinningText>
-  }
-  filePath='core/spinning-text'
+  component={<SpinningTextCustomTransition />}
+  filePath='examples/spinning-text-custom-transition'
   hasReTrigger
 />
 
 ### Custom Variants
 
 <ComponentCodePreview
-  component={
-    <SpinningText
-      radius={5}
-      fontSize={1.2}
-      variants={{
-        container: {
-          hidden: {
-            opacity: 1,
-          },
-          visible: {
-            opacity: 1,
-            rotate: 360,
-            transition: {
-              duration: 6,
-              ease: [0.42, 0, 0.58, 1],
-              repeat: Infinity,
-              staggerChildren: 0.03,
-            },
-          },
-        },
-        item: {
-          hidden: {
-            opacity: 0,
-            filter: 'blur(4px)',
-          },
-          visible: {
-            opacity: 1,
-            filter: 'blur(0px)',
-          },
-        },
-      }}
-      className='font-medium leading-none'
-    >
-      {`pre-order • pre-order • pre-order • `}
-    </SpinningText>
-
-}
-filePath='core/spinning-text'
-hasReTrigger
+  component={<SpinningTextCustomVariants />}
+  filePath='examples/spinning-text-custom-variants'
+  hasReTrigger
 />
 
 ## Code
 
 <CodeBlock filePath='components/core/spinning-text.tsx' />
 
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
 ## Component API
 
 ### SpinningText
 
-| Prop      | Type            | Default | Description                                                                  |
-| :-------- | :-------------- | :------ | :--------------------------------------------------------------------------- |
-| children  | `ReactElement`  |         | The text content or component to be animated in a circular motion.           |
-| width     | `number`        | `200`   | Defines the width and height of the circular text container.                 |
-| textStyle | `CSSProperties` | `{}`    | Custom styles for the text elements or components inside the circle.         |
-| degree    | `number`        | `180`   | The degree of rotation to apply to the text around the circle.               |
-| duration  | `number`        | `10`    | The duration of the full circular rotation animation.                        |
-| className | `string`        | `''`    | A custom class name to apply styles to each rotating character or component. |
+| Prop       | Type                                         | Default | Description                                             |
+| :--------- | :------------------------------------------- | :------ | :------------------------------------------------------ |
+| children   | `ReactElement`                               |         | The text content to be animated in a circular motion.   |
+| style      | `CSSProperties`                              | `{}`    | Custom styles for the text container.                   |
+| duration   | `number`                                     | `10`    | The duration of the full circular rotation animation.   |
+| className  | `string`                                     |         | A custom class name for the text container.             |
+| reverse    | `boolean`                                    | `false` | Determines if the animation should rotate in reverse.   |
+| fontSize   | `number`                                     | `1`     | The font size of the text being animated in rem.        |
+| radius     | `number`                                     | `5`     | The radius of the circular path for the text animation. |
+| transition | `Transition`                                 |         | Custom transition effects for the animation.            |
+| variants   | `{ container?: Variants; item?: Variants; }` |         | Variants for container and item animations.             |
+
+## Credit
+
+Initiated by [@ibtihelbs](https://github.com/ibtihelbs)

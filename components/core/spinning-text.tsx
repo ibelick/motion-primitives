@@ -1,10 +1,10 @@
 'use client';
+import { cn } from '@/lib/utils';
 import { motion, Transition, Variants } from 'framer-motion';
 import React, { CSSProperties } from 'react';
 
 type SpinningTextProps = {
   children: string;
-  size?: number;
   style?: CSSProperties;
   duration?: number;
   className?: string;
@@ -16,6 +16,11 @@ type SpinningTextProps = {
     container?: Variants;
     item?: Variants;
   };
+};
+
+const BASE_TRANSITION = {
+  repeat: Infinity,
+  ease: 'linear',
 };
 
 const BASE_ITEM_VARIANTS = {
@@ -31,7 +36,7 @@ export function SpinningText({
   children,
   duration = 10,
   style,
-  className = '',
+  className,
   reverse = false,
   fontSize = 1,
   radius = 5,
@@ -41,23 +46,14 @@ export function SpinningText({
   const letters = children.split('');
   const totalLetters = letters.length;
 
-  const BASE_TRANSITION = {
-    repeat: Infinity,
-    ease: 'linear',
-  };
-
   const finalTransition = {
     ...BASE_TRANSITION,
     ...transition,
     duration: (transition as { duration?: number })?.duration ?? duration,
   };
 
-  const BASE_VARIANTS = {
-    visible: { rotate: reverse ? -360 : 360 },
-  };
-
   const containerVariants = {
-    ...BASE_VARIANTS,
+    visible: { rotate: reverse ? -360 : 360 },
     ...variants?.container,
   };
 
@@ -68,9 +64,8 @@ export function SpinningText({
 
   return (
     <motion.div
-      className={className}
+      className={cn('relative', className)}
       style={{
-        position: 'relative',
         ...style,
       }}
       initial='hidden'
