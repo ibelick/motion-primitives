@@ -1,17 +1,15 @@
 export const metadata = {
   title: 'Spinning Text - Motion-Primitives',
-  description:
-    'Easily animate text content or components in a circular motion with customizable properties like width, degree of rotation, and text style.',
+  description: 'Easily animate text circularly.',
 };
 
 import { SpinningText } from '@/components/core/spinning-text';
-import Title from '@/components/examples/title';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
-# SpinningText
+# Spinning Text
 
-Easily animate text content or components in a circular motion with customizable properties such as width, degree of rotation, text style, and custom classes. The `SpinningText` component leverages `Framer Motion` for smooth animations.
+Easily animate text circularly.
 
 ## Examples
 
@@ -19,49 +17,8 @@ Easily animate text content or components in a circular motion with customizable
 
 <ComponentCodePreview
   component={
-    <SpinningText>
-      <span>Your Text Here</span>
-    </SpinningText>
-  }
-  filePath='core/spinning-text'
-  hasReTrigger
-/>
-
-### Custom Width and Degree
-
-<ComponentCodePreview
-  component={
-    <SpinningText width={200} degree={360}>
-      <span>Custom Rotation -</span>
-    </SpinningText>
-  }
-  filePath='core/spinning-text'
-  hasReTrigger
-/>
-
-### Custom Text Styles and Classname
-
-<ComponentCodePreview
-  component={
-    <SpinningText
-      textStyle={{ fontSize: '24px', color: 'blue' }}
-      className='custom-class'
-    >
-      <h1>Styled Text</h1>
-    </SpinningText>
-  }
-  filePath='core/spinning-text'
-  hasReTrigger
-/>
-
-### Use Components as Children
-
-If you are using a component as a child, the component should pass any text via a `content` prop. This ensures the text can still be animated in a circular motion.
-
-<ComponentCodePreview
-  component={
-    <SpinningText>
-      <Title content={'GO HOME'} />
+    <SpinningText radius={6} fontSize={1} className='font-medium leading-none'>
+      {`motion-primitives • pre-order • `}
     </SpinningText>
   }
   filePath='core/spinning-text'

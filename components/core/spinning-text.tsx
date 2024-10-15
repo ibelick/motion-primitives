@@ -1,65 +1,66 @@
 'use client';
 import { motion } from 'framer-motion';
-import React, { CSSProperties, ReactElement } from 'react';
+import React, { CSSProperties, useMemo } from 'react';
 
-interface SpinningTextProps {
-  children: ReactElement;
-  width?: number;
-  textStyle?: CSSProperties;
-  degree?: number;
-  duration: number;
-  className: string;
-}
+type SpinningTextProps = {
+  children: string;
+  size?: number;
+  style?: CSSProperties;
+  duration?: number;
+  className?: string;
+  reverse?: boolean;
+  fontSize?: number;
+  radius?: number;
+};
 
-export const SpinningText: React.FC<SpinningTextProps> = ({
+export function SpinningText({
   children,
   duration = 10,
-  width = 200,
-  textStyle = {},
-  degree = 180,
-  className = children.props?.className || '',
-}) => {
-  const textEl = children.props?.children || children.props?.content || '';
-  const toArr = typeof textEl === 'string' ? textEl.split('') : [];
-  const fraction = degree / toArr.length;
-
-  const JsxEl = children.type;
+  style,
+  className = '',
+  reverse = false,
+  fontSize = 1,
+  radius = 5,
+}: SpinningTextProps) {
+  const letters = children.split('');
+  const totalLetters = letters.length;
 
   return (
     <motion.div
-      className='relative flex items-center justify-center'
+      className={className}
       style={{
-        height: `${width}px`,
-        width: `${width}px`,
+        position: 'relative',
+        ...style,
       }}
-      animate={{ rotate: 360 }}
+      animate={{ rotate: reverse ? -360 : 360 }}
       transition={{
-        duration: duration,
+        duration,
         ease: 'linear',
         repeat: Infinity,
       }}
     >
-      <JsxEl
-        {...children.props}
-        className={`absolute h-full w-full ${className}`}
-      >
-        {toArr.map((v, i) => (
+      <span aria-hidden='true'>
+        {letters.map((letter, index) => (
           <span
-            className={`absolute ${className}`}
-            key={i}
-            style={{
-              transform: `rotate(${fraction * i}deg)`,
-              transformOrigin: `0 ${width / 2}px`,
-              top: 0,
-              left: '50%',
-              color: 'inherit',
-              ...textStyle,
-            }}
+            key={`${index}-${letter}`}
+            className='absolute left-1/2 top-1/2 inline-block'
+            style={
+              {
+                '--index': index,
+                '--total': totalLetters,
+                '--font-size': fontSize,
+                '--radius': radius,
+                fontSize: `calc(var(--font-size, 2) * 1rem)`,
+                transform: `translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateY(calc(var(--radius, 5) * -1ch))`,
+                transformOrigin: 'center',
+              } as React.CSSProperties
+            }
           >
-            {v}
+            {letter}
           </span>
         ))}
-      </JsxEl>
+      </span>
+      <span className='sr-only'>{children}</span>
     </motion.div>
   );
-};
+}
