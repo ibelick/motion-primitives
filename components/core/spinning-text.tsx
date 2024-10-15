@@ -1,6 +1,6 @@
 'use client';
-import { motion } from 'framer-motion';
-import React, { CSSProperties, useMemo } from 'react';
+import { motion, Transition } from 'framer-motion';
+import React, { CSSProperties } from 'react';
 
 type SpinningTextProps = {
   children: string;
@@ -11,6 +11,7 @@ type SpinningTextProps = {
   reverse?: boolean;
   fontSize?: number;
   radius?: number;
+  transition?: Transition;
 };
 
 export function SpinningText({
@@ -21,9 +22,21 @@ export function SpinningText({
   reverse = false,
   fontSize = 1,
   radius = 5,
+  transition,
 }: SpinningTextProps) {
   const letters = children.split('');
   const totalLetters = letters.length;
+
+  const BASE_TRANSITION = {
+    repeat: Infinity,
+    ease: 'linear',
+  };
+
+  const finalTransition = {
+    ...BASE_TRANSITION,
+    ...transition,
+    duration: (transition as { duration?: number })?.duration ?? duration,
+  };
 
   return (
     <motion.div
@@ -33,11 +46,7 @@ export function SpinningText({
         ...style,
       }}
       animate={{ rotate: reverse ? -360 : 360 }}
-      transition={{
-        duration,
-        ease: 'linear',
-        repeat: Infinity,
-      }}
+      transition={finalTransition}
     >
       <span aria-hidden='true'>
         {letters.map((letter, index) => (
@@ -51,7 +60,11 @@ export function SpinningText({
                 '--font-size': fontSize,
                 '--radius': radius,
                 fontSize: `calc(var(--font-size, 2) * 1rem)`,
-                transform: `translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateY(calc(var(--radius, 5) * -1ch))`,
+                transform: `
+                  translate(-50%, -50%)
+                  rotate(calc(360deg / var(--total) * var(--index)))
+                  translateY(calc(var(--radius, 5) * -1ch))
+                `,
                 transformOrigin: 'center',
               } as React.CSSProperties
             }

@@ -17,8 +17,34 @@ Easily animate text circularly.
 
 <ComponentCodePreview
   component={
-    <SpinningText radius={6} fontSize={1} className='font-medium leading-none'>
-      {`motion-primitives • pre-order • `}
+    <SpinningText
+      radius={5}
+      fontSize={1.2}
+      className='font-medium leading-none'
+    >
+      {`pre-order • pre-order • pre-order • `}
+    </SpinningText>
+  }
+  filePath='core/spinning-text'
+  hasReTrigger
+/>
+
+### Custom Transition
+
+<ComponentCodePreview
+  component={
+    <SpinningText
+      radius={5}
+      fontSize={1.2}
+      duration={6}
+      transition={{
+        ease: 'easeInOut',
+        repeat: Infinity,
+        duration: 6,
+      }}
+      className=''
+    >
+      {`pre-order • pre-order • pre-order • `}
     </SpinningText>
   }
   filePath='core/spinning-text'
