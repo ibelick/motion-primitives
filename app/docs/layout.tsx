@@ -85,6 +85,11 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
+        name: 'Spotlight',
+        href: '/docs/spotlight',
+        isNew: true,
+      },
+      {
         name: 'Text effect',
         href: '/docs/text-effect',
         isUpdated: true,
@@ -116,6 +121,7 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/scroll-progress',
         isNew: true,
       },
+
       {
         name: 'Spinning Text',
         href: '/docs/spinning-text',
