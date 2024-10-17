@@ -1,0 +1,45 @@
+export const metadata = {
+  title: 'Text Morph - Motion-Primitives',
+  description:
+    'Animates text by morphing shared letters between words, creating fluid transitions.',
+};
+
+import { TextMorphButton } from '@/components/examples/text-morph-button';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Text Morph
+
+Animates text by morphing shared letters between words, creating fluid transitions
+
+## Examples
+
+### Text Morph Button
+
+<ComponentCodePreview
+  component={<TextMorphButton />}
+  filePath='examples/text-morph-button'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/text-morph.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
+## Component API
+
+### TextMorph
+
+| Prop      | Type                        | Default   | Description                                    |
+| :-------- | :-------------------------- | :-------- | :--------------------------------------------- |
+| children  | string                      |           | The text content to be animated.               |
+| as        | keyof JSX.IntrinsicElements | 'p'       | The HTML tag to render, defaults to paragraph. |
+| className | string                      | undefined | Optional CSS class for styling the component.  |
+| style     | React.CSSProperties         | undefined | Optional inline styles for the component.      |
+
+## Credits
+
+Inspired by [Family](https://family.co/) iOS app. See also [Family Values](https://benji.org/family-values#fluidity-through-seamless-transitions)
