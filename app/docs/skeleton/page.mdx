@@ -1,0 +1,50 @@
+export const metadata = {
+  title: 'Skeleton - Motion-Primitives',
+  description: 'Use to show a loading state while content is loading.',
+};
+
+import { Skeleton } from '@/components/core/skeleton';
+import { SkeletonCard } from '@/components/examples/skeleton-card';
+import { SkeletonBasic1 } from '@/components/examples/skeleton-basic-1';
+import { SkeletonBasic2 } from '@/components/examples/skeleton-basic-2';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Skeleton
+
+Use to show a placeholder while content is loading.
+
+## Examples
+
+### Skeleton Card
+
+A card with skeleton showing a loading state.
+
+<ComponentCodePreview
+  component={<SkeletonCard />}
+  filePath='examples/skeleton-card'
+/>
+
+### Skeleton Basic User User icon and text
+
+<ComponentCodePreview
+  component={<SkeletonBasic1 />}
+  filePath='examples/skeleton-basic-1'
+/>
+
+### Skeleton Basic Card with text and image
+
+<ComponentCodePreview
+  component={<SkeletonBasic2 />}
+  filePath='examples/skeleton-basic-2'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/skeleton.tsx' />
+
+## Component API
+
+| Prop          | Type          | Default | Description                                                |
+| :------------ | :------------ | :------ | :--------------------------------------------------------- |
+| className     | string        |         | Optional CSS class for styling the skeleton.               |
