@@ -42,7 +42,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Animated Group',
         href: '/docs/animated-group',
-        isNew: true,
       },
       {
         name: 'Accordion',
@@ -60,7 +59,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Carousel',
         href: '/docs/carousel',
-        isUpdated: true,
       },
       {
         name: 'Cursor',
@@ -73,7 +71,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Disclosure',
         href: '/docs/disclosure',
-        isNew: true,
       },
       {
         name: 'In view',
@@ -82,12 +79,16 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Infinite Slider',
         href: '/docs/infinite-slider',
-        isNew: true,
       },
       {
         name: 'Text effect',
         href: '/docs/text-effect',
         isUpdated: true,
+      },
+      {
+        name: 'Text morph',
+        href: '/docs/text-morph',
+        isNew: true,
       },
       {
         name: 'Transition Panel',
@@ -101,7 +102,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Dock',
         href: '/docs/dock',
-        isNew: true,
       },
       {
         name: 'Toolbar Expandable',
@@ -114,7 +114,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Scroll Progress',
         href: '/docs/scroll-progress',
-        isNew: true,
       },
       {
         name: 'Spinning Text',
