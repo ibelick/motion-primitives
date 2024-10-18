@@ -81,6 +81,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/infinite-slider',
       },
       {
+        name: 'Spotlight',
+        href: '/docs/spotlight',
+        isNew: true,
+      },
+      {
         name: 'Text effect',
         href: '/docs/text-effect',
         isUpdated: true,
@@ -120,6 +125,7 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/spinning-text',
         isNew: true,
       },
+
       {
         name: 'Toolbar Dynamic',
         href: '/docs/toolbar-dynamic',
