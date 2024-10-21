@@ -32,7 +32,7 @@ Here, we apply `-rotate-180` to rotate the icon 180 degrees when its associated 
 <ComponentCodePreview
   classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
   component={<AccordionIcons />}
-  filePath='examples/accordion-basic'
+  filePath='examples/accordion-icons'
 />
 
 ### Accordion custom variants
@@ -47,16 +47,22 @@ Here, we apply `-rotate-180` to rotate the icon 180 degrees when its associated 
 
 <CodeBlock filePath='components/core/accordion.tsx' />
 
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
 ## Component API
 
 ### Accordion
 
-| Prop       | Type       | Default | Description                                                   |
-| :--------- | :--------- | :------ | :------------------------------------------------------------ |
-| children   | ReactNode  |         | The content elements of the accordion.                        |
-| className  | string     |         | Optional CSS class for styling the accordion container.       |
-| transition | Transition |         | Transition settings from framer-motion for animation effects. |
-| variants   | Variants   |         | Global variants for expanded and collapsed states.            |
+| Prop          | Type                                        | Default | Description                                                   |
+| :------------ | :------------------------------------------ | :------ | :------------------------------------------------------------ |
+| children      | ReactNode                                   |         | The content elements of the accordion.                        |
+| className     | string                                      |         | Optional CSS class for styling the accordion container.       |
+| transition    | Transition                                  |         | Transition settings from framer-motion for animation effects. |
+| variants      | `{ expanded: Variant; collapsed: Variant }` |         | Custom variants for expanded and collapsed states.            |
+| expandedValue | React.Key \| null                           |         | Controlled expanded value.                                    |
+| onValueChange | (value: React.Key \| null) => void          |         | Callback function when the expanded value changes.            |
 
 ### AccordionItem
 
@@ -68,12 +74,10 @@ Here, we apply `-rotate-180` to rotate the icon 180 degrees when its associated 
 
 ### AccordionTrigger
 
-| Prop      | Type       | Default | Description                                                          |
-| :-------- | :--------- | :------ | :------------------------------------------------------------------- |
-| children  | ReactNode  |         | Content of the trigger, typically a string or formatted text.        |
-| className | string     |         | Optional CSS class for styling the trigger element.                  |
-| onToggle  | () => void |         | Function called when the accordion trigger is activated.             |
-| expanded  | boolean    |         | Indicates if the associated accordion content is currently expanded. |
+| Prop      | Type      | Default | Description                                                   |
+| :-------- | :-------- | :------ | :------------------------------------------------------------ |
+| children  | ReactNode |         | Content of the trigger, typically a string or formatted text. |
+| className | string    |         | Optional CSS class for styling the trigger element.           |
 
 ### AccordionContent
 
@@ -81,4 +85,3 @@ Here, we apply `-rotate-180` to rotate the icon 180 degrees when its associated 
 | :-------- | :-------- | :------ | :--------------------------------------------------------- |
 | children  | ReactNode |         | The content displayed when the accordion item is expanded. |
 | className | string    |         | Optional CSS class for styling the content container.      |
-| expanded  | boolean   |         | Indicates if the content is currently visible (expanded).  |

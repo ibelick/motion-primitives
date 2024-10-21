@@ -17,6 +17,7 @@ type CarouselContextType = {
   setIndex: (newIndex: number) => void;
   itemsCount: number;
   setItemsCount: (newItemsCount: number) => void;
+  disableDrag: boolean;
 };
 
 const CarouselContext = createContext<CarouselContextType | undefined>(
@@ -33,29 +34,78 @@ function useCarousel() {
 
 type CarouselProviderProps = {
   children: ReactNode;
+  initialIndex?: number;
+  onIndexChange?: (newIndex: number) => void;
+  disableDrag?: boolean;
 };
 
-function CarouselProvider({ children }: CarouselProviderProps) {
-  const [index, setIndex] = useState<number>(0);
+function CarouselProvider({
+  children,
+  initialIndex = 0,
+  onIndexChange,
+  disableDrag = false,
+}: CarouselProviderProps) {
+  const [index, setIndex] = useState<number>(initialIndex);
   const [itemsCount, setItemsCount] = useState<number>(0);
+
+  const handleSetIndex = (newIndex: number) => {
+    setIndex(newIndex);
+    onIndexChange?.(newIndex);
+  };
+
+  useEffect(() => {
+    setIndex(initialIndex);
+  }, [initialIndex]);
 
   return (
     <CarouselContext.Provider
-      value={{ index, setIndex, itemsCount, setItemsCount }}
+      value={{
+        index,
+        setIndex: handleSetIndex,
+        itemsCount,
+        setItemsCount,
+        disableDrag,
+      }}
     >
       {children}
     </CarouselContext.Provider>
   );
 }
 
-type Carousel = {
+type CarouselProps = {
   children: ReactNode;
   className?: string;
+  initialIndex?: number;
+  index?: number;
+  onIndexChange?: (newIndex: number) => void;
+  disableDrag?: boolean;
 };
 
-function Carousel({ children, className }: Carousel) {
+function Carousel({
+  children,
+  className,
+  initialIndex = 0,
+  index: externalIndex,
+  onIndexChange,
+  disableDrag = false,
+}: CarouselProps) {
+  const [internalIndex, setInternalIndex] = useState<number>(initialIndex);
+  const isControlled = externalIndex !== undefined;
+  const currentIndex = isControlled ? externalIndex : internalIndex;
+
+  const handleIndexChange = (newIndex: number) => {
+    if (!isControlled) {
+      setInternalIndex(newIndex);
+    }
+    onIndexChange?.(newIndex);
+  };
+
   return (
-    <CarouselProvider>
+    <CarouselProvider
+      initialIndex={currentIndex}
+      onIndexChange={handleIndexChange}
+      disableDrag={disableDrag}
+    >
       <div className={cn('group/hover relative', className)}>
         <div className='overflow-hidden'>{children}</div>
       </div>
@@ -185,7 +235,7 @@ function CarouselContent({
   className,
   transition,
 }: CarouselContentProps) {
-  const { index, setIndex, setItemsCount } = useCarousel();
+  const { index, setIndex, setItemsCount, disableDrag } = useCarousel();
   const [visibleItemsCount, setVisibleItemsCount] = useState(1);
   const dragX = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -220,7 +270,7 @@ function CarouselContent({
     }
 
     setItemsCount(itemsLength);
-  }, [itemsLength]);
+  }, [itemsLength, setItemsCount]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -234,29 +284,34 @@ function CarouselContent({
 
   return (
     <motion.div
-      drag='x'
-      dragConstraints={{
-        left: 0,
-        right: 0,
-      }}
-      dragMomentum={false}
+      drag={disableDrag ? false : 'x'}
+      dragConstraints={
+        disableDrag
+          ? undefined
+          : {
+              left: 0,
+              right: 0,
+            }
+      }
+      dragMomentum={disableDrag ? undefined : false}
       style={{
-        x: dragX,
+        x: disableDrag ? undefined : dragX,
       }}
       animate={{
         translateX: `-${index * (100 / visibleItemsCount)}%`,
       }}
-      onDragEnd={onDragEnd}
+      onDragEnd={disableDrag ? undefined : onDragEnd}
       transition={
-        {
+        transition || {
           damping: 18,
           stiffness: 90,
           type: 'spring',
           duration: 0.2,
-        } || transition
+        } 
       }
       className={cn(
-        'flex cursor-grab items-center active:cursor-grabbing',
+        'flex items-center',
+        !disableDrag && 'cursor-grab active:cursor-grabbing',
         className
       )}
       ref={containerRef}

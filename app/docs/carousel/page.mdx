@@ -44,7 +44,7 @@ We use `-ml-4` on `CarouselContent` and `pl-4` on `CarouselItem` to add spacing 
 
 ### Carousel with custom indicators
 
-We can use `useCarousel` to create custom indicators for the carousel.
+We can use `index` and `onIndexChange` to create custom indicators for the carousel.
 
 <ComponentCodePreview
   component={<CarouselCustomIndicator />}
@@ -55,14 +55,22 @@ We can use `useCarousel` to create custom indicators for the carousel.
 
 <CodeBlock filePath='components/core/carousel.tsx' />
 
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
 ## Component API
 
 ### Carousel
 
-| Prop        | Type        | Default | Description                                            |
-| :---------- | :---------- | :------ | :----------------------------------------------------- |
-| `children`  | `ReactNode` |         | The content elements of the carousel.                  |
-| `className` | `string`    |         | Optional CSS class for styling the carousel container. |
+| Prop            | Type                         | Default | Description                                            |
+| :-------------- | :--------------------------- | :------ | :----------------------------------------------------- |
+| `children`      | `ReactNode`                  |         | The content elements of the carousel.                  |
+| `className`     | `string`                     |         | Optional CSS class for styling the carousel container. |
+| `initialIndex`  | `number`                     | `0`     | Initial index of the active carousel item.             |
+| `index`         | `number`                     |         | Controlled index of the active carousel item.          |
+| `onIndexChange` | `(newIndex: number) => void` |         | Callback function when the active index changes.       |
+| `disableDrag`   | `boolean`                    | `false` | Whether dragging is disabled.                          |
 
 ### CarouselNavigation
 
@@ -96,11 +104,11 @@ We can use `useCarousel` to create custom indicators for the carousel.
 
 ### useCarousel
 
-| Return          | Description                                                     |
-| :-------------- | :-------------------------------------------------------------- |
-| `index`         | The current index of the active carousel item.                  |
-| `setIndex`      | Function to update the index to show a different carousel item. |
-| `itemsCount`    | Total number of items in the carousel.                          |
-| `setItemsCount` | Function to set the number of items in the carousel.            |
+| Return          | Type                              | Description                                                     |
+| :-------------- | :-------------------------------- | :-------------------------------------------------------------- |
+| `index`         | `number`                          | The current index of the active carousel item.                  |
+| `setIndex`      | `(newIndex: number) => void`      | Function to update the index to show a different carousel item. |
+| `itemsCount`    | `number`                          | Total number of items in the carousel.                          |
+| `setItemsCount` | `(newItemsCount: number) => void` | Function to set the number of items in the carousel.            |
 
 This hook provides context values related to the carousel's state, allowing components within the carousel to adjust based on the active item and total items.

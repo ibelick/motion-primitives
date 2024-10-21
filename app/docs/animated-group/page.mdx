@@ -1,0 +1,63 @@
+export const metadata = {
+  title: 'Animated Group - Motion-Primitives',
+  description: `A wrapper that adds animated transitions to a group of child elements. It's perfect for creating staggered animations for lists, grids, or any collection of components.`,
+};
+
+import { AnimatedGroup } from '@/components/core/animated-group';
+import { AnimatedGroupPreset } from '@/components/examples/animated-group-preset';
+import { AnimatedGroupCustomVariants } from '@/components/examples/animated-group-custom-variants';
+import { AnimatedGroupCustomVariants2 } from '@/components/examples/animated-group-custom-variants-2';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Animated Group
+
+A wrapper that adds animated transitions to a group of child elements. It's perfect for creating staggered animations for lists, grids, or any collection of components.
+
+## Examples
+
+### Animated Group with preset
+
+Images are from [cosmos - Impressionisme](https://www.cosmos.so/ibelick/impressionnisme)
+
+<ComponentCodePreview
+  component={<AnimatedGroupPreset />}
+  filePath='examples/animated-group-preset'
+  hasReTrigger
+/>
+
+### Animated Group with custom variants
+
+<ComponentCodePreview
+  component={<AnimatedGroupCustomVariants />}
+  filePath='examples/animated-group-custom-variants'
+  hasReTrigger
+/>
+
+### AnimatedGroup with custom variants
+
+<ComponentCodePreview
+  component={<AnimatedGroupCustomVariants2 />}
+  filePath='examples/animated-group-custom-variants-2'
+  hasReTrigger
+  classNameComponentContainer='bg-white'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/animated-group.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
+## Component API
+
+### AnimatedGroup
+
+| Prop      | Type                                                   | Default   | Description                                          |
+| :-------- | :----------------------------------------------------- | :-------- | :--------------------------------------------------- |
+| children  | ReactNode                                              |           | The child elements to be animated.                   |
+| className | string                                                 | undefined | Optional CSS class for styling the component.        |
+| variants  | `{ container?: Variants; item?: Variants; }`           | undefined | Custom variants for container and item animations.   |
+| preset    | 'fade' \| 'slide' \| 'scale' \| 'blur' \| 'blur-slide' | undefined | Preset animations to apply to the group of elements. |

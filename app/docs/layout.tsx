@@ -7,11 +7,14 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
+import { TableOfContents } from '@/components/website/table-of-contents';
+import { MPLogo } from '@/components/website/icons/motion-primitives-logo';
 
 type NavigationItem = {
   name: string;
   href: string;
   isNew?: boolean;
+  isUpdated?: boolean;
 };
 
 type NavigationGroup = {
@@ -30,8 +33,16 @@ const NAVIGATION: NavigationGroup[] = [
     ],
   },
   {
-    name: 'Components',
+    name: 'Core Components',
     children: [
+      {
+        name: 'Animated Number',
+        href: '/docs/animated-number',
+      },
+      {
+        name: 'Animated Group',
+        href: '/docs/animated-group',
+      },
       {
         name: 'Accordion',
         href: '/docs/accordion',
@@ -41,44 +52,77 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/animated-background',
       },
       {
+        name: 'Border Trail',
+        href: '/docs/border-trail',
+        isNew: true,
+      },
+      {
         name: 'Carousel',
         href: '/docs/carousel',
-        isNew: true,
       },
       {
         name: 'Cursor',
         href: '/docs/cursor',
-        isNew: true,
       },
       {
         name: 'Dialog',
         href: '/docs/dialog',
       },
       {
-        name: 'In view',
-        href: '/docs/in-view',
-        isNew: true,
+        name: 'Disclosure',
+        href: '/docs/disclosure',
       },
       {
-        name: 'Popover',
-        href: '/docs/popover',
+        name: 'In view',
+        href: '/docs/in-view',
+      },
+      {
+        name: 'Infinite Slider',
+        href: '/docs/infinite-slider',
       },
       {
         name: 'Text effect',
         href: '/docs/text-effect',
+        isUpdated: true,
+      },
+      {
+        name: 'Text morph',
+        href: '/docs/text-morph',
         isNew: true,
       },
       {
-        name: 'Toolbar Dynamic',
-        href: '/docs/toolbar-dynamic',
+        name: 'Transition Panel',
+        href: '/docs/transition-panel',
+      },
+    ],
+  },
+  {
+    name: 'Extras Components',
+    children: [
+      {
+        name: 'Dock',
+        href: '/docs/dock',
       },
       {
         name: 'Toolbar Expandable',
         href: '/docs/toolbar-expandable',
       },
       {
-        name: 'Transition Panel',
-        href: '/docs/transition-panel',
+        name: 'Popover',
+        href: '/docs/popover',
+      },
+      {
+        name: 'Scroll Progress',
+        href: '/docs/scroll-progress',
+      },
+      {
+        name: 'Spinning Text',
+        href: '/docs/spinning-text',
+        isNew: true,
+      },
+      {
+        name: 'Toolbar Dynamic',
+        href: '/docs/toolbar-dynamic',
       },
     ],
   },
@@ -88,12 +132,15 @@ function Header() {
   return (
     <header className='sticky top-0 z-10 flex h-16 items-center justify-center border-b border-zinc-950/10 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-950'>
       <div className='mx-auto flex w-full items-center justify-between md:max-w-7xl'>
-        <a href='/' className='relative flex items-center'>
-          <div className='text-zinc-950 dark:text-white'>motion-primitives</div>
-          <span className='mb-4 ml-2 select-none rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-50'>
+        <Link href='/docs' className='relative flex items-center space-x-2'>
+          <MPLogo className='h-6 w-auto' />
+          <div className='text-sm font-medium text-zinc-950 dark:text-white'>
+            motion-primitives
+          </div>
+          <span className='mb-4 ml-2 select-none rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-50'>
             beta
           </span>
-        </a>
+        </Link>
         <nav className='flex items-center gap-2'>
           <a
             href='https://twitter.com/Ibelick'
@@ -123,13 +170,13 @@ function NavigationDesktop() {
 
   return (
     <aside className='sticky top-14 hidden h-[calc(100dvh-theme(spacing.16))] w-[220px] shrink-0 pt-8 md:block lg:pt-12'>
-      <ScrollArea>
+      <ScrollArea className='h-full w-full'>
         <nav>
           <ul role='list' className='h-full'>
             {NAVIGATION.map((item, index) => {
               return (
                 <li className='mb-6' key={`${item.name}-${index}`}>
-                  <div className='text-sm/6 font-medium text-zinc-950 dark:text-white'>
+                  <div className='text-sm/6 font-[450] text-zinc-950 dark:text-white'>
                     {item.name}
                   </div>
                   <ul
@@ -143,7 +190,7 @@ function NavigationDesktop() {
                         <li key={child.href}>
                           <Link
                             className={cn(
-                              'relative inline-flex items-center space-x-1 pl-4 text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
+                              'relative inline-flex items-center space-x-1 pl-4 text-sm font-normal text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
                               isActive &&
                                 'text-zinc-950 before:absolute before:inset-y-0 before:left-[-1.5px] before:w-[2px] before:rounded-full before:bg-zinc-950 dark:text-white dark:before:bg-white'
                             )}
@@ -151,8 +198,13 @@ function NavigationDesktop() {
                           >
                             <span>{child.name}</span>
                             {child?.isNew && (
-                              <span className='whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800'>
+                              <span className='whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-50'>
                                 New
+                              </span>
+                            )}
+                            {child?.isUpdated && (
+                              <span className='whitespace-nowrap rounded-lg bg-amber-100 px-2 text-[10px] font-semibold text-amber-800 dark:bg-amber-950 dark:text-amber-50'>
+                                Updated
                               </span>
                             )}
                           </Link>
@@ -217,9 +269,14 @@ export default function ComponentLayout({
           <div className='mx-auto flex w-full flex-col items-start md:flex-row md:space-x-12'>
             <NavigationDesktop />
             <NavigationMobile />
-            <main className='prose prose-zinc min-w-0 max-w-full flex-1 pb-16 pt-8 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-xl prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-strong:font-medium prose-table:block prose-table:overflow-y-auto lg:max-w-2xl lg:pt-12'>
+            <main className='prose prose-zinc min-w-0 max-w-full flex-1 pb-16 pt-8 dark:prose-invert prose-h1:scroll-m-20 prose-h1:text-2xl prose-h1:font-semibold prose-h2:scroll-m-20 prose-h2:text-xl prose-h2:font-medium prose-h3:scroll-m-20 prose-h3:text-base prose-h3:font-medium prose-h4:scroll-m-20 prose-h5:scroll-m-20 prose-h6:scroll-m-20 prose-strong:font-medium prose-table:block prose-table:overflow-y-auto lg:pt-12 xl:max-w-2xl'>
               {children}
             </main>
+            <aside className='sticky top-14 hidden h-[calc(100dvh-theme(spacing.16))] w-[220px] shrink-0 pt-8 lg:pt-12 xl:block'>
+              <ScrollArea className='h-full w-full'>
+                <TableOfContents />
+              </ScrollArea>
+            </aside>
           </div>
         </div>
       </div>

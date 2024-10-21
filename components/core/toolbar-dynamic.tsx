@@ -1,6 +1,5 @@
 'use client';
 import React, { useRef, useState } from 'react';
-import useMeasure from 'react-use-measure';
 import { motion, MotionConfig } from 'framer-motion';
 import useClickOutside from '@/hooks/useClickOutside';
 import { ArrowLeft, Search, User } from 'lucide-react';
@@ -38,7 +37,6 @@ function Button({
 export default function ToolbarDynamic() {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [contentRef, { width, height }] = useMeasure();
 
   useClickOutside(containerRef, () => {
     setIsOpen(false);
@@ -55,7 +53,7 @@ export default function ToolbarDynamic() {
             }}
             initial={false}
           >
-            <div ref={contentRef} className='overflow-hidden p-2'>
+            <div className='overflow-hidden p-2'>
               {!isOpen ? (
                 <div className='flex space-x-2'>
                   <Button disabled ariaLabel='User profile'>
@@ -75,7 +73,7 @@ export default function ToolbarDynamic() {
                   </Button>
                   <div className='relative w-full'>
                     <input
-                      className='h-9 w-full rounded-lg border border-zinc-950/10 bg-transparent p-2 focus:outline-none'
+                      className='h-9 w-full rounded-lg border border-zinc-950/10 bg-transparent p-2 text-zinc-900 placeholder-zinc-500 focus:outline-none'
                       autoFocus
                       placeholder='Search notes'
                     />
