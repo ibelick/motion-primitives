@@ -5,6 +5,7 @@ export const metadata = {
 };
 
 import { TextShimmerBasic } from '@/components/examples/text-shimmer-basic';
+import { TextShimmerColor } from '@/components/examples/text-shimmer-color';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -21,6 +22,15 @@ Animates text by shimmering, creating a dynamic and eye-catching effect. Easily 
   filePath='examples/text-shimmer-basic'
 />
 
+### Text Shimmer Color
+
+You can use the `[--base-color]` and `[--base-gradient-color]` CSS variables to customize the color of the shimmer effect.
+
+<ComponentCodePreview
+  component={<TextShimmerColor />}
+  filePath='examples/text-shimmer-color'
+/>
+
 ## Code
 
 <CodeBlock filePath='components/core/text-shimmer.tsx' />
@@ -33,13 +43,15 @@ Animates text by shimmering, creating a dynamic and eye-catching effect. Easily 
 
 ### TextShimmer
 
+
 | Prop      | Type                        | Default   | Description                                    |
 | :-------- | :-------------------------- | :-------- | :--------------------------------------------- |
-| children  | string                      |           | The text content to be animated.               |
+| children  | string                      |           | The text content.               |
 | as        | keyof JSX.IntrinsicElements | 'p'       | The HTML tag to render, defaults to paragraph. |
 | className | string                      | undefined | Optional CSS class for styling the component.  |
-| style     | React.CSSProperties         | undefined | Optional inline styles for the component.      |
+| speed     | number                      | 10        | The speed of the shimmer effect.               |
+| spread    | number                      | 30        | The spread of the shimmer effect.             |
 
 ## Credits
 
-Inspired by [JohnPhamous](https://x.com/JohnPhamous/status/1846963157027508504) for the length scales ideas.
+Inspired by [JohnPhamous](https://x.com/JohnPhamous/status/1846963157027508504) and [Jhey](https://x.com/jh3yy/status/1849183202167894242) for the idea of the shimmer effect that scales with the content length.
