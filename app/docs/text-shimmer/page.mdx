@@ -1,0 +1,45 @@
+export const metadata = {
+  title: 'Text Shimmer - Motion-Primitives',
+  description:
+    'Animates text by shimmering, creating a dynamic and eye-catching effect. Easily adjust the speed and spread of the shimmer effect.',
+};
+
+import { TextShimmerBasic } from '@/components/examples/text-shimmer-basic';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Text Shimmer
+
+Animates text by shimmering, creating a dynamic and eye-catching effect. Easily adjust the speed and spread of the shimmer effect.
+
+## Examples
+
+### Text Shimmer Basic
+
+<ComponentCodePreview
+  component={<TextShimmerBasic />}
+  filePath='examples/text-shimmer-basic'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/text-shimmer.tsx' />
+
+**Please add:**
+
+- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+
+## Component API
+
+### TextShimmer
+
+| Prop      | Type                        | Default   | Description                                    |
+| :-------- | :-------------------------- | :-------- | :--------------------------------------------- |
+| children  | string                      |           | The text content to be animated.               |
+| as        | keyof JSX.IntrinsicElements | 'p'       | The HTML tag to render, defaults to paragraph. |
+| className | string                      | undefined | Optional CSS class for styling the component.  |
+| style     | React.CSSProperties         | undefined | Optional inline styles for the component.      |
+
+## Credits
+
+Inspired by [JohnPhamous](https://x.com/JohnPhamous/status/1846963157027508504) for the length scales ideas.

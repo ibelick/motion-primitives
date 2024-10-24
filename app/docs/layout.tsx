@@ -81,6 +81,15 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/infinite-slider',
       },
       {
+        name: 'Transition Panel',
+        href: '/docs/transition-panel',
+      },
+    ],
+  },
+  {
+    name: 'Text',
+    children: [
+      {
         name: 'Text effect',
         href: '/docs/text-effect',
         isUpdated: true,
@@ -91,8 +100,9 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
-        name: 'Transition Panel',
-        href: '/docs/transition-panel',
+        name: 'Text Shimmer',
+        href: '/docs/text-shimmer',
+        isNew: true,
       },
     ],
   },
