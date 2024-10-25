@@ -1,0 +1,78 @@
+export const metadata = {
+  title: 'Tabs - Motion-Primitives',
+  description:
+    'A versatile and interactive tab component featuring smooth animations powered. Customize vertical, horizontal, and controlled tab layouts for a dynamic user interface experience.',
+};
+
+import TabsVertical from '@/components/examples/tabs-vertical';
+import TabsHorizontal from '@/components/examples/tabs-horizontal';
+import TabsControlled from '@/components/examples/tabs-controlled';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Tabs
+
+A versatile and interactive tab component featuring smooth animations powered. Customize vertical, horizontal, and controlled tab layouts for a dynamic user interface experience.
+
+## Examples
+
+### Vertical Tabs
+
+<ComponentCodePreview
+  component={<TabsVertical />}
+  filePath='examples/tabs-vertical'
+/>
+
+### Horizontal Tabs
+
+<ComponentCodePreview
+  component={<TabsHorizontal />}
+  filePath='examples/tabs-horizontal'
+/>
+
+### Controlled Tabs
+
+<ComponentCodePreview
+  component={<TabsControlled />}
+  filePath='examples/tabs-controlled'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/tabs.tsx' />
+
+## Component API
+
+### Tabs
+
+| Prop          | Type                     | Default | Description                                                                                   |
+| :------------ | :----------------------- | :------ | :-------------------------------------------------------------------------------------------- |
+| children      | ReactNode                |         | The content elements of the Tabs                                                              |
+| defaultTab    | string                   |         | The tabId of the default tab to be active.                                                    |
+| className     | string                   |         | Optional CSS class for styling the accordion item container.                                  |
+| onValueChange | (tabId : string) => void |         | Callback function to be called when the value (tab) changes.                                  |
+| value         | string                   |         | The controlled value of the tab to activate. Should be used in conjunction with onValueChange |
+
+### Tabs List
+
+| Prop      | Type      | Default | Description                                                  |
+| :-------- | :-------- | :------ | :----------------------------------------------------------- |
+| children  | ReactNode |         | The content elements of the Tabs                             |
+| className | string    |         | Optional CSS class for styling the accordion item container. |
+
+### Tabs Trigger
+
+| Prop       | Type       | Default | Description                                                                  |
+| :--------- | :--------- | :------ | :--------------------------------------------------------------------------- |
+| children   | ReactNode  |         | The content elements of the Tabs                                             |
+| tabId      | string     |         | The tabId of the trigger.                                                    |
+| className  | string     |         | Optional CSS class for styling the accordion item container.                 |
+| transition | Transition |         | The transition settings from framer-motion to control the animation effects. |
+
+### Tabs Content
+
+| Prop       | Type      | Default | Description                                              |
+| :--------- | :-------- | :------ | :------------------------------------------------------- |
+| children   | ReactNode |         | The content displayed within the dialog when it is open. |
+| tabId      | string    |         | The tabId of the content.                                |
+| forceMount | boolean   |         | used to force panel to mount.                            |
