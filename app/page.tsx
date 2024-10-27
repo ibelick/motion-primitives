@@ -15,6 +15,7 @@ import { InfiniteSliderHoverSpeed } from '@/components/examples/infinite-slider-
 import { Cursor1 } from '@/components/examples/cursor-1';
 import { CarouselSpacing } from '@/components/examples/carousel-spacing';
 import { SegmentedControl } from '@/components/examples/segmented-control';
+import { MPLogo } from '@/components/website/icons/motion-primitives-logo';
 
 function Button({
   children,
@@ -43,9 +44,12 @@ function Header() {
   return (
     <header className='relative top-0 z-10 bg-white px-6 py-5 dark:border-white/10 dark:bg-zinc-950 lg:z-10 lg:flex lg:h-16 lg:items-center lg:px-8 lg:py-0'>
       <div className='mx-auto flex w-full items-center justify-between md:max-w-7xl'>
-        <a href='/' className='relative flex items-center'>
-          <div className='text-zinc-950 dark:text-white'>motion-primitives</div>
-          <span className='mb-4 ml-2 select-none rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-50'>
+        <a href='/' className='relative flex items-center space-x-2'>
+          <MPLogo className='h-6 w-auto' />
+          <div className='text-sm font-medium text-zinc-950 dark:text-white'>
+            motion-primitives
+          </div>
+          <span className='mb-4 ml-2 select-none rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-50'>
             beta
           </span>
         </a>
@@ -81,7 +85,7 @@ export default function Motion() {
         <section className='flex h-full flex-col items-center justify-center pt-20'>
           <div className='flex w-full max-w-lg flex-col items-center justify-center text-center'>
             <h1 className='relative mb-4 text-4xl font-medium text-zinc-950 dark:text-zinc-50'>
-              Build beautiful animated components
+              UI kit to make beautiful interfaces, faster
             </h1>
             <p className='text-center text-zinc-600 dark:text-zinc-200'>
               Beautifully designed motions components. Easy copy-paste.
