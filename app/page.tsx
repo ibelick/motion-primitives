@@ -16,6 +16,7 @@ import { Cursor1 } from '@/components/examples/cursor-1';
 import { CarouselSpacing } from '@/components/examples/carousel-spacing';
 import { SegmentedControl } from '@/components/examples/segmented-control';
 import { MPLogo } from '@/components/website/icons/motion-primitives-logo';
+import LaunchBanner from '@/components/website/launch-banner';
 
 function Button({
   children,
@@ -80,6 +81,7 @@ function Header() {
 export default function Motion() {
   return (
     <>
+      <LaunchBanner />
       <Header />
       <div className='px-6 py-4 pb-20'>
         <section className='flex h-full flex-col items-center justify-center pt-20'>

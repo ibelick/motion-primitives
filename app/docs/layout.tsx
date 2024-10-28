@@ -9,6 +9,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import { TableOfContents } from '@/components/website/table-of-contents';
 import { MPLogo } from '@/components/website/icons/motion-primitives-logo';
+import LaunchBanner from '@/components/website/launch-banner';
 
 type NavigationItem = {
   name: string;
@@ -273,6 +274,7 @@ export default function ComponentLayout({
 }) {
   return (
     <>
+      <LaunchBanner />
       <Header />
       <div className='px-6 lg:px-8'>
         <div className='mx-auto md:max-w-7xl'>
