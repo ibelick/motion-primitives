@@ -86,19 +86,6 @@ export default function Motion() {
       <div className='px-6 py-4 pb-20'>
         <section className='flex h-full flex-col items-center justify-center pt-20'>
           <div className='flex w-full max-w-lg flex-col items-center justify-center text-center'>
-            <a
-              href='https://www.producthunt.com/posts/motion-primitives-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-motion&#0045;primitives&#0045;2'
-              target='_blank'
-              className='mb-4'
-            >
-              <img
-                src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=501974&theme=neutral'
-                alt='Motion&#0045;Primitives - UI&#0032;Kit&#0032;to&#0032;make&#0032;beautiful&#0032;interfaces&#0044;&#0032;faster&#0046;&#0032; | Product Hunt'
-                style={{ width: '250px', height: '54px' }}
-                width='250'
-                height='54'
-              />
-            </a>
             <h1 className='relative mb-4 text-4xl font-medium text-zinc-950 dark:text-zinc-50'>
               UI kit to make beautiful interfaces, faster
             </h1>

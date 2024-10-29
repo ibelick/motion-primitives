@@ -31,6 +31,10 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Introduction',
         href: '/docs',
       },
+      {
+        name: 'Installation',
+        href: '/docs/installation',
+      },
     ],
   },
   {
