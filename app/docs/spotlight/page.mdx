@@ -1,39 +1,33 @@
 export const metadata = {
   title: 'Spotlight - Motion-Primitives',
-  description:
-    'A dynamic spotlight effect that follows the cursor, highlighting elements on the page.',
+  description: 'A container component that adds a spotlight effect following the cursor.',
 };
 
 import { SpotlightBasic } from '@/components/examples/spotlight-basic';
 import { SpotlightCards } from '@/components/examples/spotlight-card'
-import { SpotlightInteractiveMap } from '@/components/examples/spotlight-interactive-map'
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
 # Spotlight
 
-The Spotlight component creates a dynamic spotlight effect that follows the cursor, highlighting elements on the page. It's perfect for drawing attention to specific areas or creating an interactive experience.
+A dynamic spotlight effect component that follows cursor movement, creating an engaging interactive experience.
 
 ## Examples
 
-### Basic Spotlight
+### Basic Usage
 
 <ComponentCodePreview
   component={<SpotlightBasic />}
   filePath='examples/spotlight-basic'
 />
 
-### Spotlight with Cards
+### Cards with Spotlight
+
 <ComponentCodePreview
   component={<SpotlightCards />}
   filePath='examples/spotlight-card'
 />
 
-### Spotlight with Maps
-<ComponentCodePreview
-  component={<SpotlightInteractiveMap />}
-  filePath='examples/spotlight-interactive-map'
-/>
 ## Code
 
 <CodeBlock filePath='components/core/spotlight.tsx' />
@@ -44,13 +38,14 @@ The Spotlight component creates a dynamic spotlight effect that follows the curs
 
 ## Component API
 
-| Prop           | Type            | Default                           | Description                                        |
-| :------------  | :-------------- | :-------------------------------- | :------------------------------------------------- |
-| children       | React.ReactNode |                                   | The content to be wrapped by the spotlight effect. |
-| className      | string          | ''                                | Additional CSS classes for styling the container.  |
-| spotlightSize  | number          | 200                               | The size of the spotlight in pixels.               |
-| color          | string          | 'rgba(255, 255, 255, 0.85)'       | The color of the spotlight effect.                 |
-| opacity        | number          | 0.15                              | The opacity of the spotlight effect.               |
-| blur           | number          | 40                                | The blur amount of the spotlight effect in pixels. |
-| attachToParent | boolean         | false                             | If `true`, spotlight will only be visible when hovering over its parent component.   |
-| springOptions  | SpringOptions   | `{ stiffness: 400, damping: 25 }` | Custom spring settings for the spotlight movement.  |
+### Spotlight
+
+| Prop           | Type          | Default                        | Description                                    |
+| :------------ | :------------ | :---------------------------- | :--------------------------------------------- |
+| className     | string        | ''                           | Additional CSS classes for styling              |
+| spotlightSize | number        | 200                          | Size of the spotlight effect in pixels          |
+| color         | string        | 'rgba(255, 255, 255, 0.2)'   | Color of the spotlight gradient                |
+| blur          | number        | 20                           | Blur amount in pixels                           |
+| opacity       | number        | 1                            | Maximum opacity when hovered                    |
+| springOptions | SpringOptions | `{ stiffness: 400, damping: 25 }` | Animation spring configuration            |
+
