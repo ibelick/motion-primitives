@@ -105,6 +105,11 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
+        name: "Text Scramble",
+        href: "/docs/text-scramble",
+        isNew: true,
+      },
+      {
         name: 'Text Shimmer',
         href: '/docs/text-shimmer',
         isNew: true,

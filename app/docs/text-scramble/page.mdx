@@ -1,0 +1,62 @@
+export const metadata = {
+  title: 'Text Scramble - Motion-Primitives',
+  description:
+    'Text animation that transforms text by randomly cycling through characters before settling on the final content, creating an engaging cryptographic effect.',
+};
+
+import { TextScrambleBasic } from '@/components/examples/text-scramble-basic';
+import { TextScrambleCustomCharacterDuration } from '@/components/examples/text-scramble-custom-char-duration';
+import { TextScrambleCustomTrigger } from '@/components/examples/text-scramble-custom-trigger';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Text Scramble
+
+Text animation that transforms text by randomly cycling through characters before settling on the final content, creating an engaging cryptographic effect.
+
+## Examples
+
+### Text Scramble Basic
+
+<ComponentCodePreview
+  component={<TextScrambleBasic />}
+  filePath='examples/text-morph-button'
+  hasReTrigger
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+### Text Scramble with custom trigger
+
+<ComponentCodePreview
+  component={<TextScrambleCustomTrigger />}
+  filePath='examples/text-morph-button'
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+### Text Scramble with custom character and duration
+
+<ComponentCodePreview
+  component={<TextScrambleCustomCharacterDuration />}
+  filePath='examples/text-morph-button'
+  hasReTrigger
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/text-scramble.tsx' />
+
+## Component API
+
+### TextScramble
+
+| Prop               | Type                        | Default              | Description                                         |
+| :----------------- | :-------------------------- | :------------------- | :-------------------------------------------------- |
+| children           | string                      |                      | The text content to be animated.                    |
+| as                 | keyof JSX.IntrinsicElements | 'p'                  | The HTML tag to render, defaults to paragraph.      |
+| duration           | number                      | 0.8                  | Duration of the effect.                             |
+| speed              | number                      | 0.04                 | Speed of the effect.                                |
+| characterSet       | string                      | ABCDEF...z0123456789 | Set of characters for the scramble effect           |
+| className          | string                      | undefined            | Optional CSS class for styling the component.       |
+| trigger            | boolean                     | undefined            | Controls whether the animation should be triggered. |
+| onScrambleComplete | () => void                  | undefined            | Callback function when the animation completes.     |
