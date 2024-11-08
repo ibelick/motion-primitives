@@ -5,8 +5,6 @@ import { useState } from 'react';
 export function TextScrambleCustomTrigger() {
   const [isTrigger, setIsTrigger] = useState(false);
 
-  console.log('isTrigger', isTrigger);
-
   return (
     <a href='#' className='text-zinc-500 transition-colors hover:text-black'>
       <TextScramble

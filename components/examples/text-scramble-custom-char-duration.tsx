@@ -5,7 +5,6 @@ export function TextScrambleCustomCharacterDuration() {
     <TextScramble
       className='font-mono text-sm'
       duration={1.2}
-      // characterSet='/-・_'
       characterSet='. '
     >
       Generating the interface...
