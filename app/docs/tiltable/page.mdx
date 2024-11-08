@@ -1,0 +1,38 @@
+export const metadata = {
+  title: 'Tiltable - Motion-Primitives',
+  description:
+    'Animated border effect that moves along the edges of its parent container.',
+};
+
+import { TiltCard1 } from '@/components/examples/tiltable-card-1';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Tiltable
+
+Animated border effect that moves along the edges of its parent container.
+
+## Examples
+
+### Tiltable Card
+
+<ComponentCodePreview
+  component={<TiltCard1 />}
+  filePath='examples/tiltable-card-1'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/border-trail.tsx' />
+
+## Component API
+
+### Border Trail
+
+| Prop                | Type       | Default | Description                                               |
+| :------------------ | :--------- | :------ | :-------------------------------------------------------- |
+| className           | string     |         | Additional CSS classes for styling the border trail.      |
+| size                | number     | 60      | Size of the animated border effect.                       |
+| transition          | Transition |         | Custom transition settings for the animation.             |
+| delay               | number     |         | Delay before the animation starts.                        |
+| onAnimationComplete | () => void |         | Callback function triggered when the animation completes. |
