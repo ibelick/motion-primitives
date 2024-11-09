@@ -1,16 +1,8 @@
-import Image from 'next/image';
 import { Tilt } from '@/components/core/tiltable';
 
 export function TiltCard1() {
   return (
-    <Tilt
-      transition={{
-        type: 'spring',
-        stiffness: 900,
-        damping: 80,
-        mass: 5,
-      }}
-    >
+    <Tilt>
       <div
         style={{
           borderRadius: '12px',
