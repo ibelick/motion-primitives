@@ -1,38 +1,53 @@
 export const metadata = {
   title: 'Tiltable - Motion-Primitives',
   description:
-    'Animated border effect that moves along the edges of its parent container.',
+    'A component that creates an interactive 3D tilt effect using spring animations. It responds to mouse movement to create a dynamic, depth-enhancing effect that makes UI elements more engaging. Built with Framer Motion, it provides smooth transitions and customizable rotation factors.',
 };
 
 import { TiltCard1 } from '@/components/examples/tiltable-card-1';
+import { TiltCard2 } from '@/components/examples/tiltable-card-2';
+import { TiltText } from '@/components/examples/tiltable-text';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
 # Tiltable
 
-Animated border effect that moves along the edges of its parent container.
+A component that creates an interactive 3D tilt effect using spring animations. It responds to mouse movement to create a dynamic, depth-enhancing effect that makes UI elements more engaging. Built with Framer Motion, it provides smooth transitions and customizable rotation factors.
 
 ## Examples
 
-### Tiltable Card
+### Basic Tiltable Card
 
 <ComponentCodePreview
   component={<TiltCard1 />}
   filePath='examples/tiltable-card-1'
 />
 
+### Custom Tiltable Card
+
+<ComponentCodePreview
+  component={<TiltCard2 />}
+  filePath='examples/tiltable-card-2'
+  classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
+/>
+
+### Text Tiltable Text
+
+<ComponentCodePreview
+  component={<TiltText />}
+  filePath='examples/tiltable-text'
+/>
+
 ## Code
 
-<CodeBlock filePath='components/core/border-trail.tsx' />
+<CodeBlock filePath='components/core/tiltable.tsx' />
 
 ## Component API
 
 ### Border Trail
 
-| Prop                | Type       | Default | Description                                               |
-| :------------------ | :--------- | :------ | :-------------------------------------------------------- |
-| className           | string     |         | Additional CSS classes for styling the border trail.      |
-| size                | number     | 60      | Size of the animated border effect.                       |
-| transition          | Transition |         | Custom transition settings for the animation.             |
-| delay               | number     |         | Delay before the animation starts.                        |
-| onAnimationComplete | () => void |         | Callback function triggered when the animation completes. |
+| Prop           | Type       | Default | Description                                          |
+| :------------- | :--------- | :------ | :--------------------------------------------------- |
+| className      | string     |         | Additional CSS classes for styling the border trail. |
+| transition     | Transition |         | Custom transition settings for the animation.        |
+| rotationFactor | number     | 15      | Controls the maximum rotation angle in degrees.      |
