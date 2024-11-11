@@ -5,6 +5,7 @@ export function TiltCard2() {
     <Tilt
       transition={{ type: 'spring', stiffness: 400, damping: 30, mass: 2 }}
       rotationFactor={25}
+      isRevese
     >
       <div className='max-w-sm rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 p-6 shadow-lg'>
         <div className='mb-4 flex h-32 w-full items-center justify-center rounded-lg bg-white/10'>
