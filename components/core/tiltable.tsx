@@ -17,6 +17,7 @@ type TiltProps = {
   transition?: Transition;
   style?: MotionStyle;
   rotationFactor?: number;
+  isRevese?: boolean;
 };
 
 export function Tilt({
@@ -25,6 +26,7 @@ export function Tilt({
   transition,
   style,
   rotationFactor = 15,
+  isRevese = false,
 }: TiltProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,12 +39,16 @@ export function Tilt({
   const rotateX = useTransform(
     ySpring,
     [-0.5, 0.5],
-    [rotationFactor, -rotationFactor]
+    isRevese
+      ? [rotationFactor, -rotationFactor]
+      : [-rotationFactor, rotationFactor]
   );
   const rotateY = useTransform(
     xSpring,
     [-0.5, 0.5],
-    [-rotationFactor, rotationFactor]
+    isRevese
+      ? [-rotationFactor, rotationFactor]
+      : [rotationFactor, -rotationFactor]
   );
 
   const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
