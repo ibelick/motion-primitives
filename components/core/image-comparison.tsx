@@ -31,7 +31,7 @@ const DEFAULT_SPRING_OPTIONS = {
   duration: 0,
 };
 
-export function ImageComparison({
+function ImageComparison({
   children,
   className,
   enableHover,
@@ -144,86 +144,4 @@ const ImageComparisonSlider = ({
   );
 };
 
-export function ImageComparisonExample() {
-  return (
-    <ImageComparison className='h-64 w-[300px]'>
-      <ImageComparisonImage
-        src='https://images.beta.cosmos.so/c06c0cf2-935f-4005-85ae-72615a6dc52a?format=jpeg'
-        alt='img 1'
-        position='left'
-      />
-      <ImageComparisonImage
-        src='https://images.beta.cosmos.so/c06c0cf2-935f-4005-85ae-72615a6dc52a?format=jpeg'
-        alt='img 2'
-        position='right'
-        className='grayscale'
-      />
-      <ImageComparisonSlider className='bg-white' />
-    </ImageComparison>
-  );
-}
-
-export function ImageComparisonExample2() {
-  return (
-    <ImageComparison className='h-64 w-[300px]' enableHover>
-      <ImageComparisonImage
-        src='https://images.beta.cosmos.so/4242876e-4ecb-4c2f-b0e3-faa10fc1b4ca?format=jpeg'
-        alt='img 1'
-        position='left'
-      />
-      <ImageComparisonImage
-        src='https://images.beta.cosmos.so/4242876e-4ecb-4c2f-b0e3-faa10fc1b4ca?format=jpeg'
-        alt='img 2'
-        className='sepia'
-        position='right'
-      />
-      <ImageComparisonSlider className='bg-white' />
-    </ImageComparison>
-  );
-}
-
-export function ImageComparisonExample3() {
-  return (
-    <ImageComparison
-      className='h-64 w-[300px] border border-zinc-200 dark:border-zinc-800 rounded-lg'
-      enableHover
-      springOptions={{
-        bounce: 0.3,
-      }}
-    >
-      <ImageComparisonImage
-        src='/mp_dark.jpg'
-        alt='Motion Primitives Dark'
-        position='left'
-      />
-      <ImageComparisonImage
-        src='/mp_light.jpg'
-        alt='Motion Primitives Light'
-        position='right'
-        className='grayscale'
-      />
-      <ImageComparisonSlider className='bg-white' />
-    </ImageComparison>
-  );
-}
-
-export function ImageComparisonExample4() {
-  return (
-    <ImageComparison className='h-64 w-[300px]'>
-      <ImageComparisonImage
-        src='https://images.beta.cosmos.so/b8a45229-b9e4-4273-9320-d19409184522?format=jpeg'
-        alt='img 1'
-        position='left'
-      />
-      <ImageComparisonImage
-        src='https://images.beta.cosmos.so/b8a45229-b9e4-4273-9320-d19409184522?format=jpeg'
-        alt='img 2'
-        position='right'
-        className='grayscale'
-      />
-      <ImageComparisonSlider className='w-2 bg-white/50 backdrop-blur-sm transition-colors hover:bg-white/80'>
-        <div className='absolute left-1/2 top-1/2 h-8 w-6 -translate-x-1/2 -translate-y-1/2 rounded-[4px] bg-white' />
-      </ImageComparisonSlider>
-    </ImageComparison>
-  );
-}
+export { ImageComparison, ImageComparisonImage, ImageComparisonSlider };
