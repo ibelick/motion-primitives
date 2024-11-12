@@ -1,0 +1,79 @@
+export const metadata = {
+  title: 'Image Comparison - Motion-Primitives',
+  description:
+    'Interactively compare two images with a draggable slider to reveal differences.',
+};
+
+import {
+  ImageComparisonExample,
+  ImageComparisonExample2,
+  ImageComparisonExample3,
+  ImageComparisonExample4,
+} from '@/components/core/image-comparison';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+
+# Image Comparison
+
+Interactively compare two images with a draggable slider to reveal differences.
+
+## Examples
+
+### Image Comparison Basic
+
+<ComponentCodePreview
+  component={<ImageComparisonExample />}
+  filePath='examples/apple-style-dock'
+/>
+
+### Image Comparison with hover
+
+<ComponentCodePreview
+  component={<ImageComparisonExample2 />}
+  filePath='examples/apple-style-dock'
+/>
+
+### Image Comparison with spring options
+
+<ComponentCodePreview
+  component={<ImageComparisonExample3 />}
+  filePath='examples/apple-style-dock'
+/>
+
+### Image Comparison with custom slider
+
+<ComponentCodePreview
+  component={<ImageComparisonExample4 />}
+  filePath='examples/apple-style-dock'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/image-comparison.tsx' />
+
+## Component API
+
+### ImageComparison
+
+| Prop          | Type            | Default                      | Description                                   |
+| :------------ | :-------------- | :--------------------------- | :-------------------------------------------- |
+| children      | React.ReactNode |                              | ImageComparisonImage components.                 |
+| className     | string          | undefined                    | Optional CSS class for styling the component. |
+| enableHover   | boolean         | false                        | Controls whether hover effects are enabled.   |
+| springOptions | SpringOptions   | `{ bounce: 0, duration: 0 }` | Options for customizing the spring animation. |
+
+###	 ImageComparisonImage
+
+| Prop          | Type            | Default                      | Description                                   |
+| :------------ | :-------------- | :--------------------------- | :-------------------------------------------- |
+| className     | string          | undefined                    | Optional CSS class for styling the component. |
+| alt           | string          |                              | The alt text for the image.                   |
+| src           | string          |                              | The source URL of the image.                   |
+| position      | 'left' \| 'right' | 'left'                       | The position of the image.                     |
+
+### ImageComparisonSlider
+
+| Prop          | Type            | Default                      | Description                                   |
+| :------------ | :-------------- | :--------------------------- | :-------------------------------------------- |
+| className     | string          | undefined                    | Optional CSS class for styling the component. |
