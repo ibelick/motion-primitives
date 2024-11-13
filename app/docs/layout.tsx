@@ -59,7 +59,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Border Trail',
         href: '/docs/border-trail',
-        isNew: true,
       },
       {
         name: 'Carousel',
@@ -97,7 +96,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text effect',
         href: '/docs/text-effect',
-        isUpdated: true,
       },
       {
         name: 'Text morph',
@@ -124,6 +122,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/dock',
       },
       {
+        name: 'Image Comparison',
+        href: '/docs/image-comparison',
+        isNew: true,
+      },
+      {
         name: 'Toolbar Expandable',
         href: '/docs/toolbar-expandable',
       },
@@ -138,7 +141,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Spinning Text',
         href: '/docs/spinning-text',
-        isNew: true,
       },
       {
         name: 'Toolbar Dynamic',

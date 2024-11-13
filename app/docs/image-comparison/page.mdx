@@ -1,0 +1,79 @@
+export const metadata = {
+  title: 'Image Comparison - Motion-Primitives',
+  description:
+    'Interactively compare two images with a draggable slider to reveal differences.',
+};
+import { ImageComparisonBasic } from '@/components/examples/image-comparison-basic';
+import { ImageComparisonHover } from '@/components/examples/image-comparison-hover';
+import { ImageComparisonSpring } from '@/components/examples/image-comparison-spring';
+import { ImageComparisonCustomSlider } from '@/components/examples/image-comparison-custom-slider';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Image Comparison
+
+Interactively compare two images with a draggable slider to reveal differences.
+
+## Examples
+
+### Image Comparison Basic
+
+<ComponentCodePreview
+  component={<ImageComparisonBasic />}
+  filePath='examples/image-comparison-basic'
+  classNameComponentContainer='px-6 py-24 lg:px-8'
+/>
+
+### Image Comparison with hover
+
+<ComponentCodePreview
+  component={<ImageComparisonHover />}
+  filePath='examples/image-comparison-hover'
+  classNameComponentContainer='px-6 py-24 lg:px-8'
+/>
+
+### Image Comparison with spring options
+
+<ComponentCodePreview
+  component={<ImageComparisonSpring />}
+  filePath='examples/image-comparison-spring'
+  classNameComponentContainer='px-6 py-24 lg:px-8'
+/>
+
+### Image Comparison with custom slider
+
+<ComponentCodePreview
+  component={<ImageComparisonCustomSlider />}
+  filePath='examples/image-comparison-custom-slider'
+  classNameComponentContainer='px-6 py-24 lg:px-8'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/image-comparison.tsx' />
+
+## Component API
+
+### ImageComparison
+
+| Prop          | Type            | Default                      | Description                                   |
+| :------------ | :-------------- | :--------------------------- | :-------------------------------------------- |
+| children      | React.ReactNode |                              | ImageComparisonImage components.              |
+| className     | string          | undefined                    | Optional CSS class for styling the component. |
+| enableHover   | boolean         | false                        | Controls whether hover effects are enabled.   |
+| springOptions | SpringOptions   | `{ bounce: 0, duration: 0 }` | Options for customizing the spring animation. |
+
+### ImageComparisonImage
+
+| Prop      | Type              | Default   | Description                                   |
+| :-------- | :---------------- | :-------- | :-------------------------------------------- |
+| className | string            | undefined | Optional CSS class for styling the component. |
+| alt       | string            |           | The alt text for the image.                   |
+| src       | string            |           | The source URL of the image.                  |
+| position  | 'left' \| 'right' | 'left'    | The position of the image.                    |
+
+### ImageComparisonSlider
+
+| Prop      | Type   | Default   | Description                                   |
+| :-------- | :----- | :-------- | :-------------------------------------------- |
+| className | string | undefined | Optional CSS class for styling the component. |
