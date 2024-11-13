@@ -6,17 +6,19 @@ import {
 
 export function ImageComparisonHover() {
   return (
-    <ImageComparison className='h-64 w-[300px]' enableHover>
+    <ImageComparison
+      className='aspect-[16/10] h-[300px] rounded-lg border border-zinc-200 dark:border-zinc-800'
+      enableHover
+    >
       <ImageComparisonImage
-        src='https://images.beta.cosmos.so/c06c0cf2-935f-4005-85ae-72615a6dc52a?format=jpeg'
-        alt='img 1'
+        src='/mp_dark.png'
+        alt='Motion Primitives Dark'
         position='left'
       />
       <ImageComparisonImage
-        src='https://images.beta.cosmos.so/c06c0cf2-935f-4005-85ae-72615a6dc52a?format=jpeg'
-        alt='img 2'
+        src='/mp_light.png'
+        alt='Motion Primitives Light'
         position='right'
-        className='grayscale'
       />
       <ImageComparisonSlider className='bg-white' />
     </ImageComparison>

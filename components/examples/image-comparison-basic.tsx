@@ -6,16 +6,15 @@ import {
 
 export function ImageComparisonBasic() {
   return (
-    <ImageComparison className='h-64 w-[300px]'>
+    <ImageComparison className='aspect-[16/10] h-[300px] rounded-lg border border-zinc-200 dark:border-zinc-800'>
       <ImageComparisonImage
-        src='https://images.beta.cosmos.so/b8a45229-b9e4-4273-9320-d19409184522?format=jpeg'
-        alt='img 1'
+        src='/mp_dark.png'
+        alt='Motion Primitives Dark'
         position='left'
       />
       <ImageComparisonImage
-        src='https://images.beta.cosmos.so/b8a45229-b9e4-4273-9320-d19409184522?format=jpeg'
-        alt='img 2'
-        className='sepia'
+        src='/mp_light.png'
+        alt='Motion Primitives Light'
         position='right'
       />
       <ImageComparisonSlider className='bg-white' />

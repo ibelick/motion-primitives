@@ -7,24 +7,23 @@ import {
 export function ImageComparisonSpring() {
   return (
     <ImageComparison
-      className='h-64 w-[300px] rounded-lg border border-zinc-200 dark:border-zinc-800'
+      className='aspect-[16/10] h-[300px] rounded-lg border border-zinc-200 dark:border-zinc-800'
       enableHover
       springOptions={{
         bounce: 0.3,
       }}
     >
       <ImageComparisonImage
-        src='/mp_dark.jpg'
+        src='/mp_dark.png'
         alt='Motion Primitives Dark'
         position='left'
       />
       <ImageComparisonImage
-        src='/mp_light.jpg'
+        src='/mp_light.png'
         alt='Motion Primitives Light'
         position='right'
-        className='grayscale'
       />
-      <ImageComparisonSlider className='bg-white' />
+      <ImageComparisonSlider className='w-0.5 bg-white/30 backdrop-blur-sm' />
     </ImageComparison>
   );
 }
