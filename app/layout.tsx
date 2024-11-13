@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Motion-Primitives',
   description:
-    'Motion-Primitives, a collection of open-source, customizable motion components built with Framer Motion and Tailwind CSS. Perfect for enhancing your web projects with beautiful, smooth animations.',
+    'UI kit to make beautiful, animated interfaces, faster. Open-source and customizable.',
 };
 
 export default function RootLayout({

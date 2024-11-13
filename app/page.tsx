@@ -87,7 +87,7 @@ export default function Motion() {
         <section className='flex h-full flex-col items-center justify-center pt-20'>
           <div className='flex w-full max-w-lg flex-col items-center justify-center text-center'>
             <h1 className='relative mb-4 text-4xl font-medium text-zinc-950 dark:text-zinc-50'>
-              UI kit to make beautiful interfaces, faster
+              UI kit to make beautiful, animated interfaces, faster.
             </h1>
             <p className='text-center text-zinc-600 dark:text-zinc-200'>
               Beautifully designed motions components. Easy copy-paste.
