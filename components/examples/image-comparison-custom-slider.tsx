@@ -6,7 +6,7 @@ import {
 
 export function ImageComparisonCustomSlider() {
   return (
-    <ImageComparison className='aspect-[16/10] h-[300px] rounded-lg border border-zinc-200 dark:border-zinc-800'>
+    <ImageComparison className='aspect-[16/10] w-full rounded-lg border border-zinc-200 dark:border-zinc-800'>
       <ImageComparisonImage
         src='/mp_dark.png'
         alt='Motion Primitives Dark'

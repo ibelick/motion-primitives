@@ -7,7 +7,7 @@ import {
 export function ImageComparisonSpring() {
   return (
     <ImageComparison
-      className='aspect-[16/10] h-[300px] rounded-lg border border-zinc-200 dark:border-zinc-800'
+      className='aspect-[16/10] w-full rounded-lg border border-zinc-200 dark:border-zinc-800'
       enableHover
       springOptions={{
         bounce: 0.3,
