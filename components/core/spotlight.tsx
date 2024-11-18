@@ -5,19 +5,13 @@ import { cn } from '@/lib/utils';
 
 type SpotlightProps = {
   className?: string;
-  spotlightSize?: number;
-  color?: string;
-  blur?: number;
-  opacity?: number;
+  size?: number;
   springOptions?: SpringOptions;
 };
 
 export function Spotlight({
-  className = '',
-  spotlightSize = 200,
-  color = 'rgba(255, 255, 255, 0.2)',
-  blur = 20,
-  opacity = 1,
+  className,
+  size = 200,
   springOptions = { stiffness: 400, damping: 25 },
 }: SpotlightProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,8 +21,8 @@ export function Spotlight({
   const mouseX = useSpring(0, springOptions);
   const mouseY = useSpring(0, springOptions);
 
-  const spotlightLeft = useTransform(mouseX, (x) => `${x - spotlightSize / 2}px`);
-  const spotlightTop = useTransform(mouseY, (y) => `${y - spotlightSize / 2}px`);
+  const spotlightLeft = useTransform(mouseX, (x) => `${x - size / 2}px`);
+  const spotlightTop = useTransform(mouseY, (y) => `${y - size / 2}px`);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -61,26 +55,27 @@ export function Spotlight({
     return () => {
       parentElement.removeEventListener('mousemove', handleMouseMove);
       parentElement.removeEventListener('mouseenter', () => setIsHovered(true));
-      parentElement.removeEventListener('mouseleave', () => setIsHovered(false));
+      parentElement.removeEventListener('mouseleave', () =>
+        setIsHovered(false)
+      );
     };
   }, [parentElement, handleMouseMove]);
 
   return (
-    <div ref={containerRef} className={cn('absolute inset-0', className)}>
-      <motion.div
-        className="pointer-events-none absolute"
-        style={{
-          width: spotlightSize,
-          height: spotlightSize,
-          borderRadius: '50%',
-          background: `radial-gradient(circle at center, ${color}, transparent 80%)`,
-          opacity: isHovered ? opacity : 0,
-          left: spotlightLeft,
-          top: spotlightTop,
-          transition: 'opacity 0.3s ease-in-out',
-          filter: `blur(${blur}px)`,
-        }}
-      />
-    </div>
+    <motion.div
+      ref={containerRef}
+      className={cn(
+        'pointer-events-none absolute rounded-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops),transparent_80%)] blur-xl transition-opacity duration-200',
+        'from-zinc-50 via-zinc-100 to-zinc-200',
+        isHovered ? 'opacity-100' : 'opacity-0',
+        className
+      )}
+      style={{
+        width: size,
+        height: size,
+        left: spotlightLeft,
+        top: spotlightTop,
+      }}
+    />
   );
 }

@@ -1,31 +1,43 @@
 export const metadata = {
   title: 'Spotlight - Motion-Primitives',
-  description: 'A container component that adds a spotlight effect following the cursor.',
+  description:
+    'A dynamic spotlight effect component that follows cursor movement.',
 };
 
-import { SpotlightBasic } from '@/components/examples/spotlight-basic';
-import { SpotlightCards } from '@/components/examples/spotlight-card'
+import { SpotlightBasic1 } from '@/components/examples/spotlight-basic-1';
+import { SpotlightBasic2 } from '@/components/examples/spotlight-basic-2';
+import { SpotlightBorder } from '@/components/examples/spotlight-border';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
 # Spotlight
 
-A dynamic spotlight effect component that follows cursor movement, creating an engaging interactive experience.
+A dynamic spotlight effect component that follows cursor movement.
 
 ## Examples
 
-### Basic Usage
+### Spotlight Basic 1
 
 <ComponentCodePreview
-  component={<SpotlightBasic />}
-  filePath='examples/spotlight-basic'
+  component={<SpotlightBasic1 />}
+  filePath='examples/spotlight-basic-1'
+  classNameComponentContainer='px-4'
 />
 
-### Cards with Spotlight
+### Spotlight Basic 2
 
 <ComponentCodePreview
-  component={<SpotlightCards />}
-  filePath='examples/spotlight-card'
+  component={<SpotlightBasic2 />}
+  filePath='examples/spotlight-basic-2'
+  classNameComponentContainer='px-4'
+/>
+
+### Spotlight Border
+
+<ComponentCodePreview
+  component={<SpotlightBorder />}
+  filePath='examples/spotlight-border'
+  classNameComponentContainer='px-4'
 />
 
 ## Code
@@ -40,12 +52,8 @@ A dynamic spotlight effect component that follows cursor movement, creating an e
 
 ### Spotlight
 
-| Prop           | Type          | Default                        | Description                                    |
-| :------------ | :------------ | :---------------------------- | :--------------------------------------------- |
-| className     | string        | ''                           | Additional CSS classes for styling              |
-| spotlightSize | number        | 200                          | Size of the spotlight effect in pixels          |
-| color         | string        | 'rgba(255, 255, 255, 0.2)'   | Color of the spotlight gradient                |
-| blur          | number        | 20                           | Blur amount in pixels                           |
-| opacity       | number        | 1                            | Maximum opacity when hovered                    |
-| springOptions | SpringOptions | `{ stiffness: 400, damping: 25 }` | Animation spring configuration            |
-
+| Prop          | Type          | Default                           | Description                            |
+| :------------ | :------------ | :-------------------------------- | :------------------------------------- |
+| className     | string        | ''                                | Additional CSS classes for styling     |
+| size          | number        | 200                               | Size of the spotlight effect in pixels |
+| springOptions | SpringOptions | `{ stiffness: 400, damping: 25 }` | Animation spring configuration         |
