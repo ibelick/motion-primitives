@@ -2,9 +2,9 @@ import { Spotlight } from '@/components/core/spotlight';
 
 export function SpotlightBasic2() {
   return (
-    <div className='relative aspect-video h-[200px] rounded border border-zinc-800/30 bg-[#070707]'>
+    <div className='relative aspect-video h-[200px] rounded border border-zinc-100 bg-white dark:border-zinc-900 dark:bg-black'>
       <Spotlight
-        className='from-blue-50 via-blue-300 to-blue-400 blur-2xl'
+        className='from-blue-800 via-blue-600 to-blue-400 blur-2xl dark:from-blue-50 dark:via-blue-300 dark:to-blue-400'
         size={46}
         springOptions={{
           bounce: 0,
@@ -22,16 +22,18 @@ export function SpotlightBasic2() {
               <path
                 xmlns='http://www.w3.org/2000/svg'
                 d='M0 4H4M4 4V0M4 4H8M4 4V8'
-                stroke='black'
+                stroke='currentColor'
                 strokeOpacity='0.3'
+                className='stroke-white dark:stroke-black'
               />
               <rect
                 x='3'
                 y='3'
                 width='2'
                 height='2'
-                fill='black'
+                fill='currentColor'
                 fillOpacity='0.25'
+                className='fill-white dark:fill-black'
               />
             </pattern>
           </defs>
