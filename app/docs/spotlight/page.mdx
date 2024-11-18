@@ -4,8 +4,8 @@ export const metadata = {
     'A dynamic spotlight effect component that follows cursor movement.',
 };
 
-import { SpotlightBasic1 } from '@/components/examples/spotlight-basic-1';
-import { SpotlightBasic2 } from '@/components/examples/spotlight-basic-2';
+import { SpotlightBasic } from '@/components/examples/spotlight-basic';
+import { SpotlightCustomColor } from '@/components/examples/spotlight-custom-color';
 import { SpotlightBorder } from '@/components/examples/spotlight-border';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
@@ -19,20 +19,24 @@ A dynamic spotlight effect component that follows cursor movement.
 ### Spotlight Basic 1
 
 <ComponentCodePreview
-  component={<SpotlightBasic1 />}
-  filePath='examples/spotlight-basic-1'
+  component={<SpotlightBasic />}
+  filePath='examples/spotlight-basic'
   classNameComponentContainer='px-4'
 />
 
-### Spotlight Basic 2
+### Spotlight Custom Color
+
+You can customize the color with using [Tailwind CSS gradient color stop](https://tailwindcss.com/docs/gradient-color-stops). (e.g `from-blue-800 via-blue-600 to-blue-400`)
 
 <ComponentCodePreview
-  component={<SpotlightBasic2 />}
-  filePath='examples/spotlight-basic-2'
+  component={<SpotlightCustomColor />}
+  filePath='examples/spotlight-custom-color'
   classNameComponentContainer='px-4'
 />
 
 ### Spotlight Border
+
+You can create a spotlight border by creating a container with a padding that will be used as a border.
 
 <ComponentCodePreview
   component={<SpotlightBorder />}
@@ -57,3 +61,7 @@ A dynamic spotlight effect component that follows cursor movement.
 | className     | string        | ''              | Additional CSS classes for styling     |
 | size          | number        | 200             | Size of the spotlight effect in pixels |
 | springOptions | SpringOptions | `{ bounce: 0 }` | Animation spring configuration         |
+
+## Credit
+
+Initiated by [@divyanshu-vashishth](https://github.com/divyanshu-vashishth)

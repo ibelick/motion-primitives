@@ -1,8 +1,8 @@
 import { Spotlight } from '@/components/core/spotlight';
 
-export function SpotlightBasic1() {
+export function SpotlightBasic() {
   return (
-    <div className='relative aspect-video h-[200px] rounded border border-zinc-100 bg-white dark:border-zinc-900 dark:bg-black'>
+    <div className='relative aspect-video h-[200px] rounded border border-zinc-100 bg-white dark:border-zinc-800 dark:bg-black'>
       <Spotlight
         className='bg-zinc-700 blur-2xl'
         size={64}

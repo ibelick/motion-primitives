@@ -1,14 +1,11 @@
 import { Spotlight } from '@/components/core/spotlight';
 
-export function SpotlightBasic2() {
+export function SpotlightCustomColor() {
   return (
-    <div className='relative aspect-video h-[200px] rounded border border-zinc-100 bg-white dark:border-zinc-900 dark:bg-black'>
+    <div className='relative aspect-video h-[200px] rounded border border-zinc-100 bg-white dark:border-zinc-800 dark:bg-black'>
       <Spotlight
-        className='from-blue-800 via-blue-600 to-blue-400 blur-2xl dark:from-blue-50 dark:via-blue-300 dark:to-blue-400'
-        size={46}
-        springOptions={{
-          bounce: 0,
-        }}
+        className='from-blue-800 via-blue-600 to-blue-400 blur-xl dark:from-blue-900 dark:via-blue-500 dark:to-blue-900'
+        size={64}
       />
       <div className='absolute inset-0'>
         <svg className='h-full w-full'>
