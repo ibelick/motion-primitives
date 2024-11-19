@@ -85,6 +85,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/infinite-slider',
       },
       {
+        name: 'Text effect',
+        href: '/docs/text-effect',
+        isUpdated: true,
+      },
+      {
         name: 'Transition Panel',
         href: '/docs/transition-panel',
       },
@@ -103,8 +108,8 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
-        name: "Text Scramble",
-        href: "/docs/text-scramble",
+        name: 'Text Scramble',
+        href: '/docs/text-scramble',
         isNew: true,
       },
       {
@@ -139,9 +144,15 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/scroll-progress',
       },
       {
+        name: 'Spotlight',
+        href: '/docs/spotlight',
+        isNew: true,
+      },
+      {
         name: 'Spinning Text',
         href: '/docs/spinning-text',
       },
+
       {
         name: 'Toolbar Dynamic',
         href: '/docs/toolbar-dynamic',
