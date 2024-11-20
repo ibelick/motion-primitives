@@ -1,5 +1,5 @@
 import React from 'react';
-import { SpinningText } from '../core/spinning-text';
+import { SpinningText } from '@/components/core/spinning-text';
 
 export function SpinningTextCustomVariants() {
   return (

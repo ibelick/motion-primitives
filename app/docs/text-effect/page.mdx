@@ -4,14 +4,13 @@ export const metadata = {
     'Easily animate text content with various effects. You can apply animations per character or per word, and customize the animation effects using custom variants or preset animations.',
 };
 
-import { TextEffect } from '@/components/core/text-effect';
-import { TextEffectPerChar } from '@/components/examples/text-effect-per-char';
-import { TextEffectPerWord } from '@/components/examples/text-effect-per-word';
-import { TextEffectWithPreset } from '@/components/examples/text-effect-preset';
-import { TextEffectWithCustomVariants } from '@/components/examples/text-effect-variants';
-import { TextEffectWithCustomDelay } from '@/components/examples/text-effect-custom-delay';
-import { TextEffectPerLine } from '@/components/examples/text-effect-line';
-import { TextEffectWithExit } from '@/components/examples/text-effect-exit';
+import { TextEffectPerChar } from './text-effect-per-char';
+import { TextEffectPerWord } from './text-effect-per-word';
+import { TextEffectWithPreset } from './text-effect-preset';
+import { TextEffectWithCustomVariants } from './text-effect-variants';
+import { TextEffectWithCustomDelay } from './text-effect-custom-delay';
+import { TextEffectPerLine } from './text-effect-line';
+import { TextEffectWithExit } from './text-effect-exit';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -25,7 +24,7 @@ Easily animate text content with various effects. You can apply animations per c
 
 <ComponentCodePreview
   component={<TextEffectPerChar />}
-  filePath='examples/text-effect-per-char'
+  filePath='app/docs/text-effect/text-effect-per-char.tsx'
   hasReTrigger
 />
 
@@ -33,7 +32,7 @@ Easily animate text content with various effects. You can apply animations per c
 
 <ComponentCodePreview
   component={<TextEffectPerWord />}
-  filePath='examples/text-effect-per-word'
+  filePath='app/docs/text-effect/text-effect-per-word.tsx'
   hasReTrigger
 />
 
@@ -41,7 +40,7 @@ Easily animate text content with various effects. You can apply animations per c
 
 <ComponentCodePreview
   component={<TextEffectWithPreset />}
-  filePath='examples/text-effect-preset'
+  filePath='app/docs/text-effect/text-effect-preset.tsx'
   hasReTrigger
 />
 
@@ -49,7 +48,7 @@ Easily animate text content with various effects. You can apply animations per c
 
 <ComponentCodePreview
   component={<TextEffectWithCustomVariants />}
-  filePath='examples/text-effect-variants'
+  filePath='app/docs/text-effect/text-effect-variants.tsx'
   hasReTrigger
 />
 
@@ -57,7 +56,7 @@ Easily animate text content with various effects. You can apply animations per c
 
 <ComponentCodePreview
   component={<TextEffectWithCustomDelay />}
-  filePath='examples/text-effect-custom-delay'
+  filePath='app/docs/text-effect/text-effect-custom-delay.tsx'
   hasReTrigger
 />
 
@@ -65,7 +64,7 @@ Easily animate text content with various effects. You can apply animations per c
 
 <ComponentCodePreview
   component={<TextEffectPerLine />}
-  filePath='examples/text-effect-line'
+  filePath='app/docs/text-effect/text-effect-line.tsx'
   hasReTrigger
 />
 
@@ -73,7 +72,7 @@ Easily animate text content with various effects. You can apply animations per c
 
 <ComponentCodePreview
   component={<TextEffectWithExit />}
-  filePath='examples/text-effect-exit'
+  filePath='app/docs/text-effect/text-effect-exit.tsx'
   hasReTrigger
 />
 

@@ -17,7 +17,7 @@ export default function ComponentCodePreview({
   hasReTrigger,
   classNameComponentContainer,
 }: ComponentCodePreview) {
-  const fileContent = extractCodeFromFilePath(`components/${filePath}.tsx`);
+  const fileContent = extractCodeFromFilePath(filePath);
 
   return (
     <div className='not-prose relative z-0 flex items-center justify-between pb-4'>

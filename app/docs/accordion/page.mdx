@@ -4,9 +4,9 @@ export const metadata = {
     'A vertically stacked set of collapsible containers allowing users to toggle content visibility. Customize the animation effects with variants and transitions for expanding/collapsing the sections.',
 };
 
-import { AccordionBasic } from '@/components/examples/accordion-basic';
-import { AccordionIcons } from '@/components/examples/accordion-icons';
-import { AccordionVariant } from '@/components/examples/accordion-variant';
+import { AccordionBasic } from './accordion-basic';
+import { AccordionIcons } from './accordion-icons';
+import { AccordionVariant } from './accordion-variant';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -21,7 +21,7 @@ A vertically stacked set of collapsible containers allowing users to toggle cont
 <ComponentCodePreview
   classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
   component={<AccordionBasic />}
-  filePath='examples/accordion-basic'
+  filePath='app/docs/accordion/accordion-basic.tsx'
 />
 
 ### Accordion with icons
@@ -32,7 +32,7 @@ Here, we apply `-rotate-180` to rotate the icon 180 degrees when its associated 
 <ComponentCodePreview
   classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
   component={<AccordionIcons />}
-  filePath='examples/accordion-icons'
+  filePath='app/docs/accordion/accordion-icons.tsx'
 />
 
 ### Accordion custom variants
@@ -40,7 +40,7 @@ Here, we apply `-rotate-180` to rotate the icon 180 degrees when its associated 
 <ComponentCodePreview
   classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
   component={<AccordionVariant />}
-  filePath='examples/accordion-variant'
+  filePath='app/docs/accordion/accordion-variant.tsx'
 />
 
 ## Code

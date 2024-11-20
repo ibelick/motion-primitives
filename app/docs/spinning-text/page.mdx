@@ -4,10 +4,9 @@ export const metadata = {
     'Easily animate text circularly. Customize the animation with variants and transitions.',
 };
 
-import { SpinningText } from '@/components/core/spinning-text';
-import { SpinningTextBasic } from '@/components/examples/spinning-text-basic';
-import { SpinningTextCustomTransition } from '@/components/examples/spinning-text-custom-transition';
-import { SpinningTextCustomVariants } from '@/components/examples/spinning-text-custom-variants';
+import { SpinningTextBasic } from './spinning-text-basic';
+import { SpinningTextCustomTransition } from './spinning-text-custom-transition';
+import { SpinningTextCustomVariants } from './spinning-text-custom-variants';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -21,7 +20,7 @@ Easily animate text circularly. Customize the animation with variants and transi
 
 <ComponentCodePreview
   component={<SpinningTextBasic />}
-  filePath='examples/spinning-text-basic'
+  filePath='app/docs/spinning-text/spinning-text-basic.tsx'
   hasReTrigger
 />
 
@@ -29,7 +28,7 @@ Easily animate text circularly. Customize the animation with variants and transi
 
 <ComponentCodePreview
   component={<SpinningTextCustomTransition />}
-  filePath='examples/spinning-text-custom-transition'
+  filePath='app/docs/spinning-text/spinning-text-custom-transition.tsx'
   hasReTrigger
 />
 
@@ -37,7 +36,7 @@ Easily animate text circularly. Customize the animation with variants and transi
 
 <ComponentCodePreview
   component={<SpinningTextCustomVariants />}
-  filePath='examples/spinning-text-custom-variants'
+  filePath='app/docs/spinning-text/spinning-text-custom-variants.tsx'
   hasReTrigger
 />
 

@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { TextMorph } from '../core/text-morph';
+import { TextMorph } from '../../../components/core/text-morph';
 
 export function TextMorphInput() {
   const [text, setText] = useState('Craft');

@@ -3,10 +3,9 @@ export const metadata = {
   description: 'Easily animate numbers.',
 };
 
-import { AnimatedNumber } from '@/components/core/animated-number';
-import { AnimatedNumberBasic } from '@/components/examples/animated-number-basic';
-import { AnimatedNumberCounter } from '@/components/examples/animated-number-counter';
-import { AnimatedNumberInView } from '@/components/examples/animated-number-in-view';
+import { AnimatedNumberBasic } from './animated-number-basic';
+import { AnimatedNumberCounter } from './animated-number-counter';
+import { AnimatedNumberInView } from './animated-number-in-view';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -20,7 +19,7 @@ Easily animate numbers.
 
 <ComponentCodePreview
   component={<AnimatedNumberBasic />}
-  filePath='examples/animated-number-basic'
+  filePath='app/docs/animated-number/animated-number-basic.tsx'
   hasReTrigger
   classNameComponentContainer='min-h-[250px]'
 />
@@ -29,7 +28,7 @@ Easily animate numbers.
 
 <ComponentCodePreview
   component={<AnimatedNumberCounter />}
-  filePath='examples/animated-number-counter'
+  filePath='app/docs/animated-number/animated-number-counter.tsx'
   classNameComponentContainer='min-h-[250px]'
 />
 
@@ -37,7 +36,7 @@ Easily animate numbers.
 
 <ComponentCodePreview
   component={<AnimatedNumberInView />}
-  filePath='examples/animated-number-in-view'
+  filePath='app/docs/animated-number/animated-number-in-view.tsx'
   classNameComponentContainer='min-h-[250px]'
 />
 

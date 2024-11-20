@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { AnimatedNumber } from '../core/animated-number';
+import { AnimatedNumber } from '@/components/core/animated-number';
 import { Minus, Plus } from 'lucide-react';
 
 export function AnimatedNumberCounter() {

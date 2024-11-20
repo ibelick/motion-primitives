@@ -4,9 +4,9 @@ export const metadata = {
     'A dynamic spotlight effect component that follows cursor movement.',
 };
 
-import { SpotlightBasic } from '@/components/examples/spotlight-basic';
-import { SpotlightCustomColor } from '@/components/examples/spotlight-custom-color';
-import { SpotlightBorder } from '@/components/examples/spotlight-border';
+import { SpotlightBasic } from './spotlight-basic';
+import { SpotlightCustomColor } from './spotlight-custom-color';
+import { SpotlightBorder } from './spotlight-border';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -20,7 +20,7 @@ A dynamic spotlight effect component that follows cursor movement.
 
 <ComponentCodePreview
   component={<SpotlightBasic />}
-  filePath='examples/spotlight-basic'
+  filePath='app/docs/spotlight/spotlight-basic.tsx'
   classNameComponentContainer='px-4'
 />
 
@@ -30,7 +30,7 @@ You can customize the color with using [Tailwind CSS gradient color stop](https:
 
 <ComponentCodePreview
   component={<SpotlightCustomColor />}
-  filePath='examples/spotlight-custom-color'
+  filePath='app/docs/spotlight/spotlight-custom-color.tsx'
   classNameComponentContainer='px-4'
 />
 
@@ -40,7 +40,7 @@ You can create a spotlight border by creating a container with a padding that wi
 
 <ComponentCodePreview
   component={<SpotlightBorder />}
-  filePath='examples/spotlight-border'
+  filePath='app/docs/spotlight/spotlight-border.tsx'
   classNameComponentContainer='px-4'
 />
 

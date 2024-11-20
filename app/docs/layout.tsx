@@ -41,20 +41,20 @@ const NAVIGATION: NavigationGroup[] = [
     name: 'Core Components',
     children: [
       {
-        name: 'Animated Number',
-        href: '/docs/animated-number',
+        name: 'Accordion',
+        href: '/docs/accordion',
+      },
+      {
+        name: 'Animated Background',
+        href: '/docs/animated-background',
       },
       {
         name: 'Animated Group',
         href: '/docs/animated-group',
       },
       {
-        name: 'Accordion',
-        href: '/docs/accordion',
-      },
-      {
-        name: 'Animated background',
-        href: '/docs/animated-background',
+        name: 'Animated Number',
+        href: '/docs/animated-number',
       },
       {
         name: 'Border Trail',
@@ -77,17 +77,12 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/disclosure',
       },
       {
-        name: 'In view',
+        name: 'In View',
         href: '/docs/in-view',
       },
       {
         name: 'Infinite Slider',
         href: '/docs/infinite-slider',
-      },
-      {
-        name: 'Text effect',
-        href: '/docs/text-effect',
-        isUpdated: true,
       },
       {
         name: 'Transition Panel',
@@ -99,11 +94,11 @@ const NAVIGATION: NavigationGroup[] = [
     name: 'Text',
     children: [
       {
-        name: 'Text effect',
+        name: 'Text Effect',
         href: '/docs/text-effect',
       },
       {
-        name: 'Text morph',
+        name: 'Text Morph',
         href: '/docs/text-morph',
         isNew: true,
       },
@@ -132,6 +127,10 @@ const NAVIGATION: NavigationGroup[] = [
         isNew: true,
       },
       {
+        name: 'Toolbar Dynamic',
+        href: '/docs/toolbar-dynamic',
+      },
+      {
         name: 'Toolbar Expandable',
         href: '/docs/toolbar-expandable',
       },
@@ -151,11 +150,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Spinning Text',
         href: '/docs/spinning-text',
-      },
-
-      {
-        name: 'Toolbar Dynamic',
-        href: '/docs/toolbar-dynamic',
       },
     ],
   },

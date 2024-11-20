@@ -2,7 +2,7 @@ import {
   ImageComparison,
   ImageComparisonImage,
   ImageComparisonSlider,
-} from '../core/image-comparison';
+} from '@/components/core/image-comparison';
 
 export function ImageComparisonCustomSlider() {
   return (

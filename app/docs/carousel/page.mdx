@@ -4,10 +4,10 @@ export const metadata = {
     'A flexible and easy-to-use carousel with customizable navigation and indicators.',
 };
 
-import { CarouselBasic } from '@/components/examples/carousel-basic';
-import { CarouselCustomSizes } from '@/components/examples/carousel-custom-sizes';
-import { CarouselSpacing } from '@/components/examples/carousel-spacing';
-import { CarouselCustomIndicator } from '@/components/examples/carousel-custom-indicator';
+import { CarouselBasic } from './carousel-basic';
+import { CarouselCustomSizes } from './carousel-custom-sizes';
+import { CarouselSpacing } from './carousel-spacing';
+import { CarouselCustomIndicator } from './carousel-custom-indicator';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -21,7 +21,7 @@ A flexible and easy-to-use carousel with customizable navigation and indicators.
 
 <ComponentCodePreview
   component={<CarouselBasic />}
-  filePath='examples/carousel-basic'
+  filePath='app/docs/carousel/carousel-basic.tsx'
 />
 
 ### Carousel with custom sizes
@@ -30,7 +30,7 @@ We use `basis-1/3` to set the width of each carousel item to one-third of the co
 
 <ComponentCodePreview
   component={<CarouselCustomSizes />}
-  filePath='examples/carousel-custom-sizes'
+  filePath='app/docs/carousel/carousel-custom-sizes.tsx'
 />
 
 ### Carousel with custom sizes and spacing
@@ -39,7 +39,7 @@ We use `-ml-4` on `CarouselContent` and `pl-4` on `CarouselItem` to add spacing 
 
 <ComponentCodePreview
   component={<CarouselSpacing />}
-  filePath='examples/carousel-spacing'
+  filePath='app/docs/carousel/carousel-spacing.tsx'
 />
 
 ### Carousel with custom indicators
@@ -48,7 +48,7 @@ We can use `index` and `onIndexChange` to create custom indicators for the carou
 
 <ComponentCodePreview
   component={<CarouselCustomIndicator />}
-  filePath='examples/carousel-custom-indicator'
+  filePath='app/docs/carousel/carousel-custom-indicator.tsx'
 />
 
 ## Code

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { DialogBasicOne } from '@/components/examples/dialog-basic-1';
+import { DialogBasicOne } from '@/app/docs/dialog/dialog-basic-1';
 import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
 import ThemeSwitch from '@/components/website/theme-switch';
@@ -8,13 +8,13 @@ import Popover from '@/components/core/popover';
 import ToolbarDynamic from '@/components/core/toolbar-dynamic';
 import { ChevronRight } from 'lucide-react';
 import { CardExampleLanding } from '@/components/website/card-example-landing';
-import { AnimatedGroupPreset } from '@/components/examples/animated-group-preset';
-import { TextEffectWithExit } from '@/components/examples/text-effect-exit';
-import { InViewImagesGrid } from '@/components/examples/in-view-images-grid';
-import { InfiniteSliderHoverSpeed } from '@/components/examples/infinite-slider-hover-speed';
-import { Cursor1 } from '@/components/examples/cursor-1';
-import { CarouselSpacing } from '@/components/examples/carousel-spacing';
-import { SegmentedControl } from '@/components/examples/segmented-control';
+import { AnimatedGroupPreset } from '@/app/docs/animated-group/animated-group-preset';
+import { TextEffectWithExit } from '@/app/docs/text-effect/text-effect-exit';
+import { InViewImagesGrid } from '@/app/docs/in-view/in-view-images-grid';
+import { InfiniteSliderHoverSpeed } from '@/app/docs/infinite-slider/infinite-slider-hover-speed';
+import { Cursor1 } from '@/app/docs/cursor/cursor-1';
+import { CarouselSpacing } from '@/app/docs/carousel/carousel-spacing';
+import { SegmentedControl } from '@/app/docs/animated-background/segmented-control';
 import { MPLogo } from '@/components/website/icons/motion-primitives-logo';
 import LaunchBanner from '@/components/website/launch-banner';
 
