@@ -4,11 +4,9 @@ export const metadata = {
     'Text animation that transitions between multiple items, creating an engaging looping effect.',
 };
 
-import {
-  TextLoopBasic,
-  TextLoopCustomVariantsTransition,
-  TextLoopCustomVariantsTransition2,
-} from '@/components/core/text-loop';
+import { TextLoopBasic } from './text-loop-basic';
+import { TextLoopCustomVariantsTransition } from './text-loop-custom-variants-transition';
+import { TextLoopOnIndexChange } from './text-loop-on-index';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -36,13 +34,15 @@ Text animation that transitions between multiple items, creating an engaging loo
   classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
 />
 
-### Text Loop with custom variants and transition
+### Text Loop with onIndexChange
+
+You can use the `onIndexChange` prop to trigger a callback function when the index changes. In this example, we use it to create alternating animation directions.
 
 <ComponentCodePreview
-  component={<TextLoopCustomVariantsTransition2 />}
+  component={<TextLoopOnIndexChange />}
   filePath='components/core/text-loop.tsx'
   hasReTrigger
-  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+  classNameComponentContainer='min-h-[124px] py-12 px-12 justify-start items-start'
 />
 
 ## Code
@@ -53,10 +53,11 @@ Text animation that transitions between multiple items, creating an engaging loo
 
 ### Text Loop
 
-| Prop       | Type              | Default | Description                                               |
-| :--------- | :---------------- | :------ | :-------------------------------------------------------- |
-| children   | React.ReactNode[] |         | The text content to be animated.                          |
-| className  | string            |         | Additional CSS classes for styling.                       |
-| interval   | number            | 2000    | Time interval between text changes in milliseconds.       |
-| transition | Transition        |         | Animation transition settings. Can't be more than inerval |
-| variants   | Variants          |         | Custom animation variants.                                |
+| Prop          | Type                    | Default | Description                                               |
+| :------------ | :---------------------- | :------ | :-------------------------------------------------------- |
+| children      | React.ReactNode[]       |         | The text content to be animated.                          |
+| className     | string                  |         | Additional CSS classes for styling.                       |
+| interval      | number                  | 2000    | Time interval between text changes in milliseconds.       |
+| transition    | Transition              |         | Animation transition settings. Can't be more than inerval |
+| variants      | Variants                |         | Custom animation variants.                                |
+| onIndexChange | (index: number) => void |         | Callback function that triggers when the index changes.   |
