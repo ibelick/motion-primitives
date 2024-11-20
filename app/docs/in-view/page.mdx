@@ -4,13 +4,13 @@ export const metadata = {
     'Easily animate elements when they come into view. You can apply animations to elements when they enter the viewport, or when they are fully visible.',
 };
 
-import { InViewBasic } from '@/components/examples/in-view-basic';
-import { InViewBasicMultiple } from '@/components/examples/in-view-basic-multiple';
-import { InViewImagesGrid } from '@/components/examples/in-view-images-grid';
+import { InViewBasic } from './in-view-basic';
+import { InViewBasicMultiple } from './in-view-basic-multiple';
+import { InViewImagesGrid } from './in-view-images-grid';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
-# In view
+# In View
 
 Easily animate elements when they come into view. You can apply animations to elements when they enter the viewport, or when they are fully visible.
 
@@ -20,7 +20,7 @@ Easily animate elements when they come into view. You can apply animations to el
 
 <ComponentCodePreview
   component={<InViewBasic />}
-  filePath='examples/in-view-basic'
+  filePath='app/docs/in-view/in-view-basic.tsx'
   hasReTrigger
 />
 
@@ -28,7 +28,7 @@ Easily animate elements when they come into view. You can apply animations to el
 
 <ComponentCodePreview
   component={<InViewBasicMultiple />}
-  filePath='examples/in-view-basic-multiple'
+  filePath='app/docs/in-view/in-view-basic-multiple.tsx'
   hasReTrigger
 />
 
@@ -38,7 +38,7 @@ Images are from [cosmos - oui are one ::](https://www.cosmos.so/biancadjardins/o
 
 <ComponentCodePreview
   component={<InViewImagesGrid />}
-  filePath='examples/in-view-images-grid'
+  filePath='app/docs/in-view/in-view-images-grid.tsx'
   classNameComponentContainer='h-[600px]'
   hasReTrigger
 />

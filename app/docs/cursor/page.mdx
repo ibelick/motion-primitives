@@ -4,9 +4,9 @@ export const metadata = {
     'A custom cursor component with optional spring animations. It can be globally applied to the page or attached specifically to a parent element.',
 };
 
-import { Cursor1 } from '@/components/examples/cursor-1';
-import { Cursor2 } from '@/components/examples/cursor-2';
-import { Cursor3 } from '@/components/examples/cursor-3';
+import { Cursor1 } from './cursor-1';
+import { Cursor2 } from './cursor-2';
+import { Cursor3 } from './cursor-3';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -18,15 +18,24 @@ A custom cursor component with optional spring animations. It can be globally ap
 
 ### Cursor with image and spring
 
-<ComponentCodePreview component={<Cursor1 />} filePath='examples/cursor-1' />
+<ComponentCodePreview
+  component={<Cursor1 />}
+  filePath='app/docs/cursor/cursor-1.tsx'
+/>
 
 ### Cursor with custom component
 
-<ComponentCodePreview component={<Cursor2 />} filePath='examples/cursor-2' />
+<ComponentCodePreview
+  component={<Cursor2 />}
+  filePath='app/docs/cursor/cursor-2.tsx'
+/>
 
 ### Cursor with image and spring
 
-<ComponentCodePreview component={<Cursor3 />} filePath='examples/cursor-3' />
+<ComponentCodePreview
+  component={<Cursor3 />}
+  filePath='app/docs/cursor/cursor-3.tsx'
+/>
 
 ## Code
 

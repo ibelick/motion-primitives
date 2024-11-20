@@ -3,10 +3,9 @@ export const metadata = {
   description: `A wrapper that adds animated transitions to a group of child elements. It's perfect for creating staggered animations for lists, grids, or any collection of components.`,
 };
 
-import { AnimatedGroup } from '@/components/core/animated-group';
-import { AnimatedGroupPreset } from '@/components/examples/animated-group-preset';
-import { AnimatedGroupCustomVariants } from '@/components/examples/animated-group-custom-variants';
-import { AnimatedGroupCustomVariants2 } from '@/components/examples/animated-group-custom-variants-2';
+import { AnimatedGroupPreset } from './animated-group-preset';
+import { AnimatedGroupCustomVariants } from './animated-group-custom-variants';
+import { AnimatedGroupCustomVariants2 } from './animated-group-custom-variants-2';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -22,7 +21,7 @@ Images are from [cosmos - Impressionisme](https://www.cosmos.so/ibelick/impressi
 
 <ComponentCodePreview
   component={<AnimatedGroupPreset />}
-  filePath='examples/animated-group-preset'
+  filePath='app/docs/animated-group/animated-group-preset.tsx'
   hasReTrigger
 />
 
@@ -30,7 +29,7 @@ Images are from [cosmos - Impressionisme](https://www.cosmos.so/ibelick/impressi
 
 <ComponentCodePreview
   component={<AnimatedGroupCustomVariants />}
-  filePath='examples/animated-group-custom-variants'
+  filePath='app/docs/animated-group/animated-group-custom-variants.tsx'
   hasReTrigger
 />
 
@@ -38,7 +37,7 @@ Images are from [cosmos - Impressionisme](https://www.cosmos.so/ibelick/impressi
 
 <ComponentCodePreview
   component={<AnimatedGroupCustomVariants2 />}
-  filePath='examples/animated-group-custom-variants-2'
+  filePath='app/docs/animated-group/animated-group-custom-variants-2.tsx'
   hasReTrigger
   classNameComponentContainer='bg-white'
 />

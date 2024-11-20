@@ -4,9 +4,9 @@ export const metadata = {
     'Text animation that transforms text by randomly cycling through characters before settling on the final content, creating an engaging cryptographic effect.',
 };
 
-import { TextScrambleBasic } from '@/components/examples/text-scramble-basic';
-import { TextScrambleCustomCharacterDuration } from '@/components/examples/text-scramble-custom-char-duration';
-import { TextScrambleCustomTrigger } from '@/components/examples/text-scramble-custom-trigger';
+import { TextScrambleBasic } from './text-scramble-basic';
+import { TextScrambleCustomCharacterDuration } from './text-scramble-custom-char-duration';
+import { TextScrambleCustomTrigger } from './text-scramble-custom-trigger';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -20,7 +20,7 @@ Text animation that transforms text by randomly cycling through characters befor
 
 <ComponentCodePreview
   component={<TextScrambleBasic />}
-  filePath='examples/text-scramble-basic'
+  filePath='app/docs/text-scramble/text-scramble-basic.tsx'
   hasReTrigger
   classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
 />
@@ -29,7 +29,7 @@ Text animation that transforms text by randomly cycling through characters befor
 
 <ComponentCodePreview
   component={<TextScrambleCustomTrigger />}
-  filePath='examples/text-scramble-custom-trigger'
+  filePath='app/docs/text-scramble/text-scramble-custom-trigger.tsx'
   classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
 />
 
@@ -37,7 +37,7 @@ Text animation that transforms text by randomly cycling through characters befor
 
 <ComponentCodePreview
   component={<TextScrambleCustomCharacterDuration />}
-  filePath='examples/text-scramble-custom-char-duration'
+  filePath='app/docs/text-scramble/text-scramble-custom-char-duration.tsx'
   hasReTrigger
   classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
 />
