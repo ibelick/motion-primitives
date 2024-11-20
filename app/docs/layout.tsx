@@ -98,9 +98,13 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/text-effect',
       },
       {
+        name: 'Text Loop',
+        href: '/docs/text-loop',
+        isNew: true,
+      },
+      {
         name: 'Text Morph',
         href: '/docs/text-morph',
-        isNew: true,
       },
       {
         name: 'Text Scramble',

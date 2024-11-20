@@ -1,0 +1,62 @@
+export const metadata = {
+  title: 'Text Loop - Motion-Primitives',
+  description:
+    'Text animation that transitions between multiple items, creating an engaging looping effect.',
+};
+
+import {
+  TextLoopBasic,
+  TextLoopCustomVariantsTransition,
+  TextLoopCustomVariantsTransition2,
+} from '@/components/core/text-loop';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Text Loop
+
+Text animation that transitions between multiple items, creating an engaging looping effect
+
+## Examples
+
+### Text Loop Basic
+
+<ComponentCodePreview
+  component={<TextLoopBasic />}
+  filePath='components/core/text-loop.tsx'
+  hasReTrigger
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+### Text Loop with custom variants and transition
+
+<ComponentCodePreview
+  component={<TextLoopCustomVariantsTransition />}
+  filePath='components/core/text-loop.tsx'
+  hasReTrigger
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+### Text Loop with custom variants and transition
+
+<ComponentCodePreview
+  component={<TextLoopCustomVariantsTransition2 />}
+  filePath='components/core/text-loop.tsx'
+  hasReTrigger
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/text-loop.tsx' />
+
+## Component API
+
+### Text Loop
+
+| Prop       | Type              | Default | Description                                               |
+| :--------- | :---------------- | :------ | :-------------------------------------------------------- |
+| children   | React.ReactNode[] |         | The text content to be animated.                          |
+| className  | string            |         | Additional CSS classes for styling.                       |
+| interval   | number            | 2000    | Time interval between text changes in milliseconds.       |
+| transition | Transition        |         | Animation transition settings. Can't be more than inerval |
+| variants   | Variants          |         | Custom animation variants.                                |
