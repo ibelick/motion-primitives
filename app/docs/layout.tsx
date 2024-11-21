@@ -1,14 +1,10 @@
 'use client';
-import ThemeSwitch from '@/components/website/theme-switch';
-import GitHubIcon from '@/components/website/icons/github';
-import XIcon from '@/components/website/icons/x';
 import { ScrollArea } from '@/components/website/scroll-area';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TableOfContents } from '@/components/website/table-of-contents';
-import { MPLogo } from '@/components/website/icons/motion-primitives-logo';
 import LaunchBanner from '@/components/website/launch-banner';
 import { Header } from '@/components/website/header';
 
@@ -162,6 +158,16 @@ const NAVIGATION: NavigationGroup[] = [
 
 function NavigationDesktop() {
   const pathname = usePathname();
+  const activeRef = useRef<HTMLLIElement | null>(null);
+
+  useEffect(() => {
+    if (activeRef.current) {
+      activeRef.current.scrollIntoView({
+        behavior: 'auto',
+        block: 'nearest',
+      });
+    }
+  }, [pathname]);
 
   return (
     <aside className='sticky top-14 hidden h-[calc(100dvh-theme(spacing.16))] w-[220px] shrink-0 pt-8 md:block lg:pt-12'>
@@ -182,7 +188,7 @@ function NavigationDesktop() {
                       const isActive = pathname === child.href;
 
                       return (
-                        <li key={child.href}>
+                        <li key={child.href} ref={isActive ? activeRef : null}>
                           <Link
                             className={cn(
                               'relative inline-flex items-center space-x-1 pl-4 text-sm font-normal text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
