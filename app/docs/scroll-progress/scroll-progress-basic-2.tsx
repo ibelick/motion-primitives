@@ -1,6 +1,6 @@
 'use client';
 import { useRef } from 'react';
-import { ScrollProgress } from '../../../components/core/scroll-progress';
+import { ScrollProgress } from '@/components/core/scroll-progress';
 
 const dummyContent = Array.from({ length: 10 }, (_, i) => (
   <p key={i} className='pb-4 font-mono text-sm text-zinc-500'>

@@ -1,0 +1,60 @@
+export const metadata = {
+  title: 'Text Loop - Motion-Primitives',
+  description:
+    'Text animation that transitions between multiple items, creating an engaging looping effect.',
+};
+
+import { TextLoopBasic } from './text-loop-basic';
+import { TextLoopCustomVariantsTransition } from './text-loop-custom-variants-transition';
+import { TextLoopOnIndexChange } from './text-loop-on-index';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Text Loop
+
+Text animation that transitions between multiple items, creating an engaging looping effect
+
+## Examples
+
+### Text Loop Basic
+
+<ComponentCodePreview
+  component={<TextLoopBasic />}
+  filePath='components/core/text-loop.tsx'
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+### Text Loop with custom variants and transition
+
+<ComponentCodePreview
+  component={<TextLoopCustomVariantsTransition />}
+  filePath='components/core/text-loop.tsx'
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+### Text Loop with onIndexChange
+
+You can use the `onIndexChange` prop to trigger a callback function when the index changes. In this example, we use it to create alternating animation directions.
+
+<ComponentCodePreview
+  component={<TextLoopOnIndexChange />}
+  filePath='components/core/text-loop.tsx'
+  classNameComponentContainer='min-h-[124px] py-12 px-12 justify-start items-start'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/text-loop.tsx' />
+
+## Component API
+
+### Text Loop
+
+| Prop          | Type                    | Default | Description                                               |
+| :------------ | :---------------------- | :------ | :-------------------------------------------------------- |
+| children      | React.ReactNode[]       |         | The text content to be animated.                          |
+| className     | string                  |         | Additional CSS classes for styling.                       |
+| interval      | number                  | 2000    | Time interval between text changes in milliseconds.       |
+| transition    | Transition              |         | Animation transition settings. Can't be more than inerval |
+| variants      | Variants                |         | Custom animation variants.                                |
+| onIndexChange | (index: number) => void |         | Callback function that triggers when the index changes.   |
