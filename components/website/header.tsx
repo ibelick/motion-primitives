@@ -18,7 +18,7 @@ export function Header() {
           </span>
         </Link>
         <div className='flex items-center space-x-6'>
-          <nav className='flex items-center space-x-6'>
+          <nav className='hidden items-center space-x-6 sm:flex'>
             <Link
               href='/docs/text-effect'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
@@ -32,7 +32,7 @@ export function Header() {
               Showcase
             </Link>
           </nav>
-          <div className='h-8 w-[0.5px] bg-zinc-200 dark:bg-zinc-800' />
+          <div className='hidden h-8 w-[0.5px] bg-zinc-200 dark:bg-zinc-800 sm:flex' />
           <nav className='flex items-center space-x-2'>
             <a
               href='https://twitter.com/Ibelick'

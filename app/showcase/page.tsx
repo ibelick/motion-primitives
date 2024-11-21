@@ -1,3 +1,4 @@
+import { AnimatedGroup } from '@/components/core/animated-group';
 import { Header } from '@/components/website/header';
 import LaunchBanner from '@/components/website/launch-banner';
 
@@ -34,6 +35,35 @@ export default function Showcase() {
                 </a>
               </p>
             </div>
+            <AnimatedGroup
+              className='mx-auto grid max-w-5xl grid-cols-1 gap-6 [mask-image:linear-gradient(to_bottom,black_30%,transparent)] md:grid-cols-2 lg:grid-cols-3'
+              variants={{
+                container: {
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.05,
+                    },
+                  },
+                },
+                item: {
+                  hidden: {
+                    opacity: 0,
+                    filter: 'blur(4px)',
+                    scale: 0.8,
+                  },
+                  visible: { opacity: 1, filter: 'blur(0px)', scale: 1 },
+                },
+              }}
+            >
+              <div className='h-48 rounded-2xl bg-zinc-100 dark:bg-zinc-900'></div>
+              <div className='h-48 rounded-2xl bg-zinc-100 dark:bg-zinc-900'></div>
+              <div className='h-48 rounded-2xl bg-zinc-100 dark:bg-zinc-900'></div>
+              <div className='h-48 rounded-2xl bg-zinc-100 dark:bg-zinc-900'></div>
+              <div className='h-48 rounded-2xl bg-zinc-100 dark:bg-zinc-900'></div>
+              <div className='h-48 rounded-2xl bg-zinc-100 dark:bg-zinc-900'></div>
+            </AnimatedGroup>
           </main>
         </div>
       </div>
