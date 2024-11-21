@@ -6,7 +6,10 @@ export function TextScrambleCustomTrigger() {
   const [isTrigger, setIsTrigger] = useState(false);
 
   return (
-    <a href='#' className='text-zinc-500 transition-colors hover:text-black'>
+    <a
+      href='#'
+      className='text-zinc-500 transition-colors hover:text-black dark:hover:text-white'
+    >
       <TextScramble
         className='text-sm'
         as='span'

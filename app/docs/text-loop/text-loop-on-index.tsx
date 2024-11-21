@@ -21,8 +21,6 @@ export function TextLoopOnIndexChange() {
       }}
       variants={{
         initial: {
-          position: 'absolute',
-          left: 0,
           y: -direction * 20,
           rotateX: -direction * 90,
           opacity: 0,
@@ -33,23 +31,20 @@ export function TextLoopOnIndexChange() {
           rotateX: 0,
           opacity: 1,
           filter: 'blur(0px)',
-          position: 'relative',
         },
         exit: {
           y: -direction * 20,
           rotateX: -direction * 90,
           opacity: 0,
           filter: 'blur(4px)',
-          position: 'absolute',
-          left: 0,
         },
       }}
     >
       <span>
-        <Music size={12} className='mr-1 inline-block' />
-        Paper Planes・M.I.A.
+        <Music size={12} className='mr-1 inline-block' />A Little Lost・Arthur
+        Russell
       </span>
-      <span>Fort-de-France, Martinique</span>
+      <span>La Trinité, Martinique</span>
     </TextLoop>
   );
 }
