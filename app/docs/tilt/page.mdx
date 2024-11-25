@@ -5,6 +5,7 @@ export const metadata = {
 };
 
 import { TiltCard1 } from './tilt-card-1';
+import { TiltSpotlight } from './tilt-spotlight';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -19,6 +20,15 @@ A component that creates an interactive 3D tilt effect that responds to mouse mo
 <ComponentCodePreview
   component={<TiltCard1 />}
   filePath='app/docs/tilt/tilt-card-1.tsx'
+/>
+
+### Tilt with Spotlight
+
+And example using the [Spotlight component](/docs/spotlight) with the Tilt component.
+
+<ComponentCodePreview
+  component={<TiltSpotlight />}
+  filePath='app/docs/tilt/tilt-spotlight.tsx'
 />
 
 ## Code
