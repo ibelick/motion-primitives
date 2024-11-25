@@ -8,33 +8,33 @@ import {
   useSpring,
   useTransform,
   MotionStyle,
-  Transition,
+  SpringOptions,
 } from 'framer-motion';
 
 type TiltProps = {
   children: React.ReactNode;
   className?: string;
-  transition?: Transition;
   style?: MotionStyle;
   rotationFactor?: number;
   isRevese?: boolean;
+  springOptions?: SpringOptions;
 };
 
 export function Tilt({
   children,
   className,
-  transition,
   style,
   rotationFactor = 15,
   isRevese = false,
+  springOptions,
 }: TiltProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const xSpring = useSpring(x);
-  const ySpring = useSpring(y);
+  const xSpring = useSpring(x, springOptions);
+  const ySpring = useSpring(y, springOptions);
 
   const rotateX = useTransform(
     ySpring,
@@ -52,14 +52,6 @@ export function Tilt({
   );
 
   const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  const scale = useSpring(1);
-
-  const BASE_TRANSITION: Transition = {
-    type: 'spring',
-    stiffness: 900,
-    damping: 80,
-    mass: 5,
-  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -80,7 +72,6 @@ export function Tilt({
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
-    scale.set(1);
   };
 
   return (
@@ -91,9 +82,7 @@ export function Tilt({
         transformStyle: 'preserve-3d',
         ...style,
         transform,
-        scale,
       }}
-      transition={transition ?? BASE_TRANSITION}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

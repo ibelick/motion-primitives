@@ -1,0 +1,38 @@
+export const metadata = {
+  title: 'Tilt - Motion-Primitives',
+  description:
+    'A component that creates an interactive 3D tilt effect that responds to mouse movement, enhancing UI elements with a dynamic depth effect and customizable rotation factors and spring options.',
+};
+
+import { TiltCard1 } from './tilt-card-1';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Tilt
+
+A component that creates an interactive 3D tilt effect that responds to mouse movement, enhancing UI elements with a dynamic depth effect and customizable rotation factors and spring options.
+
+## Examples
+
+### Basic Tilt Card
+
+<ComponentCodePreview
+  component={<TiltCard1 />}
+  filePath='app/docs/tilt/tilt-card-1.tsx'
+/>
+
+## Code
+
+<CodeBlock filePath='components/core/tilt.tsx' />
+
+## Component API
+
+### Border Trail
+
+| Prop           | Type          | Default | Description                                     |
+| :------------- | :------------ | :------ | :---------------------------------------------- |
+| className      | string        |         | Additional CSS classes for styling the tilt.    |
+| style          | MotionStyle   |         | Additional CSS classes for styling the tilt.    |
+| rotationFactor | number        | 15      | Controls the maximum rotation angle in degrees. |
+| isRevese       | boolean       | false   | Reverses the tilt effect's rotation direction.  |
+| springOptions  | SpringOptions |         | Spring options for the tilt effect.             |
