@@ -152,6 +152,11 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Spinning Text',
         href: '/docs/spinning-text',
       },
+      {
+        name: 'Tilt',
+        href: '/docs/tilt',
+        isNew: true,
+      },
     ],
   },
 ];
