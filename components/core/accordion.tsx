@@ -110,7 +110,7 @@ function AccordionItem({ value, children, className }: AccordionItemProps) {
   return (
     <div
       className={cn('overflow-hidden', className)}
-      {...(isExpanded ? { 'data-expanded': '' } : {})}
+      {...(isExpanded ? { 'data-expanded': '' } : {'data-closed': ''})}
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
@@ -146,7 +146,7 @@ function AccordionTrigger({
       aria-expanded={isExpanded}
       type='button'
       className={cn('group', className)}
-      {...(isExpanded ? { 'data-expanded': '' } : {})}
+      {...(isExpanded ? { 'data-expanded': '' } : {'data-closed': ''})}
     >
       {children}
     </button>
