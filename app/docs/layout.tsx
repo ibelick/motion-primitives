@@ -157,6 +157,10 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/tilt',
         isNew: true,
       },
+      {
+        name: 'Resizable Card',
+        href: '/docs/resizable-card',
+      },
     ],
   },
 ];
