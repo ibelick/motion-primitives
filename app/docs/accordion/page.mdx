@@ -7,6 +7,7 @@ export const metadata = {
 import { AccordionBasic } from './accordion-basic';
 import { AccordionIcons } from './accordion-icons';
 import { AccordionVariant } from './accordion-variant';
+import {AccordionDataClosed} from './accordion-data-closed'
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -33,6 +34,16 @@ Here, we apply `-rotate-180` to rotate the icon 180 degrees when its associated 
   classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
   component={<AccordionIcons />}
   filePath='app/docs/accordion/accordion-icons.tsx'
+/>
+
+#### Accordion with `data-closed` attribute
+
+You also have the option of using `group-data-[closed]:...` on elements inside `AccordionTrigger` if need be. Here, we apply `rotate-180` to rotate the icon 180 degrees as well when its associated section is closed. It's there if you ever need that option.
+
+<ComponentCodePreview
+  classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
+  component={<AccordionDataClosed />}
+  filePath='app/docs/accordion/accordion-data-closed.tsx'
 />
 
 ### Accordion custom variants
