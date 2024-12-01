@@ -8,11 +8,11 @@ import CodeBlock from '@/components/website/code-block';
 # Installation
 
 Motion-Primitives is built on top of two libraries:
-- [Framer Motion](https://www.framer.com/motion/) for animations
+
+- [Motion](https://motion.dev/) for animations
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 
 This project is designed specifically for React projects.
-
 
 ## Quick Start
 
@@ -20,9 +20,9 @@ This project is designed specifically for React projects.
 
 Components are styled using Tailwind CSS. Follow the [official installation guide](https://tailwindcss.com/docs/installation) to add it to your project.
 
-2. **Install Framer Motion**
+2. **Install Motion**
 
-<CodeBlock code={`npm install framer-motion`} lang='bash' className='h-[52px]' />
+<CodeBlock code={`npm install motion`} lang='bash' className='h-[52px]' />
 
 3. **Add the utility helper**
 
@@ -34,21 +34,19 @@ Create a `lib/utils.ts` file to manage Tailwind CSS classes:
 
 Add [Lucide React](https://lucide.dev/) icons:
 
-<CodeBlock 
-  code={`npm install lucide-react`} 
-  lang='bash' 
-  className='h-[52px]' 
-/>
+<CodeBlock code={`npm install lucide-react`} lang='bash' className='h-[52px]' />
 
 ## Project Structure
 
 Here's the recommended project structure:
 
-<CodeBlock code={`your-project/
+<CodeBlock
+  code={`your-project/
 ├── components/
 │   └── motion-ui/     # Motion components directory
 ├── lib/
-│   └── utils.ts      # Utility functions`} lang='text' />
-
+│   └── utils.ts      # Utility functions`}
+  lang='text'
+/>
 
 You're all set! You can now start enjoying the components.

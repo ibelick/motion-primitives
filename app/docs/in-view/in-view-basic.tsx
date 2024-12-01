@@ -19,9 +19,9 @@ export function InViewBasic() {
                 Craft beautiful animated components with Motion-Primitives.
               </strong>{' '}
               Designed for developers and designers. The library leverages the
-              power of Framer Motion, with intuitive APIs that simplifies
-              creating complex animations for any project. Start building more
-              dynamic interfaces today.
+              power of Motion, with intuitive APIs that simplifies creating
+              complex animations for any project. Start building more dynamic
+              interfaces today.
             </p>
           </div>
         </InView>
