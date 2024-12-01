@@ -8,7 +8,7 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from 'framer-motion';
+} from 'motion/react';
 
 const ImageComparisonContext = createContext<
   | {

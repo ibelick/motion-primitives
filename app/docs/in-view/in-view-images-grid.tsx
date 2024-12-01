@@ -1,6 +1,6 @@
 'use client';
 import { InView } from '@/components/core/in-view';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 export function InViewImagesGrid() {
   return (

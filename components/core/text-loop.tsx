@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence, Transition, Variants } from 'framer-motion';
+import { motion, AnimatePresence, Transition, Variants } from 'motion/react';
 import { useState, useEffect, Children } from 'react';
 
 type TextLoopProps = {

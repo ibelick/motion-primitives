@@ -1,6 +1,6 @@
 'use client';
 import { AnimatedNumber } from '@/components/core/animated-number';
-import { useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 
 export function AnimatedNumberInView() {

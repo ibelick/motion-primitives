@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import useMeasure from 'react-use-measure';
-import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
+import { AnimatePresence, motion, MotionConfig } from 'motion/react';
 import { cn } from '@/lib/utils';
 import useClickOutside from '@/hooks/useClickOutside';
 import { Folder, MessageCircle, User, WalletCards } from 'lucide-react';

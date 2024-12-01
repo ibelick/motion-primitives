@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, Transition, motion } from 'framer-motion';
+import { AnimatePresence, Transition, motion } from 'motion/react';
 import {
   Children,
   cloneElement,

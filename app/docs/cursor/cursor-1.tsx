@@ -1,7 +1,7 @@
 'use client';
 import { useRef, useState } from 'react';
 import { Cursor } from '@/components/core/cursor';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { PlusIcon } from 'lucide-react';
 
 export function Cursor1() {
