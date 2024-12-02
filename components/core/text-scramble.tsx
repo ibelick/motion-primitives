@@ -1,6 +1,6 @@
 'use client';
 import { type JSX, useEffect, useState } from 'react';
-import { motion, MotionProps } from 'framer-motion';
+import { motion, MotionProps } from 'motion/react';
 
 type TextScrambleProps = {
   children: string;

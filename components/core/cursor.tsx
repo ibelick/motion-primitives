@@ -8,7 +8,7 @@ import {
   AnimatePresence,
   Transition,
   Variant,
-} from 'framer-motion';
+} from 'motion/react';
 import { cn } from '@/lib/utils';
 
 type CursorProps = {

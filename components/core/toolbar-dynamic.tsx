@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef, useState } from 'react';
-import { motion, MotionConfig } from 'framer-motion';
+import { motion, MotionConfig } from 'motion/react';
 import useClickOutside from '@/hooks/useClickOutside';
 import { ArrowLeft, Search, User } from 'lucide-react';
 

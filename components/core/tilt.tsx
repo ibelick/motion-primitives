@@ -9,7 +9,7 @@ import {
   useTransform,
   MotionStyle,
   SpringOptions,
-} from 'framer-motion';
+} from 'motion/react';
 
 type TiltProps = {
   children: React.ReactNode;

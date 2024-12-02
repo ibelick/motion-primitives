@@ -6,7 +6,7 @@ import {
   DisclosureContent,
   DisclosureTrigger,
 } from '@/components/core/disclosure';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 export function DisclosureCard() {
   const [isOpen, setIsOpen] = useState(false);

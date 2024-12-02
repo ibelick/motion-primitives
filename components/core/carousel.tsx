@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { motion, Transition, useMotionValue } from 'framer-motion';
+import { motion, Transition, useMotionValue } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -307,7 +307,7 @@ function CarouselContent({
           stiffness: 90,
           type: 'spring',
           duration: 0.2,
-        } 
+        }
       }
       className={cn(
         'flex items-center',

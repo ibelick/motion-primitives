@@ -6,7 +6,7 @@ import {
   Variant,
   Transition,
   UseInViewOptions,
-} from 'framer-motion';
+} from 'motion/react';
 
 interface InViewProps {
   children: ReactNode;
