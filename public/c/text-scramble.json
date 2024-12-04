@@ -6,15 +6,7 @@
     "motion"
   ],
   "devDependencies": [],
-  "tailwind": {
-    "config": {
-      "theme": {
-        "extend": {
-          "colors": {}
-        }
-      }
-    }
-  },
+  "tailwind": {},
   "cssVars": {
     "light": {},
     "dark": {}
