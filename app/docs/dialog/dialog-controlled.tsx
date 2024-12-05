@@ -14,15 +14,17 @@ export function DialogControlled() {
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)} type='button'>
+      <button onClick={() => setIsOpen(true)} type='button' className='text-sm'>
         Open Dialog
       </button>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className='w-full max-w-md p-6'>
+        <DialogContent className='w-full max-w-md bg-white p-6 dark:bg-zinc-900'>
           <DialogHeader>
-            <DialogTitle>Subscribe to our Newsletter</DialogTitle>
-            <DialogDescription>
-              Enter your email address to receive latest updates.
+            <DialogTitle className='text-zinc-900 dark:text-white'>
+              Join the waitlist
+            </DialogTitle>
+            <DialogDescription className='text-zinc-600 dark:text-zinc-400'>
+              Enter your email address to receive updates when we launch.
             </DialogDescription>
           </DialogHeader>
           <div className='mt-6 flex flex-col space-y-4'>
@@ -32,14 +34,14 @@ export function DialogControlled() {
             <input
               id='name'
               type='email'
-              className='h-9 w-full rounded-lg border border-zinc-200 bg-white px-3 text-zinc-900 outline-none focus:ring-2 focus:ring-black/5'
+              className='h-9 w-full rounded-lg border border-zinc-200 bg-white px-3 text-sm text-zinc-900 outline-none focus:ring-2 focus:ring-black/5 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:ring-white/5'
               placeholder='Enter your email'
             />
             <button
-              className='inline-flex items-center justify-center self-end rounded-lg bg-black px-4 py-2 font-medium text-zinc-50'
+              className='inline-flex items-center justify-center self-end rounded-lg bg-black px-4 py-2 text-sm font-medium text-zinc-50 dark:bg-white dark:text-zinc-900'
               type='submit'
             >
-              Subscribe
+              Join now
             </button>
           </div>
           <DialogClose />

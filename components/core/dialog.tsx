@@ -6,6 +6,7 @@ import { useId } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { usePreventScroll } from '@/hooks/usePreventScroll';
+
 const DialogContext = createContext<{
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
@@ -230,7 +231,7 @@ function DialogContent({ children, className, container }: DialogContentProps) {
           transition={transition}
           onAnimationComplete={onAnimationComplete}
           className={cn(
-            'fixed rounded-lg border border-zinc-200 p-0 shadow-lg',
+            'fixed rounded-lg border border-zinc-200 p-0 shadow-lg dark:border dark:border-zinc-700',
             'backdrop:bg-black/50 backdrop:backdrop-blur-sm',
             'open:flex open:flex-col',
             className
