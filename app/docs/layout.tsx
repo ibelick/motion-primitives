@@ -68,6 +68,7 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Dialog',
         href: '/docs/dialog',
+        isNew: true,
       },
       {
         name: 'Disclosure',
@@ -111,7 +112,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Shimmer',
         href: '/docs/text-shimmer',
-        isNew: true,
       },
     ],
   },
@@ -156,6 +156,10 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Tilt',
         href: '/docs/tilt',
         isNew: true,
+      },
+      {
+        name: 'Morphing Dialog',
+        href: '/docs/morphing-dialog',
       },
     ],
   },

@@ -1,37 +1,37 @@
 import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogClose,
-  DialogImage,
-  DialogContainer,
-} from '@/components/core/dialog';
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogClose,
+  MorphingDialogImage,
+  MorphingDialogContainer,
+} from '@/components/core/morphing-dialog';
 import { XIcon } from 'lucide-react';
 
-export function DialogBasicImage() {
+export function MorphingDialogBasicImage() {
   return (
-    <Dialog
+    <MorphingDialog
       transition={{
         duration: 0.3,
         ease: 'easeInOut',
       }}
     >
-      <DialogTrigger>
-        <DialogImage
+      <MorphingDialogTrigger>
+        <MorphingDialogImage
           src='https://64.media.tumblr.com/a56381366ceaab29b760aabe5e88df07/f3b5e9af4d3103f3-97/s2048x3072/caec6beeee2cbeb80b05e88c917b187926749703.jpg'
           alt='Sony Style Store in the Sony Center complex - Berlin, Germany (2000)'
           className='max-w-xs rounded-[4px]'
         />
-      </DialogTrigger>
-      <DialogContainer>
-        <DialogContent className='relative'>
-          <DialogImage
+      </MorphingDialogTrigger>
+      <MorphingDialogContainer>
+        <MorphingDialogContent className='relative'>
+          <MorphingDialogImage
             src='https://64.media.tumblr.com/a56381366ceaab29b760aabe5e88df07/f3b5e9af4d3103f3-97/s2048x3072/caec6beeee2cbeb80b05e88c917b187926749703.jpg'
             alt='Sony Style Store in the Sony Center complex - Berlin, Germany (2000)'
             className='h-auto w-full max-w-[90vw] rounded-[4px] object-cover lg:h-[90vh]'
           />
-        </DialogContent>
-        <DialogClose
+        </MorphingDialogContent>
+        <MorphingDialogClose
           className='fixed right-6 top-6 h-fit w-fit rounded-full bg-white p-1'
           variants={{
             initial: { opacity: 0 },
@@ -43,8 +43,8 @@ export function DialogBasicImage() {
           }}
         >
           <XIcon className='h-5 w-5 text-zinc-500' />
-        </DialogClose>
-      </DialogContainer>
-    </Dialog>
+        </MorphingDialogClose>
+      </MorphingDialogContainer>
+    </MorphingDialog>
   );
 }
