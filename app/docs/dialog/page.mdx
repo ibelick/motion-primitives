@@ -1,5 +1,9 @@
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import { DialogBasic } from './dialog-basic';
+import { DialogControlled } from './dialog-controlled';
+import { DialogCustomVariantsTransition } from './dialog-custom-variants-transtion';
+import { DialogCustomExit } from './dialog-custom-exit';
+import { DialogCustomBackdrop } from './dialog-custom-backdrop';
 import CodeBlock from '@/components/website/code-block';
 
 # Dialog
@@ -7,11 +11,47 @@ import CodeBlock from '@/components/website/code-block';
 A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
 Customize the dialog with variants and transition.
 
-## Basic Dialog
+## Examples
+
+### Basic Dialog
 
 <ComponentCodePreview
   component={<DialogBasic />}
   filePath='app/docs/dialog/dialog-basic.tsx'
+/>
+
+### Controlled Dialog
+
+You can control the open state of the dialog using the `open` and `onOpenChange` props.
+
+<ComponentCodePreview
+  component={<DialogControlled />}
+  filePath='app/docs/dialog/dialog-controlled.tsx'
+/>
+
+### Dialog with custom variants and transition
+
+<ComponentCodePreview
+  component={<DialogCustomVariantsTransition />}
+  filePath='app/docs/dialog/dialog-custom-variants-transtion.tsx'
+/>
+
+### Dialog with custom exit animation
+
+You can customize the exit animation by providing a custom `exit` variant.
+
+<ComponentCodePreview
+  component={<DialogCustomExit />}
+  filePath='app/docs/dialog/dialog-custom-exit.tsx'
+/>
+
+### Dialog with custom backdrop
+
+You can customize the backdrop using the `backdrop:` prefix on `DialogContent`, e.g., `backdrop:bg-white/20`.
+
+<ComponentCodePreview
+  component={<DialogCustomBackdrop />}
+  filePath='app/docs/dialog/dialog-custom-backdrop.tsx'
 />
 
 ## Code
