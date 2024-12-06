@@ -161,6 +161,11 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Morphing Dialog',
         href: '/docs/morphing-dialog',
       },
+      {
+        name: 'Skeleton',
+        href: '/docs/skeleton',
+        isNew: true,
+      }
     ],
   },
 ];
@@ -202,7 +207,7 @@ function NavigationDesktop() {
                             className={cn(
                               'relative inline-flex items-center space-x-1 pl-4 text-sm font-normal text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
                               isActive &&
-                                'text-zinc-950 before:absolute before:inset-y-0 before:left-[-1.5px] before:w-[2px] before:rounded-full before:bg-zinc-950 dark:text-white dark:before:bg-white'
+                              'text-zinc-950 before:absolute before:inset-y-0 before:left-[-1.5px] before:w-[2px] before:rounded-full before:bg-zinc-950 dark:text-white dark:before:bg-white'
                             )}
                             href={child.href}
                           >
