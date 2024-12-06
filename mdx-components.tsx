@@ -1,5 +1,11 @@
 import type { MDXComponents } from 'mdx/types';
 import { cn } from '@/lib/utils';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from './components/website/tabs';
 
 const generateId = (text: string) => {
   return text
@@ -46,11 +52,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Step: ({ className, children, ...props }: React.ComponentProps<'h3'>) => (
       <h3
         id={generateId(children?.toString() || '')}
-        className={cn(
-          'step',
-          // 'font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight',
-          className
-        )}
+        className={cn('step', className)}
         data-heading='3'
         {...props}
       >
@@ -62,6 +64,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         className='steps mb-12 ml-4 border-l pl-8 [counter-reset:step]'
         {...props}
       />
+    ),
+    Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
+      <Tabs className={cn('relative mt-6 w-full', className)} {...props} />
+    ),
+    TabsList: ({
+      className,
+      ...props
+    }: React.ComponentProps<typeof TabsList>) => (
+      <TabsList className={cn(className)} {...props} />
+    ),
+    TabsTrigger: ({
+      className,
+      ...props
+    }: React.ComponentProps<typeof TabsTrigger>) => (
+      <TabsTrigger className={cn(className)} {...props} />
+    ),
+    TabsContent: ({
+      className,
+      ...props
+    }: React.ComponentProps<typeof TabsContent>) => (
+      <TabsContent className={cn('border-none', className)} {...props} />
     ),
   };
 }
