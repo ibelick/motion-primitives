@@ -43,5 +43,25 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </h4>
       );
     },
+    Step: ({ className, children, ...props }: React.ComponentProps<'h3'>) => (
+      <h3
+        id={generateId(children?.toString() || '')}
+        className={cn(
+          'step',
+          // 'font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight',
+          className
+        )}
+        data-heading='3'
+        {...props}
+      >
+        {children}
+      </h3>
+    ),
+    Steps: ({ ...props }) => (
+      <div
+        className='steps mb-12 ml-4 border-l pl-8 [counter-reset:step]'
+        {...props}
+      />
+    ),
   };
 }
