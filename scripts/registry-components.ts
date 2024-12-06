@@ -1,24 +1,5 @@
 import path from 'path';
-
-export interface Schema {
-  name: string;
-  type: 'registry:ui';
-  registryDependencies: string[];
-  dependencies: string[];
-  devDependencies: string[];
-  tailwind: {
-    config?: Record<string, object>;
-  };
-  cssVars: {
-    light: Record<string, string>;
-    dark: Record<string, string>;
-  };
-  files: Array<{
-    path: string;
-    content: string;
-    type: 'registry:ui';
-  }>;
-}
+import { Schema } from './registry-schema';
 
 type ComponentDefinition = Partial<
   Pick<
@@ -135,6 +116,12 @@ export const components: ComponentDefinition[] = [
     name: 'text-shimmer',
     path: path.join(__dirname, '../components/core/text-shimmer.tsx'),
     registryDependencies: [],
+    dependencies: ['motion'],
+  },
+  {
+    name: 'morphing-dialog',
+    path: path.join(__dirname, '../components/core/morphing-dialog.tsx'),
+    registryDependencies: ['hooks/usePreventScroll'],
     dependencies: ['motion'],
   },
   {

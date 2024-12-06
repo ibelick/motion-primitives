@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Schema } from './registry-components';
+import { Schema } from './registry-schema';
 import { components } from './registry-components';
 
 const registry = path.join(__dirname, '../public/c');
