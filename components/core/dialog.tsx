@@ -166,29 +166,29 @@ function DialogTrigger({ children, className }: DialogTriggerProps) {
 
 type DialogPortalProps = {
   children: React.ReactNode;
-  container?: HTMLElement;
+  container?: HTMLElement | null;
 };
 
 function DialogPortal({
   children,
-  container = document.body,
+  container = typeof window !== 'undefined' ? document.body : null,
 }: DialogPortalProps) {
   const [mounted, setMounted] = React.useState(false);
+  const [portalContainer, setPortalContainer] =
+    React.useState<HTMLElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
+    setPortalContainer(container || document.body);
     return () => setMounted(false);
-  }, []);
+  }, [container]);
 
-  if (!mounted) {
+  if (!mounted || !portalContainer) {
     return null;
   }
 
-  const target = container;
-
-  return createPortal(children, target);
+  return createPortal(children, portalContainer);
 }
-
 type DialogContentProps = {
   children: React.ReactNode;
   className?: string;
