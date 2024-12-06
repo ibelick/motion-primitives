@@ -1,32 +1,32 @@
 import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogImage,
-  DialogSubtitle,
-  DialogClose,
-  DialogContainer,
-} from '@/components/core/dialog';
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogTitle,
+  MorphingDialogImage,
+  MorphingDialogSubtitle,
+  MorphingDialogClose,
+  MorphingDialogContainer,
+} from '@/components/core/morphing-dialog';
 import { ScrollArea } from '@/components/website/scroll-area';
 
-export function DialogBasicTwo() {
+export function MorphingDialogBasicTwo() {
   return (
-    <Dialog
+    <MorphingDialog
       transition={{
         type: 'spring',
         stiffness: 200,
         damping: 24,
       }}
     >
-      <DialogTrigger
+      <MorphingDialogTrigger
         style={{
           borderRadius: '4px',
         }}
         className='border border-gray-200/60 bg-white'
       >
         <div className='flex items-center space-x-3 p-3'>
-          <DialogImage
+          <MorphingDialogImage
             src='https://m.media-amazon.com/images/I/71skAxiMC2L._AC_UF1000,1000_QL80_.jpg'
             alt='What I Talk About When I Talk About Running - book cover'
             className='h-8 w-8 object-cover object-top'
@@ -35,17 +35,17 @@ export function DialogBasicTwo() {
             }}
           />
           <div className='flex flex-col items-start justify-center space-y-0'>
-            <DialogTitle className='text-[10px] font-medium text-black sm:text-xs'>
+            <MorphingDialogTitle className='text-[10px] font-medium text-black sm:text-xs'>
               What I Talk About When I Talk About Running
-            </DialogTitle>
-            <DialogSubtitle className='text-[10px] text-gray-600 sm:text-xs'>
+            </MorphingDialogTitle>
+            <MorphingDialogSubtitle className='text-[10px] text-gray-600 sm:text-xs'>
               Haruki Murakami
-            </DialogSubtitle>
+            </MorphingDialogSubtitle>
           </div>
         </div>
-      </DialogTrigger>
-      <DialogContainer>
-        <DialogContent
+      </MorphingDialogTrigger>
+      <MorphingDialogContainer>
+        <MorphingDialogContent
           style={{
             borderRadius: '12px',
           }}
@@ -54,19 +54,19 @@ export function DialogBasicTwo() {
           <ScrollArea className='h-[90vh]' type='scroll'>
             <div className='relative p-6'>
               <div className='flex justify-center py-10'>
-                <DialogImage
+                <MorphingDialogImage
                   src='https://m.media-amazon.com/images/I/71skAxiMC2L._AC_UF1000,1000_QL80_.jpg'
                   alt='What I Talk About When I Talk About Running - book cover'
                   className='h-auto w-[200px]'
                 />
               </div>
               <div className=''>
-                <DialogTitle className='text-black'>
+                <MorphingDialogTitle className='text-black'>
                   What I Talk About When I Talk About Running
-                </DialogTitle>
-                <DialogSubtitle className='font-light text-gray-400'>
+                </MorphingDialogTitle>
+                <MorphingDialogSubtitle className='font-light text-gray-400'>
                   Haruki Murakami
-                </DialogSubtitle>
+                </MorphingDialogSubtitle>
                 <div className='mt-4 text-sm text-gray-700'>
                   <p>
                     In 1982, having sold his jazz bar to devote himself to
@@ -101,9 +101,9 @@ export function DialogBasicTwo() {
               </div>
             </div>
           </ScrollArea>
-          <DialogClose className='text-zinc-500' />
-        </DialogContent>
-      </DialogContainer>
-    </Dialog>
+          <MorphingDialogClose className='text-zinc-500' />
+        </MorphingDialogContent>
+      </MorphingDialogContainer>
+    </MorphingDialog>
   );
 }

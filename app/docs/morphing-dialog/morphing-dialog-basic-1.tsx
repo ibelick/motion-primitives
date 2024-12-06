@@ -1,44 +1,44 @@
 import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogImage,
-  DialogSubtitle,
-  DialogClose,
-  DialogDescription,
-  DialogContainer,
-} from '@/components/core/dialog';
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogTitle,
+  MorphingDialogImage,
+  MorphingDialogSubtitle,
+  MorphingDialogClose,
+  MorphingDialogDescription,
+  MorphingDialogContainer,
+} from '@/components/core/morphing-dialog';
 import { PlusIcon } from 'lucide-react';
 
-export function DialogBasicOne() {
+export function MorphingDialogBasicOne() {
   return (
-    <Dialog
+    <MorphingDialog
       transition={{
         type: 'spring',
         bounce: 0.05,
         duration: 0.25,
       }}
     >
-      <DialogTrigger
+      <MorphingDialogTrigger
         style={{
           borderRadius: '12px',
         }}
         className='flex max-w-[270px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900'
       >
-        <DialogImage
+        <MorphingDialogImage
           src='/eb-27-lamp-edouard-wilfrid-buquet.jpg'
           alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
           className='h-48 w-full object-cover'
         />
         <div className='flex flex-grow flex-row items-end justify-between p-2'>
           <div>
-            <DialogTitle className='text-zinc-950 dark:text-zinc-50'>
+            <MorphingDialogTitle className='text-zinc-950 dark:text-zinc-50'>
               EB27
-            </DialogTitle>
-            <DialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
+            </MorphingDialogTitle>
+            <MorphingDialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
               Edouard Wilfrid Buquet
-            </DialogSubtitle>
+            </MorphingDialogSubtitle>
           </div>
           <button
             type='button'
@@ -48,27 +48,27 @@ export function DialogBasicOne() {
             <PlusIcon size={12} />
           </button>
         </div>
-      </DialogTrigger>
-      <DialogContainer>
-        <DialogContent
+      </MorphingDialogTrigger>
+      <MorphingDialogContainer>
+        <MorphingDialogContent
           style={{
             borderRadius: '24px',
           }}
           className='pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 sm:w-[500px]'
         >
-          <DialogImage
+          <MorphingDialogImage
             src='/eb-27-lamp-edouard-wilfrid-buquet.jpg'
             alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
             className='h-full w-full'
           />
           <div className='p-6'>
-            <DialogTitle className='text-2xl text-zinc-950 dark:text-zinc-50'>
+            <MorphingDialogTitle className='text-2xl text-zinc-950 dark:text-zinc-50'>
               EB27
-            </DialogTitle>
-            <DialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
+            </MorphingDialogTitle>
+            <MorphingDialogSubtitle className='text-zinc-700 dark:text-zinc-400'>
               Edouard Wilfrid Buquet
-            </DialogSubtitle>
-            <DialogDescription
+            </MorphingDialogSubtitle>
+            <MorphingDialogDescription
               disableLayoutAnimation
               variants={{
                 initial: { opacity: 0, scale: 0.8, y: 100 },
@@ -94,11 +94,11 @@ export function DialogBasicOne() {
               >
                 Are.na block
               </a>
-            </DialogDescription>
+            </MorphingDialogDescription>
           </div>
-          <DialogClose className='text-zinc-50' />
-        </DialogContent>
-      </DialogContainer>
-    </Dialog>
+          <MorphingDialogClose className='text-zinc-50' />
+        </MorphingDialogContent>
+      </MorphingDialogContainer>
+    </MorphingDialog>
   );
 }

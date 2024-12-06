@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { DialogBasicOne } from '@/app/docs/dialog/dialog-basic-1';
+import { MorphingDialogBasicOne } from '@/app/docs/morphing-dialog/morphing-dialog-basic-1';
 import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
 import ThemeSwitch from '@/components/website/theme-switch';
@@ -118,7 +118,7 @@ export default function Motion() {
         </section>
         <section className='mx-auto max-w-3xl py-32'>
           <CardExampleLanding>
-            <DialogBasicOne />
+            <MorphingDialogBasicOne />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
