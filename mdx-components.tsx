@@ -72,19 +72,29 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       className,
       ...props
     }: React.ComponentProps<typeof TabsList>) => (
-      <TabsList className={cn(className)} {...props} />
+      <TabsList
+        className={cn(
+          className
+        )}
+        {...props}
+      />
     ),
     TabsTrigger: ({
       className,
       ...props
     }: React.ComponentProps<typeof TabsTrigger>) => (
-      <TabsTrigger className={cn(className)} {...props} />
+      <TabsTrigger
+        className={cn(
+          className
+        )}
+        {...props}
+      />
     ),
     TabsContent: ({
       className,
       ...props
     }: React.ComponentProps<typeof TabsContent>) => (
-      <TabsContent className={cn('border-none', className)} {...props} />
+      <TabsContent className={cn(className)} {...props} />
     ),
   };
 }
