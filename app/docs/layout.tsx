@@ -7,6 +7,7 @@ import React, { useEffect, useRef } from 'react';
 import { TableOfContents } from '@/components/website/table-of-contents';
 import LaunchBanner from '@/components/website/launch-banner';
 import { Header } from '@/components/website/header';
+import { motion } from 'motion/react';
 
 type NavigationItem = {
   name: string;
@@ -182,16 +183,16 @@ function NavigationDesktop() {
     <aside className='sticky top-14 hidden h-[calc(100dvh-theme(spacing.16))] w-[220px] shrink-0 pt-8 md:block lg:pt-12'>
       <ScrollArea className='h-full w-full'>
         <nav>
-          <ul role='list' className='h-full'>
+          <ul role='list' className='h-full [&>li:not(:first-child)>div]:pt-6'>
             {NAVIGATION.map((item, index) => {
               return (
-                <li className='mb-6' key={`${item.name}-${index}`}>
-                  <div className='text-sm/6 font-[450] text-zinc-950 dark:text-white'>
+                <li key={`${item.name}-${index}`}>
+                  <div className='relative z-10 w-11/12 bg-white pb-4 text-sm/6 font-[450] text-zinc-950 dark:bg-zinc-950 dark:text-white'>
                     {item.name}
                   </div>
                   <ul
                     role='list'
-                    className='mt-4 space-y-3.5 border-l border-zinc-200 dark:border-zinc-800'
+                    className='space-y-3.5 border-l border-zinc-200 dark:border-zinc-800'
                   >
                     {item.children.map((child) => {
                       const isActive = pathname === child.href;
@@ -200,20 +201,32 @@ function NavigationDesktop() {
                         <li key={child.href} ref={isActive ? activeRef : null}>
                           <Link
                             className={cn(
-                              'relative inline-flex items-center space-x-1 pl-4 text-sm font-normal text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
-                              isActive &&
-                                'text-zinc-950 before:absolute before:inset-y-0 before:left-[-1.5px] before:w-[2px] before:rounded-full before:bg-zinc-950 dark:text-white dark:before:bg-white'
+                              'relative inline-flex items-center pl-4 text-sm font-normal text-zinc-700 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
+                              isActive && 'text-zinc-950'
                             )}
                             href={child.href}
                           >
+                            {isActive && (
+                              <motion.div
+                                layout
+                                className='absolute -left-[1px] top-0 -z-[1] h-full w-[1.5px] rounded-[4px] bg-zinc-950 dark:bg-white'
+                                transition={{
+                                  type: 'spring',
+                                  stiffness: 26.7,
+                                  damping: 4.1,
+                                  mass: 0.2,
+                                }}
+                                layoutId='underline-sidebar'
+                              />
+                            )}
                             <span>{child.name}</span>
                             {child?.isNew && (
-                              <span className='whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-50'>
+                              <span className='ml-2 whitespace-nowrap rounded-lg bg-emerald-100 px-2 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-50'>
                                 New
                               </span>
                             )}
                             {child?.isUpdated && (
-                              <span className='whitespace-nowrap rounded-lg bg-amber-100 px-2 text-[10px] font-semibold text-amber-800 dark:bg-amber-950 dark:text-amber-50'>
+                              <span className='ml-2 whitespace-nowrap rounded-lg bg-amber-100 px-2 text-[10px] font-semibold text-amber-800 dark:bg-amber-950 dark:text-amber-50'>
                                 Updated
                               </span>
                             )}

@@ -72,7 +72,7 @@ const TabsTrigger = React.forwardRef<
       {isActive && (
         <motion.div
           layout
-          className='absolute bottom-0 flex h-[2px] w-full justify-center'
+          className='absolute bottom-0 flex h-0.5 w-full justify-center'
           transition={{
             type: 'spring',
             stiffness: 26.7,
@@ -81,7 +81,7 @@ const TabsTrigger = React.forwardRef<
           }}
           layoutId={`underline-${tabsId}`}
         >
-          <div className='h-[2px] w-4/5 bg-zinc-950 dark:bg-white' />
+          <div className='h-0.5 w-4/5 bg-zinc-950 dark:bg-white' />
         </motion.div>
       )}
       {children}
