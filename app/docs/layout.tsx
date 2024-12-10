@@ -209,7 +209,7 @@ function NavigationDesktop() {
                             {isActive && (
                               <motion.div
                                 layout
-                                className='absolute -left-[1px] top-0 -z-[1] h-full w-[1.5px] rounded-[4px] bg-zinc-950 dark:bg-white'
+                                className='absolute -left-[1px] top-0 -z-[1] h-full w-0.5 rounded-[4px] bg-zinc-950 dark:bg-white'
                                 transition={{
                                   type: 'spring',
                                   stiffness: 26.7,
