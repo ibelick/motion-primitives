@@ -1,0 +1,21 @@
+{
+  "name": "in-view",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "in-view.tsx",
+      "content": "'use client';\nimport { ReactNode, useRef } from 'react';\nimport {\n  motion,\n  useInView,\n  Variant,\n  Transition,\n  UseInViewOptions,\n} from 'motion/react';\n\ninterface InViewProps {\n  children: ReactNode;\n  variants?: {\n    hidden: Variant;\n    visible: Variant;\n  };\n  transition?: Transition;\n  viewOptions?: UseInViewOptions;\n}\n\nconst defaultVariants = {\n  hidden: { opacity: 0 },\n  visible: { opacity: 1 },\n};\n\nexport function InView({\n  children,\n  variants = defaultVariants,\n  transition,\n  viewOptions,\n}: InViewProps) {\n  const ref = useRef(null);\n  const isInView = useInView(ref, viewOptions);\n\n  return (\n    <motion.div\n      ref={ref}\n      initial='hidden'\n      animate={isInView ? 'visible' : 'hidden'}\n      variants={variants}\n      transition={transition}\n    >\n      {children}\n    </motion.div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

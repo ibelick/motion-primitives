@@ -1,0 +1,11 @@
+{
+  "name": "useClickOutside",
+  "type": "registry:hook",
+  "files": [
+    {
+      "path": "useClickOutside.ts",
+      "content": "import { RefObject, useEffect } from 'react';\n\nfunction useClickOutside<T extends HTMLElement>(\n  ref: RefObject<T>,\n  handler: (event: MouseEvent | TouchEvent) => void\n): void {\n  useEffect(() => {\n    const handleClickOutside = (event: MouseEvent | TouchEvent) => {\n      if (!ref || !ref.current || ref.current.contains(event.target as Node)) {\n        return;\n      }\n\n      handler(event);\n    };\n\n    document.addEventListener('mousedown', handleClickOutside);\n    document.addEventListener('touchstart', handleClickOutside);\n\n    return () => {\n      document.removeEventListener('mousedown', handleClickOutside);\n      document.removeEventListener('touchstart', handleClickOutside);\n    };\n  }, [ref, handler]);\n}\n\nexport default useClickOutside;\n",
+      "type": "registry:hook"
+    }
+  ]
+}
