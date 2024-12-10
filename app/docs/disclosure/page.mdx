@@ -33,14 +33,40 @@ Image from [Les others studio](https://www.instagram.com/p/Crvt1j8tybi/?img_inde
   classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
 />
 
-## Code
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/disclosure.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
 
 <CodeBlock filePath='components/core/disclosure.tsx' />
 
-**Please add:**
+<Step>Update the import paths to match your project setup.</Step>
 
-- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
+</Steps>
 
+</TabsContent>
+
+</Tabs>
 ## Component API
 
 ### Disclosure

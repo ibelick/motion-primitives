@@ -1,3 +1,9 @@
+export const metadata = {
+  title: 'Dialog - Motion-Primitives',
+  description:
+    'A window overlaid on either the primary window or another dialog window, rendering the content underneath inert. Customize the dialog with variants and transition.',
+};
+
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import { DialogBasic } from './dialog-basic';
 import { DialogControlled } from './dialog-controlled';
@@ -54,14 +60,40 @@ You can customize the backdrop using the `backdrop:` prefix on `DialogContent`, 
   filePath='app/docs/dialog/dialog-custom-backdrop.tsx'
 />
 
-## Code
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/dialog.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
 
 <CodeBlock filePath='components/core/dialog.tsx' />
 
-**Please add:**
+<Step>Update the import paths to match your project setup.</Step>
 
-- [cn](https://github.com/ibelick/motion-primitives/blob/main/lib/utils.ts)
-- [usePreventScroll](https://github.com/ibelick/motion-primitives/blob/main/hooks/usePreventScroll.tsx)
+</Steps>
+
+</TabsContent>
+
+</Tabs>
 
 ## Component API
 
