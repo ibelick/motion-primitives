@@ -1,7 +1,32 @@
 // This code comes from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/overlays/src/usePreventScroll.ts
 
 import { useEffect, useLayoutEffect } from 'react';
-import { isIOS } from '../lib/browser';
+
+function isMac(): boolean | undefined {
+  return testPlatform(/^Mac/);
+}
+
+function isIPhone(): boolean | undefined {
+  return testPlatform(/^iPhone/);
+}
+
+function isIPad(): boolean | undefined {
+  return (
+    testPlatform(/^iPad/) ||
+    // iPadOS 13 lies and says it's a Mac, but we can distinguish by detecting touch support.
+    (isMac() && navigator.maxTouchPoints > 1)
+  );
+}
+
+function isIOS(): boolean | undefined {
+  return isIPhone() || isIPad();
+}
+
+function testPlatform(re: RegExp): boolean | undefined {
+  return typeof window !== 'undefined' && window.navigator != null
+    ? re.test(window.navigator.platform)
+    : undefined;
+}
 
 const KEYBOARD_BUFFER = 24;
 

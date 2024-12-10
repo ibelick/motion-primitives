@@ -1,19 +1,27 @@
+export type RegistryType = 'registry:ui' | 'registry:hook';
+
+export interface RegistryFile {
+  path: string;
+  content: string;
+  type: RegistryType;
+}
+
+export interface TailwindConfig {
+  config?: Record<string, object>;
+}
+
+export interface CssVars {
+  light: Record<string, string>;
+  dark: Record<string, string>;
+}
+
 export interface Schema {
   name: string;
-  type: 'registry:ui';
-  registryDependencies: string[];
-  dependencies: string[];
-  devDependencies: string[];
-  tailwind: {
-    config?: Record<string, object>;
-  };
-  cssVars: {
-    light: Record<string, string>;
-    dark: Record<string, string>;
-  };
-  files: Array<{
-    path: string;
-    content: string;
-    type: 'registry:ui' | 'registry:hook';
-  }>;
+  type: RegistryType;
+  registryDependencies?: string[];
+  dependencies?: string[];
+  devDependencies?: string[];
+  tailwind?: TailwindConfig;
+  cssVars?: CssVars;
+  files: RegistryFile[];
 }

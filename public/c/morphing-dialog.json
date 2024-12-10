@@ -1,7 +1,9 @@
 {
   "name": "morphing-dialog",
   "type": "registry:ui",
-  "registryDependencies": [],
+  "registryDependencies": [
+    "hooks/usePreventScroll"
+  ],
   "dependencies": [
     "motion"
   ],
