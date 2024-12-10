@@ -8,7 +8,7 @@ import {
 } from 'motion/react';
 import React from 'react';
 
-type PresetType = 'blur' | 'shake' | 'scale' | 'fade' | 'slide';
+type PresetType = 'blur' | 'fade-in-blur' | 'scale' | 'fade' | 'slide';
 
 type TextEffectProps = {
   children: string;
@@ -65,12 +65,12 @@ const presetVariants: Record<
       exit: { opacity: 0, filter: 'blur(12px)' },
     },
   },
-  shake: {
+  'fade-in-blur': {
     container: defaultContainerVariants,
     item: {
-      hidden: { x: 0 },
-      visible: { x: [-5, 5, -5, 5, 0], transition: { duration: 0.5 } },
-      exit: { x: 0 },
+      hidden: { opacity: 0, y: 20, filter: 'blur(12px)' },
+      visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+      exit: { opacity: 0, y: 20, filter: 'blur(12px)' },
     },
   },
   scale: {
@@ -167,7 +167,7 @@ export function TextEffect({
   } else if (per === 'word') {
     segments = children.split(/(\s+)/);
   } else {
-    segments = children.split('');
+    segments = children.split(/(\s+)/);
   }
 
   const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
