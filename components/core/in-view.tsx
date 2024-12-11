@@ -16,6 +16,7 @@ interface InViewProps {
   };
   transition?: Transition;
   viewOptions?: UseInViewOptions;
+  as?: React.ElementType;
 }
 
 const defaultVariants = {
@@ -28,12 +29,15 @@ export function InView({
   variants = defaultVariants,
   transition,
   viewOptions,
+  as = 'div',
 }: InViewProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, viewOptions);
 
+  const MotionComponent = motion[as as keyof typeof motion] as typeof as;
+
   return (
-    <motion.div
+    <MotionComponent
       ref={ref}
       initial='hidden'
       animate={isInView ? 'visible' : 'hidden'}
@@ -41,6 +45,6 @@ export function InView({
       transition={transition}
     >
       {children}
-    </motion.div>
+    </MotionComponent>
   );
 }

@@ -14,7 +14,7 @@ export function DialogControlled() {
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)} type='button' className='text-sm'>
+      <button onClick={() => setIsOpen(true)} type='button' className='text-sm p-2'>
         Open Dialog
       </button>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>

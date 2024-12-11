@@ -17,6 +17,7 @@ export function SegmentedControl() {
               key={index}
               data-id={label}
               type='button'
+              aria-label={`${label} view`}
               className='inline-flex w-20 items-center justify-center text-center text-zinc-800 transition-transform active:scale-[0.98] dark:text-zinc-50'
             >
               {label}

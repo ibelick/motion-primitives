@@ -135,6 +135,7 @@ function CarouselNavigation({
     >
       <button
         type='button'
+        aria-label='Previous slide'
         className={cn(
           'pointer-events-auto h-fit w-fit rounded-full bg-zinc-50 p-2 transition-opacity duration-300 dark:bg-zinc-950',
           alwaysShow
@@ -169,6 +170,7 @@ function CarouselNavigation({
             : 'disabled:group-hover/hover:opacity-40',
           classNameButton
         )}
+        aria-label='Next slide'
         disabled={index + 1 === itemsCount}
         onClick={() => {
           if (index < itemsCount - 1) {
