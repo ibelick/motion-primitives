@@ -108,7 +108,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Scramble',
         href: '/docs/text-scramble',
-        isNew: true,
       },
       {
         name: 'Text Shimmer',
@@ -126,7 +125,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Image Comparison',
         href: '/docs/image-comparison',
-        isNew: true,
       },
       {
         name: 'Toolbar Dynamic',
@@ -156,6 +154,11 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Tilt',
         href: '/docs/tilt',
+        isNew: true,
+      },
+      {
+        name: 'Magnetic',
+        href: '/docs/magnetic',
         isNew: true,
       },
       {
