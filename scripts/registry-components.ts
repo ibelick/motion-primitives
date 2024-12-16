@@ -119,6 +119,12 @@ export const components: ComponentDefinition[] = [
     dependencies: ['motion'],
   },
   {
+    name: 'magnetic',
+    path: path.join(__dirname, '../components/core/magnetic.tsx'),
+    registryDependencies: [],
+    dependencies: ['motion'],
+  },
+  {
     name: 'morphing-dialog',
     path: path.join(__dirname, '../components/core/morphing-dialog.tsx'),
     registryDependencies: ['hooks/usePreventScroll'],
