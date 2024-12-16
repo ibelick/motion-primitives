@@ -5,6 +5,7 @@ export const metadata = {
 };
 
 import { MagneticBasic } from './magnetic-basic';
+import { MagneticNested } from './magnetic-nested';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 
 # Magnetic
@@ -18,4 +19,13 @@ A magnetic effect for elements that allows them to be attracted to the mouse cur
 <ComponentCodePreview
   component={<MagneticBasic />}
   filePath='app/docs/magnetic/magnetic-basic.tsx'
+/>
+
+### Magnetic Nested
+
+You can nest the Magnetic component to create a more complex effect. Here we use `actionArea='global'` to make the magnetic effect apply to the global area. We also use custom range to make the magnetic effect apply to a larger area.
+
+<ComponentCodePreview
+  component={<MagneticNested />}
+  filePath='app/docs/magnetic/magnetic-nested.tsx'
 />
