@@ -1,0 +1,79 @@
+export const metadata = {
+  title: 'Magnetic - Motion-Primitives',
+  description:
+    'A magnetic effect for elements that allows them to be attracted to the mouse cursor.',
+};
+
+import { MagneticBasic } from './magnetic-basic';
+import { MagneticNested } from './magnetic-nested';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Magnetic
+
+A magnetic effect for elements that allows them to be attracted to the mouse cursor.
+
+## Examples
+
+### Magnetic Basic
+
+<ComponentCodePreview
+  component={<MagneticBasic />}
+  filePath='app/docs/magnetic/magnetic-basic.tsx'
+/>
+
+### Magnetic Nested
+
+You can nest the Magnetic component to create a more complex effect. Here we use `actionArea='global'` to make the magnetic effect apply to the global area. We also use custom range to make the magnetic effect apply to a larger area.
+
+<ComponentCodePreview
+  component={<MagneticNested />}
+  filePath='app/docs/magnetic/magnetic-nested.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/magnetic.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/magnetic.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### Magnetic
+
+| Prop          | Type                           | Default       | Description                                                                                    |
+| :------------ | :----------------------------- | :------------ | :--------------------------------------------------------------------------------------------- |
+| children      | React.ReactNode                |               | The child elements to be displayed within the magnetic effect.                                 |
+| intensity     | number                         | 0.6           | The strength of the magnetic effect, scaling the distance effect.                              |
+| range         | number                         | 100           | The effective range in pixels within which the magnetic effect is applied.                     |
+| actionArea    | 'self' \| 'parent' \| 'global' | 'self'        | Determines whether the magnetic effect is triggered by the component, its parent, or globally. |
+| springOptions | SpringOptions                  | SPRING_CONFIG | The spring options to be used for the magnetic effect.                                         |
