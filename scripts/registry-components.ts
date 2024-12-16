@@ -127,7 +127,7 @@ export const components: ComponentDefinition[] = [
   {
     name: 'morphing-dialog',
     path: path.join(__dirname, '../components/core/morphing-dialog.tsx'),
-    registryDependencies: ['hooks/usePreventScroll'],
+    registryDependencies: [],
     dependencies: ['motion'],
   },
   {
