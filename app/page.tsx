@@ -17,6 +17,11 @@ import { CarouselSpacing } from '@/app/docs/carousel/carousel-spacing';
 import { SegmentedControl } from '@/app/docs/animated-background/segmented-control';
 import { MPLogo } from '@/components/website/icons/motion-primitives-logo';
 import LaunchBanner from '@/components/website/launch-banner';
+import { TextLoopBasic } from './docs/text-loop/text-loop-basic';
+import { TextShimmer } from '@/components/core/text-shimmer';
+import { TextShimmerBasic } from './docs/text-shimmer/text-shimmer-basic';
+import { TextScrambleCustomTrigger } from './docs/text-scramble/text-scramble-custom-trigger';
+import { BorderTrailCard1 } from './docs/border-trail/border-trail-card-1';
 
 function Button({
   children,
@@ -127,7 +132,7 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding hasReTrigger>
+          <CardExampleLanding className='px-20 [&>div]:h-52 [&>div]:justify-start'>
             <TextEffectWithExit />
           </CardExampleLanding>
         </section>
@@ -147,8 +152,18 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding>
-            <CarouselSpacing />
+          <CardExampleLanding className='px-20 [&>div]:h-52 [&>div]:justify-start'>
+            <TextLoopBasic />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding className='px-20 [&>div]:h-52 [&>div]:justify-start'>
+            <TextShimmerBasic />
+          </CardExampleLanding>
+        </section>
+        <section className='mx-auto max-w-3xl py-32'>
+          <CardExampleLanding className='px-20 [&>div]:h-52 [&>div]:justify-start'>
+            <TextScrambleCustomTrigger />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
@@ -158,7 +173,7 @@ export default function Motion() {
         </section>
         <section className='mx-auto max-w-3xl py-32'>
           <CardExampleLanding>
-            <ToolbarDynamic />
+            <BorderTrailCard1 />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>

@@ -1,4 +1,4 @@
-import AnimatedBackground from '@/components/core/animated-background';
+import { AnimatedBackground } from '@/components/core/animated-background';
 
 export function AnimatedCardBackgroundHover() {
   const ITEMS = [

@@ -2,7 +2,7 @@ import { BorderTrail } from '@/components/core/border-trail';
 
 export function BorderTrailCard1() {
   return (
-    <div className='relative flex h-[200px] w-[300px] flex-col items-center justify-center rounded-md bg-zinc-200 px-5 py-2 dark:bg-zinc-900'>
+    <div className='relative flex h-[200px] w-[300px] flex-col items-center justify-center rounded-md bg-zinc-200 px-5 py-2 dark:bg-zinc-800'>
       <BorderTrail
         style={{
           boxShadow:

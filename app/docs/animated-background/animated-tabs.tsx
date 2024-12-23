@@ -1,5 +1,5 @@
 import { Home, PhoneCall, Settings, User } from 'lucide-react';
-import AnimatedBackground from '@/components/core/animated-background';
+import { AnimatedBackground } from '@/components/core/animated-background';
 
 export function AnimatedTabs() {
   const TABS = [
