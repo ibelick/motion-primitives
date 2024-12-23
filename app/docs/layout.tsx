@@ -165,6 +165,10 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Morphing Dialog',
         href: '/docs/morphing-dialog',
       },
+      {
+        name: 'Resizable Card',
+        href: '/docs/resizable-card',
+      },
     ],
   },
 ];
