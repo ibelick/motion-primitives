@@ -95,6 +95,7 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Effect',
         href: '/docs/text-effect',
+        isUpdated: true,
       },
       {
         name: 'Text Loop',

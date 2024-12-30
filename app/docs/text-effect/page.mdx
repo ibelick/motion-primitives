@@ -11,6 +11,7 @@ import { TextEffectWithCustomVariants } from './text-effect-variants';
 import { TextEffectWithCustomDelay } from './text-effect-custom-delay';
 import { TextEffectPerLine } from './text-effect-line';
 import { TextEffectWithExit } from './text-effect-exit';
+import { TextEffectSpeed } from './text-effect-speed';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -76,6 +77,16 @@ Easily animate text content with various effects. You can apply animations per c
   hasReTrigger
 />
 
+### Text Effect with duration
+
+You can control the speed of the animation by using the `speedReveal` and `speedAnimation` props.
+
+<ComponentCodePreview
+  component={<TextEffectSpeed />}
+  filePath='app/docs/text-effect/text-effect-speed.tsx'
+  hasReTrigger
+/>
+
 ## Installation
 
 <Tabs defaultValue="cli">
@@ -115,15 +126,21 @@ Easily animate text content with various effects. You can apply animations per c
 
 ### TextEffect
 
-| Prop                    | Type                                              | Default   | Description                                                     |
-| :---------------------- | :------------------------------------------------ | :-------- | :-------------------------------------------------------------- |
-| children                | string                                            |           | The text content to be animated.                                |
-| per                     | 'word' \| 'char' \| 'line'                        | 'word'    | Defines whether animation applies per word, character, or line. |
-| as                      | keyof JSX.IntrinsicElements                       | 'p'       | The HTML tag to render, defaults to paragraph.                  |
-| variants                | `{ container?: Variants; item?: Variants; }`      | undefined | Custom variants for container and item animations.              |
-| className               | string                                            | undefined | Optional CSS class for styling the component.                   |
-| preset                  | 'blur' \| 'shake' \| 'scale' \| 'fade' \| 'slide' | undefined | Preset animations to apply to the text.                         |
-| delay                   | number                                            | undefined | Delay before the animation starts.                              |
-| trigger                 | boolean                                           | undefined | Controls whether the animation should be triggered.             |
-| onAnimationComplete     | () => void                                        | undefined | Callback function when the animation completes.                 |
-| segmentWrapperClassName | string                                            | undefined | Optional CSS class for styling segment wrappers.                |
+| Prop                    | Type                                                     | Default   | Description                                                     |
+| :---------------------- | :------------------------------------------------------- | :-------- | :-------------------------------------------------------------- |
+| children                | string                                                   |           | The text content to be animated.                                |
+| per                     | 'word' \| 'char' \| 'line'                               | 'word'    | Defines whether animation applies per word, character, or line. |
+| as                      | keyof JSX.IntrinsicElements                              | 'p'       | The HTML tag to render, defaults to paragraph.                  |
+| variants                | `{ container?: Variants; item?: Variants; }`             | undefined | Custom variants for container and item animations.              |
+| className               | string                                                   | undefined | Optional CSS class for styling the component.                   |
+| preset                  | 'blur' \| 'fade-in-blur' \| 'scale' \| 'fade' \| 'slide' | 'fade'    | Preset animations to apply to the text.                         |
+| delay                   | number                                                   | 0         | Delay before the animation starts.                              |
+| trigger                 | boolean                                                  | true      | Controls whether the animation should be triggered.             |
+| onAnimationComplete     | () => void                                               | undefined | Callback function when the animation completes.                 |
+| onAnimationStart        | () => void                                               | undefined | Callback function when the animation starts.                    |
+| segmentWrapperClassName | string                                                   | undefined | Optional CSS class for styling segment wrappers.                |
+| style                   | CSSProperties                                            | undefined | Optional inline styles for the component.                       |
+| containerTransition     | Transition                                               | undefined | Optional transition for the container.                          |
+| segmentTransition       | Transition                                               | undefined | Optional transition for the segments.                           |
+| speedReveal             | number                                                   | 1         | Controls the speed of the reveal animation.                     |
+| speedAnimation          | number                                                   | 1         | Controls the speed of the animation.                            |
