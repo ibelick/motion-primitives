@@ -12,9 +12,11 @@ import React from 'react';
 
 type PresetType = 'blur' | 'fade-in-blur' | 'scale' | 'fade' | 'slide';
 
+type PerType = 'word' | 'char' | 'line';
+
 type TextEffectProps = {
   children: string;
-  per?: 'word' | 'char' | 'line';
+  per?: PerType;
   as?: keyof React.JSX.IntrinsicElements;
   variants?: {
     container?: Variants;
@@ -24,16 +26,17 @@ type TextEffectProps = {
   preset?: PresetType;
   delay?: number;
   speedReveal?: number;
+  speedAnimation?: number;
   trigger?: boolean;
   onAnimationComplete?: () => void;
+  onAnimationStart?: () => void;
   segmentWrapperClassName?: string;
   containerTransition?: Transition;
   segmentTransition?: Transition;
-  speedAnimation?: number;
   style?: React.CSSProperties;
 };
 
-const defaultStaggerTimes: Record<'char' | 'word' | 'line', number> = {
+const defaultStaggerTimes: Record<PerType, number> = {
   char: 0.03,
   word: 0.05,
   line: 0.1,
@@ -155,7 +158,7 @@ const AnimationComponent: React.FC<{
 
 AnimationComponent.displayName = 'AnimationComponent';
 
-const getSegments = (text: string, per: 'line' | 'word' | 'char') => {
+const splitText = (text: string, per: 'line' | 'word' | 'char') => {
   if (per === 'line') return text.split('\n');
   return text.split(/(\s+)/);
 };
@@ -170,9 +173,11 @@ const hasTransition = (
 
 const createVariantsWithTransition = (
   baseVariants: Variants,
-  transition?: Transition
+  transition?: Transition & { exit?: Transition }
 ): Variants => {
   if (!transition) return baseVariants;
+
+  const { exit: _, ...mainTransition } = transition;
 
   return {
     ...baseVariants,
@@ -182,7 +187,7 @@ const createVariantsWithTransition = (
         ...(hasTransition(baseVariants.visible)
           ? baseVariants.visible.transition
           : {}),
-        ...transition,
+        ...mainTransition,
       },
     },
     exit: {
@@ -191,7 +196,8 @@ const createVariantsWithTransition = (
         ...(hasTransition(baseVariants.exit)
           ? baseVariants.exit.transition
           : {}),
-        ...transition,
+        ...mainTransition,
+        staggerDirection: -1,
       },
     },
   };
@@ -203,18 +209,19 @@ export function TextEffect({
   as = 'p',
   variants,
   className,
-  preset,
+  preset = 'fade',
   delay = 0,
   speedReveal = 1,
   speedAnimation = 1,
   trigger = true,
   onAnimationComplete,
+  onAnimationStart,
   segmentWrapperClassName,
   containerTransition,
   segmentTransition,
   style,
 }: TextEffectProps) {
-  const segments = getSegments(children, per);
+  const segments = splitText(children, per);
   const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
 
   const baseVariants = preset
@@ -265,6 +272,7 @@ export function TextEffect({
           variants={computedVariants.container}
           className={cn('whitespace-pre-wrap', className)}
           onAnimationComplete={onAnimationComplete}
+          onAnimationStart={onAnimationStart}
           style={style}
         >
           {segments.map((segment, index) => (
