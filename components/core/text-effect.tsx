@@ -26,7 +26,7 @@ type TextEffectProps = {
   preset?: PresetType;
   delay?: number;
   speedReveal?: number;
-  speedAnimation?: number;
+  speedSegment?: number;
   trigger?: boolean;
   onAnimationComplete?: () => void;
   onAnimationStart?: () => void;
@@ -212,7 +212,7 @@ export function TextEffect({
   preset = 'fade',
   delay = 0,
   speedReveal = 1,
-  speedAnimation = 1,
+  speedSegment = 1,
   trigger = true,
   onAnimationComplete,
   onAnimationStart,
@@ -230,7 +230,7 @@ export function TextEffect({
 
   const stagger = defaultStaggerTimes[per] / speedReveal;
 
-  const baseDuration = 0.3 / speedAnimation;
+  const baseDuration = 0.3 / speedSegment;
 
   const customStagger = hasTransition(variants?.container?.visible ?? {})
     ? (variants?.container?.visible as TargetAndTransition).transition
