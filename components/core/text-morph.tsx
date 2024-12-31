@@ -27,7 +27,12 @@ export function TextMorph({
 
       return {
         id: `${uniqueId}-${lowerChar}${charCounts[lowerChar]}`,
-        label: index === 0 ? char.toUpperCase() : lowerChar,
+        label:
+          char === ' '
+            ? '\u00A0'
+            : index === 0
+              ? char.toUpperCase()
+              : lowerChar, // Handle spaces explicitly
       };
     });
   }, [children, uniqueId]);
