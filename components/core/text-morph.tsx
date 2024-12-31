@@ -32,7 +32,7 @@ export function TextMorph({
             ? '\u00A0'
             : index === 0
               ? char.toUpperCase()
-              : lowerChar, // Handle spaces explicitly
+              : lowerChar,
       };
     });
   }, [children, uniqueId]);

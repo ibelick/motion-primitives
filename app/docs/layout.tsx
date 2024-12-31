@@ -105,6 +105,7 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Morph',
         href: '/docs/text-morph',
+        isUpdated: true,
       },
       {
         name: 'Text Scramble',
