@@ -10,11 +10,11 @@ import {
 } from 'motion/react';
 import React from 'react';
 
-type PresetType = 'blur' | 'fade-in-blur' | 'scale' | 'fade' | 'slide';
+export type PresetType = 'blur' | 'fade-in-blur' | 'scale' | 'fade' | 'slide';
 
-type PerType = 'word' | 'char' | 'line';
+export type PerType = 'word' | 'char' | 'line';
 
-type TextEffectProps = {
+export type TextEffectProps = {
   children: string;
   per?: PerType;
   as?: keyof React.JSX.IntrinsicElements;
@@ -270,7 +270,7 @@ export function TextEffect({
           exit='exit'
           aria-label={per === 'line' ? undefined : children}
           variants={computedVariants.container}
-          className={cn('whitespace-pre-wrap', className)}
+          className={className}
           onAnimationComplete={onAnimationComplete}
           onAnimationStart={onAnimationStart}
           style={style}

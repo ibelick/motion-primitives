@@ -8,7 +8,6 @@ import Popover from '@/components/core/popover';
 import { ChevronRight } from 'lucide-react';
 import { CardExampleLanding } from '@/components/website/card-example-landing';
 import { AnimatedGroupPreset } from '@/app/docs/animated-group/animated-group-preset';
-import { TextEffectWithExit } from '@/app/docs/text-effect/text-effect-exit';
 import { InViewImagesGrid } from '@/app/docs/in-view/in-view-images-grid';
 import { InfiniteSliderHoverSpeed } from '@/app/docs/infinite-slider/infinite-slider-hover-speed';
 import { Cursor1 } from '@/app/docs/cursor/cursor-1';
@@ -19,6 +18,8 @@ import { TextLoopBasic } from './docs/text-loop/text-loop-basic';
 import { TextShimmerBasic } from './docs/text-shimmer/text-shimmer-basic';
 import { TextScrambleCustomTrigger } from './docs/text-scramble/text-scramble-custom-trigger';
 import { BorderTrailCard1 } from './docs/border-trail/border-trail-card-1';
+import { TextEffectSpeed } from './docs/text-effect/text-effect-speed';
+import { TextScrambleBasic } from './docs/text-scramble/text-scramble-basic';
 
 function Button({
   children,
@@ -129,8 +130,11 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='px-20 [&>div]:h-52 [&>div]:justify-start'>
-            <TextEffectWithExit />
+          <CardExampleLanding
+            className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'
+            hasReTrigger
+          >
+            <TextEffectSpeed />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
@@ -149,18 +153,21 @@ export default function Motion() {
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='px-20 [&>div]:h-52 [&>div]:justify-start'>
+          <CardExampleLanding className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'>
             <TextLoopBasic />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='px-20 [&>div]:h-52 [&>div]:justify-start'>
+          <CardExampleLanding className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'>
             <TextShimmerBasic />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
-          <CardExampleLanding className='px-20 [&>div]:h-52 [&>div]:justify-start'>
-            <TextScrambleCustomTrigger />
+          <CardExampleLanding
+            className='px-8 md:px-20 [&>div]:h-52 [&>div]:justify-start'
+            hasReTrigger
+          >
+            <TextScrambleBasic />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
