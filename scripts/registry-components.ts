@@ -119,6 +119,12 @@ export const components: ComponentDefinition[] = [
     dependencies: ['motion'],
   },
   {
+    name: 'text-shimmer-wave',
+    path: path.join(__dirname, '../components/core/text-shimmer-wave.tsx'),
+    registryDependencies: [],
+    dependencies: ['motion'],
+  },
+  {
     name: 'magnetic',
     path: path.join(__dirname, '../components/core/magnetic.tsx'),
     registryDependencies: [],

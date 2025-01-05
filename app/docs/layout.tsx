@@ -115,6 +115,11 @@ const NAVIGATION: NavigationGroup[] = [
         name: 'Text Shimmer',
         href: '/docs/text-shimmer',
       },
+      {
+        name: 'Text Shimmer Wave',
+        href: '/docs/text-shimmer-wave',
+        isNew: true,
+      },
     ],
   },
   {
