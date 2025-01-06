@@ -7,6 +7,7 @@ export const metadata = {
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 import { TextShimmerWaveBasic } from './text-shimmer-wave-basic';
+import { TextShimmerWaveColor } from './text-shimmer-wave-color';
 
 # Text Shimmer Wave
 
@@ -19,6 +20,15 @@ Shimmer wave effect on text. Easily adjust the wave effect, spread, duration, an
 <ComponentCodePreview
   component={<TextShimmerWaveBasic />}
   filePath='app/docs/text-shimmer-wave/text-shimmer-wave-basic.tsx'
+/>
+
+### Text Shimmer Wave Color
+
+You can use the `[--base-color]` and `[--base-gradient-color]` CSS variables to customize the color of the shimmer effect.
+
+<ComponentCodePreview
+  component={<TextShimmerWaveColor />}
+  filePath='app/docs/text-shimmer-wave/text-shimmer-wave-color.tsx'
 />
 
 ## Installation
