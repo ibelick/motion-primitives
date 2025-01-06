@@ -1,0 +1,76 @@
+export const metadata = {
+  title: 'Text Shimmer Wave - Motion-Primitives',
+  description:
+    'Shimmer wave effect on text. Easily adjust the wave effect, spread, duration, and more.',
+};
+
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+import { TextShimmerWaveBasic } from './text-shimmer-wave-basic';
+import { TextShimmerWaveColor } from './text-shimmer-wave-color';
+
+# Text Shimmer Wave
+
+Shimmer wave effect on text. Easily adjust the wave effect, spread, duration, and more.
+
+## Examples
+
+### Text Shimmer Wave Basic
+
+<ComponentCodePreview
+  component={<TextShimmerWaveBasic />}
+  filePath='app/docs/text-shimmer-wave/text-shimmer-wave-basic.tsx'
+/>
+
+### Text Shimmer Wave Color
+
+You can use the `[--base-color]` and `[--base-gradient-color]` CSS variables to customize the color of the shimmer effect.
+
+<ComponentCodePreview
+  component={<TextShimmerWaveColor />}
+  filePath='app/docs/text-shimmer-wave/text-shimmer-wave-color.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue='cli'>
+  <TabsList>
+    <TabsTrigger value='cli'>CLI</TabsTrigger>
+    <TabsTrigger value='manual'>Manual</TabsTrigger>
+  </TabsList>
+
+<TabsContent value='cli'>
+  <CodeBlock
+    code={`npx shadcn add "https://motion-primitives.com/c/text-shimmer-wave.json"`}
+    lang='bash'
+    className='h-[52px]'
+  />
+</TabsContent>
+
+  <TabsContent value='manual'>
+    <Steps>
+      <Step>Copy and paste the following code into your project.</Step>
+
+      <CodeBlock filePath='components/core/text-shimmer-wave.tsx' />
+
+      <Step>Update the import paths to match your project setup.</Step>
+    </Steps>
+
+  </TabsContent>
+</Tabs>
+
+## Component API
+
+| Prop            | Type       | Default | Description                               |
+| :-------------- | :--------- | :------ | :---------------------------------------- |
+| children        | string     |         | The text content.                         |
+| as              | string     | 'p'     | The HTML element to render.               |
+| className       | string     |         | The class name to apply to the component. |
+| duration        | number     | 1       | The duration of the wave effect.          |
+| zDistance       | number     | 10      | The distance of the wave effect.          |
+| xDistance       | number     | 2       | The distance of the wave effect.          |
+| yDistance       | number     | -2      | The distance of the wave effect.          |
+| spread          | number     | 1       | The spread of the wave effect.            |
+| scaleDistance   | number     | 1.1     | The scale distance of the wave effect.    |
+| rotateYDistance | number     | 10      | The rotateY distance of the wave effect.  |
+| transition      | Transition |         | The transition of the wave effect.        |
