@@ -34,14 +34,17 @@ export function Cursor({
   transition,
   onPositionChange,
 }: CursorProps) {
-  const cursorX = useMotionValue(
-    typeof window !== 'undefined' ? window.innerWidth / 2 : 0
-  );
-  const cursorY = useMotionValue(
-    typeof window !== 'undefined' ? window.innerHeight / 2 : 0
-  );
+  const cursorX = useMotionValue(0);
+  const cursorY = useMotionValue(0);
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(!attachToParent);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      cursorX.set(window.innerWidth / 2);
+      cursorY.set(window.innerHeight / 2);
+    }
+  }, []);
 
   useEffect(() => {
     if (!attachToParent) {
