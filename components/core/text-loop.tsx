@@ -3,13 +3,14 @@ import { cn } from '@/lib/utils';
 import { motion, AnimatePresence, Transition, Variants } from 'motion/react';
 import { useState, useEffect, Children } from 'react';
 
-type TextLoopProps = {
+export type TextLoopProps = {
   children: React.ReactNode[];
   className?: string;
   interval?: number;
   transition?: Transition;
   variants?: Variants;
   onIndexChange?: (index: number) => void;
+  trigger?: boolean;
 };
 
 export function TextLoop({
@@ -19,13 +20,15 @@ export function TextLoop({
   transition = { duration: 0.3 },
   variants,
   onIndexChange,
+  trigger = true,
 }: TextLoopProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const items = Children.toArray(children);
 
   useEffect(() => {
-    const intervalMs = interval * 1000;
+    if (!trigger) return;
 
+    const intervalMs = interval * 1000;
     const timer = setInterval(() => {
       setCurrentIndex((current) => {
         const next = (current + 1) % items.length;
@@ -34,7 +37,7 @@ export function TextLoop({
       });
     }, intervalMs);
     return () => clearInterval(timer);
-  }, [items.length, interval, onIndexChange]);
+  }, [items.length, interval, onIndexChange, trigger]);
 
   const motionVariants: Variants = {
     initial: { y: 20, opacity: 0 },

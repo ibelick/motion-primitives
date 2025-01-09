@@ -18,15 +18,15 @@ import {
 } from 'motion/react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
-import useClickOutside from '@/hooks/useClickOutside';
 import { XIcon } from 'lucide-react';
+import useClickOutside from '@/hooks/useClickOutside';
 
-interface MorphingDialogContextType {
+export type MorphingDialogContextType = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   uniqueId: string;
   triggerRef: React.RefObject<HTMLDivElement>;
-}
+};
 
 const MorphingDialogContext =
   React.createContext<MorphingDialogContextType | null>(null);
@@ -41,7 +41,7 @@ function useMorphingDialog() {
   return context;
 }
 
-type MorphingDialogProviderProps = {
+export type MorphingDialogProviderProps = {
   children: React.ReactNode;
   transition?: Transition;
 };
@@ -52,10 +52,15 @@ function MorphingDialogProvider({
 }: MorphingDialogProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const uniqueId = useId();
-  const triggerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null!);
 
   const contextValue = useMemo(
-    () => ({ isOpen, setIsOpen, uniqueId, triggerRef }),
+    () => ({
+      isOpen,
+      setIsOpen,
+      uniqueId,
+      triggerRef,
+    }),
     [isOpen, uniqueId]
   );
 
@@ -66,7 +71,7 @@ function MorphingDialogProvider({
   );
 }
 
-type MorphingDialogProps = {
+export type MorphingDialogProps = {
   children: React.ReactNode;
   transition?: Transition;
 };
@@ -79,7 +84,7 @@ function MorphingDialog({ children, transition }: MorphingDialogProps) {
   );
 }
 
-type MorphingDialogTriggerProps = {
+export type MorphingDialogTriggerProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -120,13 +125,14 @@ function MorphingDialogTrigger({
       aria-haspopup='dialog'
       aria-expanded={isOpen}
       aria-controls={`motion-ui-morphing-dialog-content-${uniqueId}`}
+      aria-label={`Open dialog ${uniqueId}`}
     >
       {children}
     </motion.div>
   );
 }
 
-type MorphingDialogContent = {
+export type MorphingDialogContentProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -136,9 +142,9 @@ function MorphingDialogContent({
   children,
   className,
   style,
-}: MorphingDialogContent) {
+}: MorphingDialogContentProps) {
   const { setIsOpen, isOpen, uniqueId, triggerRef } = useMorphingDialog();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null!);
   const [firstFocusableElement, setFirstFocusableElement] =
     useState<HTMLElement | null>(null);
   const [lastFocusableElement, setLastFocusableElement] =
@@ -214,7 +220,7 @@ function MorphingDialogContent({
   );
 }
 
-type MorphingDialogContainerProps = {
+export type MorphingDialogContainerProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -252,7 +258,7 @@ function MorphingDialogContainer({ children }: MorphingDialogContainerProps) {
   );
 }
 
-type MorphingDialogTitleProps = {
+export type MorphingDialogTitleProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -277,7 +283,7 @@ function MorphingDialogTitle({
   );
 }
 
-type MorphingDialogSubtitleProps = {
+export type MorphingDialogSubtitleProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -301,7 +307,7 @@ function MorphingDialogSubtitle({
   );
 }
 
-type MorphingDialogDescriptionProps = {
+export type MorphingDialogDescriptionProps = {
   children: React.ReactNode;
   className?: string;
   disableLayoutAnimation?: boolean;
@@ -340,7 +346,7 @@ function MorphingDialogDescription({
   );
 }
 
-type MorphingDialogImageProps = {
+export type MorphingDialogImageProps = {
   src: string;
   alt: string;
   className?: string;
@@ -366,7 +372,7 @@ function MorphingDialogImage({
   );
 }
 
-type MorphingDialogCloseProps = {
+export type MorphingDialogCloseProps = {
   children?: React.ReactNode;
   className?: string;
   variants?: {
