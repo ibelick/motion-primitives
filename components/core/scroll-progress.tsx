@@ -23,11 +23,12 @@ export function ScrollProgress({
 }: ScrollProgressProps) {
   const { scrollYProgress } = useScroll({
     container: containerRef,
-    layoutEffect: containerRef?.current !== null,
+    layoutEffect: Boolean(containerRef?.current),
   });
 
   const scaleX = useSpring(scrollYProgress, {
-    ...(springOptions ?? DEFAULT_SPRING_OPTIONS),
+    ...DEFAULT_SPRING_OPTIONS,
+    ...(springOptions ?? {}),
   });
 
   return (
