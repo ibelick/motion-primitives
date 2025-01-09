@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 import { motion, Transition } from 'motion/react';
 
-type BorderTrailProps = {
+export type BorderTrailProps = {
   className?: string;
   size?: number;
   transition?: Transition;

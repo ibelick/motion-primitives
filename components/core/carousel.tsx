@@ -12,7 +12,7 @@ import { motion, Transition, useMotionValue } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-type CarouselContextType = {
+export type CarouselContextType = {
   index: number;
   setIndex: (newIndex: number) => void;
   itemsCount: number;
@@ -32,7 +32,7 @@ function useCarousel() {
   return context;
 }
 
-type CarouselProviderProps = {
+export type CarouselProviderProps = {
   children: ReactNode;
   initialIndex?: number;
   onIndexChange?: (newIndex: number) => void;
@@ -72,7 +72,7 @@ function CarouselProvider({
   );
 }
 
-type CarouselProps = {
+export type CarouselProps = {
   children: ReactNode;
   className?: string;
   initialIndex?: number;
@@ -113,7 +113,7 @@ function Carousel({
   );
 }
 
-type CarouselNavigationProps = {
+export type CarouselNavigationProps = {
   className?: string;
   classNameButton?: string;
   alwaysShow?: boolean;
@@ -187,7 +187,7 @@ function CarouselNavigation({
   );
 }
 
-type CarouselIndicatorProps = {
+export type CarouselIndicatorProps = {
   className?: string;
   classNameButton?: string;
 };
@@ -226,7 +226,7 @@ function CarouselIndicator({
   );
 }
 
-type CarouselContentProps = {
+export type CarouselContentProps = {
   children: ReactNode;
   className?: string;
   transition?: Transition;
@@ -323,7 +323,7 @@ function CarouselContent({
   );
 }
 
-type CarouselItemProps = {
+export type CarouselItemProps = {
   children: ReactNode;
   className?: string;
 };

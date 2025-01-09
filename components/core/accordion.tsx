@@ -10,7 +10,7 @@ import {
 import { cn } from '@/lib/utils';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type AccordionContextType = {
+export type AccordionContextType = {
   expandedValue: React.Key | null;
   toggleItem: (value: React.Key) => void;
   variants?: { expanded: Variant; collapsed: Variant };
@@ -28,7 +28,7 @@ function useAccordion() {
   return context;
 }
 
-type AccordionProviderProps = {
+export type AccordionProviderProps = {
   children: ReactNode;
   variants?: { expanded: Variant; collapsed: Variant };
   expandedValue?: React.Key | null;
@@ -65,7 +65,7 @@ function AccordionProvider({
   );
 }
 
-type AccordionProps = {
+export type AccordionProps = {
   children: ReactNode;
   className?: string;
   transition?: Transition;
@@ -97,7 +97,7 @@ function Accordion({
   );
 }
 
-type AccordionItemProps = {
+export type AccordionItemProps = {
   value: React.Key;
   children: ReactNode;
   className?: string;
@@ -126,7 +126,7 @@ function AccordionItem({ value, children, className }: AccordionItemProps) {
   );
 }
 
-type AccordionTriggerProps = {
+export type AccordionTriggerProps = {
   children: ReactNode;
   className?: string;
 };
@@ -153,7 +153,7 @@ function AccordionTrigger({
   );
 }
 
-type AccordionContentProps = {
+export type AccordionContentProps = {
   children: ReactNode;
   className?: string;
 };

@@ -26,7 +26,7 @@ const DEFAULT_MAGNIFICATION = 80;
 const DEFAULT_DISTANCE = 150;
 const DEFAULT_PANEL_HEIGHT = 64;
 
-type DockProps = {
+export type DockProps = {
   children: React.ReactNode;
   className?: string;
   distance?: number;
@@ -34,26 +34,30 @@ type DockProps = {
   magnification?: number;
   spring?: SpringOptions;
 };
-type DockItemProps = {
-  className?: string;
-  children: React.ReactNode;
-};
-type DockLabelProps = {
-  className?: string;
-  children: React.ReactNode;
-};
-type DockIconProps = {
+
+export type DockItemProps = {
   className?: string;
   children: React.ReactNode;
 };
 
-type DocContextType = {
+export type DockLabelProps = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+export type DockIconProps = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+export type DocContextType = {
   mouseX: MotionValue;
   spring: SpringOptions;
   magnification: number;
   distance: number;
 };
-type DockProviderProps = {
+
+export type DockProviderProps = {
   children: React.ReactNode;
   value: DocContextType;
 };

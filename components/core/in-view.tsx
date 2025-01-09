@@ -8,7 +8,7 @@ import {
   UseInViewOptions,
 } from 'motion/react';
 
-interface InViewProps {
+export type InViewProps = {
   children: ReactNode;
   variants?: {
     hidden: Variant;
@@ -17,7 +17,7 @@ interface InViewProps {
   transition?: Transition;
   viewOptions?: UseInViewOptions;
   as?: React.ElementType;
-}
+};
 
 const defaultVariants = {
   hidden: { opacity: 0 },

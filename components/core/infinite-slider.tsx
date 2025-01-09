@@ -4,7 +4,7 @@ import { useMotionValue, animate, motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import useMeasure from 'react-use-measure';
 
-type InfiniteSliderProps = {
+export type InfiniteSliderProps = {
   children: React.ReactNode;
   gap?: number;
   duration?: number;

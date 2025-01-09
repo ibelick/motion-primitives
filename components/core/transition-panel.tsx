@@ -8,7 +8,7 @@ import {
 } from 'motion/react';
 import { cn } from '@/lib/utils';
 
-type TransitionPanelProps = {
+export type TransitionPanelProps = {
   children: React.ReactNode[];
   className?: string;
   transition?: Transition;

@@ -11,7 +11,7 @@ import {
   SpringOptions,
 } from 'motion/react';
 
-type TiltProps = {
+export type TiltProps = {
   children: React.ReactNode;
   className?: string;
   style?: MotionStyle;

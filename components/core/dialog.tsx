@@ -38,7 +38,7 @@ const defaultTransition: Transition = {
   duration: 0.2,
 };
 
-type DialogProps = {
+export type DialogProps = {
   children: React.ReactNode;
   variants?: Variants;
   transition?: Transition;
@@ -140,7 +140,7 @@ function Dialog({
   );
 }
 
-type DialogTriggerProps = {
+export type DialogTriggerProps = {
   children: React.ReactNode;
   className?: string;
 };
@@ -164,7 +164,7 @@ function DialogTrigger({ children, className }: DialogTriggerProps) {
   );
 }
 
-type DialogPortalProps = {
+export type DialogPortalProps = {
   children: React.ReactNode;
   container?: HTMLElement | null;
 };
@@ -189,7 +189,7 @@ function DialogPortal({
 
   return createPortal(children, portalContainer);
 }
-type DialogContentProps = {
+export type DialogContentProps = {
   children: React.ReactNode;
   className?: string;
   container?: HTMLElement;
@@ -246,7 +246,7 @@ function DialogContent({ children, className, container }: DialogContentProps) {
   return <DialogPortal container={container}>{content}</DialogPortal>;
 }
 
-type DialogHeaderProps = {
+export type DialogHeaderProps = {
   children: React.ReactNode;
   className?: string;
 };
@@ -257,7 +257,7 @@ function DialogHeader({ children, className }: DialogHeaderProps) {
   );
 }
 
-type DialogTitleProps = {
+export type DialogTitleProps = {
   children: React.ReactNode;
   className?: string;
 };
@@ -276,7 +276,7 @@ function DialogTitle({ children, className }: DialogTitleProps) {
   );
 }
 
-type DialogDescriptionProps = {
+export type DialogDescriptionProps = {
   children: React.ReactNode;
   className?: string;
 };
@@ -295,7 +295,7 @@ function DialogDescription({ children, className }: DialogDescriptionProps) {
   );
 }
 
-type DialogCloseProps = {
+export type DialogCloseProps = {
   className?: string;
   children?: React.ReactNode;
   disabled?: boolean;

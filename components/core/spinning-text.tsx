@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { motion, Transition, Variants } from 'motion/react';
 import React, { CSSProperties } from 'react';
 
-type SpinningTextProps = {
+export type SpinningTextProps = {
   children: string;
   style?: CSSProperties;
   duration?: number;

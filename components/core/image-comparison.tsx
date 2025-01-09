@@ -19,7 +19,7 @@ const ImageComparisonContext = createContext<
   | undefined
 >(undefined);
 
-type ImageComparisonProps = {
+export type ImageComparisonProps = {
   children: React.ReactNode;
   className?: string;
   enableHover?: boolean;

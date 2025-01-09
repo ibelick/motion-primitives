@@ -11,7 +11,7 @@ import {
 import { createContext, useContext, useState, useId, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
-type DisclosureContextType = {
+export type DisclosureContextType = {
   open: boolean;
   toggle: () => void;
   variants?: { expanded: Variant; collapsed: Variant };
@@ -21,7 +21,7 @@ const DisclosureContext = createContext<DisclosureContextType | undefined>(
   undefined
 );
 
-type DisclosureProviderProps = {
+export type DisclosureProviderProps = {
   children: React.ReactNode;
   open: boolean;
   onOpenChange?: (open: boolean) => void;
@@ -69,7 +69,7 @@ function useDisclosure() {
   return context;
 }
 
-type DisclosureProps = {
+export type DisclosureProps = {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   children: React.ReactNode;

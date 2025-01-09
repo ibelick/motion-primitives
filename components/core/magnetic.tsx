@@ -10,7 +10,7 @@ import {
 
 const SPRING_CONFIG = { stiffness: 26.7, damping: 4.1, mass: 0.2 };
 
-type Magnetic = {
+export type MagneticProps = {
   children: React.ReactNode;
   intensity?: number;
   range?: number;
@@ -24,7 +24,7 @@ export function Magnetic({
   range = 100,
   actionArea = 'self',
   springOptions = SPRING_CONFIG,
-}: Magnetic) {
+}: MagneticProps) {
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 

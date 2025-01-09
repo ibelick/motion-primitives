@@ -4,11 +4,11 @@ import { motion, SpringOptions, useScroll, useSpring } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { RefObject } from 'react';
 
-interface ScrollProgressProps {
+export type ScrollProgressProps = {
   className?: string;
   springOptions?: SpringOptions;
   containerRef?: RefObject<HTMLDivElement>;
-}
+};
 
 const DEFAULT_SPRING_OPTIONS: SpringOptions = {
   stiffness: 200,

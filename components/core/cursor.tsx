@@ -11,7 +11,7 @@ import {
 } from 'motion/react';
 import { cn } from '@/lib/utils';
 
-type CursorProps = {
+export type CursorProps = {
   children: React.ReactNode;
   className?: string;
   springConfig?: SpringOptions;
