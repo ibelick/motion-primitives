@@ -1,0 +1,94 @@
+export const metadata = {
+  title: 'Text Roll - Motion-Primitives',
+  description:
+    'A text roll component that rotates each character, fully customizable for nice text animations.',
+};
+
+import { TextRollBasic } from './text-roll-basic';
+import { TextRollCustomVariants } from './text-roll-custom-variants';
+import { TextRollCustomTransitionDelay } from './text-roll-custom-transition-delay';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Text Roll
+
+A text roll component that rotates each character, fully customizable for nice text animations.
+
+## Examples
+
+### Text Roll basic
+
+<ComponentCodePreview
+  component={<TextRollBasic />}
+  filePath='app/docs/text-roll/text-roll-basic.tsx'
+  classNameComponentContainer='px-4'
+  hasReTrigger
+/>
+
+### Text Roll custom variants
+
+<ComponentCodePreview
+  component={<TextRollCustomVariants />}
+  filePath='app/docs/text-roll/text-roll-custom-variants.tsx'
+  classNameComponentContainer='px-4'
+  hasReTrigger
+/>
+
+### Text Roll custom transition delay
+
+<ComponentCodePreview
+  component={<TextRollCustomTransitionDelay />}
+  filePath='app/docs/text-roll/text-roll-custom-transition-delay.tsx'
+  classNameComponentContainer='px-4'
+  hasReTrigger
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/text-roll.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/text-roll.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### Text Roll
+
+| Prop                | Type                  | Default               | Description                                                   |
+| :------------------ | :-------------------- | :-------------------- | :------------------------------------------------------------ |
+| children            | React.ReactNode       | -                     | The text to roll.                                             |
+| className           | string                | -                     | The class name to apply to the component.                     |
+| duration            | number                | 0.5                   | The duration of the animation.                                |
+| getEnterDelay       | (i: number) => number | (i) => i \* 0.1       | The delay of the animation for each character.                |
+| getExitDelay        | (i: number) => number | (i) => i \* 0.1 + 0.2 | The delay of the animation for each character.                |
+| transition          | Transition            | `{ ease: 'easeIn' }`  | The transition of the animation.                              |
+| variants            | Object                | -                     | The variants of the animation.                                |
+| onAnimationComplete | () => void            | -                     | The callback function to call when the animation is complete. |

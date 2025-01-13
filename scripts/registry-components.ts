@@ -107,6 +107,12 @@ export const components: ComponentDefinition[] = [
     dependencies: ['motion'],
   },
   {
+    name: 'text-roll',
+    path: path.join(__dirname, '../components/core/text-roll.tsx'),
+    registryDependencies: [],
+    dependencies: ['motion'],
+  },
+  {
     name: 'text-scramble',
     path: path.join(__dirname, '../components/core/text-scramble.tsx'),
     registryDependencies: [],
