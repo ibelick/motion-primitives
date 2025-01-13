@@ -100,12 +100,16 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Loop',
         href: '/docs/text-loop',
-        isNew: true,
       },
       {
         name: 'Text Morph',
         href: '/docs/text-morph',
         isUpdated: true,
+      },
+      {
+        name: 'Text Roll',
+        href: '/docs/text-roll',
+        isNew: true,
       },
       {
         name: 'Text Scramble',
@@ -152,7 +156,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Spotlight',
         href: '/docs/spotlight',
-        isNew: true,
       },
       {
         name: 'Spinning Text',
@@ -161,7 +164,6 @@ const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Tilt',
         href: '/docs/tilt',
-        isNew: true,
       },
       {
         name: 'Magnetic',
