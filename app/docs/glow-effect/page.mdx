@@ -5,6 +5,8 @@ export const metadata = {
 };
 
 import { GlowEffectCardBackground } from './glow-effect-card-background';
+import { GlowEffectCardMode } from './glow-effect-card-mode';
+import { GlowEffectButton } from './glow-effect-button';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -19,6 +21,22 @@ A customizable glow effect with animation modes, colors, blur, and transitions.
 <ComponentCodePreview
   component={<GlowEffectCardBackground />}
   filePath='app/docs/glow-effect/glow-effect-card-background.tsx'
+/>
+
+### Glow effect button
+
+You can use different `modes` to animate the glow effect.
+
+<ComponentCodePreview
+  component={<GlowEffectButton />}
+  filePath='app/docs/glow-effect/glow-effect-button.tsx'
+/>
+
+### Glow effect card mode
+
+<ComponentCodePreview
+  component={<GlowEffectCardMode />}
+  filePath='app/docs/glow-effect/glow-effect-card-mode.tsx'
 />
 
 ## Installation
@@ -60,13 +78,13 @@ A customizable glow effect with animation modes, colors, blur, and transitions.
 
 ### GlowEffect
 
-| Prop       | Type                | Default                                      | Description                                        |
-| :--------- | :------------------ | :------------------------------------------- | :------------------------------------------------- | ------------ | ---------------- | ---------- | ------------------------------------ | ------ | ------------------------------------ |
-| className  | string              | undefined                                    | Optional CSS class for styling the component.      |
-| style      | React.CSSProperties | undefined                                    | Optional CSS properties for styling the component. |
-| colors     | string[]            | ['#FF5733', '#33FF57', '#3357FF', '#F1C40F'] | The colors to use for the glow effect.             |
-| mode       | 'rotate'            | 'pulse'                                      | 'breathe'                                          | 'colorShift' | 'flowHorizontal' | 'static'   | The mode to use for the glow effect. |
-| blur       | number              | 'softest'                                    | 'soft'                                             | 'medium'     | 'strong'         | 'stronger' | 'strongest'                          | 'none' | The blur to use for the glow effect. |
-| transition | Transition          | undefined                                    | The transition to use for the glow effect.         |
-| scale      | number              | 1                                            | The scale to use for the glow effect.              |
-| duration   | number              | 5                                            | The duration to use for the glow effect.           |
+| Prop       | Type                                                                                                       | Default                                      | Description                                        |
+| :--------- | :--------------------------------------------------------------------------------------------------------- | :------------------------------------------- | :------------------------------------------------- |
+| className  | string                                                                                                     | undefined                                    | Optional CSS class for styling the component.      |
+| style      | React.CSSProperties                                                                                        | undefined                                    | Optional CSS properties for styling the component. |
+| colors     | string[]                                                                                                   | ['#FF5733', '#33FF57', '#3357FF', '#F1C40F'] | The colors to use for the glow effect.             |
+| mode       | 'rotate' \| 'pulse' \| 'breathe' \| 'colorShift' \| 'flowHorizontal' \| 'static'                           | 'rotate'                                      | The mode to use for the glow effect.               |
+| blur       | 'number' \| 'softest' \| 'soft' \| 'medium' \| 'strong' \| 'strong' \| 'stronger' \| 'strongest' \| 'none' | 'medium'                                    | The blur to use for the glow effect.               |
+| transition | Transition                                                                                                 | undefined                                    | The transition to use for the glow effect.         |
+| scale      | number                                                                                                     | 1                                            | The scale to use for the glow effect.              |
+| duration   | number                                                                                                     | 5                                            | The duration to use for the glow effect.           |
