@@ -134,6 +134,11 @@ const NAVIGATION: NavigationGroup[] = [
         href: '/docs/dock',
       },
       {
+        name: 'Glow Effect',
+        href: '/docs/glow-effect',
+        isNew: true,
+      },
+      {
         name: 'Image Comparison',
         href: '/docs/image-comparison',
       },

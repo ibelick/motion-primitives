@@ -149,6 +149,12 @@ export const components: ComponentDefinition[] = [
     dependencies: ['motion'],
   },
   {
+    name: 'glow-effect',
+    path: path.join(__dirname, '../components/core/glow-effect.tsx'),
+    registryDependencies: [],
+    dependencies: ['motion'],
+  },
+  {
     name: 'image-comparison',
     path: path.join(__dirname, '../components/core/image-comparison.tsx'),
     registryDependencies: [],
