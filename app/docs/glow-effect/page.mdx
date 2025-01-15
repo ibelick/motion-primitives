@@ -1,0 +1,72 @@
+export const metadata = {
+  title: 'Glow Effect - Motion-Primitives',
+  description:
+    'A customizable glow effect with animation modes, colors, blur, and transitions.',
+};
+
+import { GlowEffectCardBackground } from './glow-effect-card-background';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Glow Effect
+
+A customizable glow effect with animation modes, colors, blur, and transitions.
+
+## Examples
+
+### Glow effect static background
+
+<ComponentCodePreview
+  component={<GlowEffectCardBackground />}
+  filePath='app/docs/glow-effect/glow-effect-card-background.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/dock.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/glow-effect.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### GlowEffect
+
+| Prop       | Type                | Default                                      | Description                                        |
+| :--------- | :------------------ | :------------------------------------------- | :------------------------------------------------- | ------------ | ---------------- | ---------- | ------------------------------------ | ------ | ------------------------------------ |
+| className  | string              | undefined                                    | Optional CSS class for styling the component.      |
+| style      | React.CSSProperties | undefined                                    | Optional CSS properties for styling the component. |
+| colors     | string[]            | ['#FF5733', '#33FF57', '#3357FF', '#F1C40F'] | The colors to use for the glow effect.             |
+| mode       | 'rotate'            | 'pulse'                                      | 'breathe'                                          | 'colorShift' | 'flowHorizontal' | 'static'   | The mode to use for the glow effect. |
+| blur       | number              | 'softest'                                    | 'soft'                                             | 'medium'     | 'strong'         | 'stronger' | 'strongest'                          | 'none' | The blur to use for the glow effect. |
+| transition | Transition          | undefined                                    | The transition to use for the glow effect.         |
+| scale      | number              | 1                                            | The scale to use for the glow effect.              |
+| duration   | number              | 5                                            | The duration to use for the glow effect.           |
