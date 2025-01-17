@@ -24,7 +24,6 @@ export type TextRollProps = {
       animate: TargetAndTransition | VariantLabels;
     };
   };
-
   onAnimationComplete?: () => void;
 };
 
