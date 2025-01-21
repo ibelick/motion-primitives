@@ -81,13 +81,13 @@ You can use the `onIndexChange` prop to trigger a callback function when the ind
 
 ### Text Loop
 
-| Prop          | Type                         | Default   | Description                                               |
-| :------------ | :--------------------------- | :-------- | :-------------------------------------------------------- |
-| children      | React.ReactNode[]            |           | The text content to be animated.                          |
-| className     | string                       |           | Additional CSS classes for styling.                       |
-| interval      | number                       | 2000      | Time interval between text changes in milliseconds.       |
-| transition    | Transition                   |           | Animation transition settings. Can't be more than inerval |
-| variants      | Variants                     |           | Custom animation variants.                                |
-| onIndexChange | (index: number) => void      |           | Callback function that triggers when the index changes.   |
-| trigger       | boolean                      | true      | Whether to trigger the animation.                         |
-| mode          | AnimatePresenceProps['mode'] | popLayout | Mode of for the AnimatePresence component.                |
+| Prop          | Type                         | Default   | Description                                                     |
+| :------------ | :--------------------------- | :-------- | :---------------------------------------------------------------|
+| children      | React.ReactNode[]            |           | The text content to be animated.                                |
+| className     | string                       |           | Additional CSS classes for styling.                             |
+| interval      | number                       | 2         | Time interval between text changes in seconds.                  |
+| transition    | Transition                   |           | Animation transition settings. Can't be more than the interval. |
+| variants      | Variants                     |           | Custom animation variants.                                      |
+| onIndexChange | (index: number) => void      |           | Callback function that triggers when the index changes.         |
+| trigger       | boolean                      | true      | Whether to trigger the animation.                               |
+| mode          | AnimatePresenceProps['mode'] | popLayout | Mode of for the AnimatePresence component.                      |
