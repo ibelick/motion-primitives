@@ -7,7 +7,7 @@ export default function LaunchBanner() {
     >
       <span>
         Introducing Motion-Primitives Pro - Advanced components and templates to
-        help you build a website that stands out.
+        help you build delightful websites, faster.
       </span>{' '}
     </a>
   );

@@ -3,6 +3,24 @@ import { MPLogo } from './icons/motion-primitives-logo';
 import XIcon from './icons/x';
 import GitHubIcon from './icons/github';
 import ThemeSwitch from './theme-switch';
+import { GlowEffect } from '@/components/core/glow-effect';
+
+function ProBadge() {
+  return (
+    <span className='relative mb-4 ml-2 inline-flex select-none items-center'>
+      <GlowEffect
+        colors={['#FF5733', '#33FF57', '#3357FF', '#F1C40F']}
+        mode='colorShift'
+        blur='soft'
+        duration={3}
+        scale={0.9}
+      />
+      <span className='relative rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium leading-none text-zinc-50 outline outline-1 outline-[#fff2f21f]'>
+        Pro
+      </span>
+    </span>
+  );
+}
 
 export function Header() {
   return (
@@ -13,12 +31,21 @@ export function Header() {
           <div className='text-sm font-medium text-zinc-950 dark:text-white'>
             motion-primitives
           </div>
-          <span className='mb-4 ml-2 select-none rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-50'>
+          <span className='mb-4 ml-2 select-none rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium leading-none text-zinc-50'>
             beta
           </span>
         </Link>
         <div className='flex items-center space-x-6'>
           <nav className='hidden items-center space-x-6 sm:flex'>
+            <a
+              href='https://pro.motion-primitives.com/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+            >
+              Advanced
+              <ProBadge />
+            </a>
             <Link
               href='/docs/text-effect'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
