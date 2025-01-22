@@ -6,8 +6,8 @@ export default function LaunchBanner() {
       href='https://pro.motion-primitives.com'
     >
       <span>
-        Introducing Motion-Primitives Pro - Advanced components and templates to
-        help you build a website that stands out.
+        Motion-Primitives Pro is live - Advanced components and templates to
+        help you build delightful websites, faster.
       </span>{' '}
     </a>
   );
