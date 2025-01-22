@@ -5,7 +5,7 @@ import GitHubIcon from './icons/github';
 import ThemeSwitch from './theme-switch';
 import { GlowEffect } from '@/components/core/glow-effect';
 
-function ProBadge() {
+export function ProBadge() {
   return (
     <span className='relative mb-4 ml-2 inline-flex select-none items-center'>
       <GlowEffect
@@ -15,7 +15,7 @@ function ProBadge() {
         duration={3}
         scale={0.9}
       />
-      <span className='relative rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium leading-none text-zinc-50 outline outline-1 outline-[#fff2f21f]'>
+      <span className='relative rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium leading-none text-zinc-50 outline outline-1 outline-[#565656a6]'>
         Pro
       </span>
     </span>

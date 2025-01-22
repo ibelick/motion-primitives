@@ -16,10 +16,10 @@ import { MPLogo } from '@/components/website/icons/motion-primitives-logo';
 import LaunchBanner from '@/components/website/launch-banner';
 import { TextLoopBasic } from './docs/text-loop/text-loop-basic';
 import { TextShimmerBasic } from './docs/text-shimmer/text-shimmer-basic';
-import { TextScrambleCustomTrigger } from './docs/text-scramble/text-scramble-custom-trigger';
 import { BorderTrailCard1 } from './docs/border-trail/border-trail-card-1';
 import { TextEffectSpeed } from './docs/text-effect/text-effect-speed';
 import { TextScrambleBasic } from './docs/text-scramble/text-scramble-basic';
+import { ProBadge } from '@/components/website/header';
 
 function Button({
   children,
@@ -57,25 +57,52 @@ function Header() {
             beta
           </span>
         </a>
-        <nav className='flex items-center gap-2'>
-          <a
-            href='https://twitter.com/Ibelick'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='inline-flex h-9 w-9 items-center justify-center'
-          >
-            <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
-          </a>
-          <a
-            href='https://github.com/ibelick/motion-primitives'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='inline-flex h-9 w-9 items-center justify-center'
-          >
-            <GitHubIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
-          </a>
-          <ThemeSwitch />
-        </nav>
+
+        <div className='flex items-center space-x-6'>
+          <nav className='hidden items-center space-x-6 sm:flex'>
+            <a
+              href='https://pro.motion-primitives.com/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+            >
+              Advanced
+              <ProBadge />
+            </a>
+            <Link
+              href='/docs/text-effect'
+              className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+            >
+              Components
+            </Link>
+            <Link
+              href='/showcase'
+              className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+            >
+              Showcase
+            </Link>
+          </nav>
+          <div className='hidden h-8 w-[0.5px] bg-zinc-200 dark:bg-zinc-800 sm:flex' />
+          <nav className='flex items-center space-x-2'>
+            <a
+              href='https://twitter.com/Ibelick'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex h-9 w-9 items-center justify-center'
+            >
+              <XIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
+            </a>
+            <a
+              href='https://github.com/ibelick/motion-primitives'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex h-9 w-9 items-center justify-center'
+            >
+              <GitHubIcon className='h-4 w-4 fill-zinc-950 dark:fill-white' />
+            </a>
+            <ThemeSwitch />
+          </nav>
+        </div>
       </div>
     </header>
   );
