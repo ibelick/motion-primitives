@@ -28,9 +28,7 @@ export type AnimatedGroupProps = {
 };
 
 const defaultContainerVariants: Variants = {
-  hidden: { opacity: 0 },
   visible: {
-    opacity: 1,
     transition: {
       staggerChildren: 0.1,
     },
@@ -44,99 +42,67 @@ const defaultItemVariants: Variants = {
 
 const presetVariants: Record<
   PresetType,
-  { container: Variants; item: Variants }
+  Variants
 > = {
   fade: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0 },
-      visible: { opacity: 1 },
-    },
   },
   slide: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, y: 20 },
-      visible: { opacity: 1, y: 0 },
-    },
+    hidden: { y: 20 },
+    visible: { y: 0 },
   },
   scale: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, scale: 0.8 },
-      visible: { opacity: 1, scale: 1 },
-    },
+    hidden: { scale: 0.8 },
+    visible: { scale: 1 },
   },
   blur: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, filter: 'blur(4px)' },
-      visible: { opacity: 1, filter: 'blur(0px)' },
-    },
+    hidden: { filter: 'blur(4px)' },
+    visible: { filter: 'blur(0px)' },
   },
   'blur-slide': {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, filter: 'blur(4px)', y: 20 },
-      visible: { opacity: 1, filter: 'blur(0px)', y: 0 },
-    },
+    hidden: { filter: 'blur(4px)', y: 20 },
+    visible: { filter: 'blur(0px)', y: 0 },
   },
   zoom: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, scale: 0.5 },
-      visible: {
-        opacity: 1,
-        scale: 1,
-        transition: { type: 'spring', stiffness: 300, damping: 20 },
-      },
+    hidden: { scale: 0.5 },
+    visible: {
+      scale: 1,
+      transition: { type: 'spring', stiffness: 300, damping: 20 },
     },
   },
   flip: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, rotateX: -90 },
-      visible: {
-        opacity: 1,
-        rotateX: 0,
-        transition: { type: 'spring', stiffness: 300, damping: 20 },
-      },
+    hidden: { rotateX: -90 },
+    visible: {
+      rotateX: 0,
+      transition: { type: 'spring', stiffness: 300, damping: 20 },
     },
   },
   bounce: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, y: -50 },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: { type: 'spring', stiffness: 400, damping: 10 },
-      },
+    hidden: { y: -50 },
+    visible: {
+      y: 0,
+      transition: { type: 'spring', stiffness: 400, damping: 10 },
     },
   },
   rotate: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, rotate: -180 },
-      visible: {
-        opacity: 1,
-        rotate: 0,
-        transition: { type: 'spring', stiffness: 200, damping: 15 },
-      },
+    hidden: { rotate: -180 },
+    visible: {
+      rotate: 0,
+      transition: { type: 'spring', stiffness: 200, damping: 15 },
     },
   },
   swing: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, rotate: -10 },
-      visible: {
-        opacity: 1,
-        rotate: 0,
-        transition: { type: 'spring', stiffness: 300, damping: 8 },
-      },
+    hidden: { rotate: -10 },
+    visible: {
+      rotate: 0,
+      transition: { type: 'spring', stiffness: 300, damping: 8 },
     },
   },
 };
+
+const addDefaultVariants = (variants: Variants) => ({
+    hidden: { ...defaultItemVariants.hidden, ...variants.hidden },
+    visible: { ...defaultItemVariants.visible, ...variants.visible },
+});
 
 function AnimatedGroup({
   children,
@@ -146,9 +112,10 @@ function AnimatedGroup({
   as = 'div',
   asChild = 'div',
 }: AnimatedGroupProps) {
-  const selectedVariants = preset
-    ? presetVariants[preset]
-    : { container: defaultContainerVariants, item: defaultItemVariants };
+  const selectedVariants = {
+    item: addDefaultVariants(preset ? presetVariants[preset] : {}),
+    container: addDefaultVariants(defaultContainerVariants)
+  };
   const containerVariants = variants?.container || selectedVariants.container;
   const itemVariants = variants?.item || selectedVariants.item;
 
