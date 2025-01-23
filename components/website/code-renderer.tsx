@@ -12,7 +12,7 @@ export default async function CodeRenderer({ code, lang }: CodeRenderer) {
   });
 
   return (
-    <div>
+    <div className='font-mono'>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );

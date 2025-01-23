@@ -16,7 +16,7 @@ export function AccordionIcons() {
         <AccordionTrigger className='w-full text-left text-zinc-950 dark:text-zinc-50'>
           <div className='flex items-center justify-between'>
             <div>Getting Started</div>
-            <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-[expanded]:-rotate-180 dark:text-zinc-50' />
+            <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-expanded:-rotate-180 dark:text-zinc-50' />
           </div>
         </AccordionTrigger>
         <AccordionContent>
@@ -33,7 +33,7 @@ export function AccordionIcons() {
         <AccordionTrigger className='w-full text-left text-zinc-950 dark:text-zinc-50'>
           <div className='flex items-center justify-between'>
             <div>Animation Properties</div>
-            <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-[expanded]:-rotate-180 dark:text-zinc-50' />
+            <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-expanded:-rotate-180 dark:text-zinc-50' />
           </div>
         </AccordionTrigger>
         <AccordionContent>
@@ -50,7 +50,7 @@ export function AccordionIcons() {
         <AccordionTrigger className='w-full text-left text-zinc-950 dark:text-zinc-50'>
           <div className='flex items-center justify-between'>
             <div>Advanced Usage</div>
-            <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-[expanded]:-rotate-180 dark:text-zinc-50' />
+            <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-expanded:-rotate-180 dark:text-zinc-50' />
           </div>
         </AccordionTrigger>
         <AccordionContent>
@@ -67,7 +67,7 @@ export function AccordionIcons() {
         <AccordionTrigger className='w-full text-left text-zinc-950 dark:text-zinc-50'>
           <div className='flex items-center justify-between'>
             <div>Community and Support</div>
-            <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-[expanded]:-rotate-180 dark:text-zinc-50' />
+            <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-expanded:-rotate-180 dark:text-zinc-50' />
           </div>
         </AccordionTrigger>
         <AccordionContent>

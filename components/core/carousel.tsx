@@ -143,7 +143,7 @@ function CarouselNavigation({
             : 'opacity-0 group-hover/hover:opacity-100',
           alwaysShow
             ? 'disabled:opacity-40'
-            : 'disabled:group-hover/hover:opacity-40',
+            : 'group-hover/hover:disabled:opacity-40',
           classNameButton
         )}
         disabled={index === 0}
@@ -167,7 +167,7 @@ function CarouselNavigation({
             : 'opacity-0 group-hover/hover:opacity-100',
           alwaysShow
             ? 'disabled:opacity-40'
-            : 'disabled:group-hover/hover:opacity-40',
+            : 'group-hover/hover:disabled:opacity-40',
           classNameButton
         )}
         aria-label='Next slide'
