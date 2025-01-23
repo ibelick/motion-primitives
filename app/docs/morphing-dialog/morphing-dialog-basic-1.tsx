@@ -31,7 +31,7 @@ export function MorphingDialogBasicOne() {
           alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
           className='h-48 w-full object-cover'
         />
-        <div className='flex grow flex-row items-end justify-between p-2'>
+        <div className='flex grow flex-row items-end justify-between px-3 py-2'>
           <div>
             <MorphingDialogTitle className='text-zinc-950 dark:text-zinc-50'>
               EB27
