@@ -31,7 +31,7 @@ export function Header() {
           <div className='text-sm font-medium text-zinc-950 dark:text-white'>
             motion-primitives
           </div>
-          <span className='mb-4 ml-2 select-none rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium leading-none text-zinc-50'>
+          <span className='mb-4 ml-0 select-none rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium leading-none text-zinc-50'>
             beta
           </span>
         </Link>

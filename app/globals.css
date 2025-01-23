@@ -4,8 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Match Tailwind v4's default variable names */
-  --font-mono: var(--font-geist-mono);
+  /* connect the Tailwind mono font to the Geist variable that's being injected */
+  --default-mono-font-family: '__GeistMono_c1e5c9', ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  --font-mono: '__GeistMono_c1e5c9', ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  --default-mono-font-feature-settings: normal;
+  --default-mono-font-variation-settings: normal;
 }
 
 /*
