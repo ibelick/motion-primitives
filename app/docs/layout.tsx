@@ -27,7 +27,7 @@ function NavigationDesktop() {
     <aside className='sticky top-14 hidden h-[calc(100dvh-(--spacing(16)))] w-[220px] shrink-0 pt-8 md:block lg:pt-12'>
       <ScrollArea className='h-full w-full'>
         <nav>
-          <ul role='list' className='h-full [&>li:not(:first-child)>div]:pt-6'>
+          <ul role='list' className='h-full [&>li:not(:first-child)>div]:pt-6 pb-9'>
             {NAVIGATION.map((item, index) => {
               return (
                 <li key={`${item.name}-${index}`}>
