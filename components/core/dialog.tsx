@@ -154,7 +154,7 @@ function DialogTrigger({ children, className }: DialogTriggerProps) {
       onClick={context.handleTrigger}
       className={cn(
         'inline-flex items-center justify-center rounded-md text-sm font-medium',
-        'transition-colors focus-visible:outline-none focus-visible:ring-2',
+        'transition-colors focus-visible:outline-hidden focus-visible:ring-2',
         'focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
         className
       )}
@@ -232,7 +232,7 @@ function DialogContent({ children, className, container }: DialogContentProps) {
           onAnimationComplete={onAnimationComplete}
           className={cn(
             'fixed rounded-lg border border-zinc-200 p-0 shadow-lg dark:border dark:border-zinc-700',
-            'backdrop:bg-black/50 backdrop:backdrop-blur-sm',
+            'backdrop:bg-black/50 backdrop:backdrop-blur-xs',
             'open:flex open:flex-col',
             className
           )}
@@ -311,8 +311,8 @@ function DialogClose({ className, children, disabled }: DialogCloseProps) {
       type='button'
       aria-label='Close dialog'
       className={cn(
-        'absolute right-4 top-4 rounded-sm opacity-70 transition-opacity',
-        'hover:opacity-100 focus:outline-none focus:ring-2',
+        'absolute right-4 top-4 rounded-xs opacity-70 transition-opacity',
+        'hover:opacity-100 focus:outline-hidden focus:ring-2',
         'focus:ring-zinc-500 focus:ring-offset-2 disabled:pointer-events-none',
         className
       )}

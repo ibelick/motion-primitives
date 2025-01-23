@@ -1,5 +1,5 @@
 'use client';
-import { TextEffect } from '../../../components/core/text-effect';
+import { TextEffect } from '@/components/core/text-effect';
 
 export function TextEffectWithCustomVariants() {
   const getRandomColor = () => {

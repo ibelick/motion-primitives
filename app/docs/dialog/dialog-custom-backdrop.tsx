@@ -14,7 +14,7 @@ export function DialogCustomBackdrop() {
       <DialogTrigger className='bg-zinc-950 px-4 py-2 text-sm text-white hover:bg-zinc-900 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100'>
         Join the waitlist
       </DialogTrigger>
-      <DialogContent className='w-full max-w-md p-6 shadow-[0_4px_12px_#0000001a] backdrop:bg-white/80 backdrop:backdrop-blur-sm'>
+      <DialogContent className='w-full max-w-md p-6 shadow-[0_4px_12px_#0000001a] backdrop:bg-white/80 backdrop:backdrop-blur-xs'>
         <DialogHeader>
           <DialogTitle className='text-zinc-900 dark:text-white'>
             Join the waitlist
@@ -30,7 +30,7 @@ export function DialogCustomBackdrop() {
           <input
             id='name'
             type='email'
-            className='h-9 w-full rounded-lg border border-zinc-200 bg-white px-3 text-base text-zinc-900 outline-none focus:ring-2 focus:ring-black/5 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:ring-white/5 sm:text-sm'
+            className='h-9 w-full rounded-lg border border-zinc-200 bg-white px-3 text-base text-zinc-900 outline-hidden focus:ring-2 focus:ring-black/5 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:ring-white/5 sm:text-sm'
             placeholder='Enter your email'
           />
           <button

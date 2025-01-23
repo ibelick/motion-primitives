@@ -2,7 +2,7 @@ import { Spotlight } from '@/components/core/spotlight';
 
 export function SpotlightBasic() {
   return (
-    <div className='relative aspect-video h-[200px] rounded border border-zinc-100 bg-white dark:border-zinc-800 dark:bg-black'>
+    <div className='relative aspect-video h-[200px] rounded-sm border border-zinc-100 bg-white dark:border-zinc-800 dark:bg-black'>
       <Spotlight
         className='bg-zinc-700 blur-2xl'
         size={64}
@@ -11,7 +11,7 @@ export function SpotlightBasic() {
           duration: 0.1,
         }}
       />
-      <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded bg-white p-2 dark:bg-black'>
+      <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-sm bg-white p-2 dark:bg-black'>
         <svg
           role='img'
           xmlns='http://www.w3.org/2000/svg'

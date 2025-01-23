@@ -68,7 +68,7 @@ export default function Popover() {
             <motion.div
               ref={formContainerRef}
               layoutId={`popover-${uniqueId}`}
-              className='absolute h-[200px] w-[364px] overflow-hidden border border-zinc-950/10 bg-white outline-none dark:bg-zinc-700'
+              className='absolute h-[200px] w-[364px] overflow-hidden border border-zinc-950/10 bg-white outline-hidden dark:bg-zinc-700'
               style={{
                 borderRadius: 12,
               }}
@@ -90,7 +90,7 @@ export default function Popover() {
                   Add Note
                 </motion.span>
                 <textarea
-                  className='h-full w-full resize-none rounded-md bg-transparent px-4 py-3 text-sm outline-none'
+                  className='h-full w-full resize-none rounded-md bg-transparent px-4 py-3 text-sm outline-hidden'
                   autoFocus
                   onChange={(e) => setNote(e.target.value)}
                 />
