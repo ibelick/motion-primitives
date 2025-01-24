@@ -30,15 +30,8 @@ export default function RootLayout({
           data-website-id='17e8fc96-321d-43a6-94e7-d571c4c66a04'
         />
       ) : null}
-      <body 
-        className={`
-          ${inter.className} 
-          ${geistMono.variable} 
-          font-sans 
-          antialiased 
-          bg-white 
-          dark:bg-zinc-950
-        `}
+      <body
+        className={`${inter.className} ${geistMono.variable} bg-white font-sans antialiased dark:bg-zinc-950`}
       >
         <ThemeProvider attribute='class'>
           <div className='isolate min-h-screen'>{children}</div>
