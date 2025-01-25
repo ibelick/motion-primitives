@@ -22,7 +22,7 @@ export function BorderTrailCard2() {
       {isVisible && (
         <BorderTrail
           className={cn(
-            'bg-gradient-to-l from-green-300 via-green-500 to-green-300 transition-opacity duration-300 dark:from-green-700/30 dark:via-green-500 dark:to-green-700/30',
+            'bg-linear-to-l from-green-300 via-green-500 to-green-300 transition-opacity duration-300 dark:from-green-700/30 dark:via-green-500 dark:to-green-700/30',
             isLoading ? 'opacity-100' : 'opacity-0'
           )}
           size={120}

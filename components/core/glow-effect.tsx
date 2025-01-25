@@ -117,8 +117,8 @@ export function GlowEffect({
     }
 
     const presets = {
-      softest: 'blur-sm',
-      soft: 'blur',
+      softest: 'blur-xs',
+      soft: 'blur-sm',
       medium: 'blur-md',
       strong: 'blur-lg',
       stronger: 'blur-xl',

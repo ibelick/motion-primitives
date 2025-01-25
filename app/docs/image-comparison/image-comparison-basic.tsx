@@ -6,7 +6,7 @@ import {
 
 export function ImageComparisonBasic() {
   return (
-    <ImageComparison className='aspect-[16/10] w-full rounded-lg border border-zinc-200 dark:border-zinc-800'>
+    <ImageComparison className='aspect-16/10 w-full rounded-lg border border-zinc-200 dark:border-zinc-800'>
       <ImageComparisonImage
         src='/mp_dark.png'
         alt='Motion Primitives Dark'

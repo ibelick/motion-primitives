@@ -1,49 +1,82 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
-:root {
-  --scrollbar-color: rgba(0, 0, 0, 0.3);
+@custom-variant dark (&:is(.dark *));
 
-  /* shiki theme noir */
-  --shiki-foreground: #ffffff;
-  --shiki-token-constant: #a7a7a7;
-  --shiki-token-string: #a7a7a7;
-  --shiki-token-comment: #666666;
-  --shiki-token-keyword: #a7a7a7;
-  --shiki-token-parameter: #a7a7a7;
-  --shiki-token-function: #ffffff;
-  --shiki-token-string-expression: #a7a7a7;
-  --shiki-token-punctuation: #a7a7a7;
-  --shiki-token-link: #a7a7a7;
-  --shiki-token-number: #ffffff;
-  --shiki-token-property: #a7a7a7;
+@theme {
+  /* connect the Tailwind mono font to the Geist variable that's being injected */
+  --default-mono-font-family: '__GeistMono_c1e5c9', ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  --font-mono: '__GeistMono_c1e5c9', ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  --default-mono-font-feature-settings: normal;
+  --default-mono-font-variation-settings: normal;
 }
 
-:root.dark {
-  --scrollbar-color: rgba(255, 255, 255, 0.3);
-}
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
 
-html {
-  -webkit-tap-highlight-color: transparent;
-  scrollbar-gutter: stable;
-  scrollbar-color: var(--scrollbar-color) transparent;
-  scrollbar-width: thin;
-}
-
-/* fix radix dropdown-menu layout shift */
-html body[data-scroll-locked] {
-  margin-right: 0 !important;
-}
-
-@layer utilities {
-  .step {
-    counter-increment: step;
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
   }
+}
 
-  .step:before {
+@utility step {
+  counter-increment: step;
+
+  &:before {
     @apply absolute inline-flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-center -indent-px font-mono text-base font-medium dark:border-zinc-800 dark:bg-zinc-950;
     @apply ml-[-50px] mt-[-4px];
     content: counter(step);
+  }
+}
+
+@layer utilities {
+  :root {
+    --scrollbar-color: rgba(0, 0, 0, 0.3);
+
+    /* shiki theme noir */
+    --shiki-foreground: #ffffff;
+    --shiki-token-constant: #a7a7a7;
+    --shiki-token-string: #a7a7a7;
+    --shiki-token-comment: #666666;
+    --shiki-token-keyword: #a7a7a7;
+    --shiki-token-parameter: #a7a7a7;
+    --shiki-token-function: #ffffff;
+    --shiki-token-string-expression: #a7a7a7;
+    --shiki-token-punctuation: #a7a7a7;
+    --shiki-token-link: #a7a7a7;
+    --shiki-token-number: #ffffff;
+    --shiki-token-property: #a7a7a7;
+  }
+
+  :root.dark {
+    --scrollbar-color: rgba(255, 255, 255, 0.3);
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-gutter: stable;
+    scrollbar-color: var(--scrollbar-color) transparent;
+    scrollbar-width: thin;
+  }
+
+  /* fix radix dropdown-menu layout shift */
+  html body[data-scroll-locked] {
+    margin-right: 0 !important;
+  }
+
+  code {
+    font-family: var(--font-geist-mono);
+    font-feature-settings: var(--default-mono-font-feature-settings);
+    font-variation-settings: var(--default-mono-font-variation-settings);
   }
 }

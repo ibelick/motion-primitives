@@ -30,8 +30,8 @@ export default function CodeRenderer({ code, lang }: CodeRendererProps) {
   }, [code, lang]);
 
   return (
-    <div>
-      <div dangerouslySetInnerHTML={{ __html: html || '' }} />
+    <div className='font-mono'>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
 }

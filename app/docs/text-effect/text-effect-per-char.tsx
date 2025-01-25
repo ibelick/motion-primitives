@@ -1,4 +1,4 @@
-import { TextEffect } from '../../../components/core/text-effect';
+import { TextEffect } from '@/components/core/text-effect';
 
 export function TextEffectPerChar() {
   return (

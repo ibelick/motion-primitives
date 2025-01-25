@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/website/theme-provider';
 import { GeistMono } from 'geist/font/mono';
 
 const inter = Inter({ subsets: ['latin'] });
+const geistMono = GeistMono;
 
 export const metadata: Metadata = {
   title: 'Motion-Primitives',
@@ -30,7 +31,7 @@ export default function RootLayout({
         />
       ) : null}
       <body
-        className={`${inter.className} ${GeistMono.variable} bg-white dark:bg-zinc-950`}
+        className={`${inter.className} ${geistMono.variable} bg-white font-sans antialiased dark:bg-zinc-950`}
       >
         <ThemeProvider attribute='class'>
           <div className='isolate min-h-screen'>{children}</div>
