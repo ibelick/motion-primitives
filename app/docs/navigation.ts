@@ -58,7 +58,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Dialog',
         href: '/docs/dialog',
-        isNew: true,
       },
       {
         name: 'Disclosure',
@@ -112,7 +111,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Shimmer Wave',
         href: '/docs/text-shimmer-wave',
-        isNew: true,
       },
     ],
   },
@@ -145,6 +143,11 @@ export const NAVIGATION: NavigationGroup[] = [
         href: '/docs/popover',
       },
       {
+        name: 'Progressive blur',
+        href: '/docs/progressive-blur',
+        isNew: true,
+      },
+      {
         name: 'Scroll Progress',
         href: '/docs/scroll-progress',
       },
@@ -163,7 +166,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Magnetic',
         href: '/docs/magnetic',
-        isNew: true,
       },
       {
         name: 'Morphing Dialog',
