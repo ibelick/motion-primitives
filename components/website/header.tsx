@@ -7,7 +7,7 @@ import { GlowEffect } from '@/components/core/glow-effect';
 
 export function ProBadge() {
   return (
-    <span className='relative mb-4 ml-2 inline-flex select-none items-center'>
+    <span className='relative mb-4 ml-2 inline-flex items-center select-none'>
       <GlowEffect
         colors={['#FF5733', '#33FF57', '#3357FF', '#F1C40F']}
         mode='colorShift'
@@ -15,7 +15,7 @@ export function ProBadge() {
         duration={3}
         scale={0.9}
       />
-      <span className='relative rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium leading-none text-zinc-50 outline outline-1 outline-[#565656a6]'>
+      <span className='relative rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] leading-none font-medium text-zinc-50 outline outline-[#565656a6]'>
         Pro
       </span>
     </span>
@@ -31,7 +31,7 @@ export function Header() {
           <div className='text-sm font-medium text-zinc-950 dark:text-white'>
             motion-primitives
           </div>
-          <span className='mb-4 ml-0 select-none rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium leading-none text-zinc-50'>
+          <span className='mb-4 ml-0 rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] leading-none font-medium text-zinc-50 select-none'>
             beta
           </span>
         </Link>
@@ -46,6 +46,14 @@ export function Header() {
               Advanced
               <ProBadge />
             </a>
+            <a
+              href='https://pro.motion-primitives.com/templates'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+            >
+              Templates
+            </a>
             <Link
               href='/docs/text-effect'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
@@ -59,7 +67,7 @@ export function Header() {
               Showcase
             </Link>
           </nav>
-          <div className='hidden h-8 w-[0.5px] bg-zinc-200 dark:bg-zinc-800 sm:flex' />
+          <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
           <nav className='flex items-center space-x-2'>
             <a
               href='https://twitter.com/Ibelick'
