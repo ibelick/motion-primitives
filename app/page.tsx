@@ -64,7 +64,7 @@ function Header() {
               href='https://pro.motion-primitives.com/'
               target='_blank'
               rel='noopener noreferrer'
-              className='inline-flex items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
+              className='hidden items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
             >
               Advanced
               <ProBadge />
