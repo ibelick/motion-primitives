@@ -179,6 +179,12 @@ export const components: ComponentDefinition[] = [
     dependencies: ['motion'],
   },
   {
+    name: 'progressive-blur',
+    path: path.join(__dirname, '../components/core/progressive-blur.tsx'),
+    registryDependencies: [],
+    dependencies: ['motion'],
+  },
+  {
     name: 'scroll-progress',
     path: path.join(__dirname, '../components/core/scroll-progress.tsx'),
     registryDependencies: [],
