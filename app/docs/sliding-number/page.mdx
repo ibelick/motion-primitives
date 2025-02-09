@@ -4,6 +4,8 @@ export const metadata = {
 };
 
 import { Clock } from './clock';
+import { SlidingNumberBasic } from './sliding-basic';
+import { SlidingNumberWithSlider } from './sliding-slider';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -13,11 +15,26 @@ A component that slides numbers.
 
 ## Examples
 
-### Sliding Number Basic
+### Clock
 
 <ComponentCodePreview
   component={<Clock />}
   filePath='app/docs/sliding-number/clock.tsx'
+/>
+
+### Sliding Number With Slider
+
+<ComponentCodePreview
+  component={<SlidingNumberWithSlider />}
+  filePath='app/docs/sliding-number/sliding-slider.tsx'
+/>
+
+### Sliding Number Basic
+
+<ComponentCodePreview
+  component={<SlidingNumberBasic />}
+  filePath='app/docs/sliding-number/sliding-basic.tsx'
+  hasReTrigger
 />
 
 ## Installation
