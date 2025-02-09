@@ -1,0 +1,56 @@
+export const metadata = {
+  title: 'Sliding Number - Motion-Primitives',
+  description: 'A component that slides numbers.',
+};
+
+import { Clock } from './clock';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Sliding Number
+
+A component that slides numbers.
+
+## Examples
+
+### Sliding Number Basic
+
+<ComponentCodePreview
+  component={<Clock />}
+  filePath='app/docs/sliding-number/clock.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/sliding-number.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/sliding-number.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
