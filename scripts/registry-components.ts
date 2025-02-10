@@ -191,6 +191,12 @@ export const components: ComponentDefinition[] = [
     dependencies: ['motion'],
   },
   {
+    name: 'sliding-number',
+    path: path.join(__dirname, '../components/core/sliding-number.tsx'),
+    registryDependencies: [],
+    dependencies: ['motion'],
+  },
+  {
     name: 'spotlight',
     path: path.join(__dirname, '../components/core/spotlight.tsx'),
     registryDependencies: [],
