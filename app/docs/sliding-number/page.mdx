@@ -1,0 +1,87 @@
+export const metadata = {
+  title: 'Sliding Number - Motion-Primitives',
+  description: 'A component that slides numbers.',
+};
+
+import { Clock } from './clock';
+import { SlidingNumberBasic } from './sliding-basic';
+import { SlidingNumberWithSlider } from './sliding-slider';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Sliding Number
+
+A component that slides numbers.
+
+## Examples
+
+### Clock
+
+<ComponentCodePreview
+  component={<Clock />}
+  filePath='app/docs/sliding-number/clock.tsx'
+/>
+
+### Sliding number with slider
+
+<ComponentCodePreview
+  component={<SlidingNumberWithSlider />}
+  filePath='app/docs/sliding-number/sliding-slider.tsx'
+/>
+
+### Sliding number basic
+
+<ComponentCodePreview
+  component={<SlidingNumberBasic />}
+  filePath='app/docs/sliding-number/sliding-basic.tsx'
+  hasReTrigger
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/sliding-number.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/sliding-number.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### SlidingNumber
+
+| Prop             | Type    | Default | Description                                                                |
+| :--------------- | :------ | :------ | :------------------------------------------------------------------------- |
+| value            | string  |         | The numerical value to be displayed.                                       |
+| padStart         | boolean | false   | Whether to pad the integer part with a leading zero if it is less than 10. |
+| decimalSeparator | string  | '.'     | The character to use as the decimal separator.                             |
+
+## Credits
+
+Inspired by [Number Flow](https://number-flow.barvian.me/) and [Animated Counter](https://buildui.com/recipes/animated-counter).

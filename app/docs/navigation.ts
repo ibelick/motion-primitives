@@ -12,7 +12,7 @@ type NavigationGroup = {
 
 export const NAVIGATION: NavigationGroup[] = [
   {
-    name: 'Getting started',
+    name: 'Getting Started',
     children: [
       {
         name: 'Introduction',
@@ -38,10 +38,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Animated Group',
         href: '/docs/animated-group',
-      },
-      {
-        name: 'Animated Number',
-        href: '/docs/animated-number',
       },
       {
         name: 'Border Trail',
@@ -78,7 +74,7 @@ export const NAVIGATION: NavigationGroup[] = [
     ],
   },
   {
-    name: 'Text',
+    name: 'Text Effects',
     children: [
       {
         name: 'Text Effect',
@@ -115,7 +111,21 @@ export const NAVIGATION: NavigationGroup[] = [
     ],
   },
   {
-    name: 'Extras Components',
+    name: 'Number Effects',
+    children: [
+      {
+        name: 'Animated Number',
+        href: '/docs/animated-number',
+      },
+      {
+        name: 'Sliding Number',
+        href: '/docs/sliding-number',
+        isNew: true,
+      },
+    ],
+  },
+  {
+    name: 'Interactive Elements',
     children: [
       {
         name: 'Dock',
@@ -131,21 +141,8 @@ export const NAVIGATION: NavigationGroup[] = [
         href: '/docs/image-comparison',
       },
       {
-        name: 'Toolbar Dynamic',
-        href: '/docs/toolbar-dynamic',
-      },
-      {
-        name: 'Toolbar Expandable',
-        href: '/docs/toolbar-expandable',
-      },
-      {
         name: 'Popover',
         href: '/docs/popover',
-      },
-      {
-        name: 'Progressive blur',
-        href: '/docs/progressive-blur',
-        isNew: true,
       },
       {
         name: 'Scroll Progress',
@@ -163,6 +160,24 @@ export const NAVIGATION: NavigationGroup[] = [
         name: 'Tilt',
         href: '/docs/tilt',
       },
+    ],
+  },
+  {
+    name: 'Toolbars',
+    children: [
+      {
+        name: 'Toolbar Dynamic',
+        href: '/docs/toolbar-dynamic',
+      },
+      {
+        name: 'Toolbar Expandable',
+        href: '/docs/toolbar-expandable',
+      },
+    ],
+  },
+  {
+    name: 'Advanced Effects',
+    children: [
       {
         name: 'Magnetic',
         href: '/docs/magnetic',
@@ -170,6 +185,11 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Morphing Dialog',
         href: '/docs/morphing-dialog',
+      },
+      {
+        name: 'Progressive Blur',
+        href: '/docs/progressive-blur',
+        isNew: true,
       },
     ],
   },
