@@ -179,12 +179,6 @@ export const components: ComponentDefinition[] = [
     dependencies: ['motion'],
   },
   {
-    name: 'popover',
-    path: path.join(__dirname, '../components/core/popover.tsx'),
-    registryDependencies: [],
-    dependencies: ['motion'],
-  },
-  {
     name: 'progressive-blur',
     path: path.join(__dirname, '../components/core/progressive-blur.tsx'),
     registryDependencies: [],

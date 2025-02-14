@@ -141,10 +141,6 @@ export const NAVIGATION: NavigationGroup[] = [
         href: '/docs/image-comparison',
       },
       {
-        name: 'Popover',
-        href: '/docs/popover',
-      },
-      {
         name: 'Scroll Progress',
         href: '/docs/scroll-progress',
       },

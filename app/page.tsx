@@ -4,7 +4,7 @@ import { MorphingDialogBasicOne } from '@/app/docs/morphing-dialog/morphing-dial
 import XIcon from '@/components/website/icons/x';
 import GitHubIcon from '@/components/website/icons/github';
 import ThemeSwitch from '@/components/website/theme-switch';
-import Popover from '@/components/core/popover';
+import { MorphingPopoverTextarea } from '@/app/docs/morphing-popover/morphing-popover-textarea';
 import { ChevronRight } from 'lucide-react';
 import { CardExampleLanding } from '@/components/website/card-example-landing';
 import { AnimatedGroupPreset } from '@/app/docs/animated-group/animated-group-preset';
@@ -207,7 +207,7 @@ export default function Motion() {
         </section>
         <section className='mx-auto max-w-3xl py-32'>
           <CardExampleLanding>
-            <Popover />
+            <MorphingPopoverTextarea />
           </CardExampleLanding>
         </section>
         <section className='mx-auto max-w-3xl py-32'>
