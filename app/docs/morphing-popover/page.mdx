@@ -5,6 +5,7 @@ export const metadata = {
 };
 
 import { MorphingPopoverBasic } from './morphing-popover-basic';
+import { MorphingPopoverCustomTransitionVariants } from './morphing-popover-custom-transition-variants';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -19,4 +20,13 @@ A popover that transforms from its trigger into the content using layout animati
 <ComponentCodePreview
   component={<MorphingPopoverBasic />}
   filePath='app/docs/morphing-popover/morphing-popover-basic.tsx'
+/>
+
+### Morphing popover with custom transition variants
+
+You can pass a custom transition and variants to the popover with the `variants` and `transition` props.
+
+<ComponentCodePreview
+  component={<MorphingPopoverCustomTransitionVariants />}
+  filePath='app/docs/morphing-popover/morphing-popover-custom-transition-variants.tsx'
 />

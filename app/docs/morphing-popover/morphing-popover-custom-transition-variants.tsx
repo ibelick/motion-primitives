@@ -8,14 +8,25 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import * as motion from 'motion/react-client';
 
-export function MorphingPopoverBasic() {
+export function MorphingPopoverCustomTransitionVariants() {
   return (
-    <MorphingPopover>
+    <MorphingPopover
+      variants={{
+        initial: { opacity: 0, filter: 'blur(10px)' },
+        animate: { opacity: 1, filter: 'blur(0px)' },
+        exit: { opacity: 0, filter: 'blur(10px)' },
+      }}
+      transition={{
+        duration: 0.25,
+        ease: 'easeOut',
+      }}
+    >
       <MorphingPopoverTrigger asChild>
         <Button variant='outline'>
           <motion.span
-            layoutId='morphing-popover-basic-label'
+            layoutId='morphing-popover-custom-transition-variants-label'
             layout='position'
+            className='inline-block'
           >
             Open popover
           </motion.span>
@@ -25,7 +36,7 @@ export function MorphingPopoverBasic() {
         <div className='grid gap-4'>
           <div className='space-y-2'>
             <motion.h4
-              layoutId='morphing-popover-basic-label'
+              layoutId='morphing-popover-custom-transition-variants-label'
               layout='position'
               className='leading-none font-medium'
             >
