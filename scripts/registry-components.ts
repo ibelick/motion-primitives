@@ -143,6 +143,12 @@ export const components: ComponentDefinition[] = [
     dependencies: ['motion'],
   },
   {
+    name: 'morphing-popover',
+    path: path.join(__dirname, '../components/core/morphing-popover.tsx'),
+    registryDependencies: [],
+    dependencies: ['motion'],
+  },
+  {
     name: 'dock',
     path: path.join(__dirname, '../components/core/dock.tsx'),
     registryDependencies: [],
