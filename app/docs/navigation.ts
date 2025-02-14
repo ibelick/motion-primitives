@@ -187,6 +187,11 @@ export const NAVIGATION: NavigationGroup[] = [
         href: '/docs/morphing-dialog',
       },
       {
+        name: 'Morphing Popover',
+        href: '/docs/morphing-popover',
+        isNew: true,
+      },
+      {
         name: 'Progressive Blur',
         href: '/docs/progressive-blur',
         isNew: true,
