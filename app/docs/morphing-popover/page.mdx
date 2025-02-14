@@ -6,6 +6,7 @@ export const metadata = {
 
 import { MorphingPopoverBasic } from './morphing-popover-basic';
 import { MorphingPopoverCustomTransitionVariants } from './morphing-popover-custom-transition-variants';
+import { MorphingPopoverTextarea } from './morphing-popover-textarea';
 import ComponentCodePreview from '@/components/website/component-code-preview';
 import CodeBlock from '@/components/website/code-block';
 
@@ -29,4 +30,11 @@ You can pass a custom transition and variants to the popover with the `variants`
 <ComponentCodePreview
   component={<MorphingPopoverCustomTransitionVariants />}
   filePath='app/docs/morphing-popover/morphing-popover-custom-transition-variants.tsx'
+/>
+
+### Morphing popover with textarea
+
+<ComponentCodePreview
+  component={<MorphingPopoverTextarea />}
+  filePath='app/docs/morphing-popover/morphing-popover-textarea.tsx'
 />
