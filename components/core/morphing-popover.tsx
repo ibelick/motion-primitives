@@ -74,7 +74,8 @@ export type MorphingPopoverProps = {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   variants?: Variants;
-};
+  className?: string;
+} & React.ComponentProps<'div'>;
 
 function MorphingPopover({
   children,
@@ -83,6 +84,8 @@ function MorphingPopover({
   open,
   onOpenChange,
   variants,
+  className,
+  ...props
 }: MorphingPopoverProps) {
   const popoverLogic = usePopoverLogic({ defaultOpen, open, onOpenChange });
 
@@ -90,8 +93,9 @@ function MorphingPopover({
     <MorphingPopoverContext.Provider value={{ ...popoverLogic, variants }}>
       <MotionConfig transition={transition}>
         <div
-          className='relative flex items-center justify-center'
+          className={cn('relative flex items-center justify-center', className)}
           key={popoverLogic.uniqueId}
+          {...props}
         >
           {children}
         </div>
@@ -158,14 +162,15 @@ function MorphingPopoverTrigger({
   );
 }
 
-interface MorphingPopoverContentProps {
+export type MorphingPopoverContentProps = {
   children: React.ReactNode;
   className?: string;
-}
+} & React.ComponentProps<typeof motion.div>;
 
 function MorphingPopoverContent({
   children,
   className,
+  ...props
 }: MorphingPopoverContentProps) {
   const context = useContext(MorphingPopoverContext);
   if (!context)
@@ -192,6 +197,7 @@ function MorphingPopoverContent({
       {context.isOpen && (
         <>
           <motion.div
+            {...props}
             ref={ref}
             layoutId={`popover-trigger-${context.uniqueId}`}
             key={context.uniqueId}

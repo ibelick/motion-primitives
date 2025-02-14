@@ -38,3 +38,67 @@ You can pass a custom transition and variants to the popover with the `variants`
   component={<MorphingPopoverTextarea />}
   filePath='app/docs/morphing-popover/morphing-popover-textarea.tsx'
 />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/morphing-popover.json" "https://motion-primitives.com/h/useClickOutside.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/morphing-popover.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### MorphingPopover
+
+| Prop           | Type                      | Default                                          | Description                                      |
+| :------------- | :------------------------ | :----------------------------------------------- | :----------------------------------------------- |
+| `children`     | `React.ReactNode`         | Required                                         | The content of the popover (trigger and content) |
+| `transition`   | `Transition`              | `{ type: 'spring', bounce: 0.1, duration: 0.4 }` | Custom transition settings for the animations    |
+| `defaultOpen`  | `boolean`                 | `false`                                          | Whether the popover is open by default           |
+| `open`         | `boolean`                 | `undefined`                                      | Controlled open state                            |
+| `onOpenChange` | `(open: boolean) => void` | `undefined`                                      | Callback fired when open state changes           |
+| `variants`     | `Variants`                | `undefined`                                      | Custom variants for the animation                |
+| `className`    | `string`                  | `undefined`                                      | Additional CSS classes                           |
+
+### MorphingPopoverTrigger
+
+| Prop        | Type              | Default     | Description                                   |
+| :---------- | :---------------- | :---------- | :-------------------------------------------- |
+| `children`  | `React.ReactNode` | Required    | The trigger element content                   |
+| `asChild`   | `boolean`         | `false`     | Whether to merge props onto the child element |
+| `className` | `string`          | `undefined` | Additional CSS classes                        |
+
+### MorphingPopoverContent
+
+| Prop        | Type              | Default     | Description                           |
+| :---------- | :---------------- | :---------- | :------------------------------------ |
+| `children`  | `React.ReactNode` | Required    | The content to display in the popover |
+| `className` | `string`          | `undefined` | Additional CSS classes                |
