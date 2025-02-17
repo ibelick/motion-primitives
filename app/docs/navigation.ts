@@ -141,10 +141,6 @@ export const NAVIGATION: NavigationGroup[] = [
         href: '/docs/image-comparison',
       },
       {
-        name: 'Popover',
-        href: '/docs/popover',
-      },
-      {
         name: 'Scroll Progress',
         href: '/docs/scroll-progress',
       },
@@ -185,6 +181,11 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Morphing Dialog',
         href: '/docs/morphing-dialog',
+      },
+      {
+        name: 'Morphing Popover',
+        href: '/docs/morphing-popover',
+        isNew: true,
       },
       {
         name: 'Progressive Blur',
