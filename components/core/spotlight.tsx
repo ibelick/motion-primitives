@@ -48,16 +48,20 @@ export function Spotlight({
   useEffect(() => {
     if (!parentElement) return;
 
-    parentElement.addEventListener('mousemove', handleMouseMove);
-    parentElement.addEventListener('mouseenter', () => setIsHovered(true));
-    parentElement.addEventListener('mouseleave', () => setIsHovered(false));
+    const abortController = new AbortController();
+
+    parentElement.addEventListener('mousemove', handleMouseMove, {
+      signal: abortController.signal,
+    });
+    parentElement.addEventListener('mouseenter', () => setIsHovered(true), {
+      signal: abortController.signal,
+    });
+    parentElement.addEventListener('mouseleave', () => setIsHovered(false), {
+      signal: abortController.signal,
+    });
 
     return () => {
-      parentElement.removeEventListener('mousemove', handleMouseMove);
-      parentElement.removeEventListener('mouseenter', () => setIsHovered(true));
-      parentElement.removeEventListener('mouseleave', () =>
-        setIsHovered(false)
-      );
+      abortController.abort();
     };
   }, [parentElement, handleMouseMove]);
 
