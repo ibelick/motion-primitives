@@ -10,6 +10,7 @@ export type TextMorphProps = {
   style?: React.CSSProperties;
   variants?: Variants;
   transition?: Transition;
+  preserveCase?: boolean;
 };
 
 export function TextMorph({
@@ -19,6 +20,7 @@ export function TextMorph({
   style,
   variants,
   transition,
+  preserveCase = false,
 }: TextMorphProps) {
   const uniqueId = useId();
 
@@ -34,12 +36,14 @@ export function TextMorph({
         label:
           char === ' '
             ? '\u00A0'
-            : index === 0
-              ? char.toUpperCase()
-              : lowerChar,
+            : preserveCase
+              ? char
+              : index === 0
+                ? char.toUpperCase()
+                : lowerChar,
       };
     });
-  }, [children, uniqueId]);
+  }, [children, uniqueId, preserveCase]);
 
   const defaultVariants: Variants = {
     initial: { opacity: 0 },
@@ -76,3 +80,4 @@ export function TextMorph({
     </Component>
   );
 }
+
