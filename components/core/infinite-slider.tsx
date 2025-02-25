@@ -7,8 +7,8 @@ import useMeasure from 'react-use-measure';
 export type InfiniteSliderProps = {
   children: React.ReactNode;
   gap?: number;
-  duration?: number;
-  durationOnHover?: number;
+  speed?: number;
+  speedOnHover?: number;
   direction?: 'horizontal' | 'vertical';
   reverse?: boolean;
   className?: string;
@@ -17,13 +17,13 @@ export type InfiniteSliderProps = {
 export function InfiniteSlider({
   children,
   gap = 16,
-  duration = 25,
-  durationOnHover,
+  speed = 100,
+  speedOnHover,
   direction = 'horizontal',
   reverse = false,
   className,
 }: InfiniteSliderProps) {
-  const [currentDuration, setCurrentDuration] = useState(duration);
+  const [currentSpeed, setCurrentSpeed] = useState(speed);
   const [ref, { width, height }] = useMeasure();
   const translation = useMotionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -36,11 +36,16 @@ export function InfiniteSlider({
     const from = reverse ? -contentSize / 2 : 0;
     const to = reverse ? 0 : -contentSize / 2;
 
+    const distanceToTravel = Math.abs(to - from);
+    const duration = distanceToTravel / currentSpeed;
+
     if (isTransitioning) {
+      const remainingDistance = Math.abs(translation.get() - to);
+      const transitionDuration = remainingDistance / currentSpeed;
+
       controls = animate(translation, [translation.get(), to], {
         ease: 'linear',
-        duration:
-          currentDuration * Math.abs((translation.get() - to) / contentSize),
+        duration: transitionDuration,
         onComplete: () => {
           setIsTransitioning(false);
           setKey((prevKey) => prevKey + 1);
@@ -49,7 +54,7 @@ export function InfiniteSlider({
     } else {
       controls = animate(translation, [from, to], {
         ease: 'linear',
-        duration: currentDuration,
+        duration: duration,
         repeat: Infinity,
         repeatType: 'loop',
         repeatDelay: 0,
@@ -63,7 +68,7 @@ export function InfiniteSlider({
   }, [
     key,
     translation,
-    currentDuration,
+    currentSpeed,
     width,
     height,
     gap,
@@ -72,15 +77,15 @@ export function InfiniteSlider({
     reverse,
   ]);
 
-  const hoverProps = durationOnHover
+  const hoverProps = speedOnHover
     ? {
         onHoverStart: () => {
           setIsTransitioning(true);
-          setCurrentDuration(durationOnHover);
+          setCurrentSpeed(speedOnHover);
         },
         onHoverEnd: () => {
           setIsTransitioning(true);
-          setCurrentDuration(duration);
+          setCurrentSpeed(speed);
         },
       }
     : {};

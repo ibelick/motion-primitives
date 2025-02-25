@@ -2,7 +2,7 @@ import { InfiniteSlider } from '@/components/core/infinite-slider';
 
 export function InfiniteSliderHoverSpeed() {
   return (
-    <InfiniteSlider durationOnHover={75} gap={24}>
+    <InfiniteSlider speedOnHover={20} gap={24}>
       <img
         src='https://i.scdn.co/image/ab67616d00001e02ad24c5e36ddcd1957ad35677'
         alt='Dean blunt - Black Metal 2'
