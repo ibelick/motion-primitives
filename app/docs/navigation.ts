@@ -66,6 +66,7 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Infinite Slider',
         href: '/docs/infinite-slider',
+        isUpdated: true,
       },
       {
         name: 'Transition Panel',
@@ -79,12 +80,10 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Effect',
         href: '/docs/text-effect',
-        isUpdated: true,
       },
       {
         name: 'Text Loop',
         href: '/docs/text-loop',
-        isUpdated: true,
       },
       {
         name: 'Text Morph',
@@ -94,7 +93,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Roll',
         href: '/docs/text-roll',
-        isNew: true,
       },
       {
         name: 'Text Scramble',
@@ -147,6 +145,7 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Spotlight',
         href: '/docs/spotlight',
+        isUpdated: true,
       },
       {
         name: 'Spinning Text',
