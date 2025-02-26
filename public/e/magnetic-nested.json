@@ -2,6 +2,7 @@
   "name": "magnetic-nested",
   "type": "registry:example",
   "componentName": "magnetic",
+  "description": "Nested magnetic elements with compound attraction effects.",
   "files": [
     {
       "path": "magnetic-nested.tsx",

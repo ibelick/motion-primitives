@@ -2,6 +2,7 @@
   "name": "progressive-blur-hover",
   "type": "registry:example",
   "componentName": "progressive-blur",
+  "description": "Progressive blur effect that responds to hover interactions.",
   "files": [
     {
       "path": "progressive-blur-hover.tsx",

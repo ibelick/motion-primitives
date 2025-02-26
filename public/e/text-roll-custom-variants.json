@@ -2,6 +2,7 @@
   "name": "text-roll-custom-variants",
   "type": "registry:example",
   "componentName": "text-roll",
+  "description": "Text roll with custom animation variants.",
   "files": [
     {
       "path": "text-roll-custom-variants.tsx",

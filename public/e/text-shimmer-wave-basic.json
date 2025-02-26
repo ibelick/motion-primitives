@@ -2,6 +2,7 @@
   "name": "text-shimmer-wave-basic",
   "type": "registry:example",
   "componentName": "text-shimmer-wave",
+  "description": "Basic implementation of the wave-based text shimmer effect.",
   "files": [
     {
       "path": "text-shimmer-wave-basic.tsx",

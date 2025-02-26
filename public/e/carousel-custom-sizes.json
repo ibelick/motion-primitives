@@ -2,6 +2,7 @@
   "name": "carousel-custom-sizes",
   "type": "registry:example",
   "componentName": "carousel",
+  "description": "Carousel with custom sized slides and responsive behavior.",
   "files": [
     {
       "path": "carousel-custom-sizes.tsx",

@@ -2,6 +2,7 @@
   "name": "text-effect-preset",
   "type": "registry:example",
   "componentName": "text-effect",
+  "description": "Text effect with preset animation configurations.",
   "files": [
     {
       "path": "text-effect-preset.tsx",

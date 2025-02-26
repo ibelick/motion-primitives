@@ -2,6 +2,7 @@
   "name": "text-effect-per-char",
   "type": "registry:example",
   "componentName": "text-effect",
+  "description": "Character-by-character text animation effect.",
   "files": [
     {
       "path": "text-effect-per-char.tsx",

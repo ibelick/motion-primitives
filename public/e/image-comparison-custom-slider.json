@@ -2,6 +2,7 @@
   "name": "image-comparison-custom-slider",
   "type": "registry:example",
   "componentName": "image-comparison",
+  "description": "Image comparison with custom slider design and behavior.",
   "files": [
     {
       "path": "image-comparison-custom-slider.tsx",

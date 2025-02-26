@@ -2,6 +2,7 @@
   "name": "apple-style-dock",
   "type": "registry:example",
   "componentName": "dock",
+  "description": "macOS-style dock with scaling and movement effects.",
   "files": [
     {
       "path": "apple-style-dock.tsx",

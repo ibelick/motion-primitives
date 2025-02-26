@@ -2,6 +2,7 @@
   "name": "dialog-custom-variants-transtion",
   "type": "registry:example",
   "componentName": "dialog",
+  "description": "Dialog with custom variant transitions and effects.",
   "files": [
     {
       "path": "dialog-custom-variants-transtion.tsx",

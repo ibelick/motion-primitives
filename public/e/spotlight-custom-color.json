@@ -2,6 +2,7 @@
   "name": "spotlight-custom-color",
   "type": "registry:example",
   "componentName": "spotlight",
+  "description": "Spotlight effect with custom colors and gradients.",
   "files": [
     {
       "path": "spotlight-custom-color.tsx",

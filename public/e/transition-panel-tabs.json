@@ -2,6 +2,7 @@
   "name": "transition-panel-tabs",
   "type": "registry:example",
   "componentName": "transition-panel",
+  "description": "Tab interface using transition panel for smooth content switching.",
   "files": [
     {
       "path": "transition-panel-tabs.tsx",

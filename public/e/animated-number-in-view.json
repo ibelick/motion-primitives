@@ -2,10 +2,16 @@
   "name": "animated-number-in-view",
   "type": "registry:example",
   "componentName": "animated-number",
+  "description": "Animated number that activates when scrolled into view.",
   "files": [
     {
       "path": "animated-number-in-view.tsx",
       "content": "'use client';\nimport { AnimatedNumber } from '@/components/core/animated-number';\nimport { useInView } from 'motion/react';\nimport { useRef, useState } from 'react';\n\nexport function AnimatedNumberInView() {\n  const [value, setValue] = useState(0);\n  const ref = useRef(null);\n  const isInView = useInView(ref);\n\n  if (isInView && value === 0) {\n    setValue(10000);\n  }\n\n  return (\n    <div className='flex w-full items-center justify-center' ref={ref}>\n      <AnimatedNumber\n        className='inline-flex items-center font-mono text-2xl font-light text-zinc-800 dark:text-zinc-50'\n        springOptions={{\n          bounce: 0,\n          duration: 10000,\n        }}\n        value={value}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    },
+    {
+      "path": "in-view.tsx",
+      "content": "'use client';\nimport { ReactNode, useRef } from 'react';\nimport {\n  motion,\n  useInView,\n  Variant,\n  Transition,\n  UseInViewOptions,\n} from 'motion/react';\n\nexport type InViewProps = {\n  children: ReactNode;\n  variants?: {\n    hidden: Variant;\n    visible: Variant;\n  };\n  transition?: Transition;\n  viewOptions?: UseInViewOptions;\n  as?: React.ElementType;\n};\n\nconst defaultVariants = {\n  hidden: { opacity: 0 },\n  visible: { opacity: 1 },\n};\n\nexport function InView({\n  children,\n  variants = defaultVariants,\n  transition,\n  viewOptions,\n  as = 'div',\n}: InViewProps) {\n  const ref = useRef(null);\n  const isInView = useInView(ref, viewOptions);\n\n  const MotionComponent = motion[as as keyof typeof motion] as typeof as;\n\n  return (\n    <MotionComponent\n      ref={ref}\n      initial='hidden'\n      animate={isInView ? 'visible' : 'hidden'}\n      variants={variants}\n      transition={transition}\n    >\n      {children}\n    </MotionComponent>\n  );\n}\n",
       "type": "registry:example"
     }
   ]

@@ -2,6 +2,7 @@
   "name": "spotlight-border",
   "type": "registry:example",
   "componentName": "spotlight",
+  "description": "Spotlight effect applied to element borders.",
   "files": [
     {
       "path": "spotlight-border.tsx",

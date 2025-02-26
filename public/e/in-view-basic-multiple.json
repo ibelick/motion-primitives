@@ -2,6 +2,7 @@
   "name": "in-view-basic-multiple",
   "type": "registry:example",
   "componentName": "in-view",
+  "description": "Multiple elements with animations triggered when scrolled into view.",
   "files": [
     {
       "path": "in-view-basic-multiple.tsx",

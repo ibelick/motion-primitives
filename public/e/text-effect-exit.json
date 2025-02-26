@@ -2,6 +2,7 @@
   "name": "text-effect-exit",
   "type": "registry:example",
   "componentName": "text-effect",
+  "description": "Text effect with custom exit animations.",
   "files": [
     {
       "path": "text-effect-exit.tsx",

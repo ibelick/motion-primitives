@@ -2,6 +2,7 @@
   "name": "dialog-custom-exit",
   "type": "registry:example",
   "componentName": "dialog",
+  "description": "Dialog with custom exit animations and transitions.",
   "files": [
     {
       "path": "dialog-custom-exit.tsx",

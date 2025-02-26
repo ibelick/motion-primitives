@@ -2,6 +2,7 @@
   "name": "text-effect-per-word",
   "type": "registry:example",
   "componentName": "text-effect",
+  "description": "Word-by-word text animation effect.",
   "files": [
     {
       "path": "text-effect-per-word.tsx",

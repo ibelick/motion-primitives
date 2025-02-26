@@ -2,6 +2,7 @@
   "name": "disclosure-basic",
   "type": "registry:example",
   "componentName": "disclosure",
+  "description": "Basic implementation of the disclosure component.",
   "files": [
     {
       "path": "disclosure-basic.tsx",

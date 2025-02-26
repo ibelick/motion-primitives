@@ -2,6 +2,7 @@
   "name": "text-loop-custom-variants-transition",
   "type": "registry:example",
   "componentName": "text-loop",
+  "description": "Text loop with custom transition variants and animations.",
   "files": [
     {
       "path": "text-loop-custom-variants-transition.tsx",

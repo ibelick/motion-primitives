@@ -2,6 +2,7 @@
   "name": "infinite-slider-hover-speed",
   "type": "registry:example",
   "componentName": "infinite-slider",
+  "description": "Infinite slider with speed changes on hover interaction.",
   "files": [
     {
       "path": "infinite-slider-hover-speed.tsx",

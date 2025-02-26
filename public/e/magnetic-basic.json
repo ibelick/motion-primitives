@@ -2,6 +2,7 @@
   "name": "magnetic-basic",
   "type": "registry:example",
   "componentName": "magnetic",
+  "description": "Basic implementation of the magnetic attraction effect.",
   "files": [
     {
       "path": "magnetic-basic.tsx",

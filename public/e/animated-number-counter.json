@@ -2,6 +2,7 @@
   "name": "animated-number-counter",
   "type": "registry:example",
   "componentName": "animated-number",
+  "description": "Animated counter implementation that smoothly transitions between numbers.",
   "files": [
     {
       "path": "animated-number-counter.tsx",

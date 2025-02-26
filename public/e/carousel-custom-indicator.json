@@ -2,6 +2,7 @@
   "name": "carousel-custom-indicator",
   "type": "registry:example",
   "componentName": "carousel",
+  "description": "Carousel with custom indicators for navigation.",
   "files": [
     {
       "path": "carousel-custom-indicator.tsx",

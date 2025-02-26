@@ -2,6 +2,7 @@
   "name": "image-comparison-hover",
   "type": "registry:example",
   "componentName": "image-comparison",
+  "description": "Image comparison that responds to hover interactions.",
   "files": [
     {
       "path": "image-comparison-hover.tsx",

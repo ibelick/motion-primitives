@@ -2,6 +2,7 @@
   "name": "morphing-dialog-image",
   "type": "registry:example",
   "componentName": "morphing-dialog",
+  "description": "Morphing dialog that transitions from an image to a full dialog.",
   "files": [
     {
       "path": "morphing-dialog-image.tsx",

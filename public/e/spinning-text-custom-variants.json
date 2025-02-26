@@ -2,6 +2,7 @@
   "name": "spinning-text-custom-variants",
   "type": "registry:example",
   "componentName": "spinning-text",
+  "description": "Spinning text with custom animation variants.",
   "files": [
     {
       "path": "spinning-text-custom-variants.tsx",

@@ -2,6 +2,7 @@
   "name": "image-comparison-spring",
   "type": "registry:example",
   "componentName": "image-comparison",
+  "description": "Image comparison with spring physics for smoother interactions.",
   "files": [
     {
       "path": "image-comparison-spring.tsx",

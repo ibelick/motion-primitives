@@ -2,6 +2,7 @@
   "name": "animated-number-basic",
   "type": "registry:example",
   "componentName": "animated-number",
+  "description": "Basic implementation of the animated number component.",
   "files": [
     {
       "path": "animated-number-basic.tsx",

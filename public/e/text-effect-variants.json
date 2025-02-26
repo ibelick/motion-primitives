@@ -2,6 +2,7 @@
   "name": "text-effect-variants",
   "type": "registry:example",
   "componentName": "text-effect",
+  "description": "Various animation variants for the text effect component.",
   "files": [
     {
       "path": "text-effect-variants.tsx",

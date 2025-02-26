@@ -2,6 +2,7 @@
   "name": "carousel-basic",
   "type": "registry:example",
   "componentName": "carousel",
+  "description": "Basic implementation of the carousel component.",
   "files": [
     {
       "path": "carousel-basic.tsx",

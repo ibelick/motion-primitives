@@ -2,6 +2,7 @@
   "name": "glow-effect-button",
   "type": "registry:example",
   "componentName": "glow-effect",
+  "description": "Button with interactive glow effect on hover.",
   "files": [
     {
       "path": "glow-effect-button.tsx",

@@ -25,4 +25,5 @@ export interface Schema {
   cssVars?: CssVars;
   files: RegistryFile[];
   componentName?: string;
+  description?: string;
 }

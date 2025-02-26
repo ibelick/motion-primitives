@@ -2,6 +2,7 @@
   "name": "text-shimmer-color",
   "type": "registry:example",
   "componentName": "text-shimmer",
+  "description": "Text shimmer with custom color configurations.",
   "files": [
     {
       "path": "text-shimmer-color.tsx",

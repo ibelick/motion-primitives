@@ -73,18 +73,54 @@ for (const hook of hooks) {
 
 for (const example of examples) {
   const content = fs.readFileSync(example.path, 'utf8');
+  
+  // Prepare the files array - start with the main example file
+  const files = [
+    {
+      path: `${example.name}.tsx`,
+      content,
+      type: 'registry:example' as const,
+    }
+  ];
+  
+  // Add files from the files property (core components)
+  if (example.files && example.files.length > 0) {
+    for (const depFile of example.files) {
+      try {
+        const depContent = fs.readFileSync(depFile.path, 'utf8');
+        files.push({
+          path: depFile.name,
+          content: depContent,
+          type: 'registry:example' as const,
+        });
+      } catch (error) {
+        console.error(`Error reading dependent file ${depFile.path}:`, error);
+      }
+    }
+  }
+  
+  // Also add files from the dependentFiles property (UI components)
+  if (example.dependentFiles && example.dependentFiles.length > 0) {
+    for (const depFile of example.dependentFiles) {
+      try {
+        const depContent = fs.readFileSync(depFile.path, 'utf8');
+        files.push({
+          path: depFile.name,
+          content: depContent,
+          type: 'registry:example' as const,
+        });
+      } catch (error) {
+        console.error(`Error reading dependent file ${depFile.path}:`, error);
+      }
+    }
+  }
 
   const schema = {
     name: example.name,
     type: 'registry:example',
     componentName: example.componentName,
-    files: [
-      {
-        path: `${example.name}.tsx`,
-        content,
-        type: 'registry:example',
-      },
-    ],
+    description: example.description,
+    files,
   } satisfies Schema;
 
   fs.writeFileSync(

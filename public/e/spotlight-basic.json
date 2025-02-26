@@ -2,6 +2,7 @@
   "name": "spotlight-basic",
   "type": "registry:example",
   "componentName": "spotlight",
+  "description": "Basic implementation of the spotlight effect.",
   "files": [
     {
       "path": "spotlight-basic.tsx",

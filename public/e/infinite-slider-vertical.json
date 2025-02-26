@@ -2,6 +2,7 @@
   "name": "infinite-slider-vertical",
   "type": "registry:example",
   "componentName": "infinite-slider",
+  "description": "Vertical orientation of the infinite slider component.",
   "files": [
     {
       "path": "infinite-slider-vertical.tsx",

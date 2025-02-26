@@ -2,6 +2,7 @@
   "name": "text-loop-basic",
   "type": "registry:example",
   "componentName": "text-loop",
+  "description": "Basic implementation of the text loop animation.",
   "files": [
     {
       "path": "text-loop-basic.tsx",

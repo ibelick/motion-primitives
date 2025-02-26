@@ -2,6 +2,7 @@
   "name": "sliding-basic",
   "type": "registry:example",
   "componentName": "sliding-number",
+  "description": "Basic implementation of the sliding number component.",
   "files": [
     {
       "path": "sliding-basic.tsx",

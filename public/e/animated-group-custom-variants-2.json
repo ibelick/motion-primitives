@@ -2,6 +2,7 @@
   "name": "animated-group-custom-variants-2",
   "type": "registry:example",
   "componentName": "animated-group",
+  "description": "Advanced custom variants for animated groups with additional animations.",
   "files": [
     {
       "path": "animated-group-custom-variants-2.tsx",

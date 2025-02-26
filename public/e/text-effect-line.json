@@ -2,6 +2,7 @@
   "name": "text-effect-line",
   "type": "registry:example",
   "componentName": "text-effect",
+  "description": "Line-by-line text animation effect.",
   "files": [
     {
       "path": "text-effect-line.tsx",

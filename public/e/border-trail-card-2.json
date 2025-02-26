@@ -2,6 +2,7 @@
   "name": "border-trail-card-2",
   "type": "registry:example",
   "componentName": "border-trail",
+  "description": "Enhanced card component with custom border trail animations.",
   "files": [
     {
       "path": "border-trail-card-2.tsx",

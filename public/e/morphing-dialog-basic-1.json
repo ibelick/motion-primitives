@@ -2,6 +2,7 @@
   "name": "morphing-dialog-basic-1",
   "type": "registry:example",
   "componentName": "morphing-dialog",
+  "description": "Basic implementation of the morphing dialog effect.",
   "files": [
     {
       "path": "morphing-dialog-basic-1.tsx",

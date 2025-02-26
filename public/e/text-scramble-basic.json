@@ -2,6 +2,7 @@
   "name": "text-scramble-basic",
   "type": "registry:example",
   "componentName": "text-scramble",
+  "description": "Basic implementation of the text scramble effect.",
   "files": [
     {
       "path": "text-scramble-basic.tsx",

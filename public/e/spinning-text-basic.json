@@ -2,6 +2,7 @@
   "name": "spinning-text-basic",
   "type": "registry:example",
   "componentName": "spinning-text",
+  "description": "Basic implementation of the spinning text effect.",
   "files": [
     {
       "path": "spinning-text-basic.tsx",

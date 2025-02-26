@@ -2,6 +2,7 @@
   "name": "sliding-slider",
   "type": "registry:example",
   "componentName": "sliding-number",
+  "description": "Sliding number component with interactive slider control.",
   "files": [
     {
       "path": "sliding-slider.tsx",

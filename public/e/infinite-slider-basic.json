@@ -2,6 +2,7 @@
   "name": "infinite-slider-basic",
   "type": "registry:example",
   "componentName": "infinite-slider",
+  "description": "Basic implementation of the infinite slider component.",
   "files": [
     {
       "path": "infinite-slider-basic.tsx",

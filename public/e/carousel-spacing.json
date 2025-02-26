@@ -2,6 +2,7 @@
   "name": "carousel-spacing",
   "type": "registry:example",
   "componentName": "carousel",
+  "description": "Carousel with custom spacing between slides.",
   "files": [
     {
       "path": "carousel-spacing.tsx",

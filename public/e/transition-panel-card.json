@@ -2,6 +2,7 @@
   "name": "transition-panel-card",
   "type": "registry:example",
   "componentName": "transition-panel",
+  "description": "Card component with transition panel animations.",
   "files": [
     {
       "path": "transition-panel-card.tsx",

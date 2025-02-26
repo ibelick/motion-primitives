@@ -2,6 +2,7 @@
   "name": "text-shimmer-basic",
   "type": "registry:example",
   "componentName": "text-shimmer",
+  "description": "Basic implementation of the text shimmer effect.",
   "files": [
     {
       "path": "text-shimmer-basic.tsx",

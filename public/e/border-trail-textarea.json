@@ -2,6 +2,7 @@
   "name": "border-trail-textarea",
   "type": "registry:example",
   "componentName": "border-trail",
+  "description": "Text area input with animated border trail effect on focus.",
   "files": [
     {
       "path": "border-trail-textarea.tsx",

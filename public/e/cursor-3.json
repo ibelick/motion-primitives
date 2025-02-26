@@ -2,6 +2,7 @@
   "name": "cursor-3",
   "type": "registry:example",
   "componentName": "cursor",
+  "description": "Complex cursor effect with state changes and animations.",
   "files": [
     {
       "path": "cursor-3.tsx",

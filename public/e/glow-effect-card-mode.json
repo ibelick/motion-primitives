@@ -2,6 +2,7 @@
   "name": "glow-effect-card-mode",
   "type": "registry:example",
   "componentName": "glow-effect",
+  "description": "Card with various glow effect modes and customization.",
   "files": [
     {
       "path": "glow-effect-card-mode.tsx",

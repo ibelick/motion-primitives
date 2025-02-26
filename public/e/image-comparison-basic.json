@@ -2,6 +2,7 @@
   "name": "image-comparison-basic",
   "type": "registry:example",
   "componentName": "image-comparison",
+  "description": "Basic implementation of the image comparison component.",
   "files": [
     {
       "path": "image-comparison-basic.tsx",

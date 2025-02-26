@@ -2,6 +2,7 @@
   "name": "morphing-popover-basic",
   "type": "registry:example",
   "componentName": "morphing-popover",
+  "description": "Basic implementation of the morphing popover component.",
   "files": [
     {
       "path": "morphing-popover-basic.tsx",

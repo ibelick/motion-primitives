@@ -2,6 +2,7 @@
   "name": "text-loop-on-index",
   "type": "registry:example",
   "componentName": "text-loop",
+  "description": "Text loop with index-based animations and transitions.",
   "files": [
     {
       "path": "text-loop-on-index.tsx",

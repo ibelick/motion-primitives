@@ -2,6 +2,7 @@
   "name": "spinning-text-custom-transition",
   "type": "registry:example",
   "componentName": "spinning-text",
+  "description": "Spinning text with custom transition timing and effects.",
   "files": [
     {
       "path": "spinning-text-custom-transition.tsx",

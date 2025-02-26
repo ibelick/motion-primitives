@@ -2,6 +2,7 @@
   "name": "text-roll-basic",
   "type": "registry:example",
   "componentName": "text-roll",
+  "description": "Basic implementation of the text roll animation effect.",
   "files": [
     {
       "path": "text-roll-basic.tsx",

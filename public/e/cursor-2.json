@@ -2,6 +2,7 @@
   "name": "cursor-2",
   "type": "registry:example",
   "componentName": "cursor",
+  "description": "Advanced cursor effect with interactive elements.",
   "files": [
     {
       "path": "cursor-2.tsx",

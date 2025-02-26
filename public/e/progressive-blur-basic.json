@@ -2,6 +2,7 @@
   "name": "progressive-blur-basic",
   "type": "registry:example",
   "componentName": "progressive-blur",
+  "description": "Basic implementation of the progressive blur effect.",
   "files": [
     {
       "path": "progressive-blur-basic.tsx",

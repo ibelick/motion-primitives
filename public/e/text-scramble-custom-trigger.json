@@ -2,6 +2,7 @@
   "name": "text-scramble-custom-trigger",
   "type": "registry:example",
   "componentName": "text-scramble",
+  "description": "Text scramble with custom trigger mechanisms.",
   "files": [
     {
       "path": "text-scramble-custom-trigger.tsx",

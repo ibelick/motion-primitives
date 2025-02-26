@@ -2,6 +2,7 @@
   "name": "text-effect-custom-delay",
   "type": "registry:example",
   "componentName": "text-effect",
+  "description": "Text effect with custom animation delay settings.",
   "files": [
     {
       "path": "text-effect-custom-delay.tsx",

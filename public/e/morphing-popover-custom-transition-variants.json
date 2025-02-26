@@ -2,6 +2,7 @@
   "name": "morphing-popover-custom-transition-variants",
   "type": "registry:example",
   "componentName": "morphing-popover",
+  "description": "Morphing popover with custom transition variants and animations.",
   "files": [
     {
       "path": "morphing-popover-custom-transition-variants.tsx",

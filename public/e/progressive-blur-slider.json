@@ -2,6 +2,7 @@
   "name": "progressive-blur-slider",
   "type": "registry:example",
   "componentName": "progressive-blur",
+  "description": "Progressive blur effect with interactive slider control.",
   "files": [
     {
       "path": "progressive-blur-slider.tsx",

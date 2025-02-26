@@ -2,6 +2,7 @@
   "name": "clock",
   "type": "registry:example",
   "componentName": "sliding-number",
+  "description": "Digital clock implementation using the sliding number component.",
   "files": [
     {
       "path": "clock.tsx",

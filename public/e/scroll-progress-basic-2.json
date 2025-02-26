@@ -2,6 +2,7 @@
   "name": "scroll-progress-basic-2",
   "type": "registry:example",
   "componentName": "scroll-progress",
+  "description": "Alternative scroll progress indicator with different styling.",
   "files": [
     {
       "path": "scroll-progress-basic-2.tsx",

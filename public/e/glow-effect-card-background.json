@@ -2,6 +2,7 @@
   "name": "glow-effect-card-background",
   "type": "registry:example",
   "componentName": "glow-effect",
+  "description": "Card with glow effect background that follows cursor movement.",
   "files": [
     {
       "path": "glow-effect-card-background.tsx",

@@ -2,6 +2,7 @@
   "name": "in-view-images-grid",
   "type": "registry:example",
   "componentName": "in-view",
+  "description": "Grid of images with staggered animations when scrolled into view.",
   "files": [
     {
       "path": "in-view-images-grid.tsx",

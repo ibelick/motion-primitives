@@ -2,6 +2,7 @@
   "name": "scroll-progress-basic-1",
   "type": "registry:example",
   "componentName": "scroll-progress",
+  "description": "Basic implementation of the scroll progress indicator.",
   "files": [
     {
       "path": "scroll-progress-basic-1.tsx",

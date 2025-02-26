@@ -2,6 +2,7 @@
   "name": "cursor-1",
   "type": "registry:example",
   "componentName": "cursor",
+  "description": "Basic cursor effect following pointer movement.",
   "files": [
     {
       "path": "cursor-1.tsx",

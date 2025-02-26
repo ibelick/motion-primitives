@@ -2,6 +2,7 @@
   "name": "segmented-control",
   "type": "registry:example",
   "componentName": "animated-background",
+  "description": "Segmented control UI element with animated background transitions.",
   "files": [
     {
       "path": "segmented-control.tsx",

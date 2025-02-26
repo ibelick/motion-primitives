@@ -2,6 +2,7 @@
   "name": "text-shimmer-wave-color",
   "type": "registry:example",
   "componentName": "text-shimmer-wave",
+  "description": "Wave-based text shimmer with custom color configurations.",
   "files": [
     {
       "path": "text-shimmer-wave-color.tsx",

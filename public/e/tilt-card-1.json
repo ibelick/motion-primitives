@@ -2,6 +2,7 @@
   "name": "tilt-card-1",
   "type": "registry:example",
   "componentName": "tilt",
+  "description": "Card component with 3D tilt effect on hover.",
   "files": [
     {
       "path": "tilt-card-1.tsx",

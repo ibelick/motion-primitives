@@ -2,6 +2,7 @@
   "name": "animated-group-preset",
   "type": "registry:example",
   "componentName": "animated-group",
+  "description": "Preset animations for the animated group component.",
   "files": [
     {
       "path": "animated-group-preset.tsx",
