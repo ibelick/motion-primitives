@@ -1,0 +1,12 @@
+{
+  "name": "animated-tabs-hover",
+  "type": "registry:example",
+  "componentName": "animated-background",
+  "files": [
+    {
+      "path": "animated-tabs-hover.tsx",
+      "content": "import { AnimatedBackground } from '@/components/core/animated-background';\n\nexport function AnimatedTabsHover() {\n  const TABS = ['Home', 'About', 'Services', 'Contact'];\n\n  return (\n    <div className='flex flex-row'>\n      <AnimatedBackground\n        defaultValue={TABS[0]}\n        className='rounded-lg bg-zinc-100 dark:bg-zinc-800'\n        transition={{\n          type: 'spring',\n          bounce: 0.2,\n          duration: 0.3,\n        }}\n        enableHover\n      >\n        {TABS.map((tab, index) => (\n          <button\n            key={index}\n            data-id={tab}\n            type='button'\n            className='px-2 py-0.5 text-zinc-600 transition-colors duration-300 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50'\n          >\n            {tab}\n          </button>\n        ))}\n      </AnimatedBackground>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

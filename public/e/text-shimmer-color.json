@@ -1,0 +1,12 @@
+{
+  "name": "text-shimmer-color",
+  "type": "registry:example",
+  "componentName": "text-shimmer",
+  "files": [
+    {
+      "path": "text-shimmer-color.tsx",
+      "content": "import { TextShimmer } from '@/components/core/text-shimmer';\n\nexport function TextShimmerColor() {\n  return (\n    <TextShimmer\n      duration={1.2}\n      className='text-xl font-medium [--base-color:var(--color-blue-600)] [--base-gradient-color:var(--color-blue-200)] dark:[--base-color:var(--color-blue-700)] dark:[--base-gradient-color:var(--color-blue-400)]'\n    >\n      Hi, how are you?\n    </TextShimmer>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

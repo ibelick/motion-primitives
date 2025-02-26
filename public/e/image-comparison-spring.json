@@ -1,0 +1,12 @@
+{
+  "name": "image-comparison-spring",
+  "type": "registry:example",
+  "componentName": "image-comparison",
+  "files": [
+    {
+      "path": "image-comparison-spring.tsx",
+      "content": "import {\n  ImageComparison,\n  ImageComparisonImage,\n  ImageComparisonSlider,\n} from '@/components/core/image-comparison';\n\nexport function ImageComparisonSpring() {\n  return (\n    <ImageComparison\n      className='aspect-16/10 w-full rounded-lg border border-zinc-200 dark:border-zinc-800'\n      enableHover\n      springOptions={{\n        bounce: 0.3,\n      }}\n    >\n      <ImageComparisonImage\n        src='/mp_dark.png'\n        alt='Motion Primitives Dark'\n        position='left'\n      />\n      <ImageComparisonImage\n        src='/mp_light.png'\n        alt='Motion Primitives Light'\n        position='right'\n      />\n      <ImageComparisonSlider className='w-0.5 bg-white/30 backdrop-blur-xs' />\n    </ImageComparison>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

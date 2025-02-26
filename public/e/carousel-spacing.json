@@ -1,0 +1,12 @@
+{
+  "name": "carousel-spacing",
+  "type": "registry:example",
+  "componentName": "carousel",
+  "files": [
+    {
+      "path": "carousel-spacing.tsx",
+      "content": "import {\n  Carousel,\n  CarouselContent,\n  CarouselNavigation,\n  CarouselItem,\n} from '@/components/core/carousel';\n\nexport function CarouselSpacing() {\n  return (\n    <div className='relative w-full px-4'>\n      <Carousel>\n        <CarouselContent className='-ml-4'>\n          <CarouselItem className='basis-1/3 pl-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              1\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3 pl-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              2\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3 pl-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              3\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3 pl-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              4\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3 pl-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              5\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3 pl-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              6\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3 pl-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              7\n            </div>\n          </CarouselItem>\n        </CarouselContent>\n        <CarouselNavigation\n          className='absolute -bottom-20 left-auto top-auto w-full justify-end gap-2'\n          classNameButton='bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800'\n          alwaysShow\n        />\n      </Carousel>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

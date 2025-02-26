@@ -1,0 +1,12 @@
+{
+  "name": "tilt-spotlight",
+  "type": "registry:example",
+  "componentName": "tilt",
+  "files": [
+    {
+      "path": "tilt-spotlight.tsx",
+      "content": "import { Spotlight } from '@/components/core/spotlight';\nimport { Tilt } from '@/components/core/tilt';\n\nexport function TiltSpotlight() {\n  return (\n    <div className='aspect-video max-w-sm'>\n      <Tilt\n        rotationFactor={6}\n        isRevese\n        style={{\n          transformOrigin: 'center center',\n        }}\n        springOptions={{\n          stiffness: 26.7,\n          damping: 4.1,\n          mass: 0.2,\n        }}\n        className='group relative rounded-lg'\n      >\n        <Spotlight\n          className='z-10 from-white/50 via-white/20 to-white/10 blur-2xl'\n          size={248}\n          springOptions={{\n            stiffness: 26.7,\n            damping: 4.1,\n            mass: 0.2,\n          }}\n        />\n        <img\n          // src='https://images.beta.cosmos.so/f7fcb95d-981b-4cb3-897f-e35f6c20e830?format=jpeg'\n          src='https://images.beta.cosmos.so/40fbc749-6796-485b-9588-20204dd7c8f0?format=jpeg'\n          alt='Ghost in the shell - Kôkaku kidôtai'\n          className='h-32 w-full rounded-lg object-cover grayscale duration-700 group-hover:grayscale-0'\n        />\n      </Tilt>\n      <div className='flex flex-col space-y-0.5 pb-0 pt-3'>\n        <h3 className='font-mono text-sm font-medium text-zinc-500 dark:text-zinc-400'>\n          2001: A Space Odyssey\n        </h3>\n        <p className='text-sm text-black dark:text-white'>Stanley Kubrick</p>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

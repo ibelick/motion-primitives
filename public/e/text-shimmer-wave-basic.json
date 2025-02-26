@@ -1,0 +1,12 @@
+{
+  "name": "text-shimmer-wave-basic",
+  "type": "registry:example",
+  "componentName": "text-shimmer-wave",
+  "files": [
+    {
+      "path": "text-shimmer-wave-basic.tsx",
+      "content": "import { TextShimmerWave } from '@/components/core/text-shimmer-wave';\n\nexport function TextShimmerWaveBasic() {\n  return (\n    <TextShimmerWave className='font-mono text-sm' duration={1}>\n      Generating code...\n    </TextShimmerWave>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

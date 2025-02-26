@@ -1,0 +1,12 @@
+{
+  "name": "text-scramble-basic",
+  "type": "registry:example",
+  "componentName": "text-scramble",
+  "files": [
+    {
+      "path": "text-scramble-basic.tsx",
+      "content": "import { TextScramble } from '@/components/core/text-scramble';\n\nexport function TextScrambleBasic() {\n  return (\n    <TextScramble className='font-mono text-sm uppercase'>\n      Text Scramble\n    </TextScramble>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

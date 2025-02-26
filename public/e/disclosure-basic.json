@@ -1,0 +1,12 @@
+{
+  "name": "disclosure-basic",
+  "type": "registry:example",
+  "componentName": "disclosure",
+  "files": [
+    {
+      "path": "disclosure-basic.tsx",
+      "content": "import {\n  Disclosure,\n  DisclosureContent,\n  DisclosureTrigger,\n} from '@/components/core/disclosure';\n\nexport function DisclosureBasic() {\n  return (\n    <Disclosure className='w-[330px] rounded-md border border-zinc-200 px-3 dark:border-zinc-700'>\n      <DisclosureTrigger>\n        <button className='w-full py-2 text-left text-sm' type='button'>\n          Show more\n        </button>\n      </DisclosureTrigger>\n      <DisclosureContent>\n        <div className='overflow-hidden pb-3'>\n          <div className='pt-1 font-mono text-sm'>\n            <p>\n              This example demonstrates how you can use{' '}\n              <strong className='font-bold'>Disclosure</strong> component.\n            </p>\n            <pre className='mt-2 rounded-md bg-zinc-100 p-2 text-xs dark:bg-zinc-950'>\n              {`function DisclosureBasic() {\\n  return (\\n    <Disclosure>\\n      <DisclosureTrigger>\\n        <button type='button'>\\n          Show more\\n        </button>\\n      </DisclosureTrigger>\\n      <DisclosureContent>\\n        <div>hey</div>\\n      </DisclosureContent>\\n    </Disclosure>\\n  );`}\n            </pre>\n          </div>\n        </div>\n      </DisclosureContent>\n    </Disclosure>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

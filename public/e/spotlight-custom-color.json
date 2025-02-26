@@ -1,0 +1,12 @@
+{
+  "name": "spotlight-custom-color",
+  "type": "registry:example",
+  "componentName": "spotlight",
+  "files": [
+    {
+      "path": "spotlight-custom-color.tsx",
+      "content": "import { Spotlight } from '@/components/core/spotlight';\n\nexport function SpotlightCustomColor() {\n  return (\n    <div className='relative aspect-video h-[200px] rounded-sm border border-zinc-100 bg-white dark:border-zinc-800 dark:bg-black'>\n      <Spotlight\n        className='from-blue-800 via-blue-600 to-blue-400 blur-xl dark:from-blue-900 dark:via-blue-500 dark:to-blue-900'\n        size={64}\n      />\n      <div className='absolute inset-0'>\n        <svg className='h-full w-full'>\n          <defs>\n            <pattern\n              id='grid-pattern'\n              width='8'\n              height='8'\n              patternUnits='userSpaceOnUse'\n            >\n              <path\n                xmlns='http://www.w3.org/2000/svg'\n                d='M0 4H4M4 4V0M4 4H8M4 4V8'\n                stroke='currentColor'\n                strokeOpacity='0.3'\n                className='stroke-white dark:stroke-black'\n              />\n              <rect\n                x='3'\n                y='3'\n                width='2'\n                height='2'\n                fill='currentColor'\n                fillOpacity='0.25'\n                className='fill-white dark:fill-black'\n              />\n            </pattern>\n          </defs>\n          <rect width='100%' height='100%' fill='url(#grid-pattern)' />\n        </svg>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

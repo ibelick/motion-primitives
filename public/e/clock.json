@@ -1,0 +1,12 @@
+{
+  "name": "clock",
+  "type": "registry:example",
+  "componentName": "sliding-number",
+  "files": [
+    {
+      "path": "clock.tsx",
+      "content": "'use client';\nimport { SlidingNumber } from '@/components/core/sliding-number';\nimport { useEffect, useState } from 'react';\n\nexport function Clock() {\n  const [hours, setHours] = useState(new Date().getHours());\n  const [minutes, setMinutes] = useState(new Date().getMinutes());\n  const [seconds, setSeconds] = useState(new Date().getSeconds());\n\n  useEffect(() => {\n    const interval = setInterval(() => {\n      setHours(new Date().getHours());\n      setMinutes(new Date().getMinutes());\n      setSeconds(new Date().getSeconds());\n    }, 1000);\n    return () => clearInterval(interval);\n  }, []);\n\n  return (\n    <div className='flex items-center gap-0.5 font-mono'>\n      <SlidingNumber value={hours} padStart={true} />\n      <span className='text-zinc-500'>:</span>\n      <SlidingNumber value={minutes} padStart={true} />\n      <span className='text-zinc-500'>:</span>\n      <SlidingNumber value={seconds} padStart={true} />\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

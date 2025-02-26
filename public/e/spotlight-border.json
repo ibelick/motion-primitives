@@ -1,0 +1,12 @@
+{
+  "name": "spotlight-border",
+  "type": "registry:example",
+  "componentName": "spotlight",
+  "files": [
+    {
+      "path": "spotlight-border.tsx",
+      "content": "import { Spotlight } from '@/components/core/spotlight';\n\nexport function SpotlightBorder() {\n  return (\n    <div className='relative aspect-video h-[200px] overflow-hidden rounded-xl bg-zinc-300/30 p-[1px] dark:bg-zinc-700/30'>\n      <Spotlight\n        className='from-blue-600 via-blue-500 to-blue-400 blur-3xl dark:from-blue-200 dark:via-blue-300 dark:to-blue-400'\n        size={124}\n      />\n      <div className='relative h-full w-full rounded-xl bg-white dark:bg-black'></div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

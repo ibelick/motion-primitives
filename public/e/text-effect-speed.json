@@ -1,0 +1,12 @@
+{
+  "name": "text-effect-speed",
+  "type": "registry:example",
+  "componentName": "text-effect",
+  "files": [
+    {
+      "path": "text-effect-speed.tsx",
+      "content": "import { TextEffect } from '@/components/core/text-effect';\n\nexport function TextEffectSpeed() {\n  return (\n    <TextEffect preset='fade-in-blur' speedReveal={1.1} speedSegment={0.3}>\n      Animate your ideas with motion-primitives.\n    </TextEffect>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

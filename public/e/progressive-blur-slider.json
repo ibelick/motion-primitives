@@ -1,0 +1,12 @@
+{
+  "name": "progressive-blur-slider",
+  "type": "registry:example",
+  "componentName": "progressive-blur",
+  "files": [
+    {
+      "path": "progressive-blur-slider.tsx",
+      "content": "import { InfiniteSlider } from '@/components/core/infinite-slider';\nimport { ProgressiveBlur } from '@/components/core/progressive-blur';\n\nexport function ProgressiveBlurSlider() {\n  return (\n    <div className='relative h-[350px] w-full overflow-hidden'>\n      <InfiniteSlider className='flex h-full w-full items-center'>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          1\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          2\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          3\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          4\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          5\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          6\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          7\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          8\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          9\n        </div>\n      </InfiniteSlider>\n      <ProgressiveBlur\n        className='pointer-events-none absolute top-0 left-0 h-full w-[200px]'\n        direction='left'\n        blurIntensity={1}\n      />\n      <ProgressiveBlur\n        className='pointer-events-none absolute top-0 right-0 h-full w-[200px]'\n        direction='right'\n        blurIntensity={1}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

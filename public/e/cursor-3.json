@@ -1,0 +1,12 @@
+{
+  "name": "cursor-3",
+  "type": "registry:example",
+  "componentName": "cursor",
+  "files": [
+    {
+      "path": "cursor-3.tsx",
+      "content": "import { Cursor } from '@/components/core/cursor';\n\nexport function Cursor3() {\n  return (\n    <div>\n      <div className='p-4'>\n        <Cursor\n          attachToParent\n          variants={{\n            initial: { height: 0, opacity: 0, scale: 0.3 },\n            animate: { height: 'auto', opacity: 1, scale: 1 },\n            exit: { height: 0, opacity: 0, scale: 0.3 },\n          }}\n          transition={{\n            type: 'spring',\n            duration: 0.3,\n            bounce: 0.1,\n          }}\n          className='overflow-hidden'\n          springConfig={{\n            bounce: 0.01,\n          }}\n        >\n          <img\n            src='https://i.pinimg.com/564x/4c/95/69/4c9569ab2928e5ae400a6a34e7c537a0.jpg'\n            alt='Christian Church, Eastern Europe'\n            className='h-40 w-40'\n          />\n        </Cursor>\n        Christian Church, Eastern Europe\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

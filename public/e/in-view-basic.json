@@ -1,0 +1,12 @@
+{
+  "name": "in-view-basic",
+  "type": "registry:example",
+  "componentName": "in-view",
+  "files": [
+    {
+      "path": "in-view-basic.tsx",
+      "content": "import { InView } from '@/components/core/in-view';\n\nexport function InViewBasic() {\n  return (\n    <div className='h-[350px] w-full overflow-auto'>\n      <div className='py-12 text-center text-sm'>Scroll down</div>\n      <div className='flex h-[500px] items-end justify-center px-4 pb-24'>\n        <InView\n          variants={{\n            hidden: { opacity: 0, y: 100, filter: 'blur(4px)' },\n            visible: { opacity: 1, y: 0, filter: 'blur(0px)' },\n          }}\n          viewOptions={{ margin: '0px 0px -200px 0px' }}\n          transition={{ duration: 0.3, ease: 'easeInOut' }}\n        >\n          <div className='max-w-96'>\n            <p className=''>\n              <strong className='font-medium'>\n                Craft beautiful animated components with Motion-Primitives.\n              </strong>{' '}\n              Designed for developers and designers. The library leverages the\n              power of Motion, with intuitive APIs that simplifies creating\n              complex animations for any project. Start building more dynamic\n              interfaces today.\n            </p>\n          </div>\n        </InView>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

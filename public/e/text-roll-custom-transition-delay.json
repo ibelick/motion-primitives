@@ -1,0 +1,12 @@
+{
+  "name": "text-roll-custom-transition-delay",
+  "type": "registry:example",
+  "componentName": "text-roll",
+  "files": [
+    {
+      "path": "text-roll-custom-transition-delay.tsx",
+      "content": "'use client';\nimport { TextRoll } from '@/components/core/text-roll';\n\nexport function TextRollCustomTransitionDelay() {\n  return (\n    <TextRoll\n      className='overflow-clip text-4xl text-black dark:text-white'\n      variants={{\n        enter: {\n          initial: { y: 0 },\n          animate: { y: 40 },\n        },\n        exit: {\n          initial: { y: -40 },\n          animate: { y: 0 },\n        },\n      }}\n      duration={0.3}\n      getEnterDelay={(i) => i * 0.05}\n      getExitDelay={(i) => i * 0.05 + 0.05}\n      transition={{\n        ease: [0.175, 0.885, 0.32, 1.1],\n      }}\n    >\n      motion-primitives\n    </TextRoll>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

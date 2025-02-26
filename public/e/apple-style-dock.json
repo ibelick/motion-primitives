@@ -1,0 +1,12 @@
+{
+  "name": "apple-style-dock",
+  "type": "registry:example",
+  "componentName": "dock",
+  "files": [
+    {
+      "path": "apple-style-dock.tsx",
+      "content": "import {\n  Activity,\n  Component,\n  HomeIcon,\n  Mail,\n  Package,\n  ScrollText,\n  SunMoon,\n} from 'lucide-react';\n\nimport { Dock, DockIcon, DockItem, DockLabel } from '@/components/core/dock';\n\nconst data = [\n  {\n    title: 'Home',\n    icon: (\n      <HomeIcon className='h-full w-full text-neutral-600 dark:text-neutral-300' />\n    ),\n    href: '#',\n  },\n  {\n    title: 'Products',\n    icon: (\n      <Package className='h-full w-full text-neutral-600 dark:text-neutral-300' />\n    ),\n    href: '#',\n  },\n  {\n    title: 'Components',\n    icon: (\n      <Component className='h-full w-full text-neutral-600 dark:text-neutral-300' />\n    ),\n    href: '#',\n  },\n  {\n    title: 'Activity',\n    icon: (\n      <Activity className='h-full w-full text-neutral-600 dark:text-neutral-300' />\n    ),\n    href: '#',\n  },\n  {\n    title: 'Change Log',\n    icon: (\n      <ScrollText className='h-full w-full text-neutral-600 dark:text-neutral-300' />\n    ),\n    href: '#',\n  },\n  {\n    title: 'Email',\n    icon: (\n      <Mail className='h-full w-full text-neutral-600 dark:text-neutral-300' />\n    ),\n    href: '#',\n  },\n  {\n    title: 'Theme',\n    icon: (\n      <SunMoon className='h-full w-full text-neutral-600 dark:text-neutral-300' />\n    ),\n    href: '#',\n  },\n];\n\nexport function AppleStyleDock() {\n  return (\n    <div className='absolute bottom-2 left-1/2 max-w-full -translate-x-1/2'>\n      <Dock className='items-end pb-3'>\n        {data.map((item, idx) => (\n          <DockItem\n            key={idx}\n            className='aspect-square rounded-full bg-gray-200 dark:bg-neutral-800'\n          >\n            <DockLabel>{item.title}</DockLabel>\n            <DockIcon>{item.icon}</DockIcon>\n          </DockItem>\n        ))}\n      </Dock>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

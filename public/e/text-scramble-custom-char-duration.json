@@ -1,0 +1,12 @@
+{
+  "name": "text-scramble-custom-char-duration",
+  "type": "registry:example",
+  "componentName": "text-scramble",
+  "files": [
+    {
+      "path": "text-scramble-custom-char-duration.tsx",
+      "content": "import { TextScramble } from '@/components/core/text-scramble';\n\nexport function TextScrambleCustomCharacterDuration() {\n  return (\n    <TextScramble\n      className='font-mono text-sm'\n      duration={1.2}\n      characterSet='. '\n    >\n      Generating the interface...\n    </TextScramble>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

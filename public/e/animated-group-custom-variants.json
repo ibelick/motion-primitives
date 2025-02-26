@@ -1,0 +1,12 @@
+{
+  "name": "animated-group-custom-variants",
+  "type": "registry:example",
+  "componentName": "animated-group",
+  "files": [
+    {
+      "path": "animated-group-custom-variants.tsx",
+      "content": "import { AnimatedGroup } from '@/components/core/animated-group';\n\nexport function AnimatedGroupCustomVariants() {\n  return (\n    <AnimatedGroup\n      className='grid grid-cols-2 gap-4 p-8 md:grid-cols-3 lg:grid-cols-4'\n      variants={{\n        container: {\n          hidden: { opacity: 0 },\n          visible: {\n            opacity: 1,\n            transition: {\n              staggerChildren: 0.05,\n            },\n          },\n        },\n        item: {\n          hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },\n          visible: {\n            opacity: 1,\n            y: 0,\n            filter: 'blur(0px)',\n            transition: {\n              duration: 1.2,\n              type: 'spring',\n              bounce: 0.3,\n            },\n          },\n        },\n      }}\n    >\n      <img\n        src='https://images.beta.cosmos.so/fc6fdd93-552c-47e6-98aa-b8fb3ba070a2?format=jpeg'\n        alt='impressionist painting, uploaded to Cosmos'\n        className='h-auto w-full rounded-[4px]'\n      />\n      <img\n        src='https://images.beta.cosmos.so/cb674d14-ebd1-4408-bab1-79df895017b6?format=jpeg'\n        alt='impressionist painting, uploaded to Cosmos'\n        className='h-auto w-full rounded-[4px]'\n      />\n      <img\n        src='https://images.beta.cosmos.so/e5a6c3ed-82ad-4084-9a11-1eccd7bc91aa?format=jpeg'\n        alt='impressionist painting, uploaded to Cosmos'\n        className='h-auto w-full rounded-[4px]'\n      />\n      <img\n        src='https://images.beta.cosmos.so/4d02a1e7-d1f2-4575-86a9-bed243e59132?format=jpeg'\n        alt='impressionist painting, uploaded to Cosmos'\n        className='h-auto w-full rounded-[4px]'\n      />\n    </AnimatedGroup>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

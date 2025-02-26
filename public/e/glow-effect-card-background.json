@@ -1,0 +1,12 @@
+{
+  "name": "glow-effect-card-background",
+  "type": "registry:example",
+  "componentName": "glow-effect",
+  "files": [
+    {
+      "path": "glow-effect-card-background.tsx",
+      "content": "import { GlowEffect } from '@/components/core/glow-effect';\n\nexport function GlowEffectCardBackground() {\n  return (\n    <div className='relative h-44 w-64'>\n      <GlowEffect\n        colors={['#0894FF', '#C959DD', '#FF2E54', '#FF9004']}\n        mode='static'\n        blur='medium'\n      />\n      <div className='relative h-44 w-64 rounded-lg bg-black p-2 text-white dark:bg-white dark:text-black'>\n        <svg\n          role='img'\n          xmlns='http://www.w3.org/2000/svg'\n          viewBox='0 0 70 70'\n          aria-label='MP Logo'\n          width='70'\n          height='70'\n          className='absolute bottom-4 right-4 h-8 w-8'\n          fill='none'\n        >\n          <path\n            stroke='currentColor'\n            strokeLinecap='round'\n            strokeWidth='3'\n            d='M51.883 26.495c-7.277-4.124-18.08-7.004-26.519-7.425-2.357-.118-4.407-.244-6.364 1.06M59.642 51c-10.47-7.25-26.594-13.426-39.514-15.664-3.61-.625-6.744-1.202-9.991.263'\n          ></path>\n        </svg>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

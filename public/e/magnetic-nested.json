@@ -1,0 +1,12 @@
+{
+  "name": "magnetic-nested",
+  "type": "registry:example",
+  "componentName": "magnetic",
+  "files": [
+    {
+      "path": "magnetic-nested.tsx",
+      "content": "import { Magnetic } from '@/components/core/magnetic';\n\nexport function MagneticNested() {\n  const springOptions = { bounce: 0.1 };\n\n  return (\n    <Magnetic\n      intensity={0.2}\n      springOptions={springOptions}\n      actionArea='global'\n      range={200}\n    >\n      <button\n        type='button'\n        className='inline-flex items-center rounded-lg border border-zinc-100 bg-zinc-100 px-4 py-2 text-sm text-zinc-950 transition-all duration-200 hover:bg-zinc-200 dark:border-zinc-900 dark:bg-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-600'\n      >\n        <Magnetic\n          intensity={0.1}\n          springOptions={springOptions}\n          actionArea='global'\n          range={200}\n        >\n          <span>Submit</span>\n        </Magnetic>\n      </button>\n    </Magnetic>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

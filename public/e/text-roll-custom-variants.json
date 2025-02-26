@@ -1,0 +1,12 @@
+{
+  "name": "text-roll-custom-variants",
+  "type": "registry:example",
+  "componentName": "text-roll",
+  "files": [
+    {
+      "path": "text-roll-custom-variants.tsx",
+      "content": "import { TextRoll } from '@/components/core/text-roll';\n\nexport function TextRollCustomVariants() {\n  return (\n    <TextRoll\n      className='text-4xl text-black dark:text-white'\n      variants={{\n        enter: {\n          initial: { rotateX: 0, filter: 'blur(0px)' },\n          animate: { rotateX: 90, filter: 'blur(2px)' },\n        },\n        exit: {\n          initial: { rotateX: 90, filter: 'blur(2px)' },\n          animate: { rotateX: 0, filter: 'blur(0px)' },\n        },\n      }}\n    >\n      motion-primitives\n    </TextRoll>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

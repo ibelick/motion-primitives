@@ -1,0 +1,12 @@
+{
+  "name": "infinite-slider-hover-speed",
+  "type": "registry:example",
+  "componentName": "infinite-slider",
+  "files": [
+    {
+      "path": "infinite-slider-hover-speed.tsx",
+      "content": "import { InfiniteSlider } from '@/components/core/infinite-slider';\n\nexport function InfiniteSliderHoverSpeed() {\n  return (\n    <InfiniteSlider speedOnHover={20} gap={24}>\n      <img\n        src='https://i.scdn.co/image/ab67616d00001e02ad24c5e36ddcd1957ad35677'\n        alt='Dean blunt - Black Metal 2'\n        className='aspect-square w-[120px] rounded-[4px]'\n      />\n      <img\n        src='https://i.scdn.co/image/ab67616d00001e02af73f776b92d4614152fb141'\n        alt='Jungle Jack - JUNGLE DES ILLUSIONS VOL 2'\n        className='aspect-square w-[120px] rounded-[4px]'\n      />\n      <img\n        src='https://i.scdn.co/image/ab67616d00001e02ecdb8f824367a53468100faf'\n        alt='Yung Lean - Stardust'\n        className='aspect-square w-[120px] rounded-[4px]'\n      />\n      <img\n        src='https://i.scdn.co/image/ab67616d00001e021624590458126fc8b8c64c2f'\n        alt='Lana Del Rey - Ultraviolence'\n        className='aspect-square w-[120px] rounded-[4px]'\n      />\n      <img\n        src='https://i.scdn.co/image/ab67616d00001e020dcf0f3680cff56fe5ff2288'\n        alt='A$AP Rocky - Tailor Swif'\n        className='aspect-square w-[120px] rounded-[4px]'\n      />\n      <img\n        src='https://i.scdn.co/image/ab67616d00001e02bc1028b7e9cd2b17c770a520'\n        alt='Midnight Miami (feat Konvy) - Nino Paid, Konvy'\n        className='aspect-square w-[120px] rounded-[4px]'\n      />\n    </InfiniteSlider>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

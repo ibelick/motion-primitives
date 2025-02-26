@@ -1,0 +1,12 @@
+{
+  "name": "infinite-slider-basic",
+  "type": "registry:example",
+  "componentName": "infinite-slider",
+  "files": [
+    {
+      "path": "infinite-slider-basic.tsx",
+      "content": "import { InfiniteSlider } from '@/components/core/infinite-slider';\n\nexport function InfiniteSliderBasic() {\n  return (\n    <InfiniteSlider gap={24} reverse>\n      <img\n        src='/apple_music_logo.svg'\n        alt='Apple Music logo'\n        className='h-[120px] w-auto'\n      />\n      <img\n        src='/chrome_logo.svg'\n        alt='Chrome logo'\n        className='h-[120px] w-auto'\n      />\n      <img\n        src='/strava_logo.svg'\n        alt='Strava logo'\n        className='h-[120px] w-auto'\n      />\n      <img\n        src='/nintendo_logo.svg'\n        alt='Nintendo logo'\n        className='h-[120px] w-auto'\n      />\n      <img\n        src='/jquery_logo.svg'\n        alt='Jquery logo'\n        className='h-[120px] w-auto'\n      />\n      <img\n        src='/prada_logo.svg'\n        alt='Prada logo'\n        className='h-[120px] w-auto'\n      />\n    </InfiniteSlider>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

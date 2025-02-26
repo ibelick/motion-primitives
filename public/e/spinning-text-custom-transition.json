@@ -1,0 +1,12 @@
+{
+  "name": "spinning-text-custom-transition",
+  "type": "registry:example",
+  "componentName": "spinning-text",
+  "files": [
+    {
+      "path": "spinning-text-custom-transition.tsx",
+      "content": "import { SpinningText } from '@/components/core/spinning-text';\n\nexport function SpinningTextCustomTransition() {\n  return (\n    <SpinningText\n      radius={7}\n      fontSize={1}\n      duration={6}\n      transition={{\n        ease: 'easeInOut',\n        repeat: Infinity,\n      }}\n      className='font-mono'\n    >\n      {`motion-primitives • motion-primitives • `}\n    </SpinningText>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

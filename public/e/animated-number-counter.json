@@ -1,0 +1,12 @@
+{
+  "name": "animated-number-counter",
+  "type": "registry:example",
+  "componentName": "animated-number",
+  "files": [
+    {
+      "path": "animated-number-counter.tsx",
+      "content": "'use client';\nimport { useState } from 'react';\nimport { AnimatedNumber } from '@/components/core/animated-number';\nimport { Minus, Plus } from 'lucide-react';\n\nexport function AnimatedNumberCounter() {\n  const [value, setValue] = useState(1000);\n\n  return (\n    <div className='flex w-full items-center justify-center space-x-2 text-zinc-800 dark:text-zinc-50'>\n      <button\n        aria-label='Decrement'\n        onClick={() => setValue((prev) => prev - 100)}\n      >\n        <Minus className='h-4 w-4' />\n      </button>\n      <AnimatedNumber\n        className='inline-flex items-center font-mono text-2xl font-light'\n        springOptions={{\n          bounce: 0,\n          duration: 1000,\n        }}\n        value={value}\n      />\n      <button\n        aria-label='Increment'\n        onClick={() => setValue((prev) => prev + 100)}\n      >\n        <Plus className='h-4 w-4' />\n      </button>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

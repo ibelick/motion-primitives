@@ -1,0 +1,12 @@
+{
+  "name": "text-shimmer-wave-color",
+  "type": "registry:example",
+  "componentName": "text-shimmer-wave",
+  "files": [
+    {
+      "path": "text-shimmer-wave-color.tsx",
+      "content": "import { TextShimmerWave } from '@/components/core/text-shimmer-wave';\n\nexport function TextShimmerWaveColor() {\n  return (\n    <TextShimmerWave\n      className='[--base-color:#0D74CE] [--base-gradient-color:#5EB1EF]'\n      duration={1}\n      spread={1}\n      zDistance={1}\n      scaleDistance={1.1}\n      rotateYDistance={20}\n    >\n      Creating the perfect dish...\n    </TextShimmerWave>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

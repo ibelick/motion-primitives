@@ -1,4 +1,4 @@
-export type RegistryType = 'registry:ui' | 'registry:hook';
+export type RegistryType = 'registry:ui' | 'registry:hook' | 'registry:example';
 
 export interface RegistryFile {
   path: string;
@@ -24,4 +24,5 @@ export interface Schema {
   tailwind?: TailwindConfig;
   cssVars?: CssVars;
   files: RegistryFile[];
+  componentName?: string;
 }

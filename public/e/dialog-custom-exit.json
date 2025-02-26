@@ -1,0 +1,12 @@
+{
+  "name": "dialog-custom-exit",
+  "type": "registry:example",
+  "componentName": "dialog",
+  "files": [
+    {
+      "path": "dialog-custom-exit.tsx",
+      "content": "import {\n  Dialog,\n  DialogDescription,\n  DialogContent,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n  DialogClose,\n} from '@/components/core/dialog';\nimport { Variants, Transition } from 'motion/react';\n\nexport function DialogCustomExit() {\n  const customVariants: Variants = {\n    initial: {\n      opacity: 0,\n      scale: 0.95,\n      y: 40,\n    },\n    animate: {\n      opacity: 1,\n      scale: 1,\n      y: 0,\n    },\n    exit: {\n      opacity: 0,\n      scale: 0.95,\n      y: 40,\n    },\n  };\n\n  const customTransition: Transition = {\n    type: 'spring',\n    bounce: 0,\n    duration: 0.25,\n  };\n\n  return (\n    <Dialog variants={customVariants} transition={customTransition}>\n      <DialogTrigger className='bg-zinc-950 px-4 py-2 text-sm text-white hover:bg-zinc-900 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100'>\n        Join the waitlist\n      </DialogTrigger>\n      <DialogContent className='w-full max-w-md bg-white p-6 dark:bg-zinc-900'>\n        <DialogHeader>\n          <DialogTitle className='text-zinc-900 dark:text-white'>\n            Join the waitlist\n          </DialogTitle>\n          <DialogDescription className='text-zinc-600 dark:text-zinc-400'>\n            Enter your email address to receive updates when we launch.\n          </DialogDescription>\n        </DialogHeader>\n        <div className='mt-6 flex flex-col space-y-4'>\n          <label htmlFor='name' className='sr-only'>\n            Email\n          </label>\n          <input\n            id='name'\n            type='email'\n            className='h-9 w-full rounded-lg border border-zinc-200 bg-white px-3 text-base text-zinc-900 outline-hidden focus:ring-2 focus:ring-black/5 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:ring-white/5 sm:text-sm'\n            placeholder='Enter your email'\n          />\n          <button\n            className='inline-flex items-center justify-center self-end rounded-lg bg-black px-4 py-2 text-sm font-medium text-zinc-50 dark:bg-white dark:text-zinc-900'\n            type='submit'\n          >\n            Join now\n          </button>\n        </div>\n        <DialogClose />\n      </DialogContent>\n    </Dialog>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

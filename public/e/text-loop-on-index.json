@@ -1,0 +1,12 @@
+{
+  "name": "text-loop-on-index",
+  "type": "registry:example",
+  "componentName": "text-loop",
+  "files": [
+    {
+      "path": "text-loop-on-index.tsx",
+      "content": "'use client';\nimport { TextLoop } from '@/components/core/text-loop';\nimport { Music } from 'lucide-react';\nimport { useState } from 'react';\n\nexport function TextLoopOnIndexChange() {\n  const [direction, setDirection] = useState(-1);\n\n  return (\n    <TextLoop\n      className='text-sm'\n      transition={{\n        type: 'spring',\n        stiffness: 150,\n        damping: 19,\n        mass: 1.2,\n      }}\n      interval={2.5}\n      onIndexChange={(index) => {\n        setDirection(index === 0 ? -1 : 1);\n      }}\n      variants={{\n        initial: {\n          y: -direction * 20,\n          rotateX: -direction * 90,\n          opacity: 0,\n          filter: 'blur(4px)',\n        },\n        animate: {\n          y: 0,\n          rotateX: 0,\n          opacity: 1,\n          filter: 'blur(0px)',\n        },\n        exit: {\n          y: -direction * 20,\n          rotateX: -direction * 90,\n          opacity: 0,\n          filter: 'blur(4px)',\n        },\n      }}\n    >\n      <span>\n        <Music size={12} className='mr-1 inline-block' />A Little Lost・Arthur\n        Russell\n      </span>\n      <span>La Trinité, Martinique</span>\n    </TextLoop>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "text-shimmer-basic",
+  "type": "registry:example",
+  "componentName": "text-shimmer",
+  "files": [
+    {
+      "path": "text-shimmer-basic.tsx",
+      "content": "import { TextShimmer } from '@/components/core/text-shimmer';\n\nexport function TextShimmerBasic() {\n  return (\n    <TextShimmer className='font-mono text-sm' duration={1}>\n      Generating code...\n    </TextShimmer>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

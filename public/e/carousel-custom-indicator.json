@@ -1,0 +1,12 @@
+{
+  "name": "carousel-custom-indicator",
+  "type": "registry:example",
+  "componentName": "carousel",
+  "files": [
+    {
+      "path": "carousel-custom-indicator.tsx",
+      "content": "'use client';\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n} from '@/components/core/carousel';\nimport { useState } from 'react';\n\nconst ITEMS = new Array(4).fill(null).map((_, index) => index + 1);\n\nexport function CarouselCustomIndicator() {\n  const [index, setIndex] = useState(0);\n\n  return (\n    <div className='relative w-full max-w-xs py-8'>\n      <Carousel index={index} onIndexChange={setIndex}>\n        <CarouselContent className='relative'>\n          {ITEMS.map((item) => {\n            return (\n              <CarouselItem key={item} className='p-4'>\n                <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n                  {item}\n                </div>\n              </CarouselItem>\n            );\n          })}\n        </CarouselContent>\n      </Carousel>\n      <div className='flex w-full justify-center space-x-3 px-4'>\n        {ITEMS.map((item) => {\n          return (\n            <button\n              key={item}\n              type='button'\n              aria-label={`Go to slide ${item}`}\n              onClick={() => setIndex(item - 1)}\n              className='h-12 w-12 border border-zinc-200 dark:border-zinc-800'\n            >\n              {item}\n            </button>\n          );\n        })}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

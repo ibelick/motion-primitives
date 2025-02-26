@@ -1,0 +1,12 @@
+{
+  "name": "animated-group-custom-variants-2",
+  "type": "registry:example",
+  "componentName": "animated-group",
+  "files": [
+    {
+      "path": "animated-group-custom-variants-2.tsx",
+      "content": "'use client';\nimport { AnimatedGroup } from '@/components/core/animated-group';\n\nexport function AnimatedGroupCustomVariants2() {\n  return (\n    <AnimatedGroup\n      className='grid h-full grid-cols-2 gap-8 p-12 md:grid-cols-3 lg:grid-cols-4'\n      variants={{\n        container: {\n          visible: {\n            transition: {\n              staggerChildren: 0.05,\n            },\n          },\n        },\n        item: {\n          hidden: {\n            opacity: 0,\n            filter: 'blur(12px)',\n            y: -60,\n            rotateX: 90,\n          },\n          visible: {\n            opacity: 1,\n            filter: 'blur(0px)',\n            y: 0,\n            rotateX: 0,\n            transition: {\n              type: 'spring',\n              bounce: 0.3,\n              duration: 1,\n            },\n          },\n        },\n      }}\n    >\n      <div key={1}>\n        <img\n          src='/national_geographic_logo.svg'\n          alt='Apple Music logo'\n          className='h-auto w-full'\n        />\n      </div>\n      <div key={2}>\n        <img src='/sony_logo.svg' alt='Chrome logo' className='h-auto w-full' />\n      </div>\n      <div key={3}>\n        <img\n          src='/strava_logo.svg'\n          alt='Strava logo'\n          className='h-auto w-full'\n        />\n      </div>\n      <div key={4}>\n        <img\n          src='/nintendo_logo.svg'\n          alt='Nintendo logo'\n          className='h-auto w-full'\n        />\n      </div>\n    </AnimatedGroup>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

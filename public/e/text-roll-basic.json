@@ -1,0 +1,12 @@
+{
+  "name": "text-roll-basic",
+  "type": "registry:example",
+  "componentName": "text-roll",
+  "files": [
+    {
+      "path": "text-roll-basic.tsx",
+      "content": "import { TextRoll } from '@/components/core/text-roll';\n\nexport function TextRollBasic() {\n  return (\n    <TextRoll className='text-4xl text-black dark:text-white'>\n      motion-primitives\n    </TextRoll>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

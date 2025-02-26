@@ -1,0 +1,12 @@
+{
+  "name": "carousel-basic",
+  "type": "registry:example",
+  "componentName": "carousel",
+  "files": [
+    {
+      "path": "carousel-basic.tsx",
+      "content": "import {\n  Carousel,\n  CarouselContent,\n  CarouselNavigation,\n  CarouselIndicator,\n  CarouselItem,\n} from '@/components/core/carousel';\n\nexport function CarouselBasic() {\n  return (\n    <div className='relative w-full max-w-xs'>\n      <Carousel>\n        <CarouselContent>\n          <CarouselItem className='p-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              1\n            </div>\n          </CarouselItem>\n          <CarouselItem className='p-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              2\n            </div>\n          </CarouselItem>\n          <CarouselItem className='p-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              3\n            </div>\n          </CarouselItem>\n          <CarouselItem className='p-4'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              4\n            </div>\n          </CarouselItem>\n        </CarouselContent>\n        <CarouselNavigation alwaysShow />\n        <CarouselIndicator />\n      </Carousel>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "sliding-slider",
+  "type": "registry:example",
+  "componentName": "sliding-number",
+  "files": [
+    {
+      "path": "sliding-slider.tsx",
+      "content": "'use client';\nimport { SlidingNumber } from '@/components/core/sliding-number';\nimport { useState } from 'react';\n\nexport function SlidingNumberWithSlider() {\n  const [value, setValue] = useState(100);\n  const [width, setWidth] = useState(0);\n\n  return (\n    <div className='flex flex-col items-start gap-0'>\n      <div className='flex items-center gap-2 font-mono'>Current ARR:</div>\n      <div className='inline-flex items-center gap-1 font-mono leading-none'>\n        $<SlidingNumber value={value} />\n      </div>\n      <input\n        type='range'\n        value={value}\n        min={500}\n        max={100000}\n        step={50}\n        onChange={(e) => setValue(+e.target.value)}\n        className='mt-2 accent-indigo-950'\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

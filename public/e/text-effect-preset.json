@@ -1,0 +1,12 @@
+{
+  "name": "text-effect-preset",
+  "type": "registry:example",
+  "componentName": "text-effect",
+  "files": [
+    {
+      "path": "text-effect-preset.tsx",
+      "content": "import { TextEffect } from '@/components/core/text-effect';\n\nexport function TextEffectWithPreset() {\n  return (\n    <TextEffect per='word' as='h3' preset='slide'>\n      Animate your ideas with motion-primitives\n    </TextEffect>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

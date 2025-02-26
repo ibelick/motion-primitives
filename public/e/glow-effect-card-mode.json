@@ -1,0 +1,12 @@
+{
+  "name": "glow-effect-card-mode",
+  "type": "registry:example",
+  "componentName": "glow-effect",
+  "files": [
+    {
+      "path": "glow-effect-card-mode.tsx",
+      "content": "'use client';\nimport { motion } from 'motion/react';\nimport { TextMorph } from '@/components/core/text-morph';\nimport { GlowEffect } from '@/components/core/glow-effect';\nimport { useState } from 'react';\n\nexport function GlowEffectCardMode() {\n  const [isVisible, setIsVisible] = useState(false);\n\n  const handleLoad = () => {\n    if (isVisible) {\n      setIsVisible(false);\n      return;\n    }\n\n    setIsVisible(true);\n  };\n\n  return (\n    <div className='relative h-[200px] w-[300px]'>\n      <motion.div\n        className='pointer-events-none absolute inset-0'\n        animate={{\n          opacity: isVisible ? 1 : 0,\n        }}\n        transition={{\n          duration: 0.2,\n          ease: 'easeOut',\n        }}\n      >\n        <GlowEffect\n          colors={['#0894FF', '#C959DD', '#FF2E54', '#FF9004']}\n          mode='colorShift'\n          blur='medium'\n          duration={4}\n        />\n      </motion.div>\n      <div className='relative flex h-full flex-col items-end justify-end rounded-md border border-zinc-300/40 bg-zinc-100 px-4 py-3 dark:border-zinc-700/40 dark:bg-zinc-900'>\n        <button\n          className='relative ml-1 flex h-8 scale-100 select-none appearance-none items-center justify-center overflow-hidden rounded-lg border border-zinc-950/10 bg-white px-2 text-sm text-zinc-950 focus-visible:ring-2 active:scale-[0.96] dark:border-zinc-50/10'\n          type='button'\n          aria-label='Load'\n          onClick={handleLoad}\n        >\n          <TextMorph>{isVisible ? 'Submitting...' : 'Submit'}</TextMorph>\n        </button>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

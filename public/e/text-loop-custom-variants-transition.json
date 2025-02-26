@@ -1,0 +1,12 @@
+{
+  "name": "text-loop-custom-variants-transition",
+  "type": "registry:example",
+  "componentName": "text-loop",
+  "files": [
+    {
+      "path": "text-loop-custom-variants-transition.tsx",
+      "content": "import { TextLoop } from '@/components/core/text-loop';\n\nexport function TextLoopCustomVariantsTransition() {\n  return (\n    <p className='inline-flex whitespace-pre-wrap text-sm'>\n      Beautiful templates for{' '}\n      <TextLoop\n        className='overflow-y-clip'\n        transition={{\n          type: 'spring',\n          stiffness: 900,\n          damping: 80,\n          mass: 10,\n        }}\n        variants={{\n          initial: {\n            y: 20,\n            rotateX: 90,\n            opacity: 0,\n            filter: 'blur(4px)',\n          },\n          animate: {\n            y: 0,\n            rotateX: 0,\n            opacity: 1,\n            filter: 'blur(0px)',\n          },\n          exit: {\n            y: -20,\n            rotateX: -90,\n            opacity: 0,\n            filter: 'blur(4px)',\n          },\n        }}\n      >\n        <span>Founders</span>\n        <span>Developers</span>\n        <span>Designers</span>\n        <span>Design Engineers</span>\n      </TextLoop>\n    </p>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

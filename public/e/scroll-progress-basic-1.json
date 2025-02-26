@@ -1,0 +1,12 @@
+{
+  "name": "scroll-progress-basic-1",
+  "type": "registry:example",
+  "componentName": "scroll-progress",
+  "files": [
+    {
+      "path": "scroll-progress-basic-1.tsx",
+      "content": "'use client';\nimport { useRef } from 'react';\nimport { ScrollProgress } from '@/components/core/scroll-progress';\n\nconst dummyContent = Array.from({ length: 10 }, (_, i) => (\n  <p key={i} className='pb-4 font-mono text-sm text-zinc-500'>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam\n    lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra\n    nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget\n    libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut\n    porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies\n    a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n  </p>\n));\n\nexport function ScrollProgressBasic1() {\n  const containerRef = useRef<HTMLDivElement>(null);\n\n  return (\n    <div\n      className='h-[350px] overflow-auto px-8 pb-16 pt-16'\n      ref={containerRef}\n    >\n      <div className='pointer-events-none absolute bottom-0 left-0 h-12 w-full bg-white to-transparent backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_top,white,transparent)] dark:bg-neutral-900' />\n      <div className='pointer-events-none absolute left-0 top-0 w-full'>\n        <div className='absolute left-0 top-0 h-1 w-full bg-[#E6F4FE] dark:bg-[#111927]' />\n        <ScrollProgress\n          containerRef={containerRef}\n          className='absolute top-0 bg-[#0090FF]'\n        />\n      </div>\n      {dummyContent}\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

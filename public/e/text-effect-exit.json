@@ -1,0 +1,12 @@
+{
+  "name": "text-effect-exit",
+  "type": "registry:example",
+  "componentName": "text-effect",
+  "files": [
+    {
+      "path": "text-effect-exit.tsx",
+      "content": "'use client';\nimport { useState, useEffect } from 'react';\nimport { TextEffect } from '@/components/core/text-effect';\n\nexport function TextEffectWithExit() {\n  const [trigger, setTrigger] = useState(true);\n\n  useEffect(() => {\n    const interval = setInterval(() => {\n      setTrigger((prev) => !prev);\n    }, 2000);\n\n    return () => clearInterval(interval);\n  }, []);\n  const blurSlideVariants = {\n    container: {\n      hidden: { opacity: 0 },\n      visible: {\n        opacity: 1,\n        transition: { staggerChildren: 0.01 },\n      },\n      exit: {\n        transition: { staggerChildren: 0.01, staggerDirection: 1 },\n      },\n    },\n    item: {\n      hidden: {\n        opacity: 0,\n        filter: 'blur(10px) brightness(0%)',\n        y: 0,\n      },\n      visible: {\n        opacity: 1,\n        y: 0,\n        filter: 'blur(0px) brightness(100%)',\n        transition: {\n          duration: 0.4,\n        },\n      },\n      exit: {\n        opacity: 0,\n        y: -30,\n        filter: 'blur(10px) brightness(0%)',\n        transition: {\n          duration: 0.4,\n        },\n      },\n    },\n  };\n\n  return (\n    <TextEffect\n      className='inline-flex'\n      per='char'\n      variants={blurSlideVariants}\n      trigger={trigger}\n    >\n      Animate your ideas with motion-primitives\n    </TextEffect>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

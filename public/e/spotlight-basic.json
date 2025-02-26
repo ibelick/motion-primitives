@@ -1,0 +1,12 @@
+{
+  "name": "spotlight-basic",
+  "type": "registry:example",
+  "componentName": "spotlight",
+  "files": [
+    {
+      "path": "spotlight-basic.tsx",
+      "content": "import { Spotlight } from '@/components/core/spotlight';\n\nexport function SpotlightBasic() {\n  return (\n    <div className='relative aspect-video h-[200px] rounded-sm border border-zinc-100 bg-white dark:border-zinc-800 dark:bg-black'>\n      <Spotlight\n        className='bg-zinc-700 blur-2xl'\n        size={64}\n        springOptions={{\n          bounce: 0.3,\n          duration: 0.1,\n        }}\n      />\n      <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-sm bg-white p-2 dark:bg-black'>\n        <svg\n          role='img'\n          xmlns='http://www.w3.org/2000/svg'\n          viewBox='0 0 70 70'\n          aria-label='MP Logo'\n          width='70'\n          height='70'\n          className='h-8 w-auto stroke-black dark:stroke-white'\n          fill='none'\n        >\n          <path\n            stroke='currentColor'\n            strokeLinecap='round'\n            strokeWidth='3'\n            d='M51.883 26.495c-7.277-4.124-18.08-7.004-26.519-7.425-2.357-.118-4.407-.244-6.364 1.06M59.642 51c-10.47-7.25-26.594-13.426-39.514-15.664-3.61-.625-6.744-1.202-9.991.263'\n          ></path>\n        </svg>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

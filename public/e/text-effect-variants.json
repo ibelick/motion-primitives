@@ -1,0 +1,12 @@
+{
+  "name": "text-effect-variants",
+  "type": "registry:example",
+  "componentName": "text-effect",
+  "files": [
+    {
+      "path": "text-effect-variants.tsx",
+      "content": "'use client';\nimport { TextEffect } from '@/components/core/text-effect';\n\nexport function TextEffectWithCustomVariants() {\n  const getRandomColor = () => {\n    const letters = '0123456789ABCDEF';\n    let color = '#';\n    for (let i = 0; i < 6; i++) {\n      color += letters[Math.floor(Math.random() * 16)];\n    }\n    return color;\n  };\n\n  const fancyVariants = {\n    container: {\n      hidden: { opacity: 0 },\n      visible: {\n        opacity: 1,\n        transition: {\n          staggerChildren: 0.05,\n        },\n      },\n    },\n    item: {\n      hidden: () => ({\n        opacity: 0,\n        y: Math.random() * 100 - 50,\n        rotate: Math.random() * 90 - 45,\n        scale: 0.3,\n        color: getRandomColor(),\n      }),\n      visible: {\n        opacity: 1,\n        y: 0,\n        rotate: 0,\n        scale: 1,\n        color: getRandomColor(),\n        transition: {\n          type: 'spring',\n          damping: 12,\n          stiffness: 200,\n        },\n      },\n    },\n  };\n\n  return (\n    <TextEffect per='word' variants={fancyVariants}>\n      Animate your ideas with motion-primitives\n    </TextEffect>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

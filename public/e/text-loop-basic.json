@@ -1,0 +1,12 @@
+{
+  "name": "text-loop-basic",
+  "type": "registry:example",
+  "componentName": "text-loop",
+  "files": [
+    {
+      "path": "text-loop-basic.tsx",
+      "content": "import { TextLoop } from '@/components/core/text-loop';\n\nexport function TextLoopBasic() {\n  return (\n    <TextLoop className='font-mono text-sm'>\n      <span>How can I assist you today?</span>\n      <span>Generate a logo</span>\n      <span>Create a component</span>\n      <span>Draw a diagram</span>\n    </TextLoop>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

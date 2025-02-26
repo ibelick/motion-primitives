@@ -1,0 +1,12 @@
+{
+  "name": "text-scramble-custom-trigger",
+  "type": "registry:example",
+  "componentName": "text-scramble",
+  "files": [
+    {
+      "path": "text-scramble-custom-trigger.tsx",
+      "content": "'use client';\nimport { TextScramble } from '@/components/core/text-scramble';\nimport { useState } from 'react';\n\nexport function TextScrambleCustomTrigger() {\n  const [isTrigger, setIsTrigger] = useState(false);\n\n  return (\n    <a\n      href='#'\n      className='text-zinc-500 transition-colors hover:text-black dark:hover:text-white'\n    >\n      <TextScramble\n        className='text-sm'\n        as='span'\n        speed={0.01}\n        trigger={isTrigger}\n        onHoverStart={() => setIsTrigger(true)}\n        onScrambleComplete={() => setIsTrigger(false)}\n      >\n        Tyler, The Creator - I Hope You Fin Your Way Home\n      </TextScramble>\n    </a>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

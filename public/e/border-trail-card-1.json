@@ -1,0 +1,12 @@
+{
+  "name": "border-trail-card-1",
+  "type": "registry:example",
+  "componentName": "border-trail",
+  "files": [
+    {
+      "path": "border-trail-card-1.tsx",
+      "content": "import { BorderTrail } from '@/components/core/border-trail';\n\nexport function BorderTrailCard1() {\n  return (\n    <div className='relative flex h-[200px] w-[300px] flex-col items-center justify-center rounded-md bg-zinc-200 px-5 py-2 dark:bg-zinc-800'>\n      <BorderTrail\n        style={{\n          boxShadow:\n            '0px 0px 60px 30px rgb(255 255 255 / 50%), 0 0 100px 60px rgb(0 0 0 / 50%), 0 0 140px 90px rgb(0 0 0 / 50%)',\n        }}\n        size={100}\n      />\n      <div\n        className='flex h-full animate-pulse flex-col items-start justify-center space-y-2'\n        role='status'\n        aria-label='Loading...'\n      >\n        <div className='h-1 w-4 rounded-[4px] bg-zinc-600'></div>\n        <div className='h-1 w-10 rounded-[4px] bg-zinc-600'></div>\n        <div className='h-1 w-12 rounded-[4px] bg-zinc-600'></div>\n        <div className='h-1 w-12 rounded-[4px] bg-zinc-600'></div>\n        <div className='h-1 w-12 rounded-[4px] bg-zinc-600'></div>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

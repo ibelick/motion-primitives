@@ -1,0 +1,12 @@
+{
+  "name": "text-morph-button",
+  "type": "registry:example",
+  "componentName": "text-morph",
+  "files": [
+    {
+      "path": "text-morph-button.tsx",
+      "content": "'use client';\nimport { useState } from 'react';\nimport { TextMorph } from '@/components/core/text-morph';\n\nexport function TextMorphButton() {\n  const [text, setText] = useState('Continue');\n\n  return (\n    <button\n      onClick={() => setText(text === 'Continue' ? 'Confirm' : 'Continue')}\n      className='flex h-10 w-[120px] shrink-0 items-center justify-center rounded-full bg-black px-4 text-base font-medium text-zinc-50 shadow-xs transition-colors hover:bg-zinc-800 dark:bg-zinc-50 dark:text-black dark:hover:bg-zinc-200'\n    >\n      <TextMorph>{text}</TextMorph>\n    </button>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

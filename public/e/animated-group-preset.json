@@ -1,0 +1,12 @@
+{
+  "name": "animated-group-preset",
+  "type": "registry:example",
+  "componentName": "animated-group",
+  "files": [
+    {
+      "path": "animated-group-preset.tsx",
+      "content": "import { AnimatedGroup } from '@/components/core/animated-group';\n\nexport function AnimatedGroupPreset() {\n  return (\n    <AnimatedGroup\n      className='grid grid-cols-2 gap-4 p-8 md:grid-cols-3 lg:grid-cols-4'\n      preset='scale'\n    >\n      <img\n        src='https://images.beta.cosmos.so/fc6fdd93-552c-47e6-98aa-b8fb3ba070a2?format=jpeg'\n        alt='impressionist painting, uploaded to Cosmos'\n        className='h-auto w-full rounded-[4px]'\n      />\n      <img\n        src='https://images.beta.cosmos.so/cb674d14-ebd1-4408-bab1-79df895017b6?format=jpeg'\n        alt='impressionist painting, uploaded to Cosmos'\n        className='h-auto w-full rounded-[4px]'\n      />\n      <img\n        src='https://images.beta.cosmos.so/e5a6c3ed-82ad-4084-9a11-1eccd7bc91aa?format=jpeg'\n        alt='impressionist painting, uploaded to Cosmos'\n        className='h-auto w-full rounded-[4px]'\n      />\n      <img\n        src='https://images.beta.cosmos.so/4d02a1e7-d1f2-4575-86a9-bed243e59132?format=jpeg'\n        alt='impressionist painting, uploaded to Cosmos'\n        className='h-auto w-full rounded-[4px]'\n      />\n    </AnimatedGroup>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

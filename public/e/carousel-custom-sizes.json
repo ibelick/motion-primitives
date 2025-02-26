@@ -1,0 +1,12 @@
+{
+  "name": "carousel-custom-sizes",
+  "type": "registry:example",
+  "componentName": "carousel",
+  "files": [
+    {
+      "path": "carousel-custom-sizes.tsx",
+      "content": "import {\n  Carousel,\n  CarouselContent,\n  CarouselNavigation,\n  CarouselItem,\n} from '@/components/core/carousel';\n\nexport function CarouselCustomSizes() {\n  return (\n    <div className='relative w-full max-w-xs'>\n      <Carousel>\n        <CarouselContent>\n          <CarouselItem className='basis-1/3'>\n            <div className='flex aspect-square items-center justify-center border-b border-l border-t border-zinc-200 dark:border-zinc-800'>\n              1\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3'>\n            <div className='flex aspect-square items-center justify-center border border-zinc-200 dark:border-zinc-800'>\n              2\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3'>\n            <div className='flex aspect-square items-center justify-center border-b border-r border-t border-zinc-200 dark:border-zinc-800'>\n              3\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3'>\n            <div className='flex aspect-square items-center justify-center border-b border-r border-t border-zinc-200 dark:border-zinc-800'>\n              4\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3'>\n            <div className='flex aspect-square items-center justify-center border-b border-r border-t border-zinc-200 dark:border-zinc-800'>\n              5\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3'>\n            <div className='flex aspect-square items-center justify-center border-b border-r border-t border-zinc-200 dark:border-zinc-800'>\n              6\n            </div>\n          </CarouselItem>\n          <CarouselItem className='basis-1/3'>\n            <div className='flex aspect-square items-center justify-center border-b border-r border-t border-zinc-200 dark:border-zinc-800'>\n              7\n            </div>\n          </CarouselItem>\n        </CarouselContent>\n        <CarouselNavigation />\n      </Carousel>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

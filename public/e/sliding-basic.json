@@ -1,0 +1,12 @@
+{
+  "name": "sliding-basic",
+  "type": "registry:example",
+  "componentName": "sliding-number",
+  "files": [
+    {
+      "path": "sliding-basic.tsx",
+      "content": "'use client';\n\nimport { motion } from 'motion/react';\nimport { useEffect, useState } from 'react';\nimport { SlidingNumber } from '@/components/core/sliding-number';\n\nexport function SlidingNumberBasic() {\n  const [value, setValue] = useState(0);\n\n  useEffect(() => {\n    if (value === 100) return;\n\n    const interval = setInterval(() => {\n      setValue(value + 1);\n    }, 10);\n    return () => clearInterval(interval);\n  }, [value]);\n\n  return (\n    <motion.div\n      initial={{ y: 0, fontSize: `${24}px` }}\n      animate={{ y: 0, fontSize: `${24}px` }}\n      transition={{\n        ease: [1, 0, 0.35, 0.95],\n        duration: 1.5,\n        delay: 0.3,\n      }}\n      className='leading-none text-black dark:text-white'\n    >\n      <div className='inline-flex items-center gap-1 font-mono'>\n        <SlidingNumber value={value} />%\n      </div>\n    </motion.div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

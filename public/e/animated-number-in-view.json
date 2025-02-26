@@ -1,0 +1,12 @@
+{
+  "name": "animated-number-in-view",
+  "type": "registry:example",
+  "componentName": "animated-number",
+  "files": [
+    {
+      "path": "animated-number-in-view.tsx",
+      "content": "'use client';\nimport { AnimatedNumber } from '@/components/core/animated-number';\nimport { useInView } from 'motion/react';\nimport { useRef, useState } from 'react';\n\nexport function AnimatedNumberInView() {\n  const [value, setValue] = useState(0);\n  const ref = useRef(null);\n  const isInView = useInView(ref);\n\n  if (isInView && value === 0) {\n    setValue(10000);\n  }\n\n  return (\n    <div className='flex w-full items-center justify-center' ref={ref}>\n      <AnimatedNumber\n        className='inline-flex items-center font-mono text-2xl font-light text-zinc-800 dark:text-zinc-50'\n        springOptions={{\n          bounce: 0,\n          duration: 10000,\n        }}\n        value={value}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

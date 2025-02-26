@@ -1,0 +1,12 @@
+{
+  "name": "spinning-text-custom-variants",
+  "type": "registry:example",
+  "componentName": "spinning-text",
+  "files": [
+    {
+      "path": "spinning-text-custom-variants.tsx",
+      "content": "import React from 'react';\nimport { SpinningText } from '@/components/core/spinning-text';\n\nexport function SpinningTextCustomVariants() {\n  return (\n    <SpinningText\n      radius={5.5}\n      fontSize={1}\n      variants={{\n        container: {\n          hidden: {\n            opacity: 1,\n          },\n          visible: {\n            opacity: 1,\n            rotate: 360,\n            transition: {\n              type: 'spring',\n              bounce: 0,\n              duration: 6,\n              repeat: Infinity,\n              staggerChildren: 0.03,\n            },\n          },\n        },\n        item: {\n          hidden: {\n            opacity: 0,\n            filter: 'blur(4px)',\n          },\n          visible: {\n            opacity: 1,\n            filter: 'blur(0px)',\n          },\n        },\n      }}\n      className='font-[450]'\n    >\n      {`pre-order • pre-order • pre-order • `}\n    </SpinningText>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

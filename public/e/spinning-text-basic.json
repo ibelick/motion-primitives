@@ -1,0 +1,12 @@
+{
+  "name": "spinning-text-basic",
+  "type": "registry:example",
+  "componentName": "spinning-text",
+  "files": [
+    {
+      "path": "spinning-text-basic.tsx",
+      "content": "import { SpinningText } from '@/components/core/spinning-text';\n\nexport function SpinningTextBasic() {\n  return (\n    <SpinningText\n      radius={5}\n      fontSize={1.2}\n      className='font-medium leading-none'\n    >\n      {`pre-order • pre-order • pre-order • `}\n    </SpinningText>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}
