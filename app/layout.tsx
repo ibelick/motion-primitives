@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/website/theme-provider';
 import { GeistMono } from 'geist/font/mono';
-
+import { TooltipProvider } from '@/components/ui/tooltip';
 const inter = Inter({ subsets: ['latin'] });
 const geistMono = GeistMono;
 
@@ -34,7 +34,9 @@ export default function RootLayout({
         className={`${inter.className} ${geistMono.variable} bg-white font-sans antialiased dark:bg-zinc-950`}
       >
         <ThemeProvider attribute='class'>
-          <div className='isolate min-h-screen'>{children}</div>
+          <TooltipProvider>
+            <div className='isolate min-h-screen'>{children}</div>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
