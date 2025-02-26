@@ -89,7 +89,7 @@ for (const example of examples) {
       try {
         const depContent = fs.readFileSync(depFile.path, 'utf8');
         files.push({
-          path: depFile.name,
+          path: `components/core/${depFile.name}`,
           content: depContent,
           type: 'registry:example' as const,
         });
@@ -105,7 +105,7 @@ for (const example of examples) {
       try {
         const depContent = fs.readFileSync(depFile.path, 'utf8');
         files.push({
-          path: depFile.name,
+          path: `components/ui/${depFile.name}`,
           content: depContent,
           type: 'registry:example' as const,
         });

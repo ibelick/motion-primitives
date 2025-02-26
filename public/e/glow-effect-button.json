@@ -1,7 +1,7 @@
 {
   "name": "glow-effect-button",
   "type": "registry:example",
-  "componentName": "glow-effect",
+  "componentName": "glow-effect-button",
   "description": "Button with interactive glow effect on hover.",
   "files": [
     {

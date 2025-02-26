@@ -1,7 +1,7 @@
 {
   "name": "animated-number-in-view",
   "type": "registry:example",
-  "componentName": "animated-number",
+  "componentName": "animated-number-in-view",
   "description": "Animated number that activates when scrolled into view.",
   "files": [
     {
@@ -10,8 +10,8 @@
       "type": "registry:example"
     },
     {
-      "path": "in-view.tsx",
-      "content": "'use client';\nimport { ReactNode, useRef } from 'react';\nimport {\n  motion,\n  useInView,\n  Variant,\n  Transition,\n  UseInViewOptions,\n} from 'motion/react';\n\nexport type InViewProps = {\n  children: ReactNode;\n  variants?: {\n    hidden: Variant;\n    visible: Variant;\n  };\n  transition?: Transition;\n  viewOptions?: UseInViewOptions;\n  as?: React.ElementType;\n};\n\nconst defaultVariants = {\n  hidden: { opacity: 0 },\n  visible: { opacity: 1 },\n};\n\nexport function InView({\n  children,\n  variants = defaultVariants,\n  transition,\n  viewOptions,\n  as = 'div',\n}: InViewProps) {\n  const ref = useRef(null);\n  const isInView = useInView(ref, viewOptions);\n\n  const MotionComponent = motion[as as keyof typeof motion] as typeof as;\n\n  return (\n    <MotionComponent\n      ref={ref}\n      initial='hidden'\n      animate={isInView ? 'visible' : 'hidden'}\n      variants={variants}\n      transition={transition}\n    >\n      {children}\n    </MotionComponent>\n  );\n}\n",
+      "path": "components/core/animated-number.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, SpringOptions, useSpring, useTransform } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport type AnimatedNumberProps = {\n  value: number;\n  className?: string;\n  springOptions?: SpringOptions;\n  as?: React.ElementType;\n};\n\nexport function AnimatedNumber({\n  value,\n  className,\n  springOptions,\n  as = 'span',\n}: AnimatedNumberProps) {\n  const MotionComponent = motion.create(as as keyof JSX.IntrinsicElements);\n\n  const spring = useSpring(value, springOptions);\n  const display = useTransform(spring, (current) =>\n    Math.round(current).toLocaleString()\n  );\n\n  useEffect(() => {\n    spring.set(value);\n  }, [spring, value]);\n\n  return (\n    <MotionComponent className={cn('tabular-nums', className)}>\n      {display}\n    </MotionComponent>\n  );\n}\n",
       "type": "registry:example"
     }
   ]
