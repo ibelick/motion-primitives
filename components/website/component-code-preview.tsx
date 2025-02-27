@@ -26,14 +26,21 @@ export default function ComponentCodePreview({
           <TabsTrigger value='preview'>Preview</TabsTrigger>
           <TabsTrigger value='code'>Code</TabsTrigger>
         </TabsList>
-        <TabsContent value='preview' className='border border-zinc-200 dark:border-zinc-800'>
+        <TabsContent
+          value='preview'
+          className='border border-zinc-200 dark:border-zinc-800'
+        >
           <ComponentPreview
             component={component}
             hasReTrigger={hasReTrigger}
             className={classNameComponentContainer}
-          />  
+            filePath={filePath}
+          />
         </TabsContent>
-        <TabsContent value='code' className='border border-zinc-200 dark:border-zinc-800'>
+        <TabsContent
+          value='code'
+          className='border border-zinc-200 dark:border-zinc-800'
+        >
           <CodePreview code={fileContent}>
             <CodeRenderer code={fileContent} lang='tsx' />
           </CodePreview>
