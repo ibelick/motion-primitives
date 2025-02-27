@@ -1,18 +1,18 @@
 {
   "name": "progressive-blur-slider",
-  "type": "registry:example",
+  "type": "registry:ui",
   "componentName": "progressive-blur",
   "description": "Progressive blur effect with interactive slider control.",
   "files": [
     {
       "path": "progressive-blur-slider.tsx",
       "content": "import { InfiniteSlider } from '@/components/core/infinite-slider';\nimport { ProgressiveBlur } from '@/components/core/progressive-blur';\n\nexport function ProgressiveBlurSlider() {\n  return (\n    <div className='relative h-[350px] w-full overflow-hidden'>\n      <InfiniteSlider className='flex h-full w-full items-center'>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          1\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          2\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          3\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          4\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          5\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          6\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          7\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          8\n        </div>\n        <div className='w-32 text-center text-4xl font-[450] text-black dark:text-white'>\n          9\n        </div>\n      </InfiniteSlider>\n      <ProgressiveBlur\n        className='pointer-events-none absolute top-0 left-0 h-full w-[200px]'\n        direction='left'\n        blurIntensity={1}\n      />\n      <ProgressiveBlur\n        className='pointer-events-none absolute top-0 right-0 h-full w-[200px]'\n        direction='right'\n        blurIntensity={1}\n      />\n    </div>\n  );\n}\n",
-      "type": "registry:example"
+      "type": "registry:component"
     },
     {
       "path": "components/core/progressive-blur.tsx",
       "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { HTMLMotionProps, motion } from 'motion/react';\n\nexport const GRADIENT_ANGLES = {\n  top: 0,\n  right: 90,\n  bottom: 180,\n  left: 270,\n};\n\nexport type ProgressiveBlurProps = {\n  direction?: keyof typeof GRADIENT_ANGLES;\n  blurLayers?: number;\n  className?: string;\n  blurIntensity?: number;\n} & HTMLMotionProps<'div'>;\n\nexport function ProgressiveBlur({\n  direction = 'bottom',\n  blurLayers = 8,\n  className,\n  blurIntensity = 0.25,\n  ...props\n}: ProgressiveBlurProps) {\n  const layers = Math.max(blurLayers, 2);\n  const segmentSize = 1 / (blurLayers + 1);\n\n  return (\n    <div className={cn('relative', className)}>\n      {Array.from({ length: layers }).map((_, index) => {\n        const angle = GRADIENT_ANGLES[direction];\n        const gradientStops = [\n          index * segmentSize,\n          (index + 1) * segmentSize,\n          (index + 2) * segmentSize,\n          (index + 3) * segmentSize,\n        ].map(\n          (pos, posIndex) =>\n            `rgba(255, 255, 255, ${posIndex === 1 || posIndex === 2 ? 1 : 0}) ${pos * 100}%`\n        );\n\n        const gradient = `linear-gradient(${angle}deg, ${gradientStops.join(\n          ', '\n        )})`;\n\n        return (\n          <motion.div\n            key={index}\n            className='pointer-events-none absolute inset-0 rounded-[inherit]'\n            style={{\n              maskImage: gradient,\n              WebkitMaskImage: gradient,\n              backdropFilter: `blur(${index * blurIntensity}px)`,\n            }}\n            {...props}\n          />\n        );\n      })}\n    </div>\n  );\n}\n",
-      "type": "registry:example"
+      "type": "registry:ui"
     }
   ]
 }

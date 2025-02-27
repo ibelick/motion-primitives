@@ -1,18 +1,18 @@
 {
   "name": "spotlight-border",
-  "type": "registry:example",
+  "type": "registry:ui",
   "componentName": "spotlight",
   "description": "Spotlight effect applied to element borders.",
   "files": [
     {
       "path": "spotlight-border.tsx",
       "content": "import { Spotlight } from '@/components/core/spotlight';\n\nexport function SpotlightBorder() {\n  return (\n    <div className='relative aspect-video h-[200px] overflow-hidden rounded-xl bg-zinc-300/30 p-[1px] dark:bg-zinc-700/30'>\n      <Spotlight\n        className='from-blue-600 via-blue-500 to-blue-400 blur-3xl dark:from-blue-200 dark:via-blue-300 dark:to-blue-400'\n        size={124}\n      />\n      <div className='relative h-full w-full rounded-xl bg-white dark:bg-black'></div>\n    </div>\n  );\n}\n",
-      "type": "registry:example"
+      "type": "registry:component"
     },
     {
       "path": "components/core/spotlight.tsx",
       "content": "'use client';\nimport React, { useRef, useState, useCallback, useEffect } from 'react';\nimport { motion, useSpring, useTransform, SpringOptions } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\nexport type SpotlightProps = {\n  className?: string;\n  size?: number;\n  springOptions?: SpringOptions;\n};\n\nexport function Spotlight({\n  className,\n  size = 200,\n  springOptions = { bounce: 0 },\n}: SpotlightProps) {\n  const containerRef = useRef<HTMLDivElement>(null);\n  const [isHovered, setIsHovered] = useState(false);\n  const [parentElement, setParentElement] = useState<HTMLElement | null>(null);\n\n  const mouseX = useSpring(0, springOptions);\n  const mouseY = useSpring(0, springOptions);\n\n  const spotlightLeft = useTransform(mouseX, (x) => `${x - size / 2}px`);\n  const spotlightTop = useTransform(mouseY, (y) => `${y - size / 2}px`);\n\n  useEffect(() => {\n    if (containerRef.current) {\n      const parent = containerRef.current.parentElement;\n      if (parent) {\n        parent.style.position = 'relative';\n        parent.style.overflow = 'hidden';\n        setParentElement(parent);\n      }\n    }\n  }, []);\n\n  const handleMouseMove = useCallback(\n    (event: MouseEvent) => {\n      if (!parentElement) return;\n      const { left, top } = parentElement.getBoundingClientRect();\n      mouseX.set(event.clientX - left);\n      mouseY.set(event.clientY - top);\n    },\n    [mouseX, mouseY, parentElement]\n  );\n\n  useEffect(() => {\n    if (!parentElement) return;\n\n    const abortController = new AbortController();\n\n    parentElement.addEventListener('mousemove', handleMouseMove, {\n      signal: abortController.signal,\n    });\n    parentElement.addEventListener('mouseenter', () => setIsHovered(true), {\n      signal: abortController.signal,\n    });\n    parentElement.addEventListener('mouseleave', () => setIsHovered(false), {\n      signal: abortController.signal,\n    });\n\n    return () => {\n      abortController.abort();\n    };\n  }, [parentElement, handleMouseMove]);\n\n  return (\n    <motion.div\n      ref={containerRef}\n      className={cn(\n        'pointer-events-none absolute rounded-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops),transparent_80%)] blur-xl transition-opacity duration-200',\n        'from-zinc-50 via-zinc-100 to-zinc-200',\n        isHovered ? 'opacity-100' : 'opacity-0',\n        className\n      )}\n      style={{\n        width: size,\n        height: size,\n        left: spotlightLeft,\n        top: spotlightTop,\n      }}\n    />\n  );\n}\n",
-      "type": "registry:example"
+      "type": "registry:ui"
     }
   ]
 }

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Schema } from './registry-schema';
+import { Schema, RegistryType } from './registry-schema';
 import { components } from './registry-components';
 import { hooks } from './registry-hooks';
 import { examples } from './registry-examples';
@@ -24,9 +24,34 @@ if (!fs.existsSync(registryExamples)) {
 for (const component of components) {
   const content = fs.readFileSync(component.path, 'utf8');
 
+  // Start with the main component file
+  const files = [
+    {
+      path: `${component.name}.tsx`,
+      content,
+      type: 'registry:ui' as RegistryType,
+    },
+  ];
+
+  // Add any additional files specified in the component definition
+  if (component.files && component.files.length > 0) {
+    for (const depFile of component.files) {
+      try {
+        const depContent = fs.readFileSync(depFile.path, 'utf8');
+        files.push({
+          path: depFile.name, // Use the specified filename
+          content: depContent,
+          type: (depFile.type || 'registry:ui') as RegistryType, // Use specified type or default to registry:ui
+        });
+      } catch (error) {
+        console.error(`Error reading dependent file ${depFile.path}:`, error);
+      }
+    }
+  }
+
   const schema = {
     name: component.name,
-    type: 'registry:ui',
+    type: 'registry:ui' as RegistryType,
     registryDependencies: component.registryDependencies || [],
     dependencies: component.dependencies || [],
     devDependencies: component.devDependencies || [],
@@ -35,13 +60,7 @@ for (const component of components) {
       light: {},
       dark: {},
     },
-    files: [
-      {
-        path: `${component.name}.tsx`,
-        content,
-        type: 'registry:ui',
-      },
-    ],
+    files,
   } satisfies Schema;
 
   fs.writeFileSync(
@@ -55,12 +74,12 @@ for (const hook of hooks) {
 
   const schema = {
     name: hook.name,
-    type: 'registry:hook',
+    type: 'registry:hook' as RegistryType,
     files: [
       {
         path: `${hook.name}.ts`,
         content,
-        type: 'registry:hook',
+        type: 'registry:hook' as RegistryType,
       },
     ],
   } satisfies Schema;
@@ -73,16 +92,16 @@ for (const hook of hooks) {
 
 for (const example of examples) {
   const content = fs.readFileSync(example.path, 'utf8');
-  
+
   // Prepare the files array - start with the main example file
   const files = [
     {
       path: `${example.name}.tsx`,
       content,
-      type: 'registry:example' as const,
-    }
+      type: 'registry:component' as RegistryType,
+    },
   ];
-  
+
   // Add files from the files property (core components)
   if (example.files && example.files.length > 0) {
     for (const depFile of example.files) {
@@ -91,23 +110,7 @@ for (const example of examples) {
         files.push({
           path: `components/core/${depFile.name}`,
           content: depContent,
-          type: 'registry:example' as const,
-        });
-      } catch (error) {
-        console.error(`Error reading dependent file ${depFile.path}:`, error);
-      }
-    }
-  }
-  
-  // Also add files from the dependentFiles property (UI components)
-  if (example.dependentFiles && example.dependentFiles.length > 0) {
-    for (const depFile of example.dependentFiles) {
-      try {
-        const depContent = fs.readFileSync(depFile.path, 'utf8');
-        files.push({
-          path: `components/ui/${depFile.name}`,
-          content: depContent,
-          type: 'registry:example' as const,
+          type: (depFile.type || 'registry:ui') as RegistryType, // Use specified type or default to registry:ui
         });
       } catch (error) {
         console.error(`Error reading dependent file ${depFile.path}:`, error);
@@ -117,7 +120,7 @@ for (const example of examples) {
 
   const schema = {
     name: example.name,
-    type: 'registry:example',
+    type: 'registry:ui' as RegistryType,
     componentName: example.componentName,
     description: example.description,
     files,

@@ -1,4 +1,11 @@
-export type RegistryType = 'registry:ui' | 'registry:hook' | 'registry:example';
+export type RegistryType =
+  | 'registry:ui'
+  | 'registry:hook'
+  | 'registry:block'
+  | 'registry:component'
+  | 'registry:lib'
+  | 'registry:page'
+  | 'registry:file';
 
 export interface RegistryFile {
   path: string;

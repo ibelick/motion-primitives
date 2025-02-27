@@ -1,18 +1,18 @@
 {
   "name": "text-shimmer-color",
-  "type": "registry:example",
+  "type": "registry:ui",
   "componentName": "text-shimmer",
   "description": "Text shimmer with custom color configurations.",
   "files": [
     {
       "path": "text-shimmer-color.tsx",
       "content": "import { TextShimmer } from '@/components/core/text-shimmer';\n\nexport function TextShimmerColor() {\n  return (\n    <TextShimmer\n      duration={1.2}\n      className='text-xl font-medium [--base-color:var(--color-blue-600)] [--base-gradient-color:var(--color-blue-200)] dark:[--base-color:var(--color-blue-700)] dark:[--base-gradient-color:var(--color-blue-400)]'\n    >\n      Hi, how are you?\n    </TextShimmer>\n  );\n}\n",
-      "type": "registry:example"
+      "type": "registry:component"
     },
     {
       "path": "components/core/text-shimmer.tsx",
       "content": "'use client';\nimport React, { useMemo, type JSX } from 'react';\nimport { motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\nexport type TextShimmerProps = {\n  children: string;\n  as?: React.ElementType;\n  className?: string;\n  duration?: number;\n  spread?: number;\n};\n\nexport function TextShimmer({\n  children,\n  as: Component = 'p',\n  className,\n  duration = 2,\n  spread = 2,\n}: TextShimmerProps) {\n  const MotionComponent = motion.create(\n    Component as keyof JSX.IntrinsicElements\n  );\n\n  const dynamicSpread = useMemo(() => {\n    return children.length * spread;\n  }, [children, spread]);\n\n  return (\n    <MotionComponent\n      className={cn(\n        'relative inline-block bg-[length:250%_100%,auto] bg-clip-text',\n        'text-transparent [--base-color:#a1a1aa] [--base-gradient-color:#000]',\n        '[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))] [background-repeat:no-repeat,padding-box]',\n        'dark:[--base-color:#71717a] dark:[--base-gradient-color:#ffffff] dark:[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',\n        className\n      )}\n      initial={{ backgroundPosition: '100% center' }}\n      animate={{ backgroundPosition: '0% center' }}\n      transition={{\n        repeat: Infinity,\n        duration,\n        ease: 'linear',\n      }}\n      style={\n        {\n          '--spread': `${dynamicSpread}px`,\n          backgroundImage: `var(--bg), linear-gradient(var(--base-color), var(--base-color))`,\n        } as React.CSSProperties\n      }\n    >\n      {children}\n    </MotionComponent>\n  );\n}\n",
-      "type": "registry:example"
+      "type": "registry:ui"
     }
   ]
 }
