@@ -6,6 +6,8 @@ import {
   TabsList,
   TabsTrigger,
 } from './components/website/tabs';
+import { InstallationCli } from './components/website/installation-cli';
+import CodeBlock from './components/website/code-block';
 
 const generateId = (text: string) => {
   return text
@@ -123,6 +125,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         className={cn('px-4 py-2 text-left align-middle', className)}
         {...props}
       />
+    ),
+    CodeBlock: ({
+      className,
+      ...props
+    }: React.ComponentProps<typeof CodeBlock>) => (
+      <CodeBlock className={cn(className)} {...props} />
+    ),
+    InstallationCli: ({
+      className,
+      ...props
+    }: React.ComponentProps<typeof InstallationCli>) => (
+      <InstallationCli className={cn(className)} {...props} />
     ),
   };
 }
