@@ -16,7 +16,7 @@ export function ProBadge() {
         scale={0.9}
       />
       <span className='relative rounded-sm bg-zinc-800 px-1.5 py-0.5 text-[10px] leading-none font-medium text-zinc-50 outline outline-[#565656a6]'>
-        Pro
+        new
       </span>
     </span>
   );
@@ -38,21 +38,13 @@ export function Header() {
         <div className='flex items-center space-x-6'>
           <nav className='hidden items-center space-x-6 sm:flex'>
             <a
-              href='https://pro.motion-primitives.com/'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='hidden items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
-            >
-              Advanced
-              <ProBadge />
-            </a>
-            <a
               href='https://pro.motion-primitives.com/templates'
               target='_blank'
               rel='noopener noreferrer'
               className='inline-flex items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
             >
               Templates
+              <ProBadge />
             </a>
             <Link
               href='/docs/text-effect'
