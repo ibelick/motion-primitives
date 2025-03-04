@@ -53,10 +53,10 @@ export function InstallationCli({ value, className }: InstallationCliProps) {
     <Tabs
       defaultValue={commands[0].label}
       onValueChange={setActiveTab}
-      className={cn('group overflow-hidden rounded-md border', className)}
+      className={cn('group overflow-hidden rounded-md border-none', className)}
     >
-      <div className='bg-secondary flex flex-row items-center justify-between border-b p-1'>
-        <TabsList className='border-none'>
+      <div className='bg-secondary flex flex-row items-center justify-between overflow-hidden rounded-t-md border border-b-0 border-zinc-200 dark:border-zinc-800'>
+        <TabsList className='rounded-none border-b-0'>
           {commands.map((command) => (
             <TabsTrigger
               key={command.label}
@@ -105,13 +105,12 @@ export function InstallationCli({ value, className }: InstallationCliProps) {
         <TabsContent
           key={command.label}
           value={command.label}
-          className='mt-0 mb-0'
+          className='mt-0 mb-0 border-t border-b-0 border-zinc-200 dark:border-zinc-800'
         >
           <pre
-            className='not-prose p-4 font-mono text-sm'
+            className='not-prose p-4 font-mono text-sm text-zinc-50'
             style={{
               backgroundColor: '#18181b',
-              color: '#B1B1B1',
             }}
           >
             {command.code}

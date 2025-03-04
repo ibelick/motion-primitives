@@ -7,7 +7,6 @@ export const metadata = {
 import { MagneticBasic } from './magnetic-basic';
 import { MagneticNested } from './magnetic-nested';
 import ComponentCodePreview from '@/components/website/component-code-preview';
-import CodeBlock from '@/components/website/code-block';
 
 # Magnetic
 
@@ -42,11 +41,7 @@ You can nest the Magnetic component to create a more complex effect. Here we use
 
 <TabsContent value="cli">
 
-<CodeBlock
-  code={`npx shadcn add "https://motion-primitives.com/c/magnetic.json"`}
-  lang='bash'
-  className='h-[52px]'
-/>
+<InstallationCli value='magnetic' />
 
 </TabsContent>
 

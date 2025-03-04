@@ -9,7 +9,6 @@ import { AnimatedTabsHover } from './animated-tabs-hover';
 import { AnimatedCardBackgroundHover } from './animated-card-background-hover';
 import { SegmentedControl } from './segmented-control';
 import ComponentCodePreview from '@/components/website/component-code-preview';
-import CodeBlock from '@/components/website/code-block';
 
 # Animated Background
 
@@ -56,11 +55,7 @@ Visually highlights selected items by sliding a background into view when hovere
 
 <TabsContent value="cli">
 
-<CodeBlock
-  code={`npx shadcn add "https://motion-primitives.com/c/animated-background.json"`}
-  lang='bash'
-  className='h-[52px]'
-/>
+<InstallationCli value='animated-background' />
 
 </TabsContent>
 

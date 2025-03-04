@@ -133,10 +133,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <CodeBlock className={cn(className)} {...props} />
     ),
     InstallationCli: ({
-      className,
       ...props
     }: React.ComponentProps<typeof InstallationCli>) => (
-      <InstallationCli className={cn(className)} {...props} />
+      <InstallationCli {...props} />
     ),
   };
 }

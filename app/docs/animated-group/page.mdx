@@ -53,11 +53,7 @@ Images are from [cosmos - Impressionisme](https://www.cosmos.so/ibelick/impressi
 
 <TabsContent value="cli">
 
-<CodeBlock
-  code={`npx shadcn add "https://motion-primitives.com/c/animated-group.json"`}
-  lang='bash'
-  className='h-[52px]'
-/>
+<InstallationCli value='animated-group' />
 
 </TabsContent>
 
@@ -81,11 +77,11 @@ Images are from [cosmos - Impressionisme](https://www.cosmos.so/ibelick/impressi
 
 ### AnimatedGroup
 
-| Prop      | Type                                                   | Default   | Description                                          |
-| :-------- | :----------------------------------------------------- | :-------- | :--------------------------------------------------- |
-| children  | ReactNode                                              |           | The child elements to be animated.                   |
-| className | string                                                 | undefined | Optional CSS class for styling the component.        |
-| variants  | `{ container?: Variants; item?: Variants; }`           | undefined | Custom variants for container and item animations.   |
+| Prop      | Type                                                      | Default   | Description                                          |
+| :-------- | :-------------------------------------------------------- | :-------- | :--------------------------------------------------- |
+| children  | ReactNode                                                 |           | The child elements to be animated.                   |
+| className | string                                                    | undefined | Optional CSS class for styling the component.        |
+| variants  | `{ container?: Variants; item?: Variants; }`              | undefined | Custom variants for container and item animations.   |
 | preset    | 'fade' \| 'slide' \| 'scale' \| 'blur-sm' \| 'blur-slide' | undefined | Preset animations to apply to the group of elements. |
-| as        | React.ElementType                                    | 'div'     | The HTML element to render the component as.       |
-| asChild   | React.ElementType                                    | 'div'     | The HTML element to render the child elements as.   |
+| as        | React.ElementType                                         | 'div'     | The HTML element to render the component as.         |
+| asChild   | React.ElementType                                         | 'div'     | The HTML element to render the child elements as.    |
