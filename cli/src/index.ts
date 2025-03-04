@@ -5,6 +5,7 @@ import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs';
 import { join } from 'path';
 import ora from 'ora';
 import fetch from 'node-fetch';
+import { execSync } from 'child_process';
 
 // Read package.json for version info
 const packageJson = JSON.parse(
@@ -50,6 +51,50 @@ async function fetchFile(url: string): Promise<string> {
     throw new Error(`Failed to fetch file from ${url}: ${response.status}`);
   }
   return response.text();
+}
+
+// Detect package manager (npm, yarn, pnpm)
+function detectPackageManager(): string {
+  try {
+    // Check for yarn.lock or package-lock.json
+    if (existsSync('yarn.lock')) {
+      return 'yarn';
+    } else if (existsSync('pnpm-lock.yaml')) {
+      return 'pnpm';
+    } else {
+      return 'npm'; // Default to npm
+    }
+  } catch (error) {
+    return 'npm'; // Default to npm on error
+  }
+}
+
+// Install dependencies using detected package manager
+function installDependencies(dependencies: string[]): boolean {
+  const packageManager = detectPackageManager();
+  const spinner = ora('Installing dependencies...').start();
+
+  try {
+    const installCommand =
+      packageManager === 'yarn'
+        ? `yarn add ${dependencies.join(' ')}`
+        : packageManager === 'pnpm'
+          ? `pnpm add ${dependencies.join(' ')}`
+          : `npm install ${dependencies.join(' ')}`;
+
+    execSync(installCommand, { stdio: 'ignore' });
+    spinner.succeed(
+      `Dependencies installed successfully with ${packageManager}`
+    );
+    return true;
+  } catch (error) {
+    spinner.fail(`Failed to install dependencies: ${error}`);
+    console.log('\nPlease install them manually:');
+    console.log(
+      `${packageManager === 'yarn' ? 'yarn add' : packageManager === 'pnpm' ? 'pnpm add' : 'npm install'} ${dependencies.join(' ')}`
+    );
+    return false;
+  }
 }
 
 // Display the welcome banner
@@ -125,12 +170,12 @@ program
         console.log(`✓ Added ${path} to ${filePath}`);
       }
 
-      // Log dependencies for manual installation
+      spinner.succeed(`Component "${component}" added successfully!`);
+
+      // Install dependencies automatically
       const depsArray = Array.from(allDependencies);
       if (depsArray.length > 0) {
-        spinner.succeed(`Component "${component}" added successfully!`);
-        console.log('\nInstall the following dependencies:');
-        console.log(`npm i ${depsArray.join(' ')}`);
+        const installSuccess = installDependencies(depsArray);
 
         // Add usage example
         if (componentEntry.title) {
@@ -149,9 +194,7 @@ program
           console.log('```');
         }
       } else {
-        spinner.succeed(
-          `Component "${component}" added successfully! No additional dependencies needed.`
-        );
+        console.log('No additional dependencies needed.');
       }
     } catch (error: any) {
       spinner.fail(`Error: ${error.message || error}`);

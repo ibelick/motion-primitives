@@ -47,7 +47,9 @@ This will:
 
 1. Create a `components/motion-primitives` directory in your project (if it doesn't exist)
 2. Download and add the component files
-3. Show any additional dependencies that need to be installed
+3. Automatically install any required dependencies using your preferred package manager (npm, yarn, or pnpm)
+
+The CLI automatically detects which package manager you're using based on lock files in your project.
 
 ## Available Components
 
@@ -62,7 +64,7 @@ For the complete list, run `npx motion-primitives list`.
 
 ## Dependencies
 
-Most components require the `motion` library. When you add a component, the CLI will tell you which dependencies you need to install.
+Most components require the `motion` library. When you add a component, the CLI will automatically install the required dependencies using your preferred package manager.
 
 ## Contributing
 
