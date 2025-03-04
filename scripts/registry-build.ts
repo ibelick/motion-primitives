@@ -131,3 +131,64 @@ for (const example of examples) {
     JSON.stringify(schema, null, 2)
   );
 }
+
+// Generate consolidated registry.json file in shadcn/ui format
+const registryItems = components.map((component) => {
+  // Generate component path relative to the registry
+  const componentPath = component.path.replace(path.join(__dirname, '..'), '');
+  const relativeComponentPath = componentPath.startsWith('/')
+    ? componentPath.substring(1)
+    : componentPath;
+
+  const componentFiles = [
+    {
+      path: relativeComponentPath,
+      type: 'registry:component',
+    },
+  ];
+
+  // Add additional files if specified
+  if (component.files && component.files.length > 0) {
+    for (const file of component.files) {
+      const filePath = file.path.replace(path.join(__dirname, '..'), '');
+      const relativeFilePath = filePath.startsWith('/')
+        ? filePath.substring(1)
+        : filePath;
+
+      componentFiles.push({
+        path: relativeFilePath,
+        type: file.type || 'registry:component',
+      });
+    }
+  }
+
+  return {
+    name: component.name,
+    type: 'registry:ui',
+    title: component.name
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' '),
+    description: component.description,
+    dependencies: component.dependencies || [],
+    devDependencies: component.devDependencies || [],
+    registryDependencies: component.registryDependencies || [],
+    files: componentFiles,
+    categories: ['ui', 'motion-primitives'],
+  };
+});
+
+const registry = {
+  $schema: 'https://ui.shadcn.com/schema/registry.json',
+  name: 'motion-primitives',
+  homepage: 'https://motion-primitives.com',
+  items: registryItems,
+};
+
+// Write the registry.json file
+fs.writeFileSync(
+  path.join(registryComponents, 'registry.json'),
+  JSON.stringify(registry, null, 2)
+);
+
+console.log('Registry files generated successfully!');
