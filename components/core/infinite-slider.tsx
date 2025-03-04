@@ -1,7 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
 import { useMotionValue, animate, motion } from 'motion/react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import useMeasure from 'react-use-measure';
 
 export type InfiniteSliderProps = {
@@ -24,14 +24,40 @@ export function InfiniteSlider({
   className,
 }: InfiniteSliderProps) {
   const [currentSpeed, setCurrentSpeed] = useState(speed);
-  const [ref, { width, height }] = useMeasure();
+  const [containerRef, { width: containerWidth, height }] = useMeasure();
+  const [contentRef, { width: contentWidth }] = useMeasure();
   const translation = useMotionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [key, setKey] = useState(0);
+  const [duplicatedContent, setDuplicatedContent] = useState<React.ReactNode[]>(
+    []
+  );
+
+  // Calculate required duplicates
+  const calculateDuplicates = useCallback(() => {
+    if (!containerWidth || !contentWidth) return [];
+
+    const requiredWidth = containerWidth * 2;
+    const copiesNeeded = Math.ceil(requiredWidth / contentWidth);
+    return Array(copiesNeeded)
+      .fill(null)
+      .map((_, i) =>
+        React.Children.map(children, (child, index) =>
+          React.cloneElement(child as React.ReactElement, {
+            key: `${i}-${index}-${child?.toLocaleString()}`,
+          })
+        )
+      )
+      .flat();
+  }, [containerWidth, contentWidth, children]);
+
+  useEffect(() => {
+    setDuplicatedContent(calculateDuplicates());
+  }, [calculateDuplicates]);
 
   useEffect(() => {
     let controls;
-    const size = direction === 'horizontal' ? width : height;
+    const size = direction === 'horizontal' ? containerWidth : height;
     const contentSize = size + gap;
     const from = reverse ? -contentSize / 2 : 0;
     const to = reverse ? 0 : -contentSize / 2;
@@ -69,7 +95,7 @@ export function InfiniteSlider({
     key,
     translation,
     currentSpeed,
-    width,
+    containerWidth,
     height,
     gap,
     isTransitioning,
@@ -91,8 +117,18 @@ export function InfiniteSlider({
     : {};
 
   return (
-    <div className={cn('overflow-hidden', className)}>
+    <motion.div className={cn('overflow-hidden', className)} ref={containerRef}>
+      {/* Hidden measurement element */}
+      <div
+        ref={contentRef}
+        style={{ position: 'absolute', visibility: 'hidden' }}
+      >
+        {children}
+      </div>
+
+      {/* Actual slider */}
       <motion.div
+        ref={contentRef}
         className='flex w-max'
         style={{
           ...(direction === 'horizontal'
@@ -101,12 +137,10 @@ export function InfiniteSlider({
           gap: `${gap}px`,
           flexDirection: direction === 'horizontal' ? 'row' : 'column',
         }}
-        ref={ref}
         {...hoverProps}
       >
-        {children}
-        {children}
+        {duplicatedContent}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
