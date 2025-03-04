@@ -10,7 +10,6 @@ import { DialogControlled } from './dialog-controlled';
 import { DialogCustomVariantsTransition } from './dialog-custom-variants-transtion';
 import { DialogCustomExit } from './dialog-custom-exit';
 import { DialogCustomBackdrop } from './dialog-custom-backdrop';
-import CodeBlock from '@/components/website/code-block';
 
 # Dialog
 
@@ -71,11 +70,7 @@ You can customize the backdrop using the `backdrop:` prefix on `DialogContent`, 
 
 <TabsContent value="cli">
 
-<CodeBlock
-  code={`npx shadcn add "https://motion-primitives.com/c/dialog.json" "https://motion-primitives.com/h/usePreventScroll.json"`}
-  lang='bash'
-  className='h-[52px]'
-/>
+<InstallationCli value='dialog' />
 
 </TabsContent>
 

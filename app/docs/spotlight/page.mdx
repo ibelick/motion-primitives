@@ -8,7 +8,6 @@ import { SpotlightBasic } from './spotlight-basic';
 import { SpotlightCustomColor } from './spotlight-custom-color';
 import { SpotlightBorder } from './spotlight-border';
 import ComponentCodePreview from '@/components/website/component-code-preview';
-import CodeBlock from '@/components/website/code-block';
 
 # Spotlight
 
@@ -55,11 +54,7 @@ You can create a spotlight border by creating a container with a padding that wi
 
 <TabsContent value="cli">
 
-<CodeBlock
-  code={`npx shadcn add "https://motion-primitives.com/c/spotlight.json"`}
-  lang='bash'
-  className='h-[52px]'
-/>
+<InstallationCli value='spotlight' />
 
 </TabsContent>
 

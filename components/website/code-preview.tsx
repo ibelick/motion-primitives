@@ -22,7 +22,7 @@ export default function CodePreview({ code, children }: CodePreviewProps) {
   return (
     <div className='relative'>
       <div
-        className='absolute right-4 top-4 cursor-pointer bg-transparent p-2'
+        className='absolute top-4 right-4 cursor-pointer bg-transparent p-2'
         onClick={onCopy}
       >
         <div

@@ -8,7 +8,6 @@ import { TextLoopBasic } from './text-loop-basic';
 import { TextLoopCustomVariantsTransition } from './text-loop-custom-variants-transition';
 import { TextLoopOnIndexChange } from './text-loop-on-index';
 import ComponentCodePreview from '@/components/website/component-code-preview';
-import CodeBlock from '@/components/website/code-block';
 
 # Text Loop
 
@@ -53,11 +52,7 @@ You can use the `onIndexChange` prop to trigger a callback function when the ind
 
 <TabsContent value="cli">
 
-<CodeBlock
-  code={`npx shadcn add "https://motion-primitives.com/c/text-loop.json"`}
-  lang='bash'
-  className='h-[52px]'
-/>
+<InstallationCli value='text-loop' />
 
 </TabsContent>
 
@@ -82,7 +77,7 @@ You can use the `onIndexChange` prop to trigger a callback function when the ind
 ### Text Loop
 
 | Prop          | Type                         | Default   | Description                                                     |
-| :------------ | :--------------------------- | :-------- | :---------------------------------------------------------------|
+| :------------ | :--------------------------- | :-------- | :-------------------------------------------------------------- |
 | children      | React.ReactNode[]            |           | The text content to be animated.                                |
 | className     | string                       |           | Additional CSS classes for styling.                             |
 | interval      | number                       | 2         | Time interval between text changes in seconds.                  |

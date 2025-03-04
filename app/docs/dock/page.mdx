@@ -6,7 +6,6 @@ export const metadata = {
 
 import { AppleStyleDock } from './apple-style-dock';
 import ComponentCodePreview from '@/components/website/component-code-preview';
-import CodeBlock from '@/components/website/code-block';
 
 # Dock
 
@@ -33,11 +32,7 @@ A versatile UI element that provides a flexible and customizable way to organize
 
 <TabsContent value="cli">
 
-<CodeBlock
-  code={`npx shadcn add "https://motion-primitives.com/c/dock.json"`}
-  lang='bash'
-  className='h-[52px]'
-/>
+<InstallationCli value='dock' />
 
 </TabsContent>
 

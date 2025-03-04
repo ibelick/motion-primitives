@@ -5,7 +5,6 @@ export const metadata = {
 };
 
 import ComponentCodePreview from '@/components/website/component-code-preview';
-import CodeBlock from '@/components/website/code-block';
 import { TextShimmerWaveBasic } from './text-shimmer-wave-basic';
 import { TextShimmerWaveColor } from './text-shimmer-wave-color';
 
@@ -40,11 +39,9 @@ You can use the `[--base-color]` and `[--base-gradient-color]` CSS variables to 
   </TabsList>
 
 <TabsContent value='cli'>
-  <CodeBlock
-    code={`npx shadcn add "https://motion-primitives.com/c/text-shimmer-wave.json"`}
-    lang='bash'
-    className='h-[52px]'
-  />
+
+<InstallationCli value='text-shimmer-wave' />
+
 </TabsContent>
 
   <TabsContent value='manual'>

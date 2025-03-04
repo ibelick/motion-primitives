@@ -8,7 +8,6 @@ import { ImageComparisonHover } from './image-comparison-hover';
 import { ImageComparisonSpring } from './image-comparison-spring';
 import { ImageComparisonCustomSlider } from './image-comparison-custom-slider';
 import ComponentCodePreview from '@/components/website/component-code-preview';
-import CodeBlock from '@/components/website/code-block';
 
 # Image Comparison
 
@@ -59,11 +58,7 @@ Interactively compare two images with a draggable slider to reveal differences.
 
 <TabsContent value="cli">
 
-<CodeBlock
-  code={`npx shadcn add "https://motion-primitives.com/c/image-comparison.json"`}
-  lang='bash'
-  className='h-[52px]'
-/>
+<InstallationCli value='image-comparison' />
 
 </TabsContent>
 

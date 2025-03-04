@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import * as React from 'react';
 import type { SVGProps } from 'react';
 
@@ -10,7 +11,7 @@ export function MPLogo(props: SVGProps<SVGSVGElement>) {
       aria-label='MP Logo'
       width={70}
       height={70}
-      className='text-zinc-950 dark:text-white'
+      className={cn('text-zinc-950 dark:text-white', props.className)}
       fill='none'
       {...props}
     >
