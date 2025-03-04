@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs';
 import { join } from 'path';
 import ora from 'ora';
 import fetch from 'node-fetch';
+
+// Read package.json for version info
+const packageJson = JSON.parse(
+  readFileSync(join(__dirname, '..', 'package.json'), 'utf8')
+);
 
 const MOTION_PRIMITIVES_REGISTRY_URL =
   'https://raw.githubusercontent.com/ibelick/motion-primitives/main/public/c/registry.json';
@@ -20,6 +25,8 @@ interface FileEntry {
 
 interface RegistryItem {
   name: string;
+  title?: string;
+  description?: string;
   dependencies?: string[];
   registryDependencies?: string[]; // Kept for reference, not used here
   files: FileEntry[];
@@ -45,10 +52,31 @@ async function fetchFile(url: string): Promise<string> {
   return response.text();
 }
 
+// Display the welcome banner
+function displayBanner() {
+  console.log(`
+┌────────────────────────────────────────────┐
+│                                            │
+│           Motion Primitives CLI            │
+│                                            │
+│      Beautiful, animated components        │
+│          for your React projects           │
+│                                            │
+│              Version: ${packageJson.version}               │
+│                                            │
+└────────────────────────────────────────────┘
+  `);
+}
+
+program
+  .name('motion-primitives')
+  .description('CLI to add beautiful, animated components to your app')
+  .version(packageJson.version);
+
 program
   .command('add')
-  .argument('<component>', 'The component to add (e.g., scroll-button)')
-  .description('Add a prompt-kit component to your project')
+  .argument('<component>', 'The component to add (e.g., accordion, text-morph)')
+  .description('Add a motion-primitives component to your project')
   .action(async (component: string) => {
     const spinner = ora(`Adding ${component}...`).start();
 
@@ -63,6 +91,9 @@ program
       if (!componentEntry) {
         spinner.fail(
           `Component "${component}" not found in motion-primitives registry`
+        );
+        console.log(
+          '\nRun "npx motion-primitives list" to see all available components'
         );
         process.exit(1);
       }
@@ -87,7 +118,7 @@ program
         mkdirSync(TARGET_DIR, { recursive: true });
       }
 
-      // Write all files to components/prompt-kit/
+      // Write all files to components/motion-primitives/
       for (const { path, content } of allFiles) {
         const filePath = join(TARGET_DIR, path);
         writeFileSync(filePath, content);
@@ -100,6 +131,23 @@ program
         spinner.succeed(`Component "${component}" added successfully!`);
         console.log('\nInstall the following dependencies:');
         console.log(`npm i ${depsArray.join(' ')}`);
+
+        // Add usage example
+        if (componentEntry.title) {
+          const pascalCaseName = component
+            .split('-')
+            .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+            .join('');
+
+          console.log('\nExample usage:');
+          console.log('```jsx');
+          console.log(
+            `import { ${pascalCaseName} } from '@/components/motion-primitives/${component}';`
+          );
+          console.log('\n// Then in your JSX:');
+          console.log(`<${pascalCaseName} />`);
+          console.log('```');
+        }
       } else {
         spinner.succeed(
           `Component "${component}" added successfully! No additional dependencies needed.`
@@ -110,5 +158,58 @@ program
       process.exit(1);
     }
   });
+
+program
+  .command('list')
+  .description('List all available motion-primitives components')
+  .action(async () => {
+    const spinner = ora('Fetching components...').start();
+
+    try {
+      // Fetch the motion-primitives registry
+      const motionPrimitivesRegistry = await fetchRegistry(
+        MOTION_PRIMITIVES_REGISTRY_URL
+      );
+
+      spinner.succeed(
+        `Found ${motionPrimitivesRegistry.items.length} components`
+      );
+
+      console.log('\nAvailable components:');
+      console.log('====================\n');
+
+      motionPrimitivesRegistry.items.forEach((item) => {
+        console.log(`${item.name} - ${item.title}`);
+        if (item.description) {
+          console.log(`  ${item.description}`);
+        }
+        if (item.dependencies && item.dependencies.length > 0) {
+          console.log(`  Dependencies: ${item.dependencies.join(', ')}`);
+        }
+        console.log('');
+      });
+
+      console.log('\nTo add a component run:');
+      console.log('  npx motion-primitives add <component-name>');
+    } catch (error: any) {
+      spinner.fail(`Error: ${error.message || error}`);
+      process.exit(1);
+    }
+  });
+
+// Add a default command if no command is provided
+program.action(() => {
+  displayBanner();
+  console.log(
+    'A tool for adding beautiful, animated components to your React app\n'
+  );
+  console.log('Available commands:');
+  console.log('  add <component>  - Add a component to your project');
+  console.log('    Example: npx motion-primitives add text-morph');
+  console.log('\n  list             - List all available components');
+  console.log('    Example: npx motion-primitives list');
+  console.log('\n  --help           - Show help information');
+  console.log('\nDocumentation: https://github.com/ibelick/motion-primitives');
+});
 
 program.parse(process.argv);
