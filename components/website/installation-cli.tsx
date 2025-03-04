@@ -105,7 +105,7 @@ export function InstallationCli({ value, className }: InstallationCliProps) {
         <TabsContent
           key={command.label}
           value={command.label}
-          className='mt-0 mb-0 border-t border-b-0 border-zinc-200 dark:border-zinc-800'
+          className='mt-0 mb-0 border-none'
         >
           <pre
             className='not-prose p-4 font-mono text-sm text-zinc-50'
