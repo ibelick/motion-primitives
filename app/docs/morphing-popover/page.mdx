@@ -1,0 +1,99 @@
+export const metadata = {
+  title: 'Morphing Popover - Motion-Primitives',
+  description:
+    'A popover that transforms from its trigger into the content using layout animations. It visually morphs instead of appearing as a separate element.',
+};
+
+import { MorphingPopoverBasic } from './morphing-popover-basic';
+import { MorphingPopoverCustomTransitionVariants } from './morphing-popover-custom-transition-variants';
+import { MorphingPopoverTextarea } from './morphing-popover-textarea';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Morphing Popover
+
+A popover that transforms from its trigger into the content using layout animations. It visually morphs instead of appearing as a separate element.
+
+## Examples
+
+### Morphing popover basic
+
+<ComponentCodePreview
+  component={<MorphingPopoverBasic />}
+  filePath='app/docs/morphing-popover/morphing-popover-basic.tsx'
+/>
+
+### Morphing popover with custom transition variants
+
+You can pass a custom transition and variants to the popover with the `variants` and `transition` props.
+
+<ComponentCodePreview
+  component={<MorphingPopoverCustomTransitionVariants />}
+  filePath='app/docs/morphing-popover/morphing-popover-custom-transition-variants.tsx'
+/>
+
+### Morphing popover with textarea
+
+<ComponentCodePreview
+  component={<MorphingPopoverTextarea />}
+  filePath='app/docs/morphing-popover/morphing-popover-textarea.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='morphing-popover' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/morphing-popover.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### MorphingPopover
+
+| Prop           | Type                      | Default                                          | Description                                      |
+| :------------- | :------------------------ | :----------------------------------------------- | :----------------------------------------------- |
+| `children`     | `React.ReactNode`         | Required                                         | The content of the popover (trigger and content) |
+| `transition`   | `Transition`              | `{ type: 'spring', bounce: 0.1, duration: 0.4 }` | Custom transition settings for the animations    |
+| `defaultOpen`  | `boolean`                 | `false`                                          | Whether the popover is open by default           |
+| `open`         | `boolean`                 | `undefined`                                      | Controlled open state                            |
+| `onOpenChange` | `(open: boolean) => void` | `undefined`                                      | Callback fired when open state changes           |
+| `variants`     | `Variants`                | `undefined`                                      | Custom variants for the animation                |
+| `className`    | `string`                  | `undefined`                                      | Additional CSS classes                           |
+
+### MorphingPopoverTrigger
+
+| Prop        | Type              | Default     | Description                                   |
+| :---------- | :---------------- | :---------- | :-------------------------------------------- |
+| `children`  | `React.ReactNode` | Required    | The trigger element content                   |
+| `asChild`   | `boolean`         | `false`     | Whether to merge props onto the child element |
+| `className` | `string`          | `undefined` | Additional CSS classes                        |
+
+### MorphingPopoverContent
+
+| Prop        | Type              | Default     | Description                           |
+| :---------- | :---------------- | :---------- | :------------------------------------ |
+| `children`  | `React.ReactNode` | Required    | The content to display in the popover |
+| `className` | `string`          | `undefined` | Additional CSS classes                |

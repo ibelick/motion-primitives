@@ -1,0 +1,80 @@
+export const metadata = {
+  title: 'Animated Number - Motion-Primitives',
+  description: 'Easily animate numbers.',
+};
+
+import { AnimatedNumberBasic } from './animated-number-basic';
+import { AnimatedNumberCounter } from './animated-number-counter';
+import { AnimatedNumberInView } from './animated-number-in-view';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Animated Number
+
+Easily animate numbers.
+
+## Examples
+
+### Basic
+
+<ComponentCodePreview
+  component={<AnimatedNumberBasic />}
+  filePath='app/docs/animated-number/animated-number-basic.tsx'
+  hasReTrigger
+  classNameComponentContainer='min-h-[250px]'
+/>
+
+### Basic counter
+
+<ComponentCodePreview
+  component={<AnimatedNumberCounter />}
+  filePath='app/docs/animated-number/animated-number-counter.tsx'
+  classNameComponentContainer='min-h-[250px]'
+/>
+
+### With useInView
+
+<ComponentCodePreview
+  component={<AnimatedNumberInView />}
+  filePath='app/docs/animated-number/animated-number-in-view.tsx'
+  classNameComponentContainer='min-h-[250px]'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='animated-number' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/animated-number.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+| Prop          | Type              | Default | Description                                               |
+| :------------ | :---------------- | :------ | :-------------------------------------------------------- |
+| value         | number            |         | The number to be animated.                                |
+| className     | string            |         | Optional CSS class for styling the number item container. |
+| springOptions | SpringOptions     |         | Spring options from motion for the animation.             |
+| as            | React.ElementType | 'span'  | The HTML tag to render the number in.                     |

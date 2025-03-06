@@ -1,0 +1,18 @@
+{
+  "name": "border-trail-card-1",
+  "type": "registry:ui",
+  "componentName": "border-trail-card-1",
+  "description": "Card component with animated border trail effect.",
+  "files": [
+    {
+      "path": "border-trail-card-1.tsx",
+      "content": "import { BorderTrail } from '@/components/core/border-trail';\n\nexport function BorderTrailCard1() {\n  return (\n    <div className='relative flex h-[200px] w-[300px] flex-col items-center justify-center rounded-md bg-zinc-200 px-5 py-2 dark:bg-zinc-800'>\n      <BorderTrail\n        style={{\n          boxShadow:\n            '0px 0px 60px 30px rgb(255 255 255 / 50%), 0 0 100px 60px rgb(0 0 0 / 50%), 0 0 140px 90px rgb(0 0 0 / 50%)',\n        }}\n        size={100}\n      />\n      <div\n        className='flex h-full animate-pulse flex-col items-start justify-center space-y-2'\n        role='status'\n        aria-label='Loading...'\n      >\n        <div className='h-1 w-4 rounded-[4px] bg-zinc-600'></div>\n        <div className='h-1 w-10 rounded-[4px] bg-zinc-600'></div>\n        <div className='h-1 w-12 rounded-[4px] bg-zinc-600'></div>\n        <div className='h-1 w-12 rounded-[4px] bg-zinc-600'></div>\n        <div className='h-1 w-12 rounded-[4px] bg-zinc-600'></div>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/border-trail.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, Transition } from 'motion/react';\n\nexport type BorderTrailProps = {\n  className?: string;\n  size?: number;\n  transition?: Transition;\n  onAnimationComplete?: () => void;\n  style?: React.CSSProperties;\n};\n\nexport function BorderTrail({\n  className,\n  size = 60,\n  transition,\n  onAnimationComplete,\n  style,\n}: BorderTrailProps) {\n  const defaultTransition: Transition = {\n    repeat: Infinity,\n    duration: 5,\n    ease: 'linear',\n  };\n\n  return (\n    <div className='pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]'>\n      <motion.div\n        className={cn('absolute aspect-square bg-zinc-500', className)}\n        style={{\n          width: size,\n          offsetPath: `rect(0 auto auto 0 round ${size}px)`,\n          ...style,\n        }}\n        animate={{\n          offsetDistance: ['0%', '100%'],\n        }}\n        transition={transition || defaultTransition}\n        onAnimationComplete={onAnimationComplete}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

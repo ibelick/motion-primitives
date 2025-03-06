@@ -1,0 +1,44 @@
+export const metadata = {
+  title: 'Installation - Motion-Primitives',
+  description: 'How to install Motion-Primitives in your project.',
+};
+
+import CodeBlock from '@/components/website/code-block';
+
+# Installation
+
+<Steps>
+
+<Step>Install Tailwind CSS</Step>
+
+Components are styled using Tailwind CSS. Follow the [official installation guide](https://tailwindcss.com/docs/installation) to add it to your project.
+
+<Step>Install Motion</Step>
+
+Components are animated using [Motion](https://motion.dev/).
+
+<CodeBlock code={`npm install motion`} lang='bash' className='h-[52px]' />
+
+<Step>Add the utility helper</Step>
+
+Create a `lib/utils.ts` file to manage Tailwind CSS classes:
+
+<CodeBlock filePath='lib/utils.ts' lang='ts' />
+
+<Step>Install icons</Step>
+
+Add [Lucide React](https://lucide.dev/) icons:
+
+<CodeBlock code={`npm install lucide-react`} lang='bash' className='h-[52px]' />
+
+<Step>That's it</Step>
+
+You can now start adding components to your project.
+
+<InstallationCli value='text-effect' />
+
+The command above will add the Text Effect component to your project. You can then import it anywhere in your project.
+
+You can also choose manual installation and copy the code from the [components page](https://motion-primitives.com/docs/text-effect#installation).
+
+</Steps>

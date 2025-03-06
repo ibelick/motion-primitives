@@ -1,0 +1,90 @@
+export const metadata = {
+  title: 'Spinning Text - Motion-Primitives',
+  description:
+    'Easily animate text circularly. Customize the animation with variants and transitions.',
+};
+
+import { SpinningTextBasic } from './spinning-text-basic';
+import { SpinningTextCustomTransition } from './spinning-text-custom-transition';
+import { SpinningTextCustomVariants } from './spinning-text-custom-variants';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Spinning Text
+
+Easily animate text circularly. Customize the animation with variants and transitions.
+
+## Examples
+
+### Basic Usage
+
+<ComponentCodePreview
+  component={<SpinningTextBasic />}
+  filePath='app/docs/spinning-text/spinning-text-basic.tsx'
+  hasReTrigger
+/>
+
+### Custom Transition
+
+<ComponentCodePreview
+  component={<SpinningTextCustomTransition />}
+  filePath='app/docs/spinning-text/spinning-text-custom-transition.tsx'
+  hasReTrigger
+/>
+
+### Custom Variants
+
+<ComponentCodePreview
+  component={<SpinningTextCustomVariants />}
+  filePath='app/docs/spinning-text/spinning-text-custom-variants.tsx'
+  hasReTrigger
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='spinning-text' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/spinning-text.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+## Component API
+
+### SpinningText
+
+| Prop       | Type                                         | Default | Description                                             |
+| :--------- | :------------------------------------------- | :------ | :------------------------------------------------------ |
+| children   | `ReactElement`                               |         | The text content to be animated in a circular motion.   |
+| style      | `CSSProperties`                              | `{}`    | Custom styles for the text container.                   |
+| duration   | `number`                                     | `10`    | The duration of the full circular rotation animation.   |
+| className  | `string`                                     |         | A custom class name for the text container.             |
+| reverse    | `boolean`                                    | `false` | Determines if the animation should rotate in reverse.   |
+| fontSize   | `number`                                     | `1`     | The font size of the text being animated in rem.        |
+| radius     | `number`                                     | `5`     | The radius of the circular path for the text animation. |
+| transition | `Transition`                                 |         | Custom transition effects for the animation.            |
+| variants   | `{ container?: Variants; item?: Variants; }` |         | Variants for container and item animations.             |
+
+## Credit
+
+Initiated by [@ibtihelbs](https://github.com/ibtihelbs)

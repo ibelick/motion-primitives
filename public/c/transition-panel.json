@@ -1,0 +1,21 @@
+{
+  "name": "transition-panel",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "transition-panel.tsx",
+      "content": "'use client';\nimport {\n  AnimatePresence,\n  Transition,\n  Variant,\n  motion,\n  MotionProps,\n} from 'motion/react';\nimport { cn } from '@/lib/utils';\n\nexport type TransitionPanelProps = {\n  children: React.ReactNode[];\n  className?: string;\n  transition?: Transition;\n  activeIndex: number;\n  variants?: { enter: Variant; center: Variant; exit: Variant };\n} & MotionProps;\n\nexport function TransitionPanel({\n  children,\n  className,\n  transition,\n  variants,\n  activeIndex,\n  ...motionProps\n}: TransitionPanelProps) {\n  return (\n    <div className={cn('relative', className)}>\n      <AnimatePresence\n        initial={false}\n        mode='popLayout'\n        custom={motionProps.custom}\n      >\n        <motion.div\n          key={activeIndex}\n          variants={variants}\n          transition={transition}\n          initial='enter'\n          animate='center'\n          exit='exit'\n          {...motionProps}\n        >\n          {children[activeIndex]}\n        </motion.div>\n      </AnimatePresence>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "text-roll",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "text-roll.tsx",
+      "content": "'use client';\nimport {\n  motion,\n  VariantLabels,\n  Target,\n  TargetAndTransition,\n  Transition,\n} from 'motion/react';\n\nexport type TextRollProps = {\n  children: string;\n  duration?: number;\n  getEnterDelay?: (index: number) => number;\n  getExitDelay?: (index: number) => number;\n  className?: string;\n  transition?: Transition;\n  variants?: {\n    enter: {\n      initial: Target | VariantLabels | boolean;\n      animate: TargetAndTransition | VariantLabels;\n    };\n    exit: {\n      initial: Target | VariantLabels | boolean;\n      animate: TargetAndTransition | VariantLabels;\n    };\n  };\n  onAnimationComplete?: () => void;\n};\n\nexport function TextRoll({\n  children,\n  duration = 0.5,\n  getEnterDelay = (i) => i * 0.1,\n  getExitDelay = (i) => i * 0.1 + 0.2,\n  className,\n  transition = { ease: 'easeIn' },\n  variants,\n  onAnimationComplete,\n}: TextRollProps) {\n  const defaultVariants = {\n    enter: {\n      initial: { rotateX: 0 },\n      animate: { rotateX: 90 },\n    },\n    exit: {\n      initial: { rotateX: 90 },\n      animate: { rotateX: 0 },\n    },\n  } as const;\n\n  const letters = children.split('');\n\n  return (\n    <span className={className}>\n      {letters.map((letter, i) => {\n        return (\n          <span\n            key={i}\n            className='relative inline-block [perspective:10000px] [transform-style:preserve-3d] [width:auto]'\n            aria-hidden='true'\n          >\n            <motion.span\n              className='absolute inline-block [backface-visibility:hidden] [transform-origin:50%_25%]'\n              initial={\n                variants?.enter?.initial ?? defaultVariants.enter.initial\n              }\n              animate={\n                variants?.enter?.animate ?? defaultVariants.enter.animate\n              }\n              transition={{\n                ...transition,\n                duration,\n                delay: getEnterDelay(i),\n              }}\n            >\n              {letter === ' ' ? '\\u00A0' : letter}\n            </motion.span>\n            <motion.span\n              className='absolute inline-block [backface-visibility:hidden] [transform-origin:50%_100%]'\n              initial={variants?.exit?.initial ?? defaultVariants.exit.initial}\n              animate={variants?.exit?.animate ?? defaultVariants.exit.animate}\n              transition={{\n                ...transition,\n                duration,\n                delay: getExitDelay(i),\n              }}\n              onAnimationComplete={\n                letters.length === i + 1 ? onAnimationComplete : undefined\n              }\n            >\n              {letter === ' ' ? '\\u00A0' : letter}\n            </motion.span>\n            <span className='invisible'>\n              {letter === ' ' ? '\\u00A0' : letter}\n            </span>\n          </span>\n        );\n      })}\n      <span className='sr-only'>{children}</span>\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

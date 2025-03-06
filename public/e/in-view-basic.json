@@ -1,0 +1,18 @@
+{
+  "name": "in-view-basic",
+  "type": "registry:ui",
+  "componentName": "in-view-basic",
+  "description": "Basic implementation of the in-view component for scroll animations.",
+  "files": [
+    {
+      "path": "in-view-basic.tsx",
+      "content": "import { InView } from '@/components/core/in-view';\n\nexport function InViewBasic() {\n  return (\n    <div className='h-[350px] w-full overflow-auto'>\n      <div className='py-12 text-center text-sm'>Scroll down</div>\n      <div className='flex h-[500px] items-end justify-center px-4 pb-24'>\n        <InView\n          variants={{\n            hidden: { opacity: 0, y: 100, filter: 'blur(4px)' },\n            visible: { opacity: 1, y: 0, filter: 'blur(0px)' },\n          }}\n          viewOptions={{ margin: '0px 0px -200px 0px' }}\n          transition={{ duration: 0.3, ease: 'easeInOut' }}\n        >\n          <div className='max-w-96'>\n            <p className=''>\n              <strong className='font-medium'>\n                Craft beautiful animated components with Motion-Primitives.\n              </strong>{' '}\n              Designed for developers and designers. The library leverages the\n              power of Motion, with intuitive APIs that simplifies creating\n              complex animations for any project. Start building more dynamic\n              interfaces today.\n            </p>\n          </div>\n        </InView>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/in-view.tsx",
+      "content": "'use client';\nimport { ReactNode, useRef } from 'react';\nimport {\n  motion,\n  useInView,\n  Variant,\n  Transition,\n  UseInViewOptions,\n} from 'motion/react';\n\nexport type InViewProps = {\n  children: ReactNode;\n  variants?: {\n    hidden: Variant;\n    visible: Variant;\n  };\n  transition?: Transition;\n  viewOptions?: UseInViewOptions;\n  as?: React.ElementType;\n};\n\nconst defaultVariants = {\n  hidden: { opacity: 0 },\n  visible: { opacity: 1 },\n};\n\nexport function InView({\n  children,\n  variants = defaultVariants,\n  transition,\n  viewOptions,\n  as = 'div',\n}: InViewProps) {\n  const ref = useRef(null);\n  const isInView = useInView(ref, viewOptions);\n\n  const MotionComponent = motion[as as keyof typeof motion] as typeof as;\n\n  return (\n    <MotionComponent\n      ref={ref}\n      initial='hidden'\n      animate={isInView ? 'visible' : 'hidden'}\n      variants={variants}\n      transition={transition}\n    >\n      {children}\n    </MotionComponent>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

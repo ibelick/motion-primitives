@@ -1,0 +1,21 @@
+{
+  "name": "border-trail",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "border-trail.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, Transition } from 'motion/react';\n\nexport type BorderTrailProps = {\n  className?: string;\n  size?: number;\n  transition?: Transition;\n  onAnimationComplete?: () => void;\n  style?: React.CSSProperties;\n};\n\nexport function BorderTrail({\n  className,\n  size = 60,\n  transition,\n  onAnimationComplete,\n  style,\n}: BorderTrailProps) {\n  const defaultTransition: Transition = {\n    repeat: Infinity,\n    duration: 5,\n    ease: 'linear',\n  };\n\n  return (\n    <div className='pointer-events-none absolute inset-0 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]'>\n      <motion.div\n        className={cn('absolute aspect-square bg-zinc-500', className)}\n        style={{\n          width: size,\n          offsetPath: `rect(0 auto auto 0 round ${size}px)`,\n          ...style,\n        }}\n        animate={{\n          offsetDistance: ['0%', '100%'],\n        }}\n        transition={transition || defaultTransition}\n        onAnimationComplete={onAnimationComplete}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

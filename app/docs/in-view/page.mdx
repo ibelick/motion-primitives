@@ -1,0 +1,89 @@
+export const metadata = {
+  title: 'In view - Motion-Primitives',
+  description:
+    'Easily animate elements when they come into view. You can apply animations to elements when they enter the viewport, or when they are fully visible.',
+};
+
+import { InViewBasic } from './in-view-basic';
+import { InViewBasicMultiple } from './in-view-basic-multiple';
+import { InViewImagesGrid } from './in-view-images-grid';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# In View
+
+Easily animate elements when they come into view. You can apply animations to elements when they enter the viewport, or when they are fully visible.
+
+## Examples
+
+### Basic in view
+
+<ComponentCodePreview
+  component={<InViewBasic />}
+  filePath='app/docs/in-view/in-view-basic.tsx'
+  hasReTrigger
+/>
+
+### Basic in view with margin option
+
+<ComponentCodePreview
+  component={<InViewBasicMultiple />}
+  filePath='app/docs/in-view/in-view-basic-multiple.tsx'
+  hasReTrigger
+/>
+
+### In view with images and margin option
+
+Images are from [cosmos - oui are one ::](https://www.cosmos.so/biancadjardins/oui-are-one-%3A%3A)
+
+<ComponentCodePreview
+  component={<InViewImagesGrid />}
+  filePath='app/docs/in-view/in-view-images-grid.tsx'
+  classNameComponentContainer='h-[600px]'
+  hasReTrigger
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<CodeBlock
+  code={`npx shadcn add "https://motion-primitives.com/c/in-view.json"`}
+  lang='bash'
+  className='h-[52px]'
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/in-view.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+| Prop        | Type                                     | Default                                               | Description                                |
+| :---------- | :--------------------------------------- | :---------------------------------------------------- | :----------------------------------------- |
+| children    | ReactNode                                |                                                       | The content inside the `InView` component. |
+| variants    | `{ hidden: Variant; visible: Variant; }` | `{ hidden: { opacity: 0 }, visible: { opacity: 1 } }` | Variants to define the animation states.   |
+| transition  | Transition                               |                                                       | Specifies the animation transitions.       |
+| viewOptions | UseInViewOptions                         |                                                       | Options to configure the in-view behavior. |
+| as          | React.ElementType                        | 'div'                                               | The HTML element to render the component as.       |

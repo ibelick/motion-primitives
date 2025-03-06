@@ -1,0 +1,105 @@
+export const metadata = {
+  title: 'Image Comparison - Motion-Primitives',
+  description:
+    'Interactively compare two images with a draggable slider to reveal differences.',
+};
+import { ImageComparisonBasic } from './image-comparison-basic';
+import { ImageComparisonHover } from './image-comparison-hover';
+import { ImageComparisonSpring } from './image-comparison-spring';
+import { ImageComparisonCustomSlider } from './image-comparison-custom-slider';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Image Comparison
+
+Interactively compare two images with a draggable slider to reveal differences.
+
+## Examples
+
+### Image Comparison Basic
+
+<ComponentCodePreview
+  component={<ImageComparisonBasic />}
+  filePath='app/docs/image-comparison/image-comparison-basic.tsx'
+  classNameComponentContainer='px-6 py-24 lg:px-8'
+/>
+
+### Image Comparison with hover
+
+<ComponentCodePreview
+  component={<ImageComparisonHover />}
+  filePath='app/docs/image-comparison/image-comparison-hover.tsx'
+  classNameComponentContainer='px-6 py-24 lg:px-8'
+/>
+
+### Image Comparison with spring options
+
+<ComponentCodePreview
+  component={<ImageComparisonSpring />}
+  filePath='app/docs/image-comparison/image-comparison-spring.tsx'
+  classNameComponentContainer='px-6 py-24 lg:px-8'
+/>
+
+### Image Comparison with custom slider
+
+<ComponentCodePreview
+  component={<ImageComparisonCustomSlider />}
+  filePath='app/docs/image-comparison/image-comparison-custom-slider.tsx'
+  classNameComponentContainer='px-6 py-24 lg:px-8'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='image-comparison' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/image-comparison.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### ImageComparison
+
+| Prop          | Type            | Default                      | Description                                   |
+| :------------ | :-------------- | :--------------------------- | :-------------------------------------------- |
+| children      | React.ReactNode |                              | ImageComparisonImage components.              |
+| className     | string          | undefined                    | Optional CSS class for styling the component. |
+| enableHover   | boolean         | false                        | Controls whether hover effects are enabled.   |
+| springOptions | SpringOptions   | `{ bounce: 0, duration: 0 }` | Options for customizing the spring animation. |
+
+### ImageComparisonImage
+
+| Prop      | Type              | Default   | Description                                   |
+| :-------- | :---------------- | :-------- | :-------------------------------------------- |
+| className | string            | undefined | Optional CSS class for styling the component. |
+| alt       | string            |           | The alt text for the image.                   |
+| src       | string            |           | The source URL of the image.                  |
+| position  | 'left' \| 'right' | 'left'    | The position of the image.                    |
+
+### ImageComparisonSlider
+
+| Prop      | Type   | Default   | Description                                   |
+| :-------- | :----- | :-------- | :-------------------------------------------- |
+| className | string | undefined | Optional CSS class for styling the component. |

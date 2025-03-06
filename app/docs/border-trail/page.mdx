@@ -1,0 +1,79 @@
+export const metadata = {
+  title: 'Border Trail - Motion-Primitives',
+  description:
+    'Animated border effect that moves along the edges of its parent container.',
+};
+
+import { BorderTrailCard1 } from './border-trail-card-1';
+import { BorderTrailCard2 } from './border-trail-card-2';
+import { BorderTrailTextarea } from './border-trail-textarea';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Border Trail
+
+Animated border effect that moves along the edges of its parent container.
+
+## Examples
+
+### Border Trail Card
+
+<ComponentCodePreview
+  component={<BorderTrailCard1 />}
+  filePath='app/docs/border-trail/border-trail-card-1.tsx'
+/>
+
+### Border Trail Loading Card
+
+<ComponentCodePreview
+  component={<BorderTrailCard2 />}
+  filePath='app/docs/border-trail/border-trail-card-2.tsx'
+/>
+
+### Border Trail Textarea
+
+<ComponentCodePreview
+  component={<BorderTrailTextarea />}
+  filePath='app/docs/border-trail/border-trail-textarea.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='border-trail' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/border-trail.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### Border Trail
+
+| Prop                | Type       | Default | Description                                               |
+| :------------------ | :--------- | :------ | :-------------------------------------------------------- |
+| className           | string     |         | Additional CSS classes for styling the border trail.      |
+| size                | number     | 60      | Size of the animated border effect.                       |
+| transition          | Transition |         | Custom transition settings for the animation.             |
+| onAnimationComplete | () => void |         | Callback function triggered when the animation completes. |

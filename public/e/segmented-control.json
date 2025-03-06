@@ -1,0 +1,18 @@
+{
+  "name": "segmented-control",
+  "type": "registry:ui",
+  "componentName": "segmented-control",
+  "description": "Segmented control UI element with animated background transitions.",
+  "files": [
+    {
+      "path": "segmented-control.tsx",
+      "content": "import { AnimatedBackground } from '@/components/core/animated-background';\n\nexport function SegmentedControl() {\n  return (\n    <div className='rounded-[8px] bg-gray-100 p-[2px] dark:bg-zinc-800'>\n      <AnimatedBackground\n        defaultValue='Day'\n        className='rounded-lg bg-white dark:bg-zinc-700'\n        transition={{\n          ease: 'easeInOut',\n          duration: 0.2,\n        }}\n      >\n        {['Day', 'Week', 'Month', 'Year'].map((label, index) => {\n          return (\n            <button\n              key={index}\n              data-id={label}\n              type='button'\n              aria-label={`${label} view`}\n              className='inline-flex w-20 items-center justify-center text-center text-zinc-800 transition-transform active:scale-[0.98] dark:text-zinc-50'\n            >\n              {label}\n            </button>\n          );\n        })}\n      </AnimatedBackground>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/animated-background.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { AnimatePresence, Transition, motion } from 'motion/react';\nimport {\n  Children,\n  cloneElement,\n  ReactElement,\n  useEffect,\n  useState,\n  useId,\n} from 'react';\n\nexport type AnimatedBackgroundProps = {\n  children:\n    | ReactElement<{ 'data-id': string }>[]\n    | ReactElement<{ 'data-id': string }>;\n  defaultValue?: string;\n  onValueChange?: (newActiveId: string | null) => void;\n  className?: string;\n  transition?: Transition;\n  enableHover?: boolean;\n};\n\nexport function AnimatedBackground({\n  children,\n  defaultValue,\n  onValueChange,\n  className,\n  transition,\n  enableHover = false,\n}: AnimatedBackgroundProps) {\n  const [activeId, setActiveId] = useState<string | null>(null);\n  const uniqueId = useId();\n\n  const handleSetActiveId = (id: string | null) => {\n    setActiveId(id);\n\n    if (onValueChange) {\n      onValueChange(id);\n    }\n  };\n\n  useEffect(() => {\n    if (defaultValue !== undefined) {\n      setActiveId(defaultValue);\n    }\n  }, [defaultValue]);\n\n  return Children.map(children, (child: any, index) => {\n    const id = child.props['data-id'];\n\n    const interactionProps = enableHover\n      ? {\n          onMouseEnter: () => handleSetActiveId(id),\n          onMouseLeave: () => handleSetActiveId(null),\n        }\n      : {\n          onClick: () => handleSetActiveId(id),\n        };\n\n    return cloneElement(\n      child,\n      {\n        key: index,\n        className: cn('relative inline-flex', child.props.className),\n        'data-checked': activeId === id ? 'true' : 'false',\n        ...interactionProps,\n      },\n      <>\n        <AnimatePresence initial={false}>\n          {activeId === id && (\n            <motion.div\n              layoutId={`background-${uniqueId}`}\n              className={cn('absolute inset-0', className)}\n              transition={transition}\n              initial={{ opacity: defaultValue ? 1 : 0 }}\n              animate={{\n                opacity: 1,\n              }}\n              exit={{\n                opacity: 0,\n              }}\n            />\n          )}\n        </AnimatePresence>\n        <div className='z-10'>{child.props.children}</div>\n      </>\n    );\n  });\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

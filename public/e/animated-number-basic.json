@@ -1,0 +1,18 @@
+{
+  "name": "animated-number-basic",
+  "type": "registry:ui",
+  "componentName": "animated-number-basic",
+  "description": "Basic implementation of the animated number component.",
+  "files": [
+    {
+      "path": "animated-number-basic.tsx",
+      "content": "'use client';\nimport { useEffect, useState } from 'react';\nimport { AnimatedNumber } from '@/components/core/animated-number';\n\nexport function AnimatedNumberBasic() {\n  const [value, setValue] = useState(0);\n\n  useEffect(() => {\n    setValue(2082);\n  }, []);\n\n  return (\n    <div className='flex w-full items-center justify-center'>\n      <svg\n        xmlns='http://www.w3.org/2000/svg'\n        viewBox='0 0 16 16'\n        width='16'\n        height='16'\n        className='mr-3 h-3 w-3 fill-transparent stroke-zinc-800 stroke-[1.3] dark:stroke-zinc-50'\n      >\n        <path d='M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z'></path>\n      </svg>\n      <AnimatedNumber\n        className='inline-flex items-center font-mono text-2xl font-light text-zinc-800 dark:text-zinc-50'\n        springOptions={{\n          bounce: 0,\n          duration: 2000,\n        }}\n        value={value}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/animated-number.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, SpringOptions, useSpring, useTransform } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport type AnimatedNumberProps = {\n  value: number;\n  className?: string;\n  springOptions?: SpringOptions;\n  as?: React.ElementType;\n};\n\nexport function AnimatedNumber({\n  value,\n  className,\n  springOptions,\n  as = 'span',\n}: AnimatedNumberProps) {\n  const MotionComponent = motion.create(as as keyof JSX.IntrinsicElements);\n\n  const spring = useSpring(value, springOptions);\n  const display = useTransform(spring, (current) =>\n    Math.round(current).toLocaleString()\n  );\n\n  useEffect(() => {\n    spring.set(value);\n  }, [spring, value]);\n\n  return (\n    <MotionComponent className={cn('tabular-nums', className)}>\n      {display}\n    </MotionComponent>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

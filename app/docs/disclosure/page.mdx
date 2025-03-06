@@ -1,0 +1,92 @@
+export const metadata = {
+  title: 'Disclosure - Motion-Primitives',
+  description:
+    'The Disclosure component allows users to toggle the visibility of content, either collapsed or expanded.',
+};
+
+import { DisclosureBasic } from './disclosure-basic';
+import { DisclosureCard } from './disclosure-card';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Disclosure
+
+The Disclosure component allows users to toggle the visibility of content, either collapsed or expanded.
+
+## Examples
+
+### Basic Disclosure
+
+<ComponentCodePreview
+  component={<DisclosureBasic />}
+  filePath='app/docs/disclosure/disclosure-basic.tsx'
+  classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
+/>
+
+### Disclosure with custom animation
+
+Image from [Les others studio](https://www.instagram.com/p/Crvt1j8tybi/?img_index=6)
+
+<ComponentCodePreview
+  component={<DisclosureCard />}
+  filePath='app/docs/disclosure/disclosure-card.tsx'
+  classNameComponentContainer='min-h-0 py-24 lg:px-32 px-8'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='disclosure' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/disclosure.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### Disclosure
+
+| Prop         | Type                                        | Default | Description                                                                                |
+| ------------ | ------------------------------------------- | ------- | ------------------------------------------------------------------------------------------ |
+| open         | boolean                                     | false   | Controls the visibility of the content.                                                    |
+| onOpenChange | (open: boolean) => void                     |         | Callback function to handle changes in the open state.                                     |
+| children     | ReactNode                                   |         | The content to be toggled, typically includes `DisclosureTrigger` and `DisclosureContent`. |
+| className    | string                                      |         | Additional CSS classes for the container.                                                  |
+| variants     | `{ expanded: Variant; collapsed: Variant }` |         | Custom animation variants for expanded and collapsed states.                               |
+| transition   | `Transition`                                |         | Custom transition settings for the motion animations.                                      |
+
+### DisclosureTrigger
+
+| Prop      | Type      | Default | Description                                          |
+| --------- | --------- | ------- | ---------------------------------------------------- |
+| children  | ReactNode |         | The trigger element that will toggle the disclosure. |
+| className | string    |         | Additional CSS classes for the trigger element.      |
+
+### DisclosureContent
+
+| Prop      | Type      | Default | Description                                                 |
+| --------- | --------- | ------- | ----------------------------------------------------------- |
+| children  | ReactNode |         | The content that will be shown or hidden by the disclosure. |
+| className | string    |         | Additional CSS classes for the content container.           |

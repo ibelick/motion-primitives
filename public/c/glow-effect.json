@@ -1,0 +1,21 @@
+{
+  "name": "glow-effect",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "glow-effect.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, Transition } from 'motion/react';\n\nexport type GlowEffectProps = {\n  className?: string;\n  style?: React.CSSProperties;\n  colors?: string[];\n  mode?:\n    | 'rotate'\n    | 'pulse'\n    | 'breathe'\n    | 'colorShift'\n    | 'flowHorizontal'\n    | 'static';\n  blur?:\n    | number\n    | 'softest'\n    | 'soft'\n    | 'medium'\n    | 'strong'\n    | 'stronger'\n    | 'strongest'\n    | 'none';\n  transition?: Transition;\n  scale?: number;\n  duration?: number;\n};\n\nexport function GlowEffect({\n  className,\n  style,\n  colors = ['#FF5733', '#33FF57', '#3357FF', '#F1C40F'],\n  mode = 'rotate',\n  blur = 'medium',\n  transition,\n  scale = 1,\n  duration = 5,\n}: GlowEffectProps) {\n  const BASE_TRANSITION = {\n    repeat: Infinity,\n    duration: duration,\n    ease: 'linear',\n  };\n\n  const animations = {\n    rotate: {\n      background: [\n        `conic-gradient(from 0deg at 50% 50%, ${colors.join(', ')})`,\n        `conic-gradient(from 360deg at 50% 50%, ${colors.join(', ')})`,\n      ],\n      transition: {\n        ...(transition ?? BASE_TRANSITION),\n      },\n    },\n    pulse: {\n      background: colors.map(\n        (color) =>\n          `radial-gradient(circle at 50% 50%, ${color} 0%, transparent 100%)`\n      ),\n      scale: [1 * scale, 1.1 * scale, 1 * scale],\n      opacity: [0.5, 0.8, 0.5],\n      transition: {\n        ...(transition ?? {\n          ...BASE_TRANSITION,\n          repeatType: 'mirror',\n        }),\n      },\n    },\n    breathe: {\n      background: [\n        ...colors.map(\n          (color) =>\n            `radial-gradient(circle at 50% 50%, ${color} 0%, transparent 100%)`\n        ),\n      ],\n      scale: [1 * scale, 1.05 * scale, 1 * scale],\n      transition: {\n        ...(transition ?? {\n          ...BASE_TRANSITION,\n          repeatType: 'mirror',\n        }),\n      },\n    },\n    colorShift: {\n      background: colors.map((color, index) => {\n        const nextColor = colors[(index + 1) % colors.length];\n        return `conic-gradient(from 0deg at 50% 50%, ${color} 0%, ${nextColor} 50%, ${color} 100%)`;\n      }),\n      transition: {\n        ...(transition ?? {\n          ...BASE_TRANSITION,\n          repeatType: 'mirror',\n        }),\n      },\n    },\n    flowHorizontal: {\n      background: colors.map((color) => {\n        const nextColor = colors[(colors.indexOf(color) + 1) % colors.length];\n        return `linear-gradient(to right, ${color}, ${nextColor})`;\n      }),\n      transition: {\n        ...(transition ?? {\n          ...BASE_TRANSITION,\n          repeatType: 'mirror',\n        }),\n      },\n    },\n    static: {\n      background: `linear-gradient(to right, ${colors.join(', ')})`,\n    },\n  };\n\n  const getBlurClass = (blur: GlowEffectProps['blur']) => {\n    if (typeof blur === 'number') {\n      return `blur-[${blur}px]`;\n    }\n\n    const presets = {\n      softest: 'blur-xs',\n      soft: 'blur-sm',\n      medium: 'blur-md',\n      strong: 'blur-lg',\n      stronger: 'blur-xl',\n      strongest: 'blur-xl',\n      none: 'blur-none',\n    };\n\n    return presets[blur as keyof typeof presets];\n  };\n\n  return (\n    <motion.div\n      style={\n        {\n          ...style,\n          '--scale': scale,\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n        } as React.CSSProperties\n      }\n      animate={animations[mode]}\n      className={cn(\n        'pointer-events-none absolute inset-0 h-full w-full',\n        'scale-[var(--scale)] transform-gpu',\n        getBlurClass(blur),\n        className\n      )}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

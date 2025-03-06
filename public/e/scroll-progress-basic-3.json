@@ -1,0 +1,18 @@
+{
+  "name": "scroll-progress-basic-3",
+  "type": "registry:ui",
+  "componentName": "scroll-progress",
+  "description": "Enhanced scroll progress indicator with additional features.",
+  "files": [
+    {
+      "path": "scroll-progress-basic-3.tsx",
+      "content": "'use client';\nimport { useRef } from 'react';\nimport { ScrollProgress } from '@/components/core/scroll-progress';\n\nconst dummyContent = Array.from({ length: 10 }, (_, i) => (\n  <p key={i} className='pb-4 font-mono text-sm text-zinc-500'>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam\n    lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra\n    nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget\n    libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut\n    porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies\n    a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n  </p>\n));\n\nexport function ScrollProgressBasic3() {\n  const containerRef = useRef<HTMLDivElement>(null);\n\n  return (\n    <div\n      className='h-[350px] overflow-auto px-8 pb-16 pt-16'\n      ref={containerRef}\n    >\n      <div className='pointer-events-none absolute left-0 top-0 h-24 w-full bg-white to-transparent backdrop-blur-xl [-webkit-mask-image:linear-gradient(to_bottom,black,transparent)] dark:bg-neutral-950' />\n      <div className='pointer-events-none absolute left-0 top-0 w-full'>\n        <div className='absolute left-0 top-0 h-0.5 w-full dark:bg-[#111111]' />\n        <ScrollProgress\n          className='absolute top-0 h-0.5 bg-[linear-gradient(to_right,rgba(0,0,0,0),#111111_75%,#111111_100%)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0),#ffffff_75%,#ffffff_100%)]'\n          containerRef={containerRef}\n          springOptions={{\n            stiffness: 280,\n            damping: 18,\n            mass: 0.3,\n          }}\n        />\n      </div>\n      {dummyContent}\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/scroll-progress.tsx",
+      "content": "'use client';\n\nimport { motion, SpringOptions, useScroll, useSpring } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport { RefObject } from 'react';\n\nexport type ScrollProgressProps = {\n  className?: string;\n  springOptions?: SpringOptions;\n  containerRef?: RefObject<HTMLDivElement>;\n};\n\nconst DEFAULT_SPRING_OPTIONS: SpringOptions = {\n  stiffness: 200,\n  damping: 50,\n  restDelta: 0.001,\n};\n\nexport function ScrollProgress({\n  className,\n  springOptions,\n  containerRef,\n}: ScrollProgressProps) {\n  const { scrollYProgress } = useScroll({\n    container: containerRef,\n    layoutEffect: Boolean(containerRef?.current),\n  });\n\n  const scaleX = useSpring(scrollYProgress, {\n    ...DEFAULT_SPRING_OPTIONS,\n    ...(springOptions ?? {}),\n  });\n\n  return (\n    <motion.div\n      className={cn('inset-x-0 top-0 h-1 origin-left', className)}\n      style={{\n        scaleX,\n      }}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

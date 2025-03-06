@@ -1,0 +1,18 @@
+{
+  "name": "animated-number-counter",
+  "type": "registry:ui",
+  "componentName": "animated-number-counter",
+  "description": "Animated counter implementation that smoothly transitions between numbers.",
+  "files": [
+    {
+      "path": "animated-number-counter.tsx",
+      "content": "'use client';\nimport { useState } from 'react';\nimport { AnimatedNumber } from '@/components/core/animated-number';\nimport { Minus, Plus } from 'lucide-react';\n\nexport function AnimatedNumberCounter() {\n  const [value, setValue] = useState(1000);\n\n  return (\n    <div className='flex w-full items-center justify-center space-x-2 text-zinc-800 dark:text-zinc-50'>\n      <button\n        aria-label='Decrement'\n        onClick={() => setValue((prev) => prev - 100)}\n      >\n        <Minus className='h-4 w-4' />\n      </button>\n      <AnimatedNumber\n        className='inline-flex items-center font-mono text-2xl font-light'\n        springOptions={{\n          bounce: 0,\n          duration: 1000,\n        }}\n        value={value}\n      />\n      <button\n        aria-label='Increment'\n        onClick={() => setValue((prev) => prev + 100)}\n      >\n        <Plus className='h-4 w-4' />\n      </button>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/animated-number.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, SpringOptions, useSpring, useTransform } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport type AnimatedNumberProps = {\n  value: number;\n  className?: string;\n  springOptions?: SpringOptions;\n  as?: React.ElementType;\n};\n\nexport function AnimatedNumber({\n  value,\n  className,\n  springOptions,\n  as = 'span',\n}: AnimatedNumberProps) {\n  const MotionComponent = motion.create(as as keyof JSX.IntrinsicElements);\n\n  const spring = useSpring(value, springOptions);\n  const display = useTransform(spring, (current) =>\n    Math.round(current).toLocaleString()\n  );\n\n  useEffect(() => {\n    spring.set(value);\n  }, [spring, value]);\n\n  return (\n    <MotionComponent className={cn('tabular-nums', className)}>\n      {display}\n    </MotionComponent>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

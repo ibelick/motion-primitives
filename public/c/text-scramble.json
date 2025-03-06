@@ -1,0 +1,21 @@
+{
+  "name": "text-scramble",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "text-scramble.tsx",
+      "content": "'use client';\nimport { type JSX, useEffect, useState } from 'react';\nimport { motion, MotionProps } from 'motion/react';\n\nexport type TextScrambleProps = {\n  children: string;\n  duration?: number;\n  speed?: number;\n  characterSet?: string;\n  as?: React.ElementType;\n  className?: string;\n  trigger?: boolean;\n  onScrambleComplete?: () => void;\n} & MotionProps;\n\nconst defaultChars =\n  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n\nexport function TextScramble({\n  children,\n  duration = 0.8,\n  speed = 0.04,\n  characterSet = defaultChars,\n  className,\n  as: Component = 'p',\n  trigger = true,\n  onScrambleComplete,\n  ...props\n}: TextScrambleProps) {\n  const MotionComponent = motion.create(\n    Component as keyof JSX.IntrinsicElements\n  );\n  const [displayText, setDisplayText] = useState(children);\n  const [isAnimating, setIsAnimating] = useState(false);\n  const text = children;\n\n  const scramble = async () => {\n    if (isAnimating) return;\n    setIsAnimating(true);\n\n    const steps = duration / speed;\n    let step = 0;\n\n    const interval = setInterval(() => {\n      let scrambled = '';\n      const progress = step / steps;\n\n      for (let i = 0; i < text.length; i++) {\n        if (text[i] === ' ') {\n          scrambled += ' ';\n          continue;\n        }\n\n        if (progress * text.length > i) {\n          scrambled += text[i];\n        } else {\n          scrambled +=\n            characterSet[Math.floor(Math.random() * characterSet.length)];\n        }\n      }\n\n      setDisplayText(scrambled);\n      step++;\n\n      if (step > steps) {\n        clearInterval(interval);\n        setDisplayText(text);\n        setIsAnimating(false);\n        onScrambleComplete?.();\n      }\n    }, speed * 1000);\n  };\n\n  useEffect(() => {\n    if (!trigger) return;\n\n    scramble();\n  }, [trigger]);\n\n  return (\n    <MotionComponent className={className} {...props}>\n      {displayText}\n    </MotionComponent>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

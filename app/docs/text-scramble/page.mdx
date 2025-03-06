@@ -1,0 +1,88 @@
+export const metadata = {
+  title: 'Text Scramble - Motion-Primitives',
+  description:
+    'Text animation that transforms text by randomly cycling through characters before settling on the final content, creating an engaging cryptographic effect.',
+};
+
+import { TextScrambleBasic } from './text-scramble-basic';
+import { TextScrambleCustomCharacterDuration } from './text-scramble-custom-char-duration';
+import { TextScrambleCustomTrigger } from './text-scramble-custom-trigger';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Text Scramble
+
+Text animation that transforms text by randomly cycling through characters before settling on the final content, creating an engaging cryptographic effect.
+
+## Examples
+
+### Text Scramble Basic
+
+<ComponentCodePreview
+  component={<TextScrambleBasic />}
+  filePath='app/docs/text-scramble/text-scramble-basic.tsx'
+  hasReTrigger
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+### Text Scramble with custom trigger
+
+<ComponentCodePreview
+  component={<TextScrambleCustomTrigger />}
+  filePath='app/docs/text-scramble/text-scramble-custom-trigger.tsx'
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+### Text Scramble with custom character and duration
+
+<ComponentCodePreview
+  component={<TextScrambleCustomCharacterDuration />}
+  filePath='app/docs/text-scramble/text-scramble-custom-char-duration.tsx'
+  hasReTrigger
+  classNameComponentContainer='min-h-0 py-12 px-12 justify-start items-start'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='text-scramble' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/text-scramble.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### TextScramble
+
+| Prop               | Type                        | Default              | Description                                         |
+| :----------------- | :-------------------------- | :------------------- | :-------------------------------------------------- |
+| children           | string                      |                      | The text content to be animated.                    |
+| as                 | keyof JSX.IntrinsicElements | 'p'                  | The HTML tag to render, defaults to paragraph.      |
+| duration           | number                      | 0.8                  | Duration of the effect.                             |
+| speed              | number                      | 0.04                 | Speed of the effect.                                |
+| characterSet       | string                      | ABCDEF...z0123456789 | Set of characters for the scramble effect           |
+| className          | string                      | undefined            | Optional CSS class for styling the component.       |
+| trigger            | boolean                     | undefined            | Controls whether the animation should be triggered. |
+| onScrambleComplete | () => void                  | undefined            | Callback function when the animation completes.     |

@@ -1,0 +1,82 @@
+export const metadata = {
+  title: 'Infinite Slider - Motion-Primitives',
+  description:
+    'Infinite scrolling slider component that smoothly loops through its children. It supports both horizontal and vertical directions, with customizable speed and speed on hover. Ideal for creating continuous carousels, marquee displays, or dynamic content showcases.',
+};
+import { InfiniteSliderBasic } from './infinite-slider-basic';
+import { InfiniteSliderHoverSpeed } from './infinite-slider-hover-speed';
+import { InfiniteSliderVertical } from './infinite-slider-vertical';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Infinite Slider
+
+Infinite scrolling slider component that smoothly loops through its children. It supports both horizontal and vertical directions, with customizable speed and speed on hover. Ideal for creating continuous carousels, marquee displays, or dynamic content showcases.
+
+## Example
+
+### Infinite Slider basic
+
+<ComponentCodePreview
+  component={<InfiniteSliderBasic />}
+  filePath='app/docs/infinite-slider/infinite-slider-basic.tsx'
+  classNameComponentContainer='bg-white'
+/>
+
+### Infinite Slider hover speed
+
+<ComponentCodePreview
+  component={<InfiniteSliderHoverSpeed />}
+  filePath='app/docs/infinite-slider/infinite-slider-hover-speed.tsx'
+/>
+
+### Infinite Slider vertical
+
+<ComponentCodePreview
+  component={<InfiniteSliderVertical />}
+  filePath='app/docs/infinite-slider/infinite-slider-vertical.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='infinite-slider' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/infinite-slider.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### InfiniteSlider
+
+| Prop         | Type                       | Default      | Description                                                           |
+| :----------- | :------------------------- | :----------- | :-------------------------------------------------------------------- |
+| children     | React.ReactNode            |              | The child elements to be displayed in the slider.                     |
+| gap          | number                     | 16           | The gap between child elements in pixels.                             |
+| speed        | number                     | 100          | The speed of the slider animation in pixels per second.               |
+| speedOnHover | number                     |              | The speed of the slider animation when hovered, in pixels per second. |
+| direction    | 'horizontal' \| 'vertical' | 'horizontal' | The direction of the slider movement.                                 |
+| reverse      | boolean                    | false        | Whether to reverse the direction of the slider movement.              |
+| className    | string                     | undefined    | Optional CSS class for styling the component.                         |

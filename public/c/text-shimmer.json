@@ -1,0 +1,21 @@
+{
+  "name": "text-shimmer",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "text-shimmer.tsx",
+      "content": "'use client';\nimport React, { useMemo, type JSX } from 'react';\nimport { motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\nexport type TextShimmerProps = {\n  children: string;\n  as?: React.ElementType;\n  className?: string;\n  duration?: number;\n  spread?: number;\n};\n\nexport function TextShimmer({\n  children,\n  as: Component = 'p',\n  className,\n  duration = 2,\n  spread = 2,\n}: TextShimmerProps) {\n  const MotionComponent = motion.create(\n    Component as keyof JSX.IntrinsicElements\n  );\n\n  const dynamicSpread = useMemo(() => {\n    return children.length * spread;\n  }, [children, spread]);\n\n  return (\n    <MotionComponent\n      className={cn(\n        'relative inline-block bg-[length:250%_100%,auto] bg-clip-text',\n        'text-transparent [--base-color:#a1a1aa] [--base-gradient-color:#000]',\n        '[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))] [background-repeat:no-repeat,padding-box]',\n        'dark:[--base-color:#71717a] dark:[--base-gradient-color:#ffffff] dark:[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',\n        className\n      )}\n      initial={{ backgroundPosition: '100% center' }}\n      animate={{ backgroundPosition: '0% center' }}\n      transition={{\n        repeat: Infinity,\n        duration,\n        ease: 'linear',\n      }}\n      style={\n        {\n          '--spread': `${dynamicSpread}px`,\n          backgroundImage: `var(--bg), linear-gradient(var(--base-color), var(--base-color))`,\n        } as React.CSSProperties\n      }\n    >\n      {children}\n    </MotionComponent>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "progressive-blur-hover",
+  "type": "registry:ui",
+  "componentName": "progressive-blur",
+  "description": "Progressive blur effect that responds to hover interactions.",
+  "files": [
+    {
+      "path": "progressive-blur-hover.tsx",
+      "content": "'use client';\n\nimport { useState } from 'react';\nimport { ProgressiveBlur } from '@/components/core/progressive-blur';\nimport { motion } from 'motion/react';\n\nexport function ProgressiveBlurHover() {\n  const [isHover, setIsHover] = useState(false);\n\n  return (\n    <div\n      className='relative my-4 aspect-square h-[300px] overflow-hidden rounded-[4px]'\n      onMouseEnter={() => setIsHover(true)}\n      onMouseLeave={() => setIsHover(false)}\n    >\n      <img\n        src='https://cdn.cosmos.so/2d774ea0-4b4f-4d9f-a634-6b6c5a130e91?format=jpeg'\n        alt='John Martin - Pandemonium'\n        className='absolute inset-0'\n      />\n      <ProgressiveBlur\n        className='pointer-events-none absolute bottom-0 left-0 h-[75%] w-full'\n        blurIntensity={0.5}\n        animate={isHover ? 'visible' : 'hidden'}\n        variants={{\n          hidden: { opacity: 0 },\n          visible: { opacity: 1 },\n        }}\n        transition={{ duration: 0.2, ease: 'easeOut' }}\n      />\n      <motion.div\n        className='absolute bottom-0 left-0'\n        animate={isHover ? 'visible' : 'hidden'}\n        variants={{\n          hidden: { opacity: 0 },\n          visible: { opacity: 1 },\n        }}\n        transition={{ duration: 0.2, ease: 'easeOut' }}\n      >\n        <div className='flex flex-col items-start gap-0 px-5 py-4'>\n          <p className='text-base font-medium text-white'>John Martin</p>\n          <span className='text-base text-zinc-300'>Pandemonium</span>\n        </div>\n      </motion.div>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/progressive-blur.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { HTMLMotionProps, motion } from 'motion/react';\n\nexport const GRADIENT_ANGLES = {\n  top: 0,\n  right: 90,\n  bottom: 180,\n  left: 270,\n};\n\nexport type ProgressiveBlurProps = {\n  direction?: keyof typeof GRADIENT_ANGLES;\n  blurLayers?: number;\n  className?: string;\n  blurIntensity?: number;\n} & HTMLMotionProps<'div'>;\n\nexport function ProgressiveBlur({\n  direction = 'bottom',\n  blurLayers = 8,\n  className,\n  blurIntensity = 0.25,\n  ...props\n}: ProgressiveBlurProps) {\n  const layers = Math.max(blurLayers, 2);\n  const segmentSize = 1 / (blurLayers + 1);\n\n  return (\n    <div className={cn('relative', className)}>\n      {Array.from({ length: layers }).map((_, index) => {\n        const angle = GRADIENT_ANGLES[direction];\n        const gradientStops = [\n          index * segmentSize,\n          (index + 1) * segmentSize,\n          (index + 2) * segmentSize,\n          (index + 3) * segmentSize,\n        ].map(\n          (pos, posIndex) =>\n            `rgba(255, 255, 255, ${posIndex === 1 || posIndex === 2 ? 1 : 0}) ${pos * 100}%`\n        );\n\n        const gradient = `linear-gradient(${angle}deg, ${gradientStops.join(\n          ', '\n        )})`;\n\n        return (\n          <motion.div\n            key={index}\n            className='pointer-events-none absolute inset-0 rounded-[inherit]'\n            style={{\n              maskImage: gradient,\n              WebkitMaskImage: gradient,\n              backdropFilter: `blur(${index * blurIntensity}px)`,\n            }}\n            {...props}\n          />\n        );\n      })}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

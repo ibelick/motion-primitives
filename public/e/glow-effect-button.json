@@ -1,0 +1,13 @@
+{
+  "name": "glow-effect-button",
+  "type": "registry:ui",
+  "componentName": "glow-effect-button",
+  "description": "Button with interactive glow effect on hover.",
+  "files": [
+    {
+      "path": "glow-effect-button.tsx",
+      "content": "import { GlowEffect } from '@/components/core/glow-effect';\nimport { ArrowRight } from 'lucide-react';\n\nexport function GlowEffectButton() {\n  return (\n    <div className='relative'>\n      <GlowEffect\n        colors={['#FF5733', '#33FF57', '#3357FF', '#F1C40F']}\n        mode='colorShift'\n        blur='soft'\n        duration={3}\n        scale={0.9}\n      />\n      <button className='relative inline-flex items-center gap-1 rounded-md bg-zinc-950 px-2.5 py-1.5 text-sm text-zinc-50 outline outline-1 outline-[#fff2f21f]'>\n        Explore <ArrowRight className='h4 w-4' />\n      </button>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

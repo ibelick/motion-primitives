@@ -1,0 +1,82 @@
+export const metadata = {
+  title: 'Scroll Progress - Motion-Primitives',
+  description: 'Animated scroll progress for your web pages.',
+};
+
+import { ScrollProgress } from '@/components/core/scroll-progress';
+import { ScrollProgressBasic1 } from './scroll-progress-basic-1';
+import { ScrollProgressBasic2 } from './scroll-progress-basic-2';
+import { ScrollProgressBasic3 } from './scroll-progress-basic-3';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Scroll Progress
+
+Animated scroll progress for your web pages.
+
+## Examples
+
+### Scroll Progress Basic
+
+<ComponentCodePreview
+  component={<ScrollProgressBasic1 />}
+  filePath='app/docs/scroll-progress/scroll-progress-basic-1.tsx'
+/>
+
+### Scroll Progress Navigation
+
+<ComponentCodePreview
+  component={<ScrollProgressBasic2 />}
+  filePath='app/docs/scroll-progress/scroll-progress-basic-2.tsx'
+/>
+
+### Scroll Progress Gradient
+
+<ComponentCodePreview
+  component={<ScrollProgressBasic3 />}
+  filePath='app/docs/scroll-progress/scroll-progress-basic-3.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='scroll-progress' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/scroll-progress.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### ScrollProgress
+
+| Prop          | Type          | Default | Description                                                |
+| :------------ | :------------ | :------ | :--------------------------------------------------------- |
+| className     | string        |         | Optional CSS class for styling the scroll progress.        |
+| springOptions | SpringOptions |         | Optional spring options for the scroll progress animation. |
+| containerRef  | RefObject     |         | Optional Ref object for the container element.             |
+
+## Credit
+
+Initiated by [@bhataasim1](https://github.com/bhataasim1)

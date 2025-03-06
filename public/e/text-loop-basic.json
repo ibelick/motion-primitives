@@ -1,0 +1,18 @@
+{
+  "name": "text-loop-basic",
+  "type": "registry:ui",
+  "componentName": "text-loop",
+  "description": "Basic implementation of the text loop animation.",
+  "files": [
+    {
+      "path": "text-loop-basic.tsx",
+      "content": "import { TextLoop } from '@/components/core/text-loop';\n\nexport function TextLoopBasic() {\n  return (\n    <TextLoop className='font-mono text-sm'>\n      <span>How can I assist you today?</span>\n      <span>Generate a logo</span>\n      <span>Create a component</span>\n      <span>Draw a diagram</span>\n    </TextLoop>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/text-loop.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  motion,\n  AnimatePresence,\n  Transition,\n  Variants,\n  AnimatePresenceProps,\n} from 'motion/react';\nimport { useState, useEffect, Children } from 'react';\n\nexport type TextLoopProps = {\n  children: React.ReactNode[];\n  className?: string;\n  interval?: number;\n  transition?: Transition;\n  variants?: Variants;\n  onIndexChange?: (index: number) => void;\n  trigger?: boolean;\n  mode?: AnimatePresenceProps['mode'];\n};\n\nexport function TextLoop({\n  children,\n  className,\n  interval = 2,\n  transition = { duration: 0.3 },\n  variants,\n  onIndexChange,\n  trigger = true,\n  mode = 'popLayout',\n}: TextLoopProps) {\n  const [currentIndex, setCurrentIndex] = useState(0);\n  const items = Children.toArray(children);\n\n  useEffect(() => {\n    if (!trigger) return;\n\n    const intervalMs = interval * 1000;\n    const timer = setInterval(() => {\n      setCurrentIndex((current) => {\n        const next = (current + 1) % items.length;\n        onIndexChange?.(next);\n        return next;\n      });\n    }, intervalMs);\n    return () => clearInterval(timer);\n  }, [items.length, interval, onIndexChange, trigger]);\n\n  const motionVariants: Variants = {\n    initial: { y: 20, opacity: 0 },\n    animate: { y: 0, opacity: 1 },\n    exit: { y: -20, opacity: 0 },\n  };\n\n  return (\n    <div className={cn('relative inline-block whitespace-nowrap', className)}>\n      <AnimatePresence mode={mode} initial={false}>\n        <motion.div\n          key={currentIndex}\n          initial='initial'\n          animate='animate'\n          exit='exit'\n          transition={transition}\n          variants={variants || motionVariants}\n        >\n          {items[currentIndex]}\n        </motion.div>\n      </AnimatePresence>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "animated-background",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "animated-background.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { AnimatePresence, Transition, motion } from 'motion/react';\nimport {\n  Children,\n  cloneElement,\n  ReactElement,\n  useEffect,\n  useState,\n  useId,\n} from 'react';\n\nexport type AnimatedBackgroundProps = {\n  children:\n    | ReactElement<{ 'data-id': string }>[]\n    | ReactElement<{ 'data-id': string }>;\n  defaultValue?: string;\n  onValueChange?: (newActiveId: string | null) => void;\n  className?: string;\n  transition?: Transition;\n  enableHover?: boolean;\n};\n\nexport function AnimatedBackground({\n  children,\n  defaultValue,\n  onValueChange,\n  className,\n  transition,\n  enableHover = false,\n}: AnimatedBackgroundProps) {\n  const [activeId, setActiveId] = useState<string | null>(null);\n  const uniqueId = useId();\n\n  const handleSetActiveId = (id: string | null) => {\n    setActiveId(id);\n\n    if (onValueChange) {\n      onValueChange(id);\n    }\n  };\n\n  useEffect(() => {\n    if (defaultValue !== undefined) {\n      setActiveId(defaultValue);\n    }\n  }, [defaultValue]);\n\n  return Children.map(children, (child: any, index) => {\n    const id = child.props['data-id'];\n\n    const interactionProps = enableHover\n      ? {\n          onMouseEnter: () => handleSetActiveId(id),\n          onMouseLeave: () => handleSetActiveId(null),\n        }\n      : {\n          onClick: () => handleSetActiveId(id),\n        };\n\n    return cloneElement(\n      child,\n      {\n        key: index,\n        className: cn('relative inline-flex', child.props.className),\n        'data-checked': activeId === id ? 'true' : 'false',\n        ...interactionProps,\n      },\n      <>\n        <AnimatePresence initial={false}>\n          {activeId === id && (\n            <motion.div\n              layoutId={`background-${uniqueId}`}\n              className={cn('absolute inset-0', className)}\n              transition={transition}\n              initial={{ opacity: defaultValue ? 1 : 0 }}\n              animate={{\n                opacity: 1,\n              }}\n              exit={{\n                opacity: 0,\n              }}\n            />\n          )}\n        </AnimatePresence>\n        <div className='z-10'>{child.props.children}</div>\n      </>\n    );\n  });\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

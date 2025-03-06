@@ -1,0 +1,79 @@
+export const metadata = {
+  title: 'Tilt - Motion-Primitives',
+  description:
+    '3D tilt effect that responds to mouse movement, enhancing UI elements with a dynamic depth effect, customizable rotation factors and spring options.',
+};
+
+import { TiltCard1 } from './tilt-card-1';
+import { TiltSpotlight } from './tilt-spotlight';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Tilt
+
+3D tilt effect that responds to mouse movement, enhancing UI elements with a dynamic depth effect, customizable rotation factors and spring options.
+
+## Examples
+
+### Basic Tilt Card
+
+<ComponentCodePreview
+  component={<TiltCard1 />}
+  filePath='app/docs/tilt/tilt-card-1.tsx'
+/>
+
+### Tilt with Spotlight
+
+Example of the [Spotlight component](/docs/spotlight) used with the Tilt component.
+
+<ComponentCodePreview
+  component={<TiltSpotlight />}
+  filePath='app/docs/tilt/tilt-spotlight.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='tilt' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/tilt.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### Border Trail
+
+| Prop           | Type          | Default | Description                                     |
+| :------------- | :------------ | :------ | :---------------------------------------------- |
+| className      | string        |         | Additional CSS classes for styling the tilt.    |
+| style          | MotionStyle   |         | Additional CSS classes for styling the tilt.    |
+| rotationFactor | number        | 15      | Controls the maximum rotation angle in degrees. |
+| isRevese       | boolean       | false   | Reverses the tilt effect's rotation direction.  |
+| springOptions  | SpringOptions |         | Spring options for the tilt effect.             |
+
+## Credits
+
+Initiated by [@AFPedreros](https://github.com/AFPedreros)

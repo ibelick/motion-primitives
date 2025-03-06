@@ -1,0 +1,18 @@
+{
+  "name": "text-morph-input",
+  "type": "registry:ui",
+  "componentName": "text-morph",
+  "description": "Input field with morphing text placeholder animations.",
+  "files": [
+    {
+      "path": "text-morph-input.tsx",
+      "content": "'use client';\nimport { useState } from 'react';\nimport { TextMorph } from '../../../components/core/text-morph';\n\nexport function TextMorphInput() {\n  const [text, setText] = useState('Craft');\n\n  return (\n    <div className='flex flex-col items-center justify-end space-y-12'>\n      <TextMorph className='text-5xl font-medium text-black dark:text-white'>\n        {text}\n      </TextMorph>\n      <input\n        type='text'\n        value={text}\n        onChange={(e) => setText(e.target.value)}\n        className='h-9 w-full rounded-lg border border-zinc-950/10 bg-transparent p-2 text-zinc-900 placeholder-zinc-500 focus:outline-hidden dark:border-zinc-50/10 dark:text-white dark:placeholder-zinc-400'\n        placeholder='Type your text here'\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/text-morph.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { AnimatePresence, motion, Transition, Variants } from 'motion/react';\nimport { useMemo, useId } from 'react';\n\nexport type TextMorphProps = {\n  children: string;\n  as?: React.ElementType;\n  className?: string;\n  style?: React.CSSProperties;\n  variants?: Variants;\n  transition?: Transition;\n};\n\nexport function TextMorph({\n  children,\n  as: Component = 'p',\n  className,\n  style,\n  variants,\n  transition,\n}: TextMorphProps) {\n  const uniqueId = useId();\n\n  const characters = useMemo(() => {\n    const charCounts: Record<string, number> = {};\n\n    return children.split('').map((char) => {\n      const lowerChar = char.toLowerCase();\n      charCounts[lowerChar] = (charCounts[lowerChar] || 0) + 1;\n\n      return {\n        id: `${uniqueId}-${lowerChar}${charCounts[lowerChar]}`,\n        label: char === ' ' ? '\\u00A0' : char,\n      };\n    });\n  }, [children, uniqueId]);\n\n  const defaultVariants: Variants = {\n    initial: { opacity: 0 },\n    animate: { opacity: 1 },\n    exit: { opacity: 0 },\n  };\n\n  const defaultTransition: Transition = {\n    type: 'spring',\n    stiffness: 280,\n    damping: 18,\n    mass: 0.3,\n  };\n\n  return (\n    <Component className={cn(className)} aria-label={children} style={style}>\n      <AnimatePresence mode='popLayout' initial={false}>\n        {characters.map((character) => (\n          <motion.span\n            key={character.id}\n            layoutId={character.id}\n            className='inline-block'\n            aria-hidden='true'\n            initial='initial'\n            animate='animate'\n            exit='exit'\n            variants={variants || defaultVariants}\n            transition={transition || defaultTransition}\n          >\n            {character.label}\n          </motion.span>\n        ))}\n      </AnimatePresence>\n    </Component>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

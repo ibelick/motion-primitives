@@ -1,0 +1,18 @@
+{
+  "name": "tilt-card-1",
+  "type": "registry:ui",
+  "componentName": "tilt",
+  "description": "Card component with 3D tilt effect on hover.",
+  "files": [
+    {
+      "path": "tilt-card-1.tsx",
+      "content": "import { Tilt } from '@/components/core/tilt';\n\nexport function TiltCard1() {\n  return (\n    <Tilt rotationFactor={8} isRevese>\n      <div\n        style={{\n          borderRadius: '12px',\n        }}\n        className='flex max-w-[270px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900'\n      >\n        <img\n          src='https://images.beta.cosmos.so/f7fcb95d-981b-4cb3-897f-e35f6c20e830?format=jpeg'\n          alt='Ghost in the shell - Kôkaku kidôtai'\n          className='h-48 w-full object-cover'\n        />\n        <div className='p-2'>\n          <h1 className='font-mono leading-snug text-zinc-950 dark:text-zinc-50'>\n            Ghost in the Shell\n          </h1>\n          <p className='text-zinc-700 dark:text-zinc-400'>Kôkaku kidôtai</p>\n        </div>\n      </div>\n    </Tilt>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "components/core/tilt.tsx",
+      "content": "'use client';\n\nimport React, { useRef } from 'react';\nimport {\n  motion,\n  useMotionTemplate,\n  useMotionValue,\n  useSpring,\n  useTransform,\n  MotionStyle,\n  SpringOptions,\n} from 'motion/react';\n\nexport type TiltProps = {\n  children: React.ReactNode;\n  className?: string;\n  style?: MotionStyle;\n  rotationFactor?: number;\n  isRevese?: boolean;\n  springOptions?: SpringOptions;\n};\n\nexport function Tilt({\n  children,\n  className,\n  style,\n  rotationFactor = 15,\n  isRevese = false,\n  springOptions,\n}: TiltProps) {\n  const ref = useRef<HTMLDivElement>(null);\n\n  const x = useMotionValue(0);\n  const y = useMotionValue(0);\n\n  const xSpring = useSpring(x, springOptions);\n  const ySpring = useSpring(y, springOptions);\n\n  const rotateX = useTransform(\n    ySpring,\n    [-0.5, 0.5],\n    isRevese\n      ? [rotationFactor, -rotationFactor]\n      : [-rotationFactor, rotationFactor]\n  );\n  const rotateY = useTransform(\n    xSpring,\n    [-0.5, 0.5],\n    isRevese\n      ? [-rotationFactor, rotationFactor]\n      : [rotationFactor, -rotationFactor]\n  );\n\n  const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {\n    if (!ref.current) return;\n\n    const rect = ref.current.getBoundingClientRect();\n    const width = rect.width;\n    const height = rect.height;\n    const mouseX = e.clientX - rect.left;\n    const mouseY = e.clientY - rect.top;\n\n    const xPos = mouseX / width - 0.5;\n    const yPos = mouseY / height - 0.5;\n\n    x.set(xPos);\n    y.set(yPos);\n  };\n\n  const handleMouseLeave = () => {\n    x.set(0);\n    y.set(0);\n  };\n\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      style={{\n        transformStyle: 'preserve-3d',\n        ...style,\n        transform,\n      }}\n      onMouseMove={handleMouseMove}\n      onMouseLeave={handleMouseLeave}\n    >\n      {children}\n    </motion.div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

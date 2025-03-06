@@ -1,0 +1,21 @@
+{
+  "name": "text-morph",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "text-morph.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { AnimatePresence, motion, Transition, Variants } from 'motion/react';\nimport { useMemo, useId } from 'react';\n\nexport type TextMorphProps = {\n  children: string;\n  as?: React.ElementType;\n  className?: string;\n  style?: React.CSSProperties;\n  variants?: Variants;\n  transition?: Transition;\n};\n\nexport function TextMorph({\n  children,\n  as: Component = 'p',\n  className,\n  style,\n  variants,\n  transition,\n}: TextMorphProps) {\n  const uniqueId = useId();\n\n  const characters = useMemo(() => {\n    const charCounts: Record<string, number> = {};\n\n    return children.split('').map((char) => {\n      const lowerChar = char.toLowerCase();\n      charCounts[lowerChar] = (charCounts[lowerChar] || 0) + 1;\n\n      return {\n        id: `${uniqueId}-${lowerChar}${charCounts[lowerChar]}`,\n        label: char === ' ' ? '\\u00A0' : char,\n      };\n    });\n  }, [children, uniqueId]);\n\n  const defaultVariants: Variants = {\n    initial: { opacity: 0 },\n    animate: { opacity: 1 },\n    exit: { opacity: 0 },\n  };\n\n  const defaultTransition: Transition = {\n    type: 'spring',\n    stiffness: 280,\n    damping: 18,\n    mass: 0.3,\n  };\n\n  return (\n    <Component className={cn(className)} aria-label={children} style={style}>\n      <AnimatePresence mode='popLayout' initial={false}>\n        {characters.map((character) => (\n          <motion.span\n            key={character.id}\n            layoutId={character.id}\n            className='inline-block'\n            aria-hidden='true'\n            initial='initial'\n            animate='animate'\n            exit='exit'\n            variants={variants || defaultVariants}\n            transition={transition || defaultTransition}\n          >\n            {character.label}\n          </motion.span>\n        ))}\n      </AnimatePresence>\n    </Component>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

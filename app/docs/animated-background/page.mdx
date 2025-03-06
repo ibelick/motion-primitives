@@ -1,0 +1,87 @@
+export const metadata = {
+  title: 'Animated background - Motion-Primitives',
+  description:
+    'Visually highlights selected items by sliding a background into view when hovered over or clicked. This smooth transition helps users focus on the active item, making it ideal for interactive lists, menus, or navigations where clear selection feedback is important.',
+};
+
+import { AnimatedTabs } from './animated-tabs';
+import { AnimatedTabsHover } from './animated-tabs-hover';
+import { AnimatedCardBackgroundHover } from './animated-card-background-hover';
+import { SegmentedControl } from './segmented-control';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Animated Background
+
+Visually highlights selected items by sliding a background into view when hovered over or clicked. This smooth transition helps users focus on the active item, making it ideal for interactive lists, menus, or navigations where clear selection feedback is important.',
+
+## Examples
+
+### Animated Tabs
+
+<ComponentCodePreview
+  component={<AnimatedTabs />}
+  filePath='app/docs/animated-background/animated-tabs.tsx'
+/>
+
+### Animated Tabs Hover
+
+<ComponentCodePreview
+  component={<AnimatedTabsHover />}
+  filePath='app/docs/animated-background/animated-tabs-hover.tsx'
+/>
+
+### Animated Card Background
+
+<ComponentCodePreview
+  component={<AnimatedCardBackgroundHover />}
+  filePath='app/docs/animated-background/animated-card-background-hover.tsx'
+/>
+
+### Segmented Control
+
+<ComponentCodePreview
+  component={<SegmentedControl />}
+  filePath='app/docs/animated-background/segmented-control.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='animated-background' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/animated-background.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+| Prop          | Type                                                                 | Default | Description                                                                                                                                        |
+| :------------ | :------------------------------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| children      | ReactElement with 'data-id' string attribute array or single element |         | The content to be displayed within the animated background. **Each child must have a unique `data-id` attribute to ensure correct functionality.** |
+| defaultValue  | string                                                               |         | The default value to be used as the active item identifier.                                                                                        |
+| onValueChange | (newActiveId: string \| null) => void                                |         | Callback function that is called when the active item changes.                                                                                     |
+| className     | string                                                               |         | The class name to apply to the animated background for custom styling.                                                                             |
+| transition    | Transition                                                           |         | The transition effect from motion for animation effects.                                                                                           |
+| enableHover   | boolean                                                              | false   | Enables or disables the hover effect. When `enableHover` is true, spacing between children cannot be added.                                        |

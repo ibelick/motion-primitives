@@ -1,0 +1,81 @@
+export const metadata = {
+  title: 'Progressive blur - Motion-Primitives',
+  description:
+    'A Progressive Blur component creates a layered blur effect using motion and gradient masks. It progressively blurs layers based on direction and intensity, adding visual depth.',
+};
+
+import { ProgressiveBlurBasic } from './progressive-blur-basic';
+import { ProgressiveBlurHover } from './progressive-blur-hover';
+import { ProgressiveBlurSlider } from './progressive-blur-slider';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Progressive blur
+
+A Progressive Blur component creates a layered blur effect using motion and gradient masks. It progressively blurs layers based on direction and intensity, adding visual depth.
+
+## Examples
+
+### Progressive blur basic
+
+<ComponentCodePreview
+  component={<ProgressiveBlurBasic />}
+  filePath='app/docs/progressive-blur/progressive-blur-basic.tsx'
+/>
+
+### Progressive blur with hover
+
+<ComponentCodePreview
+  component={<ProgressiveBlurHover />}
+  filePath='app/docs/progressive-blur/progressive-blur-hover.tsx'
+/>
+
+### Progressive blur with slider and different directions
+
+You can change the direction of the blur effect with the `direction` prop.
+
+<ComponentCodePreview
+  component={<ProgressiveBlurSlider />}
+  filePath='app/docs/progressive-blur/progressive-blur-slider.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='progressive-blur' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/progressive-blur.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### ProgressiveBlur
+
+| Prop          | Type                                   | Default | Description                               |
+| :------------ | :------------------------------------- | :------ | :---------------------------------------- |
+| direction     | 'top' \| 'right' \| 'bottom' \| 'left' | 'top'   | The direction of the blur effect.         |
+| blurLayers    | number                                 | 8       | The number of blur layers.                |
+| className     | string                                 | ''      | The class name to apply to the component. |
+| blurIntensity | number                                 | 0.25    | The intensity of the blur effect.         |

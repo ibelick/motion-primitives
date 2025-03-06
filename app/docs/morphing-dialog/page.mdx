@@ -1,0 +1,136 @@
+export const metadata = {
+  title: 'Morphing Dialog - Motion-Primitives',
+  description:
+    'A dialog that uses layout animations to transition content into a focused view. It supports click-outside and escape key functionalities for closing.',
+};
+
+import { MorphingDialogBasicOne } from './morphing-dialog-basic-1';
+import { MorphingDialogBasicTwo } from './morphing-dialog-basic-2';
+import { MorphingDialogBasicImage } from './morphing-dialog-image';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Morphing Dialog
+
+A dialog that uses layout animations to transition content into a focused view. It supports click-outside and escape key functionalities for closing.
+
+## Examples
+
+### Morphing Dialog Basic
+
+<ComponentCodePreview
+  component={<MorphingDialogBasicOne />}
+  filePath='app/docs/morphing-dialog/morphing-dialog-basic-1.tsx'
+/>
+
+### Morphing Dialog Basic 2
+
+<ComponentCodePreview
+  component={<MorphingDialogBasicTwo />}
+  filePath='app/docs/morphing-dialog/morphing-dialog-basic-2.tsx'
+/>
+
+### Morphing Dialog Image
+
+<ComponentCodePreview
+  component={<MorphingDialogBasicImage />}
+  filePath='app/docs/morphing-dialog/morphing-dialog-image.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='morphing-dialog' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/morphing-dialog.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### MorphingDialog
+
+| Prop       | Type       | Default | Description                                                         |
+| :--------- | :--------- | :------ | :------------------------------------------------------------------ |
+| children   | ReactNode  |         | The content of the dialog which could include triggers and content. |
+| transition | Transition |         | Transition settings from motion for animation effects.              |
+
+### MorphingDialogTrigger
+
+| Prop       | Type                | Default | Description                                                      |
+| :--------- | :------------------ | :------ | :--------------------------------------------------------------- |
+| children   | ReactNode           |         | Content of the trigger, typically a string or formatted text.    |
+| className  | string              |         | Optional CSS class for styling the trigger element.              |
+| style      | React.CSSProperties |         | Inline styles for the trigger element.                           |
+| triggerRef | React.RefObject     |         | Ref to attach to the trigger element, useful for managing focus. |
+
+### MorphingDialogContent
+
+| Prop      | Type                | Default | Description                                              |
+| :-------- | :------------------ | :------ | :------------------------------------------------------- |
+| children  | ReactNode           |         | The content displayed within the dialog when it is open. |
+| className | string              |         | Optional CSS class for styling the content container.    |
+| style     | React.CSSProperties |         | Inline styles for the content container.                 |
+
+### MorphingDialogTitle
+
+| Prop      | Type                | Default | Description                               |
+| :-------- | :------------------ | :------ | :---------------------------------------- |
+| children  | ReactNode           |         | The title content of the dialog.          |
+| className | string              |         | Optional CSS class for the title element. |
+| style     | React.CSSProperties |         | Inline styles for the title element.      |
+
+### MorphingDialogSubtitle
+
+| Prop      | Type                | Default | Description                                  |
+| :-------- | :------------------ | :------ | :------------------------------------------- |
+| children  | ReactNode           |         | The subtitle content of the dialog.          |
+| className | string              |         | Optional CSS class for the subtitle element. |
+| style     | React.CSSProperties |         | Inline styles for the subtitle element.      |
+
+### MorphingDialogDescription
+
+| Prop                   | Type      | Default | Description                                              |
+| :--------------------- | :-------- | :------ | :------------------------------------------------------- |
+| children               | ReactNode |         | The descriptive content of the dialog.                   |
+| className              | string    |         | Optional CSS class for the description container.        |
+| disableLayoutAnimation | boolean   | false   | If true, disables layout animations for the description. |
+| variants               | Object    |         | Variants for the animation states of the description.    |
+
+### MorphingDialogImage
+
+| Prop      | Type                | Default | Description                               |
+| :-------- | :------------------ | :------ | :---------------------------------------- |
+| src       | string              |         | Image source URL.                         |
+| alt       | string              |         | Alternative text for the image.           |
+| className | string              |         | Optional CSS class for the image element. |
+| style     | React.CSSProperties |         | Inline styles for the image element.      |
+
+### MorphingDialogClose
+
+| Prop      | Type      | Default | Description                                                       |
+| :-------- | :-------- | :------ | :---------------------------------------------------------------- |
+| children  | ReactNode |         | Optional custom content for the close button, defaults to X icon. |
+| className | string    |         | Optional CSS class for the close button.                          |
+| variants  | Object    |         | Variants for the animation states of the close button.            |

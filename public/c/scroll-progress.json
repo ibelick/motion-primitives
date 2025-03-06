@@ -1,0 +1,21 @@
+{
+  "name": "scroll-progress",
+  "type": "registry:ui",
+  "registryDependencies": [],
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "scroll-progress.tsx",
+      "content": "'use client';\n\nimport { motion, SpringOptions, useScroll, useSpring } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport { RefObject } from 'react';\n\nexport type ScrollProgressProps = {\n  className?: string;\n  springOptions?: SpringOptions;\n  containerRef?: RefObject<HTMLDivElement>;\n};\n\nconst DEFAULT_SPRING_OPTIONS: SpringOptions = {\n  stiffness: 200,\n  damping: 50,\n  restDelta: 0.001,\n};\n\nexport function ScrollProgress({\n  className,\n  springOptions,\n  containerRef,\n}: ScrollProgressProps) {\n  const { scrollYProgress } = useScroll({\n    container: containerRef,\n    layoutEffect: Boolean(containerRef?.current),\n  });\n\n  const scaleX = useSpring(scrollYProgress, {\n    ...DEFAULT_SPRING_OPTIONS,\n    ...(springOptions ?? {}),\n  });\n\n  return (\n    <motion.div\n      className={cn('inset-x-0 top-0 h-1 origin-left', className)}\n      style={{\n        scaleX,\n      }}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

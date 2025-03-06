@@ -1,0 +1,87 @@
+export const metadata = {
+  title: 'Animated Group - Motion-Primitives',
+  description: `A wrapper that adds animated transitions to a group of child elements. It's perfect for creating staggered animations for lists, grids, or any collection of components.`,
+};
+
+import { AnimatedGroupPreset } from './animated-group-preset';
+import { AnimatedGroupCustomVariants } from './animated-group-custom-variants';
+import { AnimatedGroupCustomVariants2 } from './animated-group-custom-variants-2';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import CodeBlock from '@/components/website/code-block';
+
+# Animated Group
+
+A wrapper that adds animated transitions to a group of child elements. It's perfect for creating staggered animations for lists, grids, or any collection of components.
+
+## Examples
+
+### Animated Group with preset
+
+Images are from [cosmos - Impressionisme](https://www.cosmos.so/ibelick/impressionnisme)
+
+<ComponentCodePreview
+  component={<AnimatedGroupPreset />}
+  filePath='app/docs/animated-group/animated-group-preset.tsx'
+  hasReTrigger
+/>
+
+### Animated Group with custom variants
+
+<ComponentCodePreview
+  component={<AnimatedGroupCustomVariants />}
+  filePath='app/docs/animated-group/animated-group-custom-variants.tsx'
+  hasReTrigger
+/>
+
+### AnimatedGroup with custom variants
+
+<ComponentCodePreview
+  component={<AnimatedGroupCustomVariants2 />}
+  filePath='app/docs/animated-group/animated-group-custom-variants-2.tsx'
+  hasReTrigger
+  classNameComponentContainer='bg-white'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='animated-group' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/animated-group.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### AnimatedGroup
+
+| Prop      | Type                                                      | Default   | Description                                          |
+| :-------- | :-------------------------------------------------------- | :-------- | :--------------------------------------------------- |
+| children  | ReactNode                                                 |           | The child elements to be animated.                   |
+| className | string                                                    | undefined | Optional CSS class for styling the component.        |
+| variants  | `{ container?: Variants; item?: Variants; }`              | undefined | Custom variants for container and item animations.   |
+| preset    | 'fade' \| 'slide' \| 'scale' \| 'blur-sm' \| 'blur-slide' | undefined | Preset animations to apply to the group of elements. |
+| as        | React.ElementType                                         | 'div'     | The HTML element to render the component as.         |
+| asChild   | React.ElementType                                         | 'div'     | The HTML element to render the child elements as.    |

@@ -1,0 +1,149 @@
+export const metadata = {
+  title: 'Dialog - Motion-Primitives',
+  description:
+    'A window overlaid on either the primary window or another dialog window, rendering the content underneath inert. Customize the dialog with variants and transition.',
+};
+
+import ComponentCodePreview from '@/components/website/component-code-preview';
+import { DialogBasic } from './dialog-basic';
+import { DialogControlled } from './dialog-controlled';
+import { DialogCustomVariantsTransition } from './dialog-custom-variants-transtion';
+import { DialogCustomExit } from './dialog-custom-exit';
+import { DialogCustomBackdrop } from './dialog-custom-backdrop';
+
+# Dialog
+
+A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+Customize the dialog with variants and transition.
+
+## Examples
+
+### Basic Dialog
+
+<ComponentCodePreview
+  component={<DialogBasic />}
+  filePath='app/docs/dialog/dialog-basic.tsx'
+/>
+
+### Controlled Dialog
+
+You can control the open state of the dialog using the `open` and `onOpenChange` props.
+
+<ComponentCodePreview
+  component={<DialogControlled />}
+  filePath='app/docs/dialog/dialog-controlled.tsx'
+/>
+
+### Dialog with custom variants and transition
+
+<ComponentCodePreview
+  component={<DialogCustomVariantsTransition />}
+  filePath='app/docs/dialog/dialog-custom-variants-transtion.tsx'
+/>
+
+### Dialog with custom exit animation
+
+You can customize the exit animation by providing a custom `exit` variant.
+
+<ComponentCodePreview
+  component={<DialogCustomExit />}
+  filePath='app/docs/dialog/dialog-custom-exit.tsx'
+/>
+
+### Dialog with custom backdrop
+
+You can customize the backdrop using the `backdrop:` prefix on `DialogContent`, e.g., `backdrop:bg-white/20`.
+
+<ComponentCodePreview
+  component={<DialogCustomBackdrop />}
+  filePath='app/docs/dialog/dialog-custom-backdrop.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='dialog' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/dialog.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### Dialog
+
+| Prop         | Type                      | Default  | Description                                                                                                   |
+| :----------- | :------------------------ | :------- | :------------------------------------------------------------------------------------------------------------ |
+| children     | ReactNode                 | required | Children to be rendered within the dialog.                                                                    |
+| variants     | Variants                  |          | Variants for controlling the animation states with specific properties for initial, animate, and exit states. |
+| transition   | Transition                |          | Transition settings from framer-motion for animation effects.                                                 |
+| className    | string                    |          | Optional CSS class for styling the dialog container.                                                          |
+| defaultOpen  | boolean                   | false    | If `true`, the dialog will be open by default.                                                                |
+| onOpenChange | `(open: boolean) => void` |          | Callback function that is called when the dialog's open state changes.                                        |
+| open         | boolean                   |          | Controlled open state of the dialog.                                                                          |
+
+### DialogTrigger
+
+| Prop      | Type      | Default  | Description                                           |
+| :-------- | :-------- | :------- | :---------------------------------------------------- |
+| children  | ReactNode | required | The content to be rendered inside the trigger button. |
+| className | string    |          | Optional CSS class for styling the trigger button.    |
+
+### DialogContent
+
+| Prop      | Type        | Default       | Description                                             |
+| :-------- | :---------- | :------------ | :------------------------------------------------------ |
+| children  | ReactNode   | required      | The content to be rendered inside the dialog.           |
+| className | string      |               | Optional CSS class for styling the dialog content.      |
+| container | HTMLElement | document.body | Specify a container element to portal the content into. |
+
+### DialogHeader
+
+| Prop      | Type      | Default  | Description                                          |
+| :-------- | :-------- | :------- | :--------------------------------------------------- |
+| children  | ReactNode | required | The content to be rendered inside the dialog header. |
+| className | string    |          | Optional CSS class for styling the dialog header.    |
+
+### DialogTitle
+
+| Prop      | Type      | Default  | Description                                         |
+| :-------- | :-------- | :------- | :-------------------------------------------------- |
+| children  | ReactNode | required | The title content to be rendered inside the dialog. |
+| className | string    |          | Optional CSS class for styling the dialog title.    |
+
+### DialogDescription
+
+| Prop      | Type      | Default  | Description                                               |
+| :-------- | :-------- | :------- | :-------------------------------------------------------- |
+| children  | ReactNode | required | The description content to be rendered inside the dialog. |
+| className | string    |          | Optional CSS class for styling the dialog description.    |
+
+### DialogClose
+
+| Prop      | Type      | Default | Description                                                                                                  |
+| :-------- | :-------- | :------ | :----------------------------------------------------------------------------------------------------------- |
+| className | string    |         | Optional CSS class for styling the close button.                                                             |
+| children  | ReactNode |         | Optional content to be rendered inside the close button. If not provided, a default close icon will be used. |
+| disabled  | boolean   |         | If `true`, the close button will be disabled.                                                                |

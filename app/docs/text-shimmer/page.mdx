@@ -1,0 +1,78 @@
+export const metadata = {
+  title: 'Text Shimmer - Motion-Primitives',
+  description:
+    'Shimmer effect on text. Easily adjust the duration and the spread of the shimmer effect.',
+};
+
+import { TextShimmerBasic } from './text-shimmer-basic';
+import { TextShimmerColor } from './text-shimmer-color';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Text Shimmer
+
+Shimmer effect on text. Easily adjust the duration and the spread of the shimmer effect.
+
+## Examples
+
+### Text Shimmer Basic
+
+<ComponentCodePreview
+  component={<TextShimmerBasic />}
+  filePath='app/docs/text-shimmer/text-shimmer-basic.tsx'
+/>
+
+### Text Shimmer Color
+
+You can use the `[--base-color]` and `[--base-gradient-color]` CSS variables to customize the color of the shimmer effect.
+
+<ComponentCodePreview
+  component={<TextShimmerColor />}
+  filePath='app/docs/text-shimmer/text-shimmer-color.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='text-shimmer' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/text-shimmer.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### TextShimmer
+
+| Prop      | Type                        | Default   | Description                                    |
+| :-------- | :-------------------------- | :-------- | :--------------------------------------------- |
+| children  | string                      |           | The text content.                              |
+| as        | keyof JSX.IntrinsicElements | 'p'       | The HTML tag to render, defaults to paragraph. |
+| className | string                      | undefined | Optional CSS class for styling the component.  |
+| duration  | number                      | 2         | The duration of the shimmer effect.            |
+| spread    | number                      | 2         | The spread of the shimmer effect.              |
+
+## Credits
+
+Inspired by [JohnPhamous](https://x.com/JohnPhamous/status/1846963157027508504) for the idea of the shimmer effect that scales with the content length.

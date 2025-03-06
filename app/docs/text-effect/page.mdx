@@ -1,0 +1,140 @@
+export const metadata = {
+  title: 'Text Effect - Motion-Primitives',
+  description:
+    'Easily animate text content with various effects. You can apply animations per character or per word, and customize the animation effects using custom variants or preset animations.',
+};
+
+import { TextEffectPerChar } from './text-effect-per-char';
+import { TextEffectPerWord } from './text-effect-per-word';
+import { TextEffectWithPreset } from './text-effect-preset';
+import { TextEffectWithCustomVariants } from './text-effect-variants';
+import { TextEffectWithCustomDelay } from './text-effect-custom-delay';
+import { TextEffectPerLine } from './text-effect-line';
+import { TextEffectWithExit } from './text-effect-exit';
+import { TextEffectSpeed } from './text-effect-speed';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Text Effect
+
+Easily animate text content with various effects. You can apply animations per character or per word, and customize the animation effects using custom variants or preset animations.
+
+## Examples
+
+### Text Effect per character
+
+<ComponentCodePreview
+  component={<TextEffectPerChar />}
+  filePath='app/docs/text-effect/text-effect-per-char.tsx'
+  hasReTrigger
+/>
+
+### Text Effect per word
+
+<ComponentCodePreview
+  component={<TextEffectPerWord />}
+  filePath='app/docs/text-effect/text-effect-per-word.tsx'
+  hasReTrigger
+/>
+
+### Text Effect with preset
+
+<ComponentCodePreview
+  component={<TextEffectWithPreset />}
+  filePath='app/docs/text-effect/text-effect-preset.tsx'
+  hasReTrigger
+/>
+
+### Text Effect with custom variants
+
+<ComponentCodePreview
+  component={<TextEffectWithCustomVariants />}
+  filePath='app/docs/text-effect/text-effect-variants.tsx'
+  hasReTrigger
+/>
+
+### Text Effect with custom delay
+
+<ComponentCodePreview
+  component={<TextEffectWithCustomDelay />}
+  filePath='app/docs/text-effect/text-effect-custom-delay.tsx'
+  hasReTrigger
+/>
+
+### Text Effect per line
+
+<ComponentCodePreview
+  component={<TextEffectPerLine />}
+  filePath='app/docs/text-effect/text-effect-line.tsx'
+  hasReTrigger
+/>
+
+### Text Effect with exit animation
+
+<ComponentCodePreview
+  component={<TextEffectWithExit />}
+  filePath='app/docs/text-effect/text-effect-exit.tsx'
+  hasReTrigger
+/>
+
+### Text Effect with speed
+
+You can control the speed of the animation by using the `speedReveal` and `speedSegment` props.
+
+<ComponentCodePreview
+  component={<TextEffectSpeed />}
+  filePath='app/docs/text-effect/text-effect-speed.tsx'
+  hasReTrigger
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='text-effect' />
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/text-effect.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### TextEffect
+
+| Prop                    | Type                                                        | Default   | Description                                                     |
+| :---------------------- | :---------------------------------------------------------- | :-------- | :-------------------------------------------------------------- |
+| children                | string                                                      |           | The text content to be animated.                                |
+| per                     | 'word' \| 'char' \| 'line'                                  | 'word'    | Defines whether animation applies per word, character, or line. |
+| as                      | keyof JSX.IntrinsicElements                                 | 'p'       | The HTML tag to render, defaults to paragraph.                  |
+| variants                | `{ container?: Variants; item?: Variants; }`                | undefined | Custom variants for container and item animations.              |
+| className               | string                                                      | undefined | Optional CSS class for styling the component.                   |
+| preset                  | 'blur-sm' \| 'fade-in-blur' \| 'scale' \| 'fade' \| 'slide' | 'fade'    | Preset animations to apply to the text.                         |
+| delay                   | number                                                      | 0         | Delay before the animation starts.                              |
+| trigger                 | boolean                                                     | true      | Controls whether the animation should be triggered.             |
+| onAnimationComplete     | () => void                                                  | undefined | Callback function when the animation completes.                 |
+| onAnimationStart        | () => void                                                  | undefined | Callback function when the animation starts.                    |
+| segmentWrapperClassName | string                                                      | undefined | Optional CSS class for styling segment wrappers.                |
+| style                   | CSSProperties                                               | undefined | Optional inline styles for the component.                       |
+| containerTransition     | Transition                                                  | undefined | Optional transition for the container.                          |
+| segmentTransition       | Transition                                                  | undefined | Optional transition for the segments.                           |
+| speedReveal             | number                                                      | 1         | Controls the speed of the reveal animation.                     |
+| speedSegment            | number                                                      | 1         | Controls the speed of the animation.                            |
