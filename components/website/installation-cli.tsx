@@ -29,7 +29,7 @@ export function InstallationCli({ value, className }: InstallationCliProps) {
     {
       label: 'shadcn',
       icon: <ShadcnLogo className='size-4' />,
-      code: `npx shadcn@latest add ${value}`,
+      code: `npx shadcn@latest add "https://motion-primitives.com/c/${value}.json"`,
     },
   ];
 
