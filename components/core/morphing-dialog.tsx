@@ -25,7 +25,7 @@ export type MorphingDialogContextType = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   uniqueId: string;
-  triggerRef: React.RefObject<HTMLDivElement>;
+  triggerRef: React.RefObject<HTMLButtonElement | null>;
 };
 
 const MorphingDialogContext =
@@ -52,7 +52,7 @@ function MorphingDialogProvider({
 }: MorphingDialogProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const uniqueId = useId();
-  const triggerRef = useRef<HTMLDivElement>(null!);
+  const triggerRef = useRef<HTMLButtonElement>(null!);
 
   const contextValue = useMemo(
     () => ({
@@ -88,7 +88,7 @@ export type MorphingDialogTriggerProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  triggerRef?: React.RefObject<HTMLDivElement>;
+  triggerRef?: React.RefObject<HTMLButtonElement>;
 };
 
 function MorphingDialogTrigger({
@@ -114,21 +114,20 @@ function MorphingDialogTrigger({
   );
 
   return (
-    <motion.div
+    <motion.button
       ref={triggerRef}
       layoutId={`dialog-${uniqueId}`}
       className={cn('relative cursor-pointer', className)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       style={style}
-      role='button'
       aria-haspopup='dialog'
       aria-expanded={isOpen}
       aria-controls={`motion-ui-morphing-dialog-content-${uniqueId}`}
       aria-label={`Open dialog ${uniqueId}`}
     >
       {children}
-    </motion.div>
+    </motion.button>
   );
 }
 
@@ -399,7 +398,7 @@ function MorphingDialogClose({
       type='button'
       aria-label='Close dialog'
       key={`dialog-close-${uniqueId}`}
-      className={cn('absolute right-6 top-6', className)}
+      className={cn('absolute top-6 right-6', className)}
       initial='initial'
       animate='animate'
       exit='exit'
