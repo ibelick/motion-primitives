@@ -3,7 +3,8 @@
   "type": "registry:ui",
   "registryDependencies": [],
   "dependencies": [
-    "motion"
+    "motion",
+    "react-use-measure"
   ],
   "devDependencies": [],
   "tailwind": {},
