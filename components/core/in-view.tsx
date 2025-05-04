@@ -1,5 +1,5 @@
 'use client';
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import {
   motion,
   useInView,
@@ -17,6 +17,7 @@ export type InViewProps = {
   transition?: Transition;
   viewOptions?: UseInViewOptions;
   as?: React.ElementType;
+  once?: boolean
 };
 
 const defaultVariants = {
@@ -30,9 +31,12 @@ export function InView({
   transition,
   viewOptions,
   as = 'div',
+  once
 }: InViewProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, viewOptions);
+
+  const [isViewed, setIsViewed] = useState(false)
 
   const MotionComponent = motion[as as keyof typeof motion] as typeof as;
 
@@ -40,7 +44,11 @@ export function InView({
     <MotionComponent
       ref={ref}
       initial='hidden'
-      animate={isInView ? 'visible' : 'hidden'}
+      onAnimationComplete={() => {
+        if (once) setIsViewed(true)
+      }}
+      animate={(isInView || isViewed) ? "visible" : "hidden"}
+
       variants={variants}
       transition={transition}
     >
