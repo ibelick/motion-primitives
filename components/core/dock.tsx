@@ -38,6 +38,7 @@ export type DockProps = {
 export type DockItemProps = {
   className?: string;
   children: React.ReactNode;
+  onClick?: () => void;
 };
 
 export type DockLabelProps = {
@@ -127,7 +128,7 @@ function Dock({
   );
 }
 
-function DockItem({ children, className }: DockItemProps) {
+function DockItem({ children, className, onClick }: DockItemProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const { distance, magnification, mouseX, spring } = useDock();
@@ -162,6 +163,7 @@ function DockItem({ children, className }: DockItemProps) {
       tabIndex={0}
       role='button'
       aria-haspopup='true'
+      onClick={onClick}
     >
       {Children.map(children, (child) =>
         cloneElement(child as React.ReactElement, { width, isHovered })
