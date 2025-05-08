@@ -223,7 +223,8 @@
       "title": "Infinite Slider",
       "description": "A slider component that loops infinitely through its content.",
       "dependencies": [
-        "motion"
+        "motion",
+        "react-use-measure"
       ],
       "devDependencies": [],
       "registryDependencies": [],
@@ -571,7 +572,8 @@
       "title": "Toolbar Expandable",
       "description": "An expandable toolbar that reveals additional options with animations.",
       "dependencies": [
-        "motion"
+        "motion",
+        "react-use-measure"
       ],
       "devDependencies": [],
       "registryDependencies": [],
@@ -638,7 +640,8 @@
       "title": "Sliding Number",
       "description": "A component that transitions between numbers with a sliding animation.",
       "dependencies": [
-        "motion"
+        "motion",
+        "react-use-measure"
       ],
       "devDependencies": [],
       "registryDependencies": [],

@@ -113,7 +113,7 @@ export const components: ComponentDefinition[] = [
     name: 'infinite-slider',
     path: path.join(__dirname, '../components/core/infinite-slider.tsx'),
     registryDependencies: [],
-    dependencies: ['motion'],
+    dependencies: ['motion', 'react-use-measure'],
     description:
       'A slider component that loops infinitely through its content.',
   },
@@ -258,7 +258,7 @@ export const components: ComponentDefinition[] = [
     name: 'toolbar-expandable',
     path: path.join(__dirname, '../components/core/toolbar-expandable.tsx'),
     registryDependencies: [],
-    dependencies: ['motion'],
+    dependencies: ['motion', 'react-use-measure'],
     description:
       'An expandable toolbar that reveals additional options with animations.',
     files: [
@@ -289,7 +289,7 @@ export const components: ComponentDefinition[] = [
     name: 'sliding-number',
     path: path.join(__dirname, '../components/core/sliding-number.tsx'),
     registryDependencies: [],
-    dependencies: ['motion'],
+    dependencies: ['motion', 'react-use-measure'],
     description:
       'A component that transitions between numbers with a sliding animation.',
   },
