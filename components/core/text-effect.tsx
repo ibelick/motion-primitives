@@ -2,12 +2,14 @@
 import { cn } from '@/lib/utils';
 import {
   AnimatePresence,
-  motion,
+  motion
+} from 'motion/react';
+import type {
   TargetAndTransition,
   Transition,
   Variant,
   Variants,
-} from 'motion/react';
+} from 'motion/react'
 import React from 'react';
 
 export type PresetType = 'blur' | 'fade-in-blur' | 'scale' | 'fade' | 'slide';
@@ -164,10 +166,11 @@ const splitText = (text: string, per: 'line' | 'word' | 'char') => {
 };
 
 const hasTransition = (
-  variant: Variant
+  variant?: Variant
 ): variant is TargetAndTransition & { transition?: Transition } => {
+  if (!variant) return false;
   return (
-    typeof variant === 'object' && variant !== null && 'transition' in variant
+    typeof variant === 'object' && 'transition' in variant
   );
 };
 
