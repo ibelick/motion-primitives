@@ -10,7 +10,7 @@ import {
 } from 'motion/react';
 import React from 'react';
 
-export type PresetType = 'blur' | 'fade-in-blur' | 'scale' | 'fade' | 'slide';
+export type PresetType = 'blur' | 'fade-in-blur' | 'scale' | 'fade' | 'slide' | 'rotate' | 'bounce' | 'flip' | 'zoom-in' | 'zoom-out';
 
 export type PerType = 'word' | 'char' | 'line';
 
@@ -105,6 +105,54 @@ const presetVariants: Record<
       hidden: { opacity: 0, y: 20 },
       visible: { opacity: 1, y: 0 },
       exit: { opacity: 0, y: 20 },
+    },
+  },
+  rotate: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, rotate: -90 },
+      visible: { opacity: 1, rotate: 0 },
+      exit: { opacity: 0, rotate: 90 },
+    },
+  },
+  bounce: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, y: 20 },
+      visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: {
+          type: 'spring',
+          stiffness: 300,
+          damping: 10
+        }
+      },
+      exit: { opacity: 0, y: 10 },
+    },
+  },
+  flip: {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, rotateX: 90 },
+      visible: { opacity: 1, rotateX: 0 },
+      exit: { opacity: 0, rotateX: -90 },
+    },
+  },
+  'zoom-in': {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, scale: 1.5 },
+      visible: { opacity: 1, scale: 1 },
+      exit: { opacity: 0, scale: 1.5 },
+    },
+  },
+  'zoom-out': {
+    container: defaultContainerVariants,
+    item: {
+      hidden: { opacity: 0, scale: 0.5 },
+      visible: { opacity: 1, scale: 1 },
+      exit: { opacity: 0, scale: 0.5 },
     },
   },
 };
