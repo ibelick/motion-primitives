@@ -1,0 +1,45 @@
+name: Build Registry on PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-registry:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build registry
+        run: npm run build:registry
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Commit and push changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Registry build produced changes, committing..."
+            git add .
+            git commit -m "chore: update registry build artifacts"
+            git push origin HEAD:${{ github.head_ref }}
+            echo "Changes committed and pushed to PR"
+          else
+            echo "No changes from registry build"
+          fi
