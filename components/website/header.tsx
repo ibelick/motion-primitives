@@ -52,12 +52,6 @@ export function Header() {
             >
               Components
             </Link>
-            <Link
-              href='/showcase'
-              className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
-            >
-              Showcase
-            </Link>
           </nav>
           <div className='hidden h-8 w-[0.5px] bg-zinc-200 sm:flex dark:bg-zinc-800' />
           <nav className='flex items-center space-x-2'>
