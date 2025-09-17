@@ -10,7 +10,7 @@ import {
 import useMeasure from 'react-use-measure';
 
 const TRANSITION = {
-  type: 'spring',
+  type: 'spring' as const,
   stiffness: 280,
   damping: 18,
   mass: 0.3,
