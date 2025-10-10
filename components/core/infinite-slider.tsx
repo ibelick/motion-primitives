@@ -1,7 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
 import { useMotionValue, animate, motion } from 'motion/react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import useMeasure from 'react-use-measure';
 
 export type InfiniteSliderProps = {
@@ -11,6 +11,7 @@ export type InfiniteSliderProps = {
   speedOnHover?: number;
   direction?: 'horizontal' | 'vertical';
   reverse?: boolean;
+  fillElements?: boolean;
   className?: string;
 };
 
@@ -22,39 +23,40 @@ export function InfiniteSlider({
   direction = 'horizontal',
   reverse = false,
   className,
+  fillElements = true,
 }: InfiniteSliderProps) {
   const [currentSpeed, setCurrentSpeed] = useState(speed);
-  const [ref, { width, height }] = useMeasure();
+  const [containerRef, { width: containerWidth, height }] = useMeasure();
+  const [contentRef, { width: contentWidth, height: contentHeight }] =
+    useMeasure();
   const translation = useMotionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [key, setKey] = useState(0);
 
   useEffect(() => {
     let controls;
-    const size = direction === 'horizontal' ? width : height;
-    const contentSize = size + gap;
-    const from = reverse ? -contentSize / 2 : 0;
-    const to = reverse ? 0 : -contentSize / 2;
+    const contentSize =
+      (direction === 'horizontal' ? contentWidth : contentHeight) + gap;
+    const from = reverse ? -contentSize : 0;
+    const to = reverse ? 0 : -contentSize;
 
-    const distanceToTravel = Math.abs(to - from);
-    const duration = distanceToTravel / currentSpeed;
+    const duration = Math.abs(contentSize) / currentSpeed;
 
     if (isTransitioning) {
-      const remainingDistance = Math.abs(translation.get() - to);
-      const transitionDuration = remainingDistance / currentSpeed;
-
-      controls = animate(translation, [translation.get(), to], {
+      const current = translation.get();
+      controls = animate(translation, [current, to], {
         ease: 'linear',
-        duration: transitionDuration,
+        duration: Math.abs(to - current) / currentSpeed,
         onComplete: () => {
           setIsTransitioning(false);
-          setKey((prevKey) => prevKey + 1);
+          translation.set(from);
+          setKey((prev) => prev + 1);
         },
       });
     } else {
       controls = animate(translation, [from, to], {
         ease: 'linear',
-        duration: duration,
+        duration,
         repeat: Infinity,
         repeatType: 'loop',
         repeatDelay: 0,
@@ -64,13 +66,13 @@ export function InfiniteSlider({
       });
     }
 
-    return controls?.stop;
+    return () => controls?.stop();
   }, [
     key,
     translation,
     currentSpeed,
-    width,
-    height,
+    contentWidth,
+    contentHeight,
     gap,
     isTransitioning,
     direction,
@@ -91,22 +93,79 @@ export function InfiniteSlider({
     : {};
 
   return (
-    <div className={cn('overflow-hidden', className)}>
+    <motion.div className={cn('overflow-hidden', className)} ref={containerRef}>
+      {/* Hidden measurement element */}
+      <div
+        ref={contentRef}
+        style={{ position: 'absolute', visibility: 'hidden' }}
+      >
+        {children}
+      </div>
+
+      {/* Actual slider */}
       <motion.div
+        key={key}
         className='flex w-max'
         style={{
-          ...(direction === 'horizontal'
-            ? { x: translation }
-            : { y: translation }),
+          [direction === 'horizontal' ? 'x' : 'y']: translation,
           gap: `${gap}px`,
           flexDirection: direction === 'horizontal' ? 'row' : 'column',
         }}
-        ref={ref}
         {...hoverProps}
       >
-        {children}
-        {children}
+        {fillElements ? (
+          <GetFillesElements
+            containerWidth={containerWidth}
+            height={height}
+            contentHeight={contentHeight}
+            contentWidth={contentWidth}
+            direction={direction}
+          >
+            {children}
+          </GetFillesElements>
+        ) : (
+          <>
+            {children}
+            {children}
+          </>
+        )}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
+
+// Calculate filled children based on container and content size
+const GetFillesElements = ({
+  children,
+  containerWidth,
+  contentHeight,
+  contentWidth,
+  direction,
+  height,
+}: {
+  containerWidth: number;
+  contentWidth: number;
+  height: number;
+  contentHeight: number;
+  direction: 'horizontal' | 'vertical';
+  children: React.ReactNode;
+}) => {
+  if (!containerWidth || !contentWidth) return [];
+
+  const requiredSize =
+    direction === 'horizontal' ? containerWidth * 2 : height * 2;
+  const contentSize = direction === 'horizontal' ? contentWidth : contentHeight;
+  if (contentSize === 0) return [];
+
+  const copiesNeeded = Math.ceil(requiredSize / contentSize) + 1; // +1 to ensure enough coverage
+  return Array(copiesNeeded)
+    .fill(null)
+    .map((_, i) =>
+      React.Children.map(children, (child, index) =>
+        React.cloneElement(child as React.ReactElement, {
+          key: `duplicate-${i}-${index}`,
+        })
+      )
+    )
+    .flat();
+};
