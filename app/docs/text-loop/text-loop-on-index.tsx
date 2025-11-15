@@ -1,10 +1,16 @@
 'use client';
 import { TextLoop } from '@/components/core/text-loop';
 import { Music } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function TextLoopOnIndexChange() {
   const [direction, setDirection] = useState(-1);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Update direction based on the current index
+  useEffect(() => {
+    setDirection(currentIndex === 0 ? -1 : 1);
+  }, [currentIndex]);
 
   return (
     <TextLoop
@@ -17,7 +23,7 @@ export function TextLoopOnIndexChange() {
       }}
       interval={2.5}
       onIndexChange={(index) => {
-        setDirection(index === 0 ? -1 : 1);
+        setCurrentIndex(index); // Update the index state
       }}
       variants={{
         initial: {
@@ -41,8 +47,8 @@ export function TextLoopOnIndexChange() {
       }}
     >
       <span>
-        <Music size={12} className='mr-1 inline-block' />A Little Lost・Arthur
-        Russell
+        <Music size={12} className='mr-1 inline-block' />
+        A Little Lost・Arthur Russell
       </span>
       <span>La Trinité, Martinique</span>
     </TextLoop>
