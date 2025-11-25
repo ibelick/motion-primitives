@@ -66,7 +66,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Infinite Slider',
         href: '/docs/infinite-slider',
-        isUpdated: true,
       },
       {
         name: 'Transition Panel',
@@ -88,7 +87,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Text Morph',
         href: '/docs/text-morph',
-        isUpdated: true,
       },
       {
         name: 'Text Roll',
@@ -118,7 +116,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Sliding Number',
         href: '/docs/sliding-number',
-        isNew: true,
       },
     ],
   },
@@ -132,7 +129,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Glow Effect',
         href: '/docs/glow-effect',
-        isNew: true,
       },
       {
         name: 'Image Comparison',
@@ -145,7 +141,6 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Spotlight',
         href: '/docs/spotlight',
-        isUpdated: true,
       },
       {
         name: 'Spinning Text',
@@ -184,12 +179,10 @@ export const NAVIGATION: NavigationGroup[] = [
       {
         name: 'Morphing Popover',
         href: '/docs/morphing-popover',
-        isNew: true,
       },
       {
         name: 'Progressive Blur',
         href: '/docs/progressive-blur',
-        isNew: true,
       },
     ],
   },
