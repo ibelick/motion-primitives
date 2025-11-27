@@ -16,7 +16,11 @@ const MOTION_PRIMITIVES_REGISTRY_URL =
   'https://raw.githubusercontent.com/ibelick/motion-primitives/main/public/c/registry.json';
 const MOTION_PRIMITIVES_BASE_URL =
   'https://raw.githubusercontent.com/ibelick/motion-primitives/main/';
-const TARGET_DIR = 'components/motion-primitives';
+
+// support for src dir
+const TARGET_DIR = existsSync('src')
+  ? 'src/components/motion-primitives'
+  : 'components/motion-primitives';
 
 interface FileEntry {
   path: string;
@@ -61,6 +65,8 @@ function detectPackageManager(): string {
       return 'yarn';
     } else if (existsSync('pnpm-lock.yaml')) {
       return 'pnpm';
+    } else if (existsSync('bun.lockb')) {
+      return 'bun';
     } else {
       return 'npm'; // Default to npm
     }
@@ -80,7 +86,9 @@ function installDependencies(dependencies: string[]): boolean {
         ? `yarn add ${dependencies.join(' ')}`
         : packageManager === 'pnpm'
           ? `pnpm add ${dependencies.join(' ')}`
-          : `npm install ${dependencies.join(' ')}`;
+          : packageManager === 'bun'
+            ? `bun add ${dependencies.join(' ')}`
+            : `npm install ${dependencies.join(' ')}`;
 
     execSync(installCommand, { stdio: 'ignore' });
     spinner.succeed(
@@ -91,7 +99,7 @@ function installDependencies(dependencies: string[]): boolean {
     spinner.fail(`Failed to install dependencies: ${error}`);
     console.log('\nPlease install them manually:');
     console.log(
-      `${packageManager === 'yarn' ? 'yarn add' : packageManager === 'pnpm' ? 'pnpm add' : 'npm install'} ${dependencies.join(' ')}`
+      `${packageManager === 'yarn' ? 'yarn add' : packageManager === 'pnpm' ? 'pnpm add' : packageManager === 'bun' ? 'bun add' : 'npm install'} ${dependencies.join(' ')}`
     );
     return false;
   }
