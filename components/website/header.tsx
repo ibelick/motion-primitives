@@ -43,7 +43,7 @@ export function Header() {
               rel='noopener noreferrer'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
             >
-              IA
+              AI
             </a>
             <a
               href='https://pro.motion-primitives.com'
