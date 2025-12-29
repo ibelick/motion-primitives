@@ -104,6 +104,10 @@ export const NAVIGATION: NavigationGroup[] = [
         name: 'Text Shimmer Wave',
         href: '/docs/text-shimmer-wave',
       },
+      {
+        name: 'Text Highlight',
+        href: '/docs/text-highlight',
+      },
     ],
   },
   {
