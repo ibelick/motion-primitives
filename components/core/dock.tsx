@@ -18,6 +18,7 @@ import {
   useMemo,
   useRef,
   useState,
+  React
 } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -166,7 +167,12 @@ function DockItem({ children, className, onClick }: DockItemProps) {
       onClick={onClick}
     >
       {Children.map(children, (child) =>
-        cloneElement(child as React.ReactElement, { width, isHovered })
+        React.isValidElement(child)
+          ? cloneElement(child as React.ReactElement<{ width: MotionValue<number>; isHovered: MotionValue<number> }>, {
+              width,
+              isHovered,
+            })
+          : child
       )}
     </motion.div>
   );
