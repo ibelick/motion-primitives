@@ -23,7 +23,8 @@ export function InfiniteSlider({
   reverse = false,
   className,
 }: InfiniteSliderProps) {
-  const [currentSpeed, setCurrentSpeed] = useState(speed);
+  const [isHovering, setIsHovering] = useState(false);
+  const currentSpeed = isHovering && speedOnHover ? speedOnHover : speed;
   const [ref, { width, height }] = useMeasure();
   const translation = useMotionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -81,11 +82,11 @@ export function InfiniteSlider({
     ? {
         onHoverStart: () => {
           setIsTransitioning(true);
-          setCurrentSpeed(speedOnHover);
+          setIsHovering(true);
         },
         onHoverEnd: () => {
           setIsTransitioning(true);
-          setCurrentSpeed(speed);
+          setIsHovering(false);
         },
       }
     : {};

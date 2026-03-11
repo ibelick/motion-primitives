@@ -30,9 +30,10 @@ export function TextScramble({
   const MotionComponent = motion.create(
     Component as keyof JSX.IntrinsicElements
   );
-  const [displayText, setDisplayText] = useState(children);
+  const [scrambledText, setScrambledText] = useState<string | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const text = children;
+  const displayText = scrambledText ?? children;
 
   const scramble = async () => {
     if (isAnimating) return;
@@ -59,12 +60,12 @@ export function TextScramble({
         }
       }
 
-      setDisplayText(scrambled);
+      setScrambledText(scrambled);
       step++;
 
       if (step > steps) {
         clearInterval(interval);
-        setDisplayText(text);
+        setScrambledText(null);
         setIsAnimating(false);
         onScrambleComplete?.();
       }

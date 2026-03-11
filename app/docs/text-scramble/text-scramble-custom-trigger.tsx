@@ -18,7 +18,7 @@ export function TextScrambleCustomTrigger() {
         onHoverStart={() => setIsTrigger(true)}
         onScrambleComplete={() => setIsTrigger(false)}
       >
-        Tyler, The Creator - I Hope You Fin Your Way Home
+        Tyler, The Creator - I Hope You Find Your Way Home
       </TextScramble>
     </a>
   );

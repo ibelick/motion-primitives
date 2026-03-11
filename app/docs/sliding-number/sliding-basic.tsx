@@ -11,7 +11,7 @@ export function SlidingNumberBasic() {
     if (value === 100) return;
 
     const interval = setInterval(() => {
-      setValue(value + 1);
+      setValue((prev) => prev + 1);
     }, 10);
     return () => clearInterval(interval);
   }, [value]);
