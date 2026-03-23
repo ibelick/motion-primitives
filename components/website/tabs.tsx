@@ -13,7 +13,7 @@ const TabsContext = React.createContext<string>('');
 const TabsRoot = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
->(({ ...props }, ref) => {
+>(function TabsRoot({ ...props }, ref) {
   const uniqueId = React.useId();
   return (
     <TabsContext.Provider value={uniqueId}>
