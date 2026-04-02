@@ -1,15 +1,33 @@
-import { codeToHtml } from '@/lib/shiki';
+'use client';
+import { useEffect, useState } from 'react';
+import { codeToHtml, disposeHighlighter } from '@/lib/shiki';
 
-type CodeRenderer = {
+type CodeRendererProps = {
   code: string;
   lang: string;
 };
 
-export default async function CodeRenderer({ code, lang }: CodeRenderer) {
-  const html = await codeToHtml({
-    code,
-    lang,
-  });
+export default function CodeRenderer({ code, lang }: CodeRendererProps) {
+  const [html, setHtml] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchHtml = async () => {
+      try {
+        const generatedHtml = await codeToHtml({ code, lang });
+        setHtml(generatedHtml);
+      } catch (error) {
+        console.error('Error generating HTML:', error);
+      }
+    };
+
+    fetchHtml();
+
+    return () => {
+      // Avoid disposing if the highlighter might still be needed
+      // Consider removing or commenting out this line if it's causing issues
+      // disposeHighlighter();
+    };
+  }, [code, lang]);
 
   return (
     <div className='font-mono'>
