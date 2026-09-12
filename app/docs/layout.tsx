@@ -52,6 +52,7 @@ function NavigationDesktop() {
                               isActive && 'text-zinc-950'
                             )}
                             href={child.href}
+                            prefetch={false}
                           >
                             {isActive && (
                               <motion.div

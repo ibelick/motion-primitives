@@ -21,6 +21,7 @@ const TabsRoot = React.forwardRef<
     </TabsContext.Provider>
   );
 });
+TabsRoot.displayName = TabsPrimitive.Root.displayName;
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
