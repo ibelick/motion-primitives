@@ -1,5 +1,12 @@
-import { bundledLanguages, createHighlighter } from 'shiki/bundle/web';
+import { createHighlighter } from 'shiki/bundle/web';
 import { noir } from './custom-theme';
+
+const highlighterPromise = createHighlighter({
+  themes: [noir],
+  langs: ['tsx', 'ts', 'bash'],
+});
+
+const htmlCache = new Map<string, string>();
 
 export const codeToHtml = async ({
   code,
@@ -8,13 +15,20 @@ export const codeToHtml = async ({
   code: string;
   lang: string;
 }) => {
-  const highlighter = await createHighlighter({
-    themes: [noir],
-    langs: [...Object.keys(bundledLanguages)],
-  });
+  const cacheKey = `${lang}\0${code}`;
+  const cachedHtml = htmlCache.get(cacheKey);
 
-  return highlighter.codeToHtml(code, {
-    lang: lang,
+  if (cachedHtml) {
+    return cachedHtml;
+  }
+
+  const highlighter = await highlighterPromise;
+  const html = highlighter.codeToHtml(code, {
+    lang,
     theme: 'noir',
   });
+
+  htmlCache.set(cacheKey, html);
+
+  return html;
 };
