@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "wrangler deploy",
+    "deploy:preview": "wrangler versions upload",
     "start": "next start",
     "lint": "next lint",
     "build:registry": "tsx scripts/registry-build.ts"
@@ -51,6 +53,7 @@
     "prettier-plugin-tailwindcss": "^0.0.0-insiders.6d3fa07",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.19.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "4.132.0"
   }
 }
