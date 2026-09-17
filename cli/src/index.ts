@@ -53,7 +53,7 @@ async function fetchFile(url: string): Promise<string> {
   return response.text();
 }
 
-// Detect package manager (npm, yarn, pnpm)
+// Detect package manager (npm, yarn, pnpm, bun)
 function detectPackageManager(): string {
   try {
     // Check for yarn.lock or package-lock.json
@@ -61,6 +61,8 @@ function detectPackageManager(): string {
       return 'yarn';
     } else if (existsSync('pnpm-lock.yaml')) {
       return 'pnpm';
+    } else if (existsSync('bun.lock') || existsSync('bun.lockb')) {
+      return 'bun'
     } else {
       return 'npm'; // Default to npm
     }
