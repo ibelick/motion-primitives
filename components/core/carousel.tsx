@@ -34,34 +34,24 @@ function useCarousel() {
 
 export type CarouselProviderProps = {
   children: ReactNode;
-  initialIndex?: number;
-  onIndexChange?: (newIndex: number) => void;
+  index: number;
+  onIndexChange: (newIndex: number) => void;
   disableDrag?: boolean;
 };
 
 function CarouselProvider({
   children,
-  initialIndex = 0,
+  index,
   onIndexChange,
   disableDrag = false,
 }: CarouselProviderProps) {
-  const [index, setIndex] = useState<number>(initialIndex);
   const [itemsCount, setItemsCount] = useState<number>(0);
-
-  const handleSetIndex = (newIndex: number) => {
-    setIndex(newIndex);
-    onIndexChange?.(newIndex);
-  };
-
-  useEffect(() => {
-    setIndex(initialIndex);
-  }, [initialIndex]);
 
   return (
     <CarouselContext.Provider
       value={{
         index,
-        setIndex: handleSetIndex,
+        setIndex: onIndexChange,
         itemsCount,
         setItemsCount,
         disableDrag,
@@ -102,7 +92,7 @@ function Carousel({
 
   return (
     <CarouselProvider
-      initialIndex={currentIndex}
+      index={currentIndex}
       onIndexChange={handleIndexChange}
       disableDrag={disableDrag}
     >
@@ -129,7 +119,7 @@ function CarouselNavigation({
   return (
     <div
       className={cn(
-        'pointer-events-none absolute left-[-12.5%] top-1/2 flex w-[125%] -translate-y-1/2 justify-between px-2',
+        'pointer-events-none absolute top-1/2 left-[-12.5%] flex w-[125%] -translate-y-1/2 justify-between px-2',
         className
       )}
     >

@@ -8,7 +8,7 @@ import {
   Variant,
   Variants,
 } from 'motion/react';
-import { createContext, useContext, useState, useId, useEffect } from 'react';
+import { createContext, useContext, useState, useId } from 'react';
 import { cn } from '@/lib/utils';
 
 export type DisclosureContextType = {
@@ -23,7 +23,7 @@ const DisclosureContext = createContext<DisclosureContextType | undefined>(
 
 export type DisclosureProviderProps = {
   children: React.ReactNode;
-  open: boolean;
+  open?: boolean;
   onOpenChange?: (open: boolean) => void;
   variants?: { expanded: Variant; collapsed: Variant };
 };
@@ -34,15 +34,17 @@ function DisclosureProvider({
   onOpenChange,
   variants,
 }: DisclosureProviderProps) {
-  const [internalOpenValue, setInternalOpenValue] = useState<boolean>(openProp);
-
-  useEffect(() => {
-    setInternalOpenValue(openProp);
-  }, [openProp]);
+  const [internalOpenValue, setInternalOpenValue] = useState<boolean>(false);
+  const isControlled = openProp !== undefined;
+  const open = isControlled ? openProp : internalOpenValue;
 
   const toggle = () => {
-    const newOpen = !internalOpenValue;
-    setInternalOpenValue(newOpen);
+    const newOpen = !open;
+
+    if (!isControlled) {
+      setInternalOpenValue(newOpen);
+    }
+
     if (onOpenChange) {
       onOpenChange(newOpen);
     }
@@ -51,7 +53,7 @@ function DisclosureProvider({
   return (
     <DisclosureContext.Provider
       value={{
-        open: internalOpenValue,
+        open,
         toggle,
         variants,
       }}
@@ -79,7 +81,7 @@ export type DisclosureProps = {
 };
 
 export function Disclosure({
-  open: openProp = false,
+  open: openProp,
   onOpenChange,
   children,
   className,
