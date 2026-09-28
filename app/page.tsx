@@ -76,6 +76,14 @@ function Header() {
             >
               Advanced
             </a>
+            <a
+              href='https://mesurer.dev/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='hidden items-center text-sm font-medium text-zinc-700 hover:text-zinc-950 md:inline-flex dark:text-zinc-300 dark:hover:text-white'
+            >
+              Build with Mesurer
+            </a>
             <Link
               href='/docs/text-effect'
               className='text-sm font-medium text-zinc-700 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white'
