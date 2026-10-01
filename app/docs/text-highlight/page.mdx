@@ -1,0 +1,111 @@
+export const metadata = {
+  title: 'Text Highlight - Motion-Primitives',
+  description:
+    'Animate a highlight effect on text with a background color. Built for React, Next.js, and Tailwind CSS.',
+};
+
+import { TextHighlightBasic } from './text-highlight-basic';
+import { TextHighlightDirection } from './text-highlight-direction';
+import { TextHighlightColor } from './text-highlight-color';
+import { TextHighlightSpeed } from './text-highlight-speed';
+import { TextHighlightAnimateOn } from './text-highlight-animate-on';
+import ComponentCodePreview from '@/components/website/component-code-preview';
+
+# Text Highlight
+
+Animate a highlight effect on text with a background color. Customize the direction, color, speed, and trigger behavior.
+
+## Examples
+
+### Text Highlight Basic
+
+<ComponentCodePreview
+  component={<TextHighlightBasic />}
+  filePath='app/docs/text-highlight/text-highlight-basic.tsx'
+  hasReTrigger
+/>
+
+### Direction
+
+Control the direction of the highlight animation.
+
+<ComponentCodePreview
+  component={<TextHighlightDirection />}
+  filePath='app/docs/text-highlight/text-highlight-direction.tsx'
+  hasReTrigger
+/>
+
+### Custom Colors
+
+Customize the highlight color using Tailwind CSS classes.
+
+<ComponentCodePreview
+  component={<TextHighlightColor />}
+  filePath='app/docs/text-highlight/text-highlight-color.tsx'
+  hasReTrigger
+/>
+
+### Speed
+
+Control the animation speed. Higher values make the animation faster.
+
+<ComponentCodePreview
+  component={<TextHighlightSpeed />}
+  filePath='app/docs/text-highlight/text-highlight-speed.tsx'
+  hasReTrigger
+/>
+
+### Animate On
+
+Control when the highlight animation triggers: on mount, hover, or click.
+
+<ComponentCodePreview
+  component={<TextHighlightAnimateOn />}
+  filePath='app/docs/text-highlight/text-highlight-animate-on.tsx'
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<InstallationCli value='text-highlight' />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<CodeBlock filePath='components/core/text-highlight.tsx' />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Component API
+
+### TextHighlight
+
+| Prop           | Type                          | Default   | Description                                                                                          |
+| :------------- | :---------------------------- | :-------- | :--------------------------------------------------------------------------------------------------- |
+| children       | string                        |           | The text content.                                                                                    |
+| as             | keyof JSX.IntrinsicElements   | 'p'       | The HTML tag to render, defaults to paragraph.                                                       |
+| className      | string                        | undefined | Optional CSS class for styling the component.                                                        |
+| duration       | number                        | undefined | The duration of the highlight animation in seconds. If not provided, speed is used.                  |
+| speed          | number                        | 1         | Animation speed multiplier. Higher values = faster animation. Used when duration is not provided.    |
+| highlightColor | string                        | undefined | Optional Tailwind CSS class for highlight color (e.g., 'bg-blue-300').                               |
+| direction      | 'left' \| 'right'             | 'right'   | Direction of the highlight animation. 'right' = left to right, 'left' = right to left.               |
+| animateOn      | 'click' \| 'hover' \| 'mount' | 'mount'   | When to trigger the animation. 'mount' = on component mount, 'hover' = on hover, 'click' = on click. |

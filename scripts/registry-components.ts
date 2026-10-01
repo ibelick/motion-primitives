@@ -178,6 +178,13 @@ export const components: ComponentDefinition[] = [
     description: 'A component that creates a wave-like shimmer effect on text.',
   },
   {
+    name: 'text-highlight',
+    path: path.join(__dirname, '../components/core/text-highlight.tsx'),
+    registryDependencies: [],
+    dependencies: ['motion'],
+    description: 'A component that animates a highlight effect on text with a background color.',
+  },
+  {
     name: 'magnetic',
     path: path.join(__dirname, '../components/core/magnetic.tsx'),
     registryDependencies: [],
